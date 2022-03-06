@@ -81,6 +81,7 @@ test:
 #
 production:
   <<: *default
-  database: online_company_event_production
-  username: online_company_event
-  password: <%= ENV['ONLINE_COMPANY_EVENT_DATABASE_PASSWORD'] %>
+  database: <%= ENV["PRODUCTION_DB_NAME"] %>
+  username: <%= ENV["PRODUCTION_DB_USERNAME"] %>
+  password: <%= Rails.application.credentials.gcp[:db_password] %>
+  host: "<%= ENV.fetch("DB_SOCKET_DIR") { '/cloudsql' } %>/<%= ENV["CLOUD_SQL_CONNECTION_NAME"] %>"

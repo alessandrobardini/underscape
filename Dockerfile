@@ -2,51 +2,37 @@
 
 FROM ruby:2.7.5
 
+RUN curl -sL https://deb.nodesource.com/setup_16.x | bash -
+RUN curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add -
+RUN echo "deb https://dl.yarnpkg.com/debian/ stable main" | tee /etc/apt/sources.list.d/yarn.list
 RUN apt-get update -qq && apt-get install -y \
     build-essential \
     libpq-dev \
-    nodejs=16.13.2-deb-1nodesource1 \
+    nodejs \
     postgresql-client \
-    yarn=1.22.4-1 \
+    yarn \
     openssh-client
 
 RUN mkdir -p /usr/src/app
-
 WORKDIR /usr/src/app
+COPY . /usr/src/app/
 
-RUN gem install bundler -v 2.2.33
+ARG MASTER_KEY
+ENV RAILS_MASTER_KEY=${MASTER_KEY}
+ENV RAILS_ENV production
+ENV RACK_ENV production
+ENV RAILS_SERVE_STATIC_FILES true
+ENV RAILS_LOG_TO_STDOUT true
+ENV WEBAPP_REVISION $REVISION
 
-COPY Gemfile /usr/src/app/
-
-COPY Gemfile.lock /usr/src/app/
-
-COPY package.json /usr/src/app/
-
-COPY yarn.lock /usr/src/app/
-
-RUN bundle config --global frozen 1
-
-RUN bundle config set without 'development test'
+RUN gem install bundler -v 2.3.7 && \
+    bundle config --global frozen 1 && \
+    bundle config set without 'development test' && \
+    bundle install
 
 RUN yarn install
 
-RUN rm Gemfile
-
-RUN rm Gemfile.lock
-
-RUN rm package.json
-
-RUN rm yarn.lock
-
-RUN mkdir -p /usr/src/app
-
-ENV RAILS_ENV production
-
-ENV RAILS_SERVE_STATIC_FILES true
-
-ENV RAILS_LOG_TO_STDOUT true
-
-COPY . /usr/src/app/
+RUN bundle exec rake assets:precompile
 
 EXPOSE 3000
 
