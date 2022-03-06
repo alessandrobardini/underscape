@@ -1,0 +1,22 @@
+{
+  "compilerOptions": {
+    "declaration": false,
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "esModuleInterop": true,
+    "lib": ["es6", "dom"],
+    "module": "es6",
+    "moduleResolution": "node",
+    "sourceMap": true,
+    "target": "es5",
+    "jsx": "react",
+    "baseUrl": "app/javascript"
+  },
+  "exclude": [
+    "**/*.test.ts",
+    "node_modules",
+    "vendor",
+    "public"
+  ],
+  "compileOnSave": false
+}
