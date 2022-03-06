@@ -9,8 +9,9 @@ The production database is PostgreSQL 12.
 
 We resort on [Secret Manager](https://cloud.google.com/secret-manager) to store sensitive secrets (in our case, only the DB password).
 
-## Build & release process
+## Build & release
 The build is handled by [Google Cloud Build](https://cloud.google.com/build), which sequentially builds the Docker image, pushes the Docker image to the [container registry](https://cloud.google.com/container-registry/pricing) and applies the database migrations.
 
 By running `make release`, you can execute the three steps mentioned above.
+
 By running `make deploy`, you can deploy to Google Cloud Run the latest release.
