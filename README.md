@@ -2,6 +2,8 @@
 
 Repository for the Magaloop online company event of March 2022: teams are required to play an online escape room and solve the riddles to win the game! 🎲 🎮
 
+URL: https://onlinecompanyevent-2wqlqzukkq-lm.a.run.app
+
 ## Infrastructure
 The website is hosted on Google Cloud and lives inside a Docker container completely handled by [Google Cloud Run](https://cloud.google.com/run).
 
