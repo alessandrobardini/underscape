@@ -1,0 +1,168 @@
+// Basic Colors
+$primary-color: #443DF6;
+$info-color: #595C80;
+$warning-color: #F4A140;
+$danger-color: #ED2E7E;
+$success-color: #06D186;
+
+$info-dark: #3736BB;
+$warning-dark: #5A400C;
+$danger-dark: #C30052;
+$success-dark: #00966D;
+
+$info-light: #EDEEFF;
+$warning-light: #FBF3E2;
+$danger-light: #FFF3F8;
+$success-light: #E8FFF7;
+
+$cashback:#00B674;
+$cashback-dark: #009A63;
+$cashback-dark-bg: #3AF9A2;
+$cashback-light:#A3FFD5;
+
+// Various colors
+$text-color: #595C80;   // Body text
+$light-blue:#f3f6fb;
+$link-color: #337ab7;
+$white: #FFFFFF;
+// default error color
+$error-color: #E30020;
+
+$night-blue: #1B1B5D;
+$mid-blue: #28288b;
+$vibrant-blue-dark: #3736BB;
+$vibrant-blue: #4444E9;
+$soft-blue: #6667ED;
+$soft-blue-light: #EDEEFF;
+$dark-blue: #242533;
+$copy-grey: #595C80;
+$middle-grey: #bdc0cb;
+$light-grey: #DEE0E5;
+$white-grey: #EEEFF2;
+$off-white: #FEFEFE;
+$grey: #7a7e97;
+$light-middle-grey: #F7F8FA;
+$off-black: #14142B;
+$blue_1: #E6F7FF;
+$blue_8: #0050B3;
+$purple_1: #F9F0FF;
+$purple_8: #391085;
+$yellow_8: #AD8B00;
+$yellow_1: #FEFFE6;
+
+$grey50: #FBFCFF;
+$grey100: #EDF1F7;
+$grey200: #E4E9F2;
+$grey300: #D3D9E4;
+$grey400: #AFB3C2;
+$grey500: #9A9FB2;
+$grey600: #68697B;
+$grey700: #515262;
+$grey800: #323443;
+$grey900: #242533;
+$black: #101017;
+
+$blue50: #F3F3FF;
+$blue100: #EBEBFF;
+$blue200: #B3B5EF;
+$blue300: #6667ED;
+$blue400: #443DF6;
+$blue500: #3736BB;
+$blue600: #28288B;
+$blue700: #1B1B5D;
+
+$mint50: #F5FBF9;
+$mint100: #EEF8F4;
+$mint200: #DCF2EA;
+$mint300: #A3E6CD;
+$mint400: #5BC79D;
+$mint500: #12AB85;
+$mint600: #0E8769;
+$mint700: #095441;
+
+$red50: #FDF4F4;
+$red100: #F9DADA;
+$red200: #F4B6B6;
+$red300: #EE9191;
+$red400: #D14343;
+$red500: #AB1300;
+$red600: #870F00;
+$red700: #5A0A00;
+
+$green50: #F5FBF7;
+$green100: #EEF8F1;
+$green200: #DCF2E2;
+$green300: #A3E6B6;
+$green400: #05944F;
+$green500: #03703C;
+$green600: #03582F;
+$green700: #10462D;
+
+$pink50: #FEF5FB;
+$pink100: #FBDDF3;
+$pink200: #F8BBE7;
+$pink300: #F499DA;
+$pink400: #ED5595;
+$pink500: #C12960;
+$pink600: #9A2154;
+$pink700: #5A0036;
+
+$yellow50: #FFFAF1;
+$yellow100: #FFEFD2;
+$yellow200: #FFDFA6;
+$yellow300: #FFD079;
+$yellow400: #FFB020;
+$yellow500: #BC8B2C;
+$yellow600: #997328;
+$yellow700: #5A400C;
+
+$blue-cashback-gradient: linear-gradient(135deg, $vibrant-blue, $cashback-dark-bg);
+
+$my-articles: #FFDE3A;
+
+// Spinner color and margin
+$spin-color: $primary-color;
+$spin-margin: 0 auto;
+
+//admin sidebar
+$admin-sidebar-dark: #414042;
+$admin-sidebar-light: #474648;
+
+// IBOX colors ( default panel colors)
+$ibox-title-bg:#ffffff;     // IBox Background header
+$ibox-content-bg:#ffffff;   // IBox Background content
+
+//Sidebar width
+$sidebar-width: 220px;
+
+// Boxed layout width
+$boxed-width: 1200px;
+$boxed-background: image-url('patterns/shattered.png');
+
+//Border radius for buttons
+$btn-border-radius: 8px;
+
+//Border color for inputs
+$border-color: $grey100;
+
+//Navigation
+$nav-bg: #2F4050;
+$nav-bg-supplier: #ffffff;
+$nav-bg-light: #3e4a5f;
+$nav-profile-pattern: image-url("patterns/header-profile.png");
+$nav-text-color: #a7b1c2;
+
+//Bottom NavBar
+$bottom-nav-bar-margin: 120px;
+
+// Font
+$body-font: "Montserrat", "Helvetica Neue", Helvetica, Arial, sans-serif;
+
+// buttons
+$button-hover-border-color: #d2d2d2;
+$button-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+$button-disabled-color: #cacaca;
+$button-gray: #f5f5f5;
+
+// legacy
+$gray: #f3f3f4;

@@ -1,0 +1,17 @@
+@import '../../assets/stylesheets/base/variables.scss';
+
+.Home {
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  max-width: 600px;
+
+
+  .container {
+    text-align: center;
+
+    .Input {
+      width: auto;
+    }
+  }
+}

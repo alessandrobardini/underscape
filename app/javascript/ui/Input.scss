@@ -1,0 +1,157 @@
+@import '../../assets/stylesheets/base/variables.scss';
+
+.Input, .Input.Field {
+  position: relative;
+  width: 250px;
+  font-family: $body-font;
+  font-size: 13px;
+  color: $text-color;
+  &.form-control {
+    border: none;
+    border-radius: 0;
+    padding: 0;
+    background: initial;
+    margin: 0;
+  }
+  .form-control {
+    background-color: #FFFFFF;
+    background-image: none;
+    border: 2px solid $border-color;
+    border-radius: 8px;
+    color: $dark-blue;
+    display: block;
+    padding: 20px 24px 5px;
+    transition: border-color 0.15s ease-in-out 0s, box-shadow 0.15s ease-in-out 0s;
+    width: 100%;
+    box-shadow: none;
+    &:focus {
+      border-color: $primary-color;
+    }
+    &:placeholder-shown {
+      padding: 12px 24px;
+      & + .inline-label-text {
+        display: none;
+      }
+    }
+    &::placeholder {
+      color: $copy-grey;
+    }
+    &:disabled {
+      opacity: 0.5;
+    }
+  }
+
+  select.form-control {
+    border: 2px solid $white-grey;
+    appearance: none;
+    padding: 20px 24px 5px;
+    &.non-selected {
+      color: $copy-grey;
+    }
+    &:disabled {
+      color: $white-grey;
+    }
+  }
+
+  input[type=date] {
+    appearance: none;
+  }
+
+  i {
+    float: left;
+    position: relative;
+    top: 30px;
+    left: 24px;
+    font-size: 18px;
+    margin-bottom: -18px;
+    font-weight: 300;
+    cursor: pointer;
+    margin-top: -5px;
+    color: $copy-grey;
+  }
+
+  .remove-icon {
+    float: right;
+    position: relative;
+    top: 30px;
+    right: 24px;
+    font-size: 18px;
+    margin-bottom: -18px;
+    font-weight: 300;
+    cursor: pointer;
+    margin-top: -5px;
+    color: $copy-grey;
+  }
+
+  .inline-label-text {
+    color: $copy-grey;
+    position: absolute;
+    top: 13px;
+    left: 25px;
+    font-size: 13px;
+    line-height: 1.15;
+    letter-spacing: 0.25px;
+    .row & {
+      left: 40px;
+    }
+    .row .rdt & {
+      left: 25px;
+    }
+  }
+
+  .help-block {
+    font-weight: 600;
+    line-height: 1.15;
+    letter-spacing: 0.25px;
+    text-align: left;
+  }
+
+  &.with-icon {
+    .form-control {
+      padding: 20px 24px 5px 60px;
+      &:placeholder-shown {
+        padding: 12px 24px 12px 60px;
+      }
+    }
+
+    .inline-label-text {
+      left: 61px;
+    }
+  }
+
+  &.has-error {
+    .control-label {
+      color: $danger-dark;
+    }
+    .form-control {
+      border-color: $danger-dark;
+      background: $danger-light;
+    }
+    .help-block, .inline-label-text {
+      color: $danger-dark !important;
+    }
+    .remove-icon {
+      color: $danger-dark;
+    }
+  }
+}
+
+.select-controller {
+  position: relative;
+  &:focus-visible select {
+    border: 2px solid $primary-color;
+    box-shadow: 0 0 0 8px $soft-blue-light;
+  }
+  i {
+    position: absolute;
+    color: $copy-grey;
+    top: 40%;
+    bottom: 0;
+    right: 24px;
+  }
+
+  &[data-has-value="false"] .inline-label-text {
+    margin-top: 1em;
+    font-size: 1.05em;
+  }
+}
