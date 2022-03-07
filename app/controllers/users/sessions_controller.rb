@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
-class Teams::SessionsController < Devise::SessionsController
-  skip_before_action :verify_authenticity_token, only: [:create, :destroy]
+class Users::SessionsController < Devise::SessionsController
+  skip_before_action :verify_authenticity_token, only: [:create, :destroy, :exists]
 
   respond_to :json, only: [:create, :destroy]
 
@@ -20,9 +20,14 @@ class Teams::SessionsController < Devise::SessionsController
   #   super
   # end
 
-  def signed_in_team
-    if team_signed_in?
-      render json: { team: current_team }
+  def exists
+    user = User.find_by(name: params['user']['name'])
+    render json: { exists: user.present? }
+  end
+
+  def signed_in_user
+    if user_signed_in?
+      render json: { user: current_user }
     else
       render json: { ok: false }, status: :unauthorized
     end 

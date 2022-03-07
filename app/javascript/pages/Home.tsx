@@ -1,39 +1,17 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import logo from 'images/magaloop_logo_color.png'
-import axios, { Axios, AxiosResponse } from 'axios'
+import axios from 'axios'
 import './Home.scss'
 import csrfToken from 'helpers/csrfToken'
-import AsyncEffect, { AsyncEffectResultProps } from 'components/Promise/AsyncEffect'
 import Form from 'components/Layout/Form'
 import Input from 'ui/Input'
 import Button from 'ui/Button'
 
 const Home: React.FC = () => {
-  return (
-    <AsyncEffect
-      perform={signIn}
-      component={HomePage}
-    />
-  )
-}
-
-type HomePageProps = AsyncEffectResultProps<SignIn>
-
-const HomePage: React.FC<HomePageProps> = ({ data, error, perform }) => {
-  useEffect(() => {
-    if(data !== null ) {
-      window.location.replace('/app/overview')
-    }
-  }, [data])
-
-  useEffect(() => {
-    if(error !== null ) {
-      window.alert('error')
-    }
-  }, [error])
-
-  const handleSubmit = ({email, password}) => {
-    perform(email, password)
+  const handleSubmit = ({name, password}) => {
+    userExists(name).then(({ data: { exists }}) => {
+      exists ? signIn(name, password) : signUp(name, password)
+    })
   }
 
     return <div className='Home'>
@@ -44,21 +22,21 @@ const HomePage: React.FC<HomePageProps> = ({ data, error, perform }) => {
         <img src={logo}></img>
         <p>TODO: Text providing a short introduction to the game...</p>
 
-        <Form onSubmit={handleSubmit} initialValues={{email: '', password: ''}}>
+        <Form onSubmit={handleSubmit} initialValues={{name: '', password: ''}}>
         {({ errors, touched, values, setFieldValue }) => (
             <>
               <Input
-                label='email'
+                label='Team name'
                 formik
-                name='email'
+                name='name'
                 errors={errors}
                 touched={touched}
-                value={values.email}
+                value={values.name}
                 setFieldValue={setFieldValue}
-                placeholder={'email'}
+                placeholder='Team name'
               />
               <Input
-                label='password'
+                label='Password'
                 formik
                 type='password'
                 name='password'
@@ -66,7 +44,7 @@ const HomePage: React.FC<HomePageProps> = ({ data, error, perform }) => {
                 touched={touched}
                 value={values.password}
                 setFieldValue={setFieldValue}
-                placeholder={'password'}
+                placeholder='Password'
               />
               <Button size='l' className='m-t-md' submit type='primary'>Start the game!</Button>
             </>
@@ -76,15 +54,12 @@ const HomePage: React.FC<HomePageProps> = ({ data, error, perform }) => {
     </div>
 }
 
-type SignIn = (email: string, password: string) => Promise<AxiosResponse<any>>
-
-export const signIn = (email, password) => {
+export const userExists = (name) => {
   return axios.post(
-    '/teams/sign_in',
+    '/users/sessions/exists',
     {
-      team: {
-        email,
-        password
+      user: {
+        name
       },
       authenticity_token: csrfToken()
     },
@@ -94,5 +69,40 @@ export const signIn = (email, password) => {
     }
   )
 }
+
+export const signIn = (name, password) => {
+  return axios.post(
+    '/users/sign_in',
+    {
+      user: {
+        name,
+        password
+      },
+      authenticity_token: csrfToken()
+    },
+    {
+      headers: { Accept: 'application/json' },
+      responseType: 'json'
+    }
+  ).then(() => window.location.replace('/app/overview')).catch(() => window.alert('error'))
+}
+
+export const signUp = (name, password) => {
+  return axios.post(
+    '/users',
+    {
+      user: {
+        name,
+        password
+      },
+      authenticity_token: csrfToken()
+    },
+    {
+      headers: { Accept: 'application/json' },
+      responseType: 'json'
+    }
+  ).then(() => window.location.replace('/app/overview')).catch(() => window.alert('error'))
+}
+
 
 export default Home

@@ -11,7 +11,7 @@ const Overview: React.FC = () => {
   </>
 }
 
-const signOut = () => axios.delete('/teams/sign_out', {
+const signOut = () => axios.delete('/users/sign_out', {
   headers: { Accept: 'application/json' },
   data: { authenticity_token: csrfToken() }
 })

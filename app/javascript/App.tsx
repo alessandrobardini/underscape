@@ -34,7 +34,7 @@ const Routes: React.FC<any> = ({ data }) => {
 }
 
 export const getUser = () => {
-  return axios.get('/teams/sessions/signed_in')
+  return axios.get('/users/sessions/signed_in')
 }
 
 export default App
