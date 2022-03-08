@@ -7,17 +7,15 @@ import TopBar, { signOut } from '../../components/Layout/TopBar'
 
 import './Overview.scss'
 import Link from 'ui/Link'
+import YouLost from 'pages/YouLost'
 
 const Overview: React.FC = () => {
   const { user, gameEndsAt } = useContext(SessionContext)
 
   if(timeIsOver(gameEndsAt)) {
-    return <>
-    <div>YOU LOST!</div>
-    <Link to='#' type='danger' size='xs' onClick={() => signOut().then(() => window.location.replace('/app'))}>Logout</Link>
-    </>
+    return <YouLost />
   }
-  // the game finises one hour after
+
   return <div className='Overview'>
     <TopBar />
     {/* <div> this is the progress</div>

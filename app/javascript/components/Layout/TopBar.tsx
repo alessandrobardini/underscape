@@ -13,7 +13,7 @@ const TopBar: React.FC = () => {
   return (
     <div className='TopBar'>
       <div>Progress: 60%</div>
-      <div>{ user.name }</div>
+      <div className='username'>{ user.name }</div>
       <div>
         <CountdownTimer targetDate={Date.parse(gameEndsAt)}/>
         <Link to='#' type='danger' size='xs' onClick={() => window.confirm('Are you sure? The timer will not be stopped!') && signOut().then(() => window.location.replace('/app'))}>Logout</Link>

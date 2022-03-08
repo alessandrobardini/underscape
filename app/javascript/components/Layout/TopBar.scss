@@ -1,6 +1,12 @@
 .TopBar {
   display: flex;
   justify-content: space-between;
+  border-bottom: 2px solid black;
+
+  .username {
+    font-weight: 600;
+    font-size: 20px;
+  }
 
   .Link.xsmall {
     color: grey;
