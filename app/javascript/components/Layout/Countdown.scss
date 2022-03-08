@@ -1,0 +1,13 @@
+@import '../../../assets/stylesheets/base/variables.scss';
+
+.Countdown {
+  width: 70px;
+
+  .show-counter {
+    font-size: 20px;
+
+    &.danger {
+      color: $danger-color;      
+    }
+  }
+}
