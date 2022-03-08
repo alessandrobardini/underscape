@@ -2,11 +2,20 @@ body {
   font-family: $body-font;
   font-size: 13px;
   color: $text-color;
-  overflow-x: hidden;
+  overflow: hidden;
+  margin: 10px;
 }
 
-body.full-height-layout #wrapper,
-body.full-height-layout #page-wrapper {
+html, body {
+  height: 100%;
+}
+
+#wrapper,
+#page-wrapper {
+  height: 100%;
+}
+
+#ReactApp {
   height: 100%;
 }
 
