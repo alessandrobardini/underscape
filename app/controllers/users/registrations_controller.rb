@@ -2,7 +2,6 @@
 
 class Users::RegistrationsController < Devise::RegistrationsController
   respond_to :json, only: [:create]
-  skip_before_action :verify_authenticity_token, only: [:create]
 
   # GET /resource/sign_up
   # def new

@@ -1,8 +1,6 @@
 # frozen_string_literal: true
 
 class Users::SessionsController < Devise::SessionsController
-  skip_before_action :verify_authenticity_token, only: [:create, :destroy, :exists]
-
   respond_to :json, only: [:create, :destroy]
 
   # GET /resource/sign_in
