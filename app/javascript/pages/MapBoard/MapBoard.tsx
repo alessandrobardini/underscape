@@ -1,9 +1,10 @@
 import React from 'react'
+import Button from 'ui/Button'
 import './MapBoard.scss'
 
 const MapBoard: React.FC = () => {
   return <div className='MapBoard'>
-    This is the map
+    <Button>Alchemist Alcove</Button>
   </div>
 }
 

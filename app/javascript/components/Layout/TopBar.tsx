@@ -1,4 +1,4 @@
-import { SessionContext } from 'App'
+import { SessionContext } from 'Game'
 import React, { useContext } from 'react'
 import CountdownTimer from './Countdown'
 import axios from 'axios'

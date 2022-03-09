@@ -84,7 +84,7 @@ export const signIn = (name, password) => {
       headers: { Accept: 'application/json' },
       responseType: 'json'
     }
-  ).then(() => window.location.replace('/app/overview')).catch(() => window.alert('error'))
+  ).then(() => window.location.replace('/app/map')).catch(() => window.alert('error'))
 }
 
 export const signUp = (name, password) => {
@@ -101,7 +101,7 @@ export const signUp = (name, password) => {
       headers: { Accept: 'application/json' },
       responseType: 'json'
     }
-  ).then(() => window.location.replace('/app/overview')).catch(() => window.alert('error'))
+  ).then(() => window.location.replace('/app/map')).catch(() => window.alert('error'))
 }
 
 
