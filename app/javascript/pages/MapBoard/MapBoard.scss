@@ -1,4 +1,7 @@
 .MapBoard {
   background-image: url('../../images/parchment.jpg');
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
   flex-grow: 1;
 }

@@ -9,6 +9,8 @@ Rails.application.routes.draw do
     post '/users/sessions/exists' => 'users/sessions#exists'
   end
 
+  resources :items, only: :create
+
   root to: 'app#show'
 
   get '/app(/*page)', to: 'app#show', as: 'app'

@@ -153,14 +153,11 @@ const Field: ForwardRefExoticComponent<FieldProps & RefAttributes<HTMLInputEleme
           </label>
         )}
         {!label && props.placeholder && (
-          <label htmlFor={id || name} className='sr-only control-label'>
+          <label htmlFor={id || name} className='control-label'>
             {props.placeholder}
           </label>
         )}
         {icon && <i className={icon} onClick={onIconClick} />}
-        { !field.props.disabled && !!value?.length && setFieldValue && !button && !noClear && (
-          <span className='fas fa-times remove-icon' onClick={clearInput}></span>
-        )}
         {!isCheckbox && field}
         {button}
         {otherComponents && [...otherComponents]}

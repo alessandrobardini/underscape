@@ -25,7 +25,7 @@ class Users::SessionsController < Devise::SessionsController
 
   def signed_in_user
     if user_signed_in?
-      render json: { user: current_user, game_ends_at: current_user.created_at + User::TIME_FOR_BEATING_THE_GAME }
+      render json: { user: current_user, items: current_user.items, game_ends_at: current_user.created_at + User::TIME_FOR_BEATING_THE_GAME }
     else
       render json: { ok: false }, status: :unauthorized
     end 

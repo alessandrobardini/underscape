@@ -1,11 +1,12 @@
 import React from 'react'
 import logo from 'images/magaloop_logo_color.png'
 import axios from 'axios'
-import './Home.scss'
 import csrfToken from 'helpers/csrfToken'
 import Form from 'components/Layout/Form'
 import Input from 'ui/Input'
 import Button from 'ui/Button'
+
+import './Home.scss'
 
 const Home: React.FC = () => {
   const handleSubmit = ({name, password}) => {

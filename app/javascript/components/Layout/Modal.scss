@@ -1,0 +1,25 @@
+.Modal {
+  position: fixed;
+  padding-top: 10px;
+  padding-left: 5px;
+  padding-right: 5px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  z-index: 100;
+  width: 600px;
+  background: white;
+  display: flex;
+  flex-direction: column;
+  min-height: 300px;
+
+  .modal-main {
+    border-bottom: 2px solid black;
+    flex-grow: 1;
+  }
+
+  .ButtonV2 {
+    font-size: 20 px;
+    float: right;
+  }
+}

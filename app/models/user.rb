@@ -7,4 +7,6 @@ class User < ApplicationRecord
   validates :name, presence: true, uniqueness: true
 
   TIME_FOR_BEATING_THE_GAME = 1.hour
+
+  has_many :items
 end

@@ -2,8 +2,7 @@ body {
   font-family: $body-font;
   font-size: 13px;
   color: $text-color;
-  overflow: hidden;
-  margin: 10px;
+  margin: 0;
 }
 
 html, body {
@@ -213,7 +212,6 @@ video {
 
 #wrapper {
   width: 100%;
-  overflow-x: hidden;
 }
 
 .wrapper {

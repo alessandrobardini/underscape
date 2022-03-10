@@ -143,9 +143,8 @@ const InputField: ForwardRefExoticComponent<InputFieldType & RefAttributes<HTMLI
         value={value}
       /> : (
         <div className={`Input form-group ${className || ''} ${icon ? 'with-icon' : ''} ${button ? 'with-button' : ''} ${error ? 'has-error' : ''}`}>
-          <label htmlFor={name} className='sr-only control-label'>{placeholder}</label>
+          <label htmlFor={name} className='control-label'>{placeholder}</label>
           {icon && <i className={icon} onClick={onIconClick} />}
-          {!!value?.length && !button && <span className='fas fa-times remove-icon' onClick={clearInput}></span>}
           <input {...props} ref={ref} className='form-control' type={type} id={id || name} name={name} value={value} onChange={handleChange} placeholder={placeholder} />
           <span className='inline-label-text'>{placeholder}</span>
           {button}

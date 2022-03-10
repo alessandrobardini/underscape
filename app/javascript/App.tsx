@@ -15,7 +15,7 @@ const App: React.FC = () => (
       <Route exact path={appPath('/')} component={Home} />
       <Route render={() =>
         <PromiseWrap promise={getUser()} timeout={500}>
-          { (props) => props.data ? <Game data={props.data} /> : <div>You are not logged in!</div> }
+          { (props) => props.data ? <Game data={props.data} /> : (!props.loading ? <div>You are not logged in!</div>: null) }
         </PromiseWrap>
       } />
     </Switch>
