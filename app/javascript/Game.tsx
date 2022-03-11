@@ -30,6 +30,7 @@ export type SessionContextType = {
     name: string
   }[],
   gameEndsAt: string,
+  setDialogueBarMessages: (messages: Array<DialogueBarMessageType>) => void
   itemFound: (itemName: string) => void
 }
 
@@ -57,6 +58,7 @@ type GameProps = {
 
 const Game: React.FC<GameProps> = (props) => {
   const [data, setData] = useState(props.data)
+  const [dialogueBarMessages, setDialogueBarMessages] = useState<Array<DialogueBarMessageType>>([])
   const { data: { user, game_ends_at, items } } = data
   const refetch = () => {
     getUser().then((data) => setData(data))
@@ -68,7 +70,7 @@ const Game: React.FC<GameProps> = (props) => {
       { headers: { Accept: 'application/json' }, responseType: 'json' }
     ).then(() => { refetch() })
   }
-  const sessionContext = { user, gameEndsAt: game_ends_at, items, itemFound }
+  const sessionContext = { user, gameEndsAt: game_ends_at, items, itemFound, setDialogueBarMessages }
 
   if(timeIsOver(game_ends_at)) {
     return <YouLost />
@@ -83,6 +85,7 @@ const Game: React.FC<GameProps> = (props) => {
           <Route exact path={appPath('/alchemist')} component={AlchemistAlcove} />
           <Route component={NotFound} />
         </Switch>
+        <DialogueBar messages={dialogueBarMessages} closeDialogueBar={() => setDialogueBarMessages([])}/>
       </SessionContext.Provider>
   </div>
   )
@@ -93,6 +96,15 @@ const timeIsOver = (gameEndsAt: string) => (Date.parse(gameEndsAt) - Date.now())
 export const bagContains = (itemName: string) => {
   const { items } = useContext(SessionContext)
   return items.map(({ name }) => name).includes(itemName)
+}
+
+export const messagesForItemFound = (itemName: string) => {
+  const { imageSrc, name, message } = ITEMS[itemName]
+  return [
+    { message: 'You found an item!' }, 
+    { imageSrc, title: name, message },
+    { message: 'You put the item in your bag' }
+  ]
 }
 
 export default Game
