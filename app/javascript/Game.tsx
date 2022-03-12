@@ -11,9 +11,9 @@ import axios from 'axios'
 import csrfToken from 'helpers/csrfToken'
 import hydrogen from 'images/hydrogen.jpg'
 import textFile from 'images/text-file.jpg'
+import Modal from 'components/Layout/Modal'
 
 import './Game.scss'
-import Modal from 'components/Layout/Modal'
 
 export const ITEMS = {
   'periodic_table': {
@@ -74,6 +74,7 @@ const Game: React.FC<GameProps> = (props) => {
     getUser().then((data) => setData(data))
   }
   const itemFound = (name: string) => {
+    setDialogueBarMessages(messagesForItemFound(name))
     return axios.post(
       '/items',
       { item: { name }, authenticity_token: csrfToken() },

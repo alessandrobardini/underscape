@@ -1,4 +1,5 @@
-import React, { MouseEventHandler } from 'react'
+import { bagContains, SessionContext } from 'Game'
+import React, { MouseEventHandler, useContext } from 'react'
 
 import './HiddenElement.scss'
 
@@ -8,7 +9,7 @@ type HiddenElementProps = {
   width: string
   height: string
   onClick?: MouseEventHandler<HTMLDivElement>
-  render?: boolean
+  pickableItem?: string
 }
 
 const HiddenElement: React.FC<HiddenElementProps> = ({
@@ -17,9 +18,13 @@ const HiddenElement: React.FC<HiddenElementProps> = ({
   width,
   height,
   onClick,
-  render = true
+  pickableItem,
 }) => {
-  return render ? <div className='HiddenElement' style={{ top, left, width, height }} {...(onClick && { onClick })} /> : null
+  const { itemFound } = useContext(SessionContext)
+  if (pickableItem) {
+    return !bagContains(pickableItem) ? <div className='HiddenElement' style={{ top, left, width, height }} onClick={() => itemFound(pickableItem) } /> : null  
+  }
+  return <div className='HiddenElement' style={{ top, left, width, height }} {...(onClick && { onClick })} />
 }
 
 export default HiddenElement 
