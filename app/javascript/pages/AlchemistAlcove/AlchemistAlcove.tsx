@@ -16,10 +16,12 @@ const AlchemistAlcove: React.FC = () => {
     itemFound('periodic_table')
     setDialogueBarMessages(messagesForItemFound('periodic_table'))
   }
+  
 
   return <div className='AlchemistAlcove'>
     <div className='map'>
       <HiddenElement top='880px' left='180px' width='70px' height='40px' render={!bagContains('periodic_table')} onClick={handlePeriodicTableFound} />
+      <HiddenElement top='880px' left='180px' width='70px' height='40px' onClick={handlePeriodicTableFound} />
     </div>
   </div>
 }

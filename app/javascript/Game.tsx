@@ -12,6 +12,7 @@ import csrfToken from 'helpers/csrfToken'
 import hydrogen from 'images/hydrogen.jpg'
 
 import './Game.scss'
+import Modal from 'components/Layout/Modal'
 
 export const ITEMS = {
   'periodic_table': {
@@ -31,6 +32,7 @@ export type SessionContextType = {
   }[],
   gameEndsAt: string,
   setDialogueBarMessages: (messages: Array<DialogueBarMessageType>) => void
+  setModalChildren: (children: JSX.Element) => void
   itemFound: (itemName: string) => void
 }
 
@@ -59,6 +61,7 @@ type GameProps = {
 const Game: React.FC<GameProps> = (props) => {
   const [data, setData] = useState(props.data)
   const [dialogueBarMessages, setDialogueBarMessages] = useState<Array<DialogueBarMessageType>>([])
+  const [modalChildren, setModalChildren] = useState<JSX.Element>(null)
   const { data: { user, game_ends_at, items } } = data
   const refetch = () => {
     getUser().then((data) => setData(data))
@@ -70,7 +73,7 @@ const Game: React.FC<GameProps> = (props) => {
       { headers: { Accept: 'application/json' }, responseType: 'json' }
     ).then(() => { refetch() })
   }
-  const sessionContext = { user, gameEndsAt: game_ends_at, items, itemFound, setDialogueBarMessages }
+  const sessionContext = { user, gameEndsAt: game_ends_at, items, itemFound, setDialogueBarMessages, setModalChildren }
 
   if(timeIsOver(game_ends_at)) {
     return <YouLost />
@@ -85,6 +88,9 @@ const Game: React.FC<GameProps> = (props) => {
           <Route exact path={appPath('/alchemist')} component={AlchemistAlcove} />
           <Route component={NotFound} />
         </Switch>
+        { modalChildren && <Modal closeModal={() => setModalChildren(null)}>
+          {modalChildren}
+        </Modal> }
         <DialogueBar messages={dialogueBarMessages} closeDialogueBar={() => setDialogueBarMessages([])}/>
       </SessionContext.Provider>
   </div>
