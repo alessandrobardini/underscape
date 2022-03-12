@@ -11,6 +11,10 @@ Rails.application.routes.draw do
 
   resources :items, only: :create
 
+  resources :answers do
+    post :check, on: :collection
+  end
+
   root to: 'app#show'
 
   get '/app(/*page)', to: 'app#show', as: 'app'

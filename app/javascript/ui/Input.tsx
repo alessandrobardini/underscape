@@ -9,7 +9,7 @@ type TypeProp<T> = NotCheckbox<T>
 type TextareaProps = {
   /** HTML input type */
   type: 'textarea'
-  placeholder: string
+  placeholder?: string
   value?: string
   icon?: never
   onIconClick?: never
@@ -19,7 +19,7 @@ type FieldInputProps = {
   /** HTML input type */
   type?: TypeProp<string>
   /** HTML input placeholder */
-  placeholder: string
+  placeholder?: string
   /** The name of a fontawesome icon to be rendered inside the input */
   icon?: string
   /** The function triggered when clicking on the icon  */
@@ -121,7 +121,6 @@ type InputFieldType = InputCommonProps & FieldInputProps & Omit<FormikInputProps
 const InputField: ForwardRefExoticComponent<InputFieldType & RefAttributes<HTMLInputElement>> =
   forwardRef<HTMLInputElement, InputFieldType>(
     ({ formik, type, icon, onIconClick, button, placeholder, id, wrapperProps, setFieldValue, value, name, errors, error, setValue, touched, label, className, ...props }, ref) => {
-      const clearInput = () => setValue('')
       const handleChange = ({ target: { value } }: React.ChangeEvent<HTMLInputElement>) => setValue(value)
 
       return formik
@@ -143,7 +142,6 @@ const InputField: ForwardRefExoticComponent<InputFieldType & RefAttributes<HTMLI
         value={value}
       /> : (
         <div className={`Input form-group ${className || ''} ${icon ? 'with-icon' : ''} ${button ? 'with-button' : ''} ${error ? 'has-error' : ''}`}>
-          <label htmlFor={name} className='control-label'>{placeholder}</label>
           {icon && <i className={icon} onClick={onIconClick} />}
           <input {...props} ref={ref} className='form-control' type={type} id={id || name} name={name} value={value} onChange={handleChange} placeholder={placeholder} />
           <span className='inline-label-text'>{placeholder}</span>

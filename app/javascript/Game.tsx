@@ -10,6 +10,7 @@ import DialogueBar from 'components/Layout/DialogueBar'
 import axios from 'axios'
 import csrfToken from 'helpers/csrfToken'
 import hydrogen from 'images/hydrogen.jpg'
+import textFile from 'images/text-file.jpg'
 
 import './Game.scss'
 import Modal from 'components/Layout/Modal'
@@ -20,7 +21,13 @@ export const ITEMS = {
     name: 'Periodic table of elements',
     message: 'Do yo want to create delightful cocktails?',
     action: () => window.open('https://storage.googleapis.com/escape-room-bucket/periodic_table.svg', '_blank')
-  }
+  },
+  'principles_of_life': {
+    imageSrc: textFile,
+    name: 'Principles of life',
+    message: 'For your everyday living',
+    action: () => window.open('https://storage.googleapis.com/escape-room-bucket/principles.txt', '_blank')
+  },
 }
 
 export type SessionContextType = {
@@ -111,6 +118,21 @@ export const messagesForItemFound = (itemName: string) => {
     { imageSrc, title: name, message },
     { message: 'You put the item in your bag' }
   ]
+}
+
+export const checkAnswer = (riddle: string, answer: string) => {
+  return axios.post(
+    '/answers/check',
+    {
+      riddle,
+      answer,
+      authenticity_token: csrfToken()
+    },
+    {
+      headers: { Accept: 'application/json' },
+      responseType: 'json'
+    }
+  )
 }
 
 export default Game

@@ -1,0 +1,48 @@
+@import '../../../../assets/stylesheets/base/variables.scss';
+
+.AnswerSubmission {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  flex-grow: 1;
+
+  .text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex-grow: 1;
+    font-size: 15px;
+
+    .submission-result {
+      height: 20px;
+
+      .message {
+        color: $primary-color;
+      }
+  
+      .error-message {
+        color: $danger-color;
+      }
+    }
+
+    .riddle {
+      font-size: 20px;
+    }
+  }
+
+  .Form {
+    display: flex;
+    margin-bottom: 10px;
+
+
+    .Field {
+      display: flex;
+      flex-grow: 1;
+
+      input {
+        flex-grow: 1;
+      }
+    }
+  }
+}

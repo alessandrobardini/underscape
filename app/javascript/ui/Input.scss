@@ -2,9 +2,7 @@
 
 .Input, .Input.Field {
   position: relative;
-  width: 250px;
   font-family: $body-font;
-  font-size: 13px;
   color: $text-color;
   &.form-control {
     border: none;
@@ -20,15 +18,13 @@
     border-radius: 8px;
     color: $dark-blue;
     display: block;
-    padding: 20px 24px 5px;
     transition: border-color 0.15s ease-in-out 0s, box-shadow 0.15s ease-in-out 0s;
-    width: 100%;
     box-shadow: none;
+    font-size: 20px;
     &:focus {
       border-color: $primary-color;
     }
     &:placeholder-shown {
-      padding: 12px 24px;
       & + .inline-label-text {
         display: none;
       }

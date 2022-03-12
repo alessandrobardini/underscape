@@ -78,7 +78,7 @@ const Form: React.FC<FormProps> = props => {
   return (
     <Formik {...formikProps}>
       {({ handleSubmit, ...props }) => (
-        <form onSubmit={handleSubmit} {...formProps}>
+        <form onSubmit={handleSubmit} {...formProps} className='Form'>
           {children(props)}
         </form>
       )}
@@ -146,17 +146,6 @@ const Field: ForwardRefExoticComponent<FieldProps & RefAttributes<HTMLInputEleme
         {...wrapperProps}
         className={`Field ${wrapperClass} ${icon ? 'with-icon' : ''} ${button ? 'with-button' : ''} ${rounded ? 'rounded' : ''} ${error ? 'has-error' : ''} ${wrapperProps?.className || ''}`}
       >
-        {label && (
-          <label htmlFor={id || name} className='control-label'>
-            {isCheckbox && field}
-            {label}
-          </label>
-        )}
-        {!label && props.placeholder && (
-          <label htmlFor={id || name} className='control-label'>
-            {props.placeholder}
-          </label>
-        )}
         {icon && <i className={icon} onClick={onIconClick} />}
         {!isCheckbox && field}
         {button}
