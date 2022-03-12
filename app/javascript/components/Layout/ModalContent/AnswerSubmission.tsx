@@ -6,31 +6,38 @@ import Form from '../Form'
 
 import './AnswerSubmission.scss'
 
-const AnswerSubmission: React.FC = () => {
+type AnswerSubmissionProps = {
+  message: string
+  errorMessage: string
+  explanations: Array<string>
+  riddle: string
+}
+
+const AnswerSubmission: React.FC<AnswerSubmissionProps> = ({ message: messageText, errorMessage: errorMessageText, explanations, riddle }) => {
   const [message, setMessage] = useState<string>(null)
   const [errorMessage, setErrorMessage] = useState<string>(null)
 
   const handleSubmit = ({ answer }, { resetForm }) => {
-    checkAnswer('alchemist_cave', answer).then(({ data: { ok } }) => {
+    checkAnswer(riddle, answer).then(({ data: { ok } }) => {
       resetForm()
       if (ok) {
         setErrorMessage(null)
-        setMessage('Great job! You disabled the barrier')
+        setMessage(messageText)
       } else {
-        setErrorMessage('The password is wrong...')
+        setErrorMessage(errorMessageText)
       }
     })
   }
   
   return <div className='AnswerSubmission'>
     <div className='text'>
-      <span className='explanation'>The access to the cave seems to be blocked by an invisible barrier...</span>
-      <span className='explanation'>You need to insert the password that disables it</span>
+      {explanations.map(((explanation, index) => 
+        <span key={index} className='explanation'>{explanation}</span>
+      ))}
       <span className='submission-result'>
         {errorMessage && <span className='error-message'>{errorMessage}</span>}
         {message && <span className='message'>{message}</span>}
       </span>
-      {/* <span className='riddle'>Taking RESPONSIBILITIES is elementary!</span> */}
     </div>
     <Form onSubmit={handleSubmit} initialValues={{answer: ''}}>
       {({ errors, touched, values, setFieldValue }) => (

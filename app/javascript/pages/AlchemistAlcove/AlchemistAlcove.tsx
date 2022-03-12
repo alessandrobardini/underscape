@@ -1,15 +1,7 @@
-import axios from 'axios'
-import DialogueBar from 'components/Layout/DialogueBar'
-import Form from 'components/Layout/Form'
 import HiddenElement from 'components/Layout/HiddenElement'
 import AnswerSubmission from 'components/Layout/ModalContent/AnswerSubmission'
-import { bagContains, checkAnswer, DialogueBarMessageType, messagesForItemFound, SessionContext } from 'Game'
-import csrfToken from 'helpers/csrfToken'
-import React, { useContext, useState } from 'react'
-import { useLocation } from 'react-router-dom'
-import Button from 'ui/Button'
-import Input from 'ui/Input'
-import hydrogen from '../../images/hydrogen.jpg'
+import { bagContains, messagesForItemFound, SessionContext } from 'Game'
+import React, { useContext } from 'react'
 
 import './AlchemistAlcove.scss'
 
@@ -43,11 +35,21 @@ const AlchemistAlcove: React.FC = () => {
       { message: 'The alchemist is a great fan of Hamlet.' }
     ])
   }
+
+  const answerSubmissionComponent = <AnswerSubmission
+    riddle='alchemist_cave'
+    message='Great job! You disabled the barrier'
+    errorMessage='The password is wrong...' 
+    explanations={[
+      'The access to the cave seems to be blocked by an invisible barrier...',
+      'You need to insert the password that disables it'
+    ]}
+  />
   
   return <div className='AlchemistAlcove'>
     <div className='map'>
       <HiddenElement top='496px' left='401px' width='135px' height='206px' render={!bagContains('periodic_table')} onClick={handlePeriodicTableFound} />
-      <HiddenElement top='410px' left='820px' width='240px' height='300px' onClick={() => setModalChildren(<AnswerSubmission />)} />
+      <HiddenElement top='410px' left='820px' width='240px' height='300px' onClick={() => setModalChildren(answerSubmissionComponent)} />
       <HiddenElement top='510px' left='1085px' width='50px' height='100px' onClick={handleMirrorClick} />
       <HiddenElement top='380px' left='1570px' width='84px' height='137px' onClick={handleFurnaceClick} />
       <HiddenElement top='511px' left='630px' width='39px' height='37px' onClick={handleSkullClick} />
