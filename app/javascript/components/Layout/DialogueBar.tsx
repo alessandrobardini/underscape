@@ -1,4 +1,4 @@
-import { DialogueBarMessageType } from 'Game'
+import { CHARACTERS, DialogueBarMessageType } from 'Game'
 import React, {  useState } from 'react'
 import Button from 'ui/Button'
 
@@ -15,6 +15,8 @@ const DialogueBar: React.FC<DialogueBarProps> = ({ messages, closeDialogueBar })
     return null
   }
 
+  const currentMessage = messages[messageIndex]
+
   const lastMessage = messageIndex == (messages.length - 1)
 
   const handleClick = () => {
@@ -24,15 +26,20 @@ const DialogueBar: React.FC<DialogueBarProps> = ({ messages, closeDialogueBar })
     } else {
       setMessageIndex(messageIndex + 1)
     }
+    currentMessage.onCloseMessage && currentMessage.onCloseMessage()
   }
+
+  const character = CHARACTERS[currentMessage.character]
 
   return <div className='DialogueBar'>
     <div className='content'>
-      <div className='container image'><img src={messages[messageIndex].imageSrc} /></div>
+      <div className='container image'>
+        {character ? <div><img src={character.imageSrc} /><span className='characterName'>{character.name}</span></div> : <img src={currentMessage.imageSrc} />}
+      </div>
       <div className='container message'>
         <div className='messages'>
-          {messages[messageIndex].title && <span className='title'>{ messages[messageIndex].title }</span> }
-          <span className='message'>{ messages[messageIndex].message }</span>
+          {currentMessage.title && <span className='title'>{ currentMessage.title }</span> }
+          <span className='message'>{ currentMessage.message }</span>
         </div>
       </div>
       <div className='container button'><Button icon size='xl' iconLeft={`fa fa-${lastMessage ? 'close' : 'arrow-right'}`} onClick={handleClick}/></div>

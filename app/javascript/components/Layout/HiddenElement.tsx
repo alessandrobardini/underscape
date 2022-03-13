@@ -23,27 +23,21 @@ const HiddenElement: React.FC<HiddenElementProps> = ({
   pickableItem,
 }) => {
   const { setDialogueBarMessages, refetch } = useContext(SessionContext)
+  
 
   const handlePickUpItem = () => {
-    pickUpItem(pickableItem).then(() => {
-      setDialogueBarMessages(messagesForItemFound(pickableItem))
-      refetch()
-    })
-  } 
+    const { imageSrc, name, message } = ITEMS[pickableItem]
+    setDialogueBarMessages([
+      { message: 'You found an item!' }, 
+      { imageSrc, title: name, message },
+      { message: 'You put the item in your bag', onCloseMessage: () => pickUpItem(pickableItem).then(() => refetch())}
+    ])
+  }
 
   if (pickableItem) {
-    return !bagContains(pickableItem) ? <div className='HiddenElement' style={{ top, left, width, height }} onClick={handlePickUpItem} /> : null  
+    return !bagContains(pickableItem) ? <div className='HiddenElement' style={{ top, left, width, height }} onClick={() => handlePickUpItem()} /> : null  
   }
   return <div className='HiddenElement' style={{ top, left, width, height }} {...(onClick && { onClick })} />
-}
-
-const messagesForItemFound = (itemName: string) => {
-  const { imageSrc, name, message } = ITEMS[itemName]
-  return [
-    { message: 'You found an item!' }, 
-    { imageSrc, title: name, message },
-    { message: 'You put the item in your bag' }
-  ]
 }
 
 const pickUpItem = (name: string) => {

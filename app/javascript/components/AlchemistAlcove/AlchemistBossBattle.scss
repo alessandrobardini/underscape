@@ -1,0 +1,11 @@
+.AlchemistBossBattle {
+  overflow: auto;
+
+  .map {
+    position: relative;
+    background-image: url('../../images/alchemist.jpg');
+    width: 1920px;
+    height: 1200px;
+    background-size: 1920px 1200px;
+  }
+}

@@ -10,6 +10,7 @@ import DialogueBar from 'components/Layout/DialogueBar'
 import hydrogen from 'images/hydrogen.jpg'
 import textFile from 'images/text-file.jpg'
 import spells from 'images/spells.jpg'
+import alchemist from 'images/alchemist_boss.png'
 import Modal from 'components/Layout/Modal'
 
 import './Game.scss'
@@ -35,6 +36,13 @@ export const ITEMS = {
   },
 }
 
+export const CHARACTERS = {
+  'alchemist' : {
+    imageSrc: alchemist,
+    name: 'Sans'
+  }
+}
+
 export type SessionContextType = {
   user: {
     name: string
@@ -42,18 +50,24 @@ export type SessionContextType = {
   items: {
     name: string
   }[],
+  answers: {
+    riddle: string
+  }[],
   gameEndsAt: string,
   setDialogueBarMessages: (messages: Array<DialogueBarMessageType>) => void
   setModalChildren: (children: JSX.Element) => void
+  closeModal: () => void
   refetch: () => void
 }
 
 export const SessionContext = React.createContext<SessionContextType>(null)
 
 export type DialogueBarMessageType = {
+  character? : string
   imageSrc?: string
   title?: string
   message: string
+  onCloseMessage?: Function
 }
 
 type GameProps = {
@@ -65,6 +79,9 @@ type GameProps = {
       items: {
         name: string
       }[],
+      answers: {
+        riddle: string
+      }[],
       game_ends_at: string
     }
   }
@@ -74,13 +91,15 @@ const Game: React.FC<GameProps> = (props) => {
   const [data, setData] = useState(props.data)
   const [dialogueBarMessages, setDialogueBarMessages] = useState<Array<DialogueBarMessageType>>([])
   const [modalChildren, setModalChildren] = useState<JSX.Element>(null)
-  const { data: { user, game_ends_at, items } } = data
+  const { data: { user, game_ends_at, items, answers } } = data
 
   const refetch = () => {
     getUser().then((data) => setData(data))
   }
 
-  const sessionContext = { user, gameEndsAt: game_ends_at, items, setDialogueBarMessages, setModalChildren, refetch }
+  const closeModal= () => setModalChildren(null)
+
+  const sessionContext = { user, gameEndsAt: game_ends_at, items, answers, setDialogueBarMessages, setModalChildren, closeModal, refetch }
 
   if(timeIsOver(game_ends_at)) {
     return <YouLost />
@@ -95,7 +114,7 @@ const Game: React.FC<GameProps> = (props) => {
           <Route exact path={appPath('/alchemist')} component={AlchemistAlcove} />
           <Route component={NotFound} />
         </Switch>
-        { modalChildren && <Modal closeModal={() => setModalChildren(null)}>
+        { modalChildren && <Modal closeModal={closeModal}>
           {modalChildren}
         </Modal> }
         <DialogueBar messages={dialogueBarMessages} closeDialogueBar={() => setDialogueBarMessages([])}/>
@@ -109,6 +128,11 @@ const timeIsOver = (gameEndsAt: string) => (Date.parse(gameEndsAt) - Date.now())
 export const bagContains = (itemName: string) => {
   const { items } = useContext(SessionContext)
   return items.map(({ name }) => name).includes(itemName)
+}
+
+export const riddleSolved = (riddleName: string) => {
+  const { answers } = useContext(SessionContext)
+  return answers.map(({ riddle }) => riddle).includes(riddleName)
 }
 
 export default Game

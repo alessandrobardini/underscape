@@ -4,7 +4,7 @@ import Button from 'ui/Button'
 import './Modal.scss'
 
 type ModalProps = {
-  children?: any
+  children: JSX.Element
   closeModal: MouseEventHandler<HTMLButtonElement>
 }
 

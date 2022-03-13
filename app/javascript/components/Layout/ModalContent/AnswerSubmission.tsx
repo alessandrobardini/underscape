@@ -9,24 +9,22 @@ import csrfToken from 'helpers/csrfToken'
 import './AnswerSubmission.scss'
 
 type AnswerSubmissionProps = {
-  message: string
   errorMessage: string
   explanations: Array<string>
   riddle: string
+  onCorrectAnswerSubmission?: Function
 }
 
-const AnswerSubmission: React.FC<AnswerSubmissionProps> = ({ message: messageText, errorMessage: errorMessageText, explanations, riddle }) => {
+const AnswerSubmission: React.FC<AnswerSubmissionProps> = ({ errorMessage: errorMessageText, explanations, riddle, onCorrectAnswerSubmission }) => {
   const { refetch } = useContext(SessionContext)
-  const [message, setMessage] = useState<string>(null)
   const [errorMessage, setErrorMessage] = useState<string>(null)
 
   const handleSubmit = ({ answer }, { resetForm }) => {
     checkAnswer(riddle, answer).then(({ data: { ok } }) => {
       resetForm()
       if (ok) {
-        setErrorMessage(null)
-        setMessage(messageText)
         refetch()
+        onCorrectAnswerSubmission && onCorrectAnswerSubmission()
       } else {
         setErrorMessage(errorMessageText)
       }
@@ -40,7 +38,6 @@ const AnswerSubmission: React.FC<AnswerSubmissionProps> = ({ message: messageTex
       ))}
       <span className='submission-result'>
         {errorMessage && <span className='error-message'>{errorMessage}</span>}
-        {message && <span className='message'>{message}</span>}
       </span>
     </div>
     <Form onSubmit={handleSubmit} initialValues={{answer: ''}}>

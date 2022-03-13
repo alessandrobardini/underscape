@@ -17,6 +17,10 @@
     .container {
       flex-basis: 33%;
 
+      .characterName {
+        font-weight: 600;
+      }
+
       img {
         height: 190px;
         margin-left: 20px;
