@@ -11,6 +11,7 @@ import axios from 'axios'
 import csrfToken from 'helpers/csrfToken'
 import hydrogen from 'images/hydrogen.jpg'
 import textFile from 'images/text-file.jpg'
+import spells from 'images/spells.jpg'
 import Modal from 'components/Layout/Modal'
 
 import './Game.scss'
@@ -27,6 +28,12 @@ export const ITEMS = {
     name: 'Principles of life',
     message: 'For your everyday living',
     action: () => window.open('https://storage.googleapis.com/escape-room-bucket/principles.txt', '_blank')
+  },
+  'book_of_spells': {
+    imageSrc: spells,
+    name: 'The book of spells',
+    message: 'Bestseller of the year!',
+    action: () => window.open('https://storage.googleapis.com/escape-room-bucket/spells.txt', '_blank')
   },
 }
 

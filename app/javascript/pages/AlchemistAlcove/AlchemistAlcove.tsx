@@ -1,12 +1,12 @@
 import HiddenElement from 'components/Layout/HiddenElement'
 import AnswerSubmission from 'components/Layout/ModalContent/AnswerSubmission'
-import { bagContains, SessionContext } from 'Game'
+import { SessionContext } from 'Game'
 import React, { useContext } from 'react'
 
 import './AlchemistAlcove.scss'
 
 const AlchemistAlcove: React.FC = () => {
-  const { itemFound, setDialogueBarMessages, setModalChildren } = useContext(SessionContext)
+  const { setDialogueBarMessages, setModalChildren } = useContext(SessionContext)
 
   const handleMirrorClick = () => {
     setDialogueBarMessages([
@@ -16,7 +16,7 @@ const AlchemistAlcove: React.FC = () => {
 
   const handleFurnaceClick = () => {
     setDialogueBarMessages([
-      { message: 'The furnace is hot as hell. Unfortunately, you forgot to bring the sunscreen with you. Better to get a tan after this adventure.' }
+      { message: 'The furnace is hot as hell. Unfortunately, you forgot to bring the sunscreen with you. Better to get a tan only after this adventure.' }
     ])
   }
 
@@ -32,7 +32,8 @@ const AlchemistAlcove: React.FC = () => {
     errorMessage='The password is wrong...' 
     explanations={[
       'The access to the cave seems to be blocked by an invisible barrier...',
-      'You need to insert the password that disables it'
+      'There is a writing on the floor: "It\'s elementary!"',
+      'It seems you need to insert a password to deactivate the barrier: '
     ]}
   />
   
@@ -44,6 +45,7 @@ const AlchemistAlcove: React.FC = () => {
       <HiddenElement top='380px' left='1570px' width='84px' height='137px' onClick={handleFurnaceClick} />
       <HiddenElement top='511px' left='630px' width='39px' height='37px' onClick={handleSkullClick} />
       <HiddenElement top='778px' left='589px' width='79px' height='50px' pickableItem='principles_of_life' />
+      <HiddenElement top='871px' left='170px' width='90px' height='50px' pickableItem='book_of_spells' />
     </div>
   </div>
 }

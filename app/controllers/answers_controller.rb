@@ -4,7 +4,9 @@ class AnswersController < AppController
   before_action :authenticate_user!
 
   ANSWERS = {
-    alchemist_cave: '7516158716538332299'
+    alchemist_cave: [
+      # ReSPoNSiBiLiTiEs
+      '7516847148332299'
   }
 
   def check
