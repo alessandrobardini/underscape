@@ -1,8 +1,10 @@
-import { checkAnswer, ITEMS, SessionContext } from 'Game'
+import {  SessionContext } from 'Game'
 import React, { useContext, useState } from 'react'
 import Button from 'ui/Button'
 import Input from 'ui/Input'
 import Form from '../Form'
+import axios from 'axios'
+import csrfToken from 'helpers/csrfToken'
 
 import './AnswerSubmission.scss'
 
@@ -57,6 +59,14 @@ const AnswerSubmission: React.FC<AnswerSubmissionProps> = ({ message: messageTex
       )}
     </Form>
   </div>
+}
+
+const checkAnswer = (riddle: string, answer: string) => {
+  return axios.post(
+    '/answers',
+    { riddle, answer, authenticity_token: csrfToken() },
+    { headers: { Accept: 'application/json' }, responseType: 'json' }
+  )
 }
 
 export default AnswerSubmission

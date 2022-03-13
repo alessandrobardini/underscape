@@ -7,8 +7,6 @@ import YouLost from 'pages/YouLost'
 import MapBoard from 'pages/MapBoard/MapBoard'
 import { appPath, getUser } from 'App'
 import DialogueBar from 'components/Layout/DialogueBar'
-import axios from 'axios'
-import csrfToken from 'helpers/csrfToken'
 import hydrogen from 'images/hydrogen.jpg'
 import textFile from 'images/text-file.jpg'
 import spells from 'images/spells.jpg'
@@ -47,7 +45,6 @@ export type SessionContextType = {
   gameEndsAt: string,
   setDialogueBarMessages: (messages: Array<DialogueBarMessageType>) => void
   setModalChildren: (children: JSX.Element) => void
-  itemFound: (itemName: string) => void
   refetch: () => void
 }
 
@@ -78,18 +75,12 @@ const Game: React.FC<GameProps> = (props) => {
   const [dialogueBarMessages, setDialogueBarMessages] = useState<Array<DialogueBarMessageType>>([])
   const [modalChildren, setModalChildren] = useState<JSX.Element>(null)
   const { data: { user, game_ends_at, items } } = data
+
   const refetch = () => {
     getUser().then((data) => setData(data))
   }
-  const itemFound = (name: string) => {
-    setDialogueBarMessages(messagesForItemFound(name))
-    return axios.post(
-      '/items',
-      { item: { name }, authenticity_token: csrfToken() },
-      { headers: { Accept: 'application/json' }, responseType: 'json' }
-    ).then(() => { refetch() })
-  }
-  const sessionContext = { user, gameEndsAt: game_ends_at, items, itemFound, setDialogueBarMessages, setModalChildren, refetch }
+
+  const sessionContext = { user, gameEndsAt: game_ends_at, items, setDialogueBarMessages, setModalChildren, refetch }
 
   if(timeIsOver(game_ends_at)) {
     return <YouLost />
@@ -118,30 +109,6 @@ const timeIsOver = (gameEndsAt: string) => (Date.parse(gameEndsAt) - Date.now())
 export const bagContains = (itemName: string) => {
   const { items } = useContext(SessionContext)
   return items.map(({ name }) => name).includes(itemName)
-}
-
-export const messagesForItemFound = (itemName: string) => {
-  const { imageSrc, name, message } = ITEMS[itemName]
-  return [
-    { message: 'You found an item!' }, 
-    { imageSrc, title: name, message },
-    { message: 'You put the item in your bag' }
-  ]
-}
-
-export const checkAnswer = (riddle: string, answer: string) => {
-  return axios.post(
-    '/answers',
-    {
-      riddle,
-      answer,
-      authenticity_token: csrfToken()
-    },
-    {
-      headers: { Accept: 'application/json' },
-      responseType: 'json'
-    }
-  )
 }
 
 export default Game
