@@ -48,6 +48,7 @@ export type SessionContextType = {
   setDialogueBarMessages: (messages: Array<DialogueBarMessageType>) => void
   setModalChildren: (children: JSX.Element) => void
   itemFound: (itemName: string) => void
+  refetch: () => void
 }
 
 export const SessionContext = React.createContext<SessionContextType>(null)
@@ -88,7 +89,7 @@ const Game: React.FC<GameProps> = (props) => {
       { headers: { Accept: 'application/json' }, responseType: 'json' }
     ).then(() => { refetch() })
   }
-  const sessionContext = { user, gameEndsAt: game_ends_at, items, itemFound, setDialogueBarMessages, setModalChildren }
+  const sessionContext = { user, gameEndsAt: game_ends_at, items, itemFound, setDialogueBarMessages, setModalChildren, refetch }
 
   if(timeIsOver(game_ends_at)) {
     return <YouLost />
@@ -130,7 +131,7 @@ export const messagesForItemFound = (itemName: string) => {
 
 export const checkAnswer = (riddle: string, answer: string) => {
   return axios.post(
-    '/answers/check',
+    '/answers',
     {
       riddle,
       answer,

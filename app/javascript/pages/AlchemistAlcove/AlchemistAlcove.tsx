@@ -1,12 +1,14 @@
 import HiddenElement from 'components/Layout/HiddenElement'
 import AnswerSubmission from 'components/Layout/ModalContent/AnswerSubmission'
-import { SessionContext } from 'Game'
+import { bagContains, ITEMS, SessionContext } from 'Game'
 import React, { useContext } from 'react'
 
 import './AlchemistAlcove.scss'
 
 const AlchemistAlcove: React.FC = () => {
-  const { setDialogueBarMessages, setModalChildren } = useContext(SessionContext)
+  const { setDialogueBarMessages, setModalChildren, items } = useContext(SessionContext)
+
+  // const canProceedToBossBattle = bagContains('book_of_spells') && 
 
   const handleMirrorClick = () => {
     setDialogueBarMessages([

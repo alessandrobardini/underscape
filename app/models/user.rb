@@ -9,4 +9,5 @@ class User < ApplicationRecord
   TIME_FOR_BEATING_THE_GAME = 1.hour
 
   has_many :items, dependent: :destroy
+  has_many :answers, dependent: :destroy
 end

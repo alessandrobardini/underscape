@@ -11,9 +11,7 @@ Rails.application.routes.draw do
 
   resources :items, only: :create
 
-  resources :answers do
-    post :check, on: :collection
-  end
+  resources :answers, only: :create
 
   root to: 'app#show'
 

@@ -14,6 +14,7 @@ type AnswerSubmissionProps = {
 }
 
 const AnswerSubmission: React.FC<AnswerSubmissionProps> = ({ message: messageText, errorMessage: errorMessageText, explanations, riddle }) => {
+  const { refetch } = useContext(SessionContext)
   const [message, setMessage] = useState<string>(null)
   const [errorMessage, setErrorMessage] = useState<string>(null)
 
@@ -23,6 +24,7 @@ const AnswerSubmission: React.FC<AnswerSubmissionProps> = ({ message: messageTex
       if (ok) {
         setErrorMessage(null)
         setMessage(messageText)
+        refetch()
       } else {
         setErrorMessage(errorMessageText)
       }
