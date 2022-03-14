@@ -21,13 +21,13 @@ const AlchemistAlcove: React.FC = () => {
         { character: 'alchemist', message: 'I am SANS, the master alchemist of Magaland and I hate being disturbed!' },
         { character: 'alchemist', message: 'Moreover, I am the most appreciate comedian of the kingdom!' },
         { character: 'alchemist', message: 'My bone jokes are the best of the best, they are so... HUMERUS!' },
-        { character: 'alchemist', message: 'Unless you came here to see my pretty little BONE-zai tree, please go away and let me prepare my standup show!' },
+        { character: 'alchemist', message: 'Unless you came here to see my pretty little BONE-sai tree, please go away and let me prepare my standup show!' },
         { character: 'alchemist', message: '... ... ...' },
         { character: 'alchemist', message: 'Oh, so do you want my amulet? Here we go, another dull who wants to play with higher powers...' },
-        { character: 'alchemist', message: 'This amulet has an unbearable power inside, it must be guarded by trusted (and humurous) people like me!' },
+        { character: 'alchemist', message: 'This amulet has an unbearable power inside, it must be guarded by trusted (and humorous) people like me!' },
         { character: 'alchemist', message: '... ... ...' },
         { character: 'alchemist', message: 'You are so stubborn! Do you want to fight me and steal the amulet?' },
-        { character: 'alchemist', message: 'Ok, reach me to the end of the cave. I\'ll be waiting for you! I may be a skeleton, buy I have guts!' }
+        { character: 'alchemist', message: 'Ok, reach me at the end of the cave. I\'ll be waiting for you! I may be a skeleton, buy I have guts!' }
       ])
     }
   }, [])
