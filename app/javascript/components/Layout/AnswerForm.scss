@@ -1,0 +1,16 @@
+@import '../../../assets/stylesheets/base/variables.scss';
+
+.AnswerForm {
+  display: flex;
+  margin-bottom: 10px;
+
+
+  .Field {
+    display: flex;
+    flex-grow: 1;
+
+    input {
+      flex-grow: 1;
+    }
+  }
+}

@@ -1,10 +1,7 @@
-import {  SessionContext } from 'Game'
-import React, { useContext, useState } from 'react'
-import Button from 'ui/Button'
-import Input from 'ui/Input'
-import Form from '../Form'
+import React, { useState } from 'react'
 import axios from 'axios'
 import csrfToken from 'helpers/csrfToken'
+import AnswerForm from '../AnswerForm'
 
 import './AnswerSubmission.scss'
 
@@ -12,24 +9,11 @@ type AnswerSubmissionProps = {
   errorMessage: string
   explanations: Array<string>
   riddle: string
-  onCorrectAnswerSubmission?: Function
+  onCorrectAnswerSubmission?: () => void
 }
 
 const AnswerSubmission: React.FC<AnswerSubmissionProps> = ({ errorMessage: errorMessageText, explanations, riddle, onCorrectAnswerSubmission }) => {
-  const { refetch } = useContext(SessionContext)
   const [errorMessage, setErrorMessage] = useState<string>(null)
-
-  const handleSubmit = ({ answer }, { resetForm }) => {
-    checkAnswer(riddle, answer).then(({ data: { ok } }) => {
-      resetForm()
-      if (ok) {
-        refetch()
-        onCorrectAnswerSubmission && onCorrectAnswerSubmission()
-      } else {
-        setErrorMessage(errorMessageText)
-      }
-    })
-  }
   
   return <div className='AnswerSubmission'>
     <div className='text'>
@@ -40,25 +24,11 @@ const AnswerSubmission: React.FC<AnswerSubmissionProps> = ({ errorMessage: error
         {errorMessage && <span className='error-message'>{errorMessage}</span>}
       </span>
     </div>
-    <Form onSubmit={handleSubmit} initialValues={{answer: ''}}>
-      {({ errors, touched, values, setFieldValue }) => (
-          <>
-            <Input
-              formik
-              name='answer'
-              errors={errors}
-              touched={touched}
-              value={values.answer}
-              setFieldValue={setFieldValue}
-            />
-            <Button submit type='primary'>Submit</Button>
-          </>
-      )}
-    </Form>
+    <AnswerForm checkAnswer={checkAnswer(riddle)} onCorrectAnswer={onCorrectAnswerSubmission} onWrongAnswer={() => setErrorMessage(errorMessageText)} />
   </div>
 }
 
-const checkAnswer = (riddle: string, answer: string) => {
+const checkAnswer = (riddle: string) => (answer: string) => {
   return axios.post(
     '/answers',
     { riddle, answer, authenticity_token: csrfToken() },
