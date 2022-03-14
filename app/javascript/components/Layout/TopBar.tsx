@@ -1,5 +1,5 @@
-import { ITEMS, SessionContext } from 'Game'
-import React, { useContext, useState } from 'react'
+import { SessionContext } from 'Game'
+import React, { useContext } from 'react'
 import CountdownTimer from './Countdown'
 import axios from 'axios'
 import csrfToken from 'helpers/csrfToken'
@@ -10,7 +10,7 @@ import Bag from './ModalContent/Bag'
 import './TopBar.scss'
 
 const TopBar: React.FC = () => {
-  const { user, gameEndsAt, items, setModalChildren } = useContext(SessionContext)
+  const { user, gameEndsAt, setModalChildren } = useContext(SessionContext)
   
   return (
     <div className='TopBar'>

@@ -17,3 +17,12 @@ The build is handled by [Google Cloud Build](https://cloud.google.com/build), wh
 By running `make release`, you can execute the three steps mentioned above.
 
 By running `make deploy`, you can deploy to Google Cloud Run the latest release.
+
+## Development
+
+Steps to set up:
+
+1. Install dependencies: `bundle && yarn`
+2. Create & migrate database: `bin/rake db:create && bin/rake db:migrate`
+3. Within one terminal, start rails server: `bin/rails server`
+4. Within another terminal, start webpack dev server: `bin/webpack-dev-server`

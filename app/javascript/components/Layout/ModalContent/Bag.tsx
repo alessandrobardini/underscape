@@ -1,19 +1,26 @@
-import { ITEMS, SessionContext } from 'Game'
 import React, { useContext } from 'react'
-import Button from 'ui/Button'
+import { SessionContext, ItemType } from 'Game'
+import BagItemList from 'components/BagItemList/BagItemList'
 
 import './Bag.scss'
 
 const Bag: React.FC = () => {
-  const { items } = useContext(SessionContext)
+  const { items, user: { bag_code: bagCode } } = useContext(SessionContext)
+  const shareBagUrl = `${document.location.origin}/bag/${bagCode}`
+
+  const activateItem = (item: ItemType) => {
+    if (item.action) {
+      item.action()
+    } else if (item.href) {
+      window.open(item.href, '_blank')
+    } else {
+      throw new Error(`Don't know how to activate item ${JSON.stringify(item)}`)
+    }
+  }
+
   return <div className='Bag'>
-    <ul>{items.map(({ name }) =>
-      <li key={name}>
-        <img src={ITEMS[name].imageSrc} width='50px'/>
-        <div className='m-l-sm'>{ITEMS[name].name}</div>
-        <Button size='s' onClick={ITEMS[name].action}>USE</Button>
-      </li>
-    )}</ul>
+    <label className='share'>Share this bag with your teammates <code>{shareBagUrl}</code></label>
+    <BagItemList items={items} onItemClick={activateItem} />
   </div>
 }
 

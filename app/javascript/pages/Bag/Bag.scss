@@ -1,0 +1,49 @@
+.BagPage {
+  display: flex;
+  height: 100vh;
+  
+  header {
+    height: 50px;
+    border-bottom: solid 1px #ccc;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 1em;
+    font-size: 30px;
+    i {
+      display: block;
+    }
+  }
+
+  iframe {
+    flex-grow: 1;
+    min-height: 100vh;
+    border: none;
+  }
+
+  @media(min-width: 768px) {
+    .list {
+      display: flex;
+      flex-direction: column;
+
+      header {
+        border-right: solid 1px #ccc;
+      }
+
+      .BagItemList {
+        height: calc(100vh - 50px);
+        padding-right: 1em;
+        border-right: solid 1px #ccc;
+      }
+    }
+
+  }
+
+  @media(max-width: 768px) {
+    flex-direction: column;
+
+    .BagItemList {
+      border-bottom: solid 1px #ccc;
+    }
+  }
+}

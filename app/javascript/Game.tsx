@@ -15,24 +15,32 @@ import Modal from 'components/Layout/Modal'
 
 import './Game.scss'
 
-export const ITEMS = {
+export type ItemType = {
+  imageSrc: string
+  name: string
+  message: string
+  href?: string
+  action?: () => void
+}
+
+export const ITEMS: { [key: string]: ItemType } = {
   'periodic_table': {
     imageSrc: hydrogen,
     name: 'Periodic table of elements',
     message: 'Do yo want to create delightful cocktails?',
-    action: () => window.open('https://storage.googleapis.com/escape-room-bucket/periodic_table.svg', '_blank')
+    href: 'https://storage.googleapis.com/escape-room-bucket/periodic_table.svg'
   },
   'principles_of_life': {
     imageSrc: textFile,
     name: 'Principles of life',
     message: 'For your everyday living',
-    action: () => window.open('https://storage.googleapis.com/escape-room-bucket/principles.txt', '_blank')
+    href: 'https://storage.googleapis.com/escape-room-bucket/principles.txt'
   },
   'book_of_spells': {
     imageSrc: spells,
     name: 'The book of spells',
     message: 'Bestseller of the year!',
-    action: () => window.open('https://storage.googleapis.com/escape-room-bucket/spells.txt', '_blank')
+    href: 'https://storage.googleapis.com/escape-room-bucket/spells.txt'
   },
 }
 
@@ -46,6 +54,7 @@ export const CHARACTERS = {
 export type SessionContextType = {
   user: {
     name: string
+    bag_code: string
   },
   items: {
     name: string
@@ -76,6 +85,7 @@ type GameProps = {
     data: {
       user: {
         name: string
+        bag_code: string
       },
       items: {
         name: string

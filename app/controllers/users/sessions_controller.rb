@@ -18,6 +18,13 @@ class Users::SessionsController < Devise::SessionsController
   #   super
   # end
 
+  def open_bag
+    user = User.find_by(bag_code: params[:bag_code])
+    redirect_to '/app' and return unless user
+    sign_in(user)
+    redirect_to '/app/bag'
+  end
+
   def exists
     user = User.find_by(name: params['user']['name'])
     render json: { exists: user.present? }
