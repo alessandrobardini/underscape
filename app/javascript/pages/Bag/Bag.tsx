@@ -17,7 +17,7 @@ const Bag = () => {
   useEffect(refetch, [])
   
   return (
-    <PromiseWrap promise={promise} timeout={500}>
+    <PromiseWrap promise={promise} timeout={500} staleWhileLoading>
       {props => props.data ? <BagPage refetch={refetch} data={props.data} /> : (!props.loading ? <div>You are not logged in!</div>: null)}
     </PromiseWrap>
   )
@@ -30,6 +30,12 @@ const BagPage = ({ data, refetch } ) => {
       setFrameSource(item.href)
     }
   }
+
+  useEffect(() => {
+    const timer = setInterval(refetch, 2500)
+    return () => clearInterval(timer)
+  }, [])
+
   return (
     <div className='BagPage'>
       <div className='list'>
