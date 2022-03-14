@@ -1,11 +1,138 @@
 .AlchemistBossBattle {
-  overflow: auto;
+  overflow-x: auto;
+  height: calc(100vh - 50px);
 
-  .map {
-    position: relative;
-    background-image: url('../../images/alchemist.jpg');
-    width: 1920px;
-    height: 1200px;
-    background-size: 1920px 1200px;
+  .alchemist-area {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .alchemist-image {
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      &.blink-red {
+        animation: blink-red 5s infinite;
+        animation-iteration-count: infinite;
+        animation-direction: alternate;
+      }
+
+      &.blink-yellow {
+        animation: blink-yellow 5s infinite;
+        animation-iteration-count: infinite;
+        animation-direction: alternate;
+      }
+
+      &.blink-blue {
+        animation: blink-blue 5s infinite;
+        animation-iteration-count: infinite;
+        animation-direction: alternate;
+      }
+
+      &.blink-green {
+        animation: blink-green 5s infinite;
+        animation-iteration-count: infinite;
+        animation-direction: alternate;
+      }
+
+      .spin {
+        animation:spin 1s linear;
+      }
+    }
+
+    @keyframes spin { 100% { -webkit-transform: rotate(360deg); transform:rotate(360deg); } }
+
+    @keyframes blink-red {
+      0% { background: white; }
+      20% { background: #F5B7B1; }
+      40% { background: #EC7063; }
+      60% { background: #CB4335; }
+      80% { background: #B03A2E; }
+      100% { background: #78281F ; }
+    }
+
+    @keyframes blink-green {
+      0% { background: white; }
+      20% { background: #94C58C; }
+      40% { background: #64AD62; }
+      60% { background: #429B46; }
+      80% { background: #1A8828; }
+      100% { background: #0A6921 ; }
+    }
+
+    @keyframes blink-blue {
+      0% { background: white; }
+      20% { background: #1E90FF; }
+      40% { background: #187DE9; }
+      60% { background: #126AD2; }
+      80% { background: #0C56BC; }
+      100% { background: #0643A5 ; }
+    }
+
+    @keyframes blink-yellow {
+      0% { background: white; }
+      20% { background: #ffffe7; }
+      40% { background: 	#ffffc5; }
+      60% { background: #feffaa; }
+      80% { background: #fff48c; }
+      100% { background: #ffdf57 ; }
+    }
+
+    .column {
+      position: relative;
+      margin: 0 5px;
+      width: 5%;
+      height: 100%;
+
+      .ButtonV2 {
+        padding: 5px;
+        width: 100%;
+        height: 300px;
+        position: relative;
+        animation-duration:3s;
+        animation-iteration-count: infinite;
+        animation-direction: alternate;
+        animation-timing-function: linear;
+
+        &.slidein-0 { animation-name:slidein-0; }
+        &.slidein-1 { animation-name:slidein-1; }
+        &.slidein-2 { animation-name:slidein-2; }
+        &.slidein-3 { animation-name:slidein-3; }
+        &.slidein-4 { animation-name:slidein-4; }
+        &.slidein-5 { animation-name:slidein-5; }
+        &.slidein-6 { animation-name:slidein-6; }
+        &.slidein-7 { animation-name:slidein-7; }
+        &.slidein-8 { animation-name:slidein-8; }
+        &.slidein-9 { animation-name:slidein-9; }
+      }
+    }
+
+    @keyframes slidein-0  { from { top:-50%; } to { top:50% ; } }
+    @keyframes slidein-1 { from { top:-40%; } to { top:60% ; } }
+    @keyframes slidein-2 { from { top:-30%; } to { top:70% ; } }
+    @keyframes slidein-3 { from { top:-20%; } to { top:80% ; } }
+    @keyframes slidein-4 { from { top:-10%; } to { top:90% ; } }
+    @keyframes slidein-5 { from { top:0%; } to { top:100% ; } }
+    @keyframes slidein-6 { from { top:10%; } to { top:110% ; } }
+    @keyframes slidein-7 { from { top:20%; } to { top:120% ; } }
+    @keyframes slidein-8 { from { top:30%; } to { top:130% ; } }
+    @keyframes slidein-9 { from { top:40%; } to { top:140% ; } }
+
+   @keyframes slidein-2  {
+    from {
+       top:-40%;
+    }
+    
+    to {
+       top:60%;
+    }
+ }
+
+    .alchemist-image img {
+      width: 200px;
+    }
   }
 }

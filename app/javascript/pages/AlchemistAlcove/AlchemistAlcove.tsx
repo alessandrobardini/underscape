@@ -1,3 +1,4 @@
+import AlchemistBossBattle from 'components/AlchemistAlcove/AlchemistBossBattle'
 import HiddenElement from 'components/Layout/HiddenElement'
 import AnswerSubmission from 'components/Layout/ModalContent/AnswerSubmission'
 import { bagContains, riddleSolved, SessionContext } from 'Game'
@@ -18,13 +19,15 @@ const AlchemistAlcove: React.FC = () => {
       setDialogueBarMessages([
         { character: 'alchemist', message: 'Who the hell dares to sneak into my lair?!?' },
         { character: 'alchemist', message: 'I am SANS, the master alchemist of Magaland and I hate being disturbed!' },
-        { character: 'alchemist', message: 'Please, go away and let me play with my potions in peace!' },
+        { character: 'alchemist', message: 'Moreover, I am the most appreciate comedian of the kingdom!' },
+        { character: 'alchemist', message: 'My bone jokes are the best of the best, they are so... HUMERUS!' },
+        { character: 'alchemist', message: 'Unless you came here to see my pretty little BONE-zai tree, please go away and let me prepare my standup show!' },
         { character: 'alchemist', message: '... ... ...' },
         { character: 'alchemist', message: 'Oh, so do you want my amulet? Here we go, another dull who wants to play with higher powers...' },
-        { character: 'alchemist', message: 'This amulet has an unbearable power inside, it must be guarded by trusted people like me!' },
+        { character: 'alchemist', message: 'This amulet has an unbearable power inside, it must be guarded by trusted (and humurous) people like me!' },
         { character: 'alchemist', message: '... ... ...' },
         { character: 'alchemist', message: 'You are so stubborn! Do you want to fight me and steal the amulet?' },
-        { character: 'alchemist', message: 'Ok, reach me to the end of the cave. I\'ll be waiting for you!' }
+        { character: 'alchemist', message: 'Ok, reach me to the end of the cave. I\'ll be waiting for you! I may be a skeleton, buy I have guts!' }
       ])
     }
   }, [])
@@ -88,9 +91,9 @@ const AlchemistAlcove: React.FC = () => {
     onCorrectAnswerSubmission={closeModal}
   />
   
-  return <div className='AlchemistAlcove'>
-    {showBattlePage ?
-      <div>ciao</div> :
+  return showBattlePage ?
+    <AlchemistBossBattle /> : 
+    <div className='AlchemistAlcove'>
       <div className='map'>
         <HiddenElement top='496px' left='401px' width='135px' height='206px' pickableItem='periodic_table' />
         <HiddenElement top='410px' left='820px' width='240px' height='300px' onClick={handleBossBattleGateClick} />
@@ -100,8 +103,7 @@ const AlchemistAlcove: React.FC = () => {
         <HiddenElement top='778px' left='589px' width='79px' height='50px' pickableItem='principles_of_life' />
         <HiddenElement top='871px' left='170px' width='90px' height='50px' pickableItem='book_of_spells' />
       </div>
-    }
-  </div>
+    </div>
 }
 
 export default AlchemistAlcove 

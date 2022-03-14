@@ -1,5 +1,5 @@
 import { CHARACTERS, DialogueBarMessageType } from 'Game'
-import React, {  useState } from 'react'
+import React, {  useEffect, useState } from 'react'
 import Button from 'ui/Button'
 
 import './DialogueBar.scss'
@@ -30,19 +30,47 @@ const DialogueBar: React.FC<DialogueBarProps> = ({ messages, closeDialogueBar })
   }
 
   const character = CHARACTERS[currentMessage.character]
+  const imageComponent = character ? <div><img src={character.imageSrc} /><span className='characterName'>{character.name}</span></div> : <img src={currentMessage.imageSrc} />
+  const icon = `fa fa-${lastMessage ? 'close' : 'arrow-right'}`
+
+  return <div className='DialogueBar'>
+    <Message index={messageIndex} message={currentMessage} onMessageClick={handleClick} imageComponent={imageComponent} icon={icon}/>
+  </div>
+}
+
+type MessageProps = {
+  message: DialogueBarMessageType
+  onMessageClick: () => void
+  imageComponent: JSX.Element
+  icon: string
+  index: number
+}
+
+const Message: React.FC<MessageProps> = ({ message, onMessageClick, imageComponent, icon, index }) => {
+  useEffect(() => {
+    if(message.disappearAfterSeconds) {
+      const timeout = setTimeout(() => {
+        onMessageClick()
+      }, message.disappearAfterSeconds * 1000)
+
+      return () => {
+          return clearTimeout(timeout);
+      }
+    }
+  }, [index])
 
   return <div className='DialogueBar'>
     <div className='content'>
       <div className='container image'>
-        {character ? <div><img src={character.imageSrc} /><span className='characterName'>{character.name}</span></div> : <img src={currentMessage.imageSrc} />}
+        {imageComponent}
       </div>
       <div className='container message'>
         <div className='messages'>
-          {currentMessage.title && <span className='title'>{ currentMessage.title }</span> }
-          <span className='message'>{ currentMessage.message }</span>
+          {message.title && <span className='title'>{ message.title }</span> }
+          <span className='message'>{ message.message }</span>
         </div>
       </div>
-      <div className='container button'><Button icon size='xl' iconLeft={`fa fa-${lastMessage ? 'close' : 'arrow-right'}`} onClick={handleClick}/></div>
+      <div className='container button'>{!message.disappearAfterSeconds && <Button icon size='xl' iconLeft={icon} onClick={onMessageClick}/>}</div>
     </div>
   </div>
 }
