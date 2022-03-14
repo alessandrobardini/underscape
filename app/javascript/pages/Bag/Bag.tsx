@@ -32,7 +32,7 @@ const BagPage = ({ data, refetch } ) => {
   }
 
   useEffect(() => {
-    const timer = setInterval(refetch, 2500)
+    const timer = setInterval(refetch, 10000)
     return () => clearInterval(timer)
   }, [])
 
