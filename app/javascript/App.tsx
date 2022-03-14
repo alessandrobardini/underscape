@@ -1,4 +1,5 @@
 import PromiseWrap from 'components/Promise/PromiseWrap'
+import Bag from 'pages/Bag/Bag'
 import Home from 'pages/Home/Home'
 import React from 'react'
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
@@ -13,6 +14,7 @@ const App: React.FC = () => (
   <Router>
     <Switch>
       <Route exact path={appPath('/')} component={Home} />
+      <Route exact path={appPath('/bag')} component={Bag} />
       <Route render={() =>
         <PromiseWrap promise={getUser()} timeout={500}>
           { (props) => props.data ? <Game data={props.data} /> : (!props.loading ? <div>You are not logged in!</div>: null) }
