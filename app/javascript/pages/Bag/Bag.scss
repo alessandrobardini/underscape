@@ -25,6 +25,7 @@
     .list {
       display: flex;
       flex-direction: column;
+      flex-grow: 1;
 
       header {
         border-right: solid 1px #ccc;
