@@ -3,16 +3,22 @@ import HiddenElement from 'components/Layout/HiddenElement'
 import AnswerSubmission from 'components/Layout/ModalContent/AnswerSubmission'
 import { bagContains, riddleSolved, SessionContext } from 'Game'
 import React, { useContext, useEffect, useState } from 'react'
+import { useHistory } from 'react-router-dom'
 
 import './AlchemistAlcove.scss'
 
 const AlchemistAlcove: React.FC = () => {
-  const { setDialogueBarMessages, setModalChildren, closeModal, items } = useContext(SessionContext)
+  const { setDialogueBarMessages, setModalChildren, closeModal, items, bosses } = useContext(SessionContext)
   const [showBattlePage, setShowBattlePage] = useState<boolean>(false)
+  const history = useHistory()
 
   const alchemistRiddleSolved = riddleSolved('alchemist_cave')
   const bookOfSpellsAlreadyFound = bagContains('book_of_spells')
   const canProceedToBossBattle = alchemistRiddleSolved && bookOfSpellsAlreadyFound
+
+  if(bosses.map(({ name }) => name).includes('alchemist')) {
+    history.goBack()
+  }
 
   useEffect(() => {
     if(items.length === 0) {

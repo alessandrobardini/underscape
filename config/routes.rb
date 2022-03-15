@@ -14,6 +14,8 @@ Rails.application.routes.draw do
 
   resources :answers, only: :create
 
+  resources :bosses, only: :create
+
   root to: 'app#show'
 
   get '/app(/*page)', to: 'app#show', as: 'app'

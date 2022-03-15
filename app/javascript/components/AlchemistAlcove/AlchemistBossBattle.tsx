@@ -5,6 +5,8 @@ import alchemist from 'images/alchemist_boss.png'
 import { sampleSize, shuffle } from 'lodash'
 import React, { useContext, useEffect, useState } from 'react'
 import Button from 'ui/Button'
+import axios from 'axios'
+import csrfToken from 'helpers/csrfToken'
 
 import './AlchemistBossBattle.scss'
 
@@ -114,6 +116,14 @@ const AlchemistBossBattle: React.FC = () => {
     return shuffledButtons
   }
 
+  const handleBossDefeated = () => {
+    axios.post(
+      '/bosses',
+      { boss: { name: 'alchemist' }, authenticity_token: csrfToken() },
+      { headers: { Accept: 'application/json' }, responseType: 'json' }
+    ).then(() => location.reload())
+  }
+
   useEffect(() => {
     const [phase1Buttons, phase2Buttons] = sampleSize(buttonGroups, 2)
     const [phase3Spell, phase4Spell] = sampleSize([TITANIC_SPELL, IGLOO_SPELL, MEDITATION_SPELL, BLACKOUT_SPELL, PURIFICATION_SPELL, FORESIGHT_SPELL, SADNESS_SPELL], 2)
@@ -149,7 +159,7 @@ const AlchemistBossBattle: React.FC = () => {
 
   const phase5MessagesOnMount = [
     { character: 'alchemist', message: `This kingdom is doomed to fail without my jokes...`, disappearAfterSeconds: 3 },
-    { message: `Excellent! You defeated ${CHARACTERS['alchemist'].name}. You can proceed to the next location now.`, disappearAfterSeconds: 3, onCloseMessage: () => { alert('finish') } }
+    { message: `Excellent! You defeated ${CHARACTERS['alchemist'].name}. You can proceed to the next location now.`, disappearAfterSeconds: 3, onCloseMessage: () => handleBossDefeated() }
   ]
 
   const handleCorrectButtonClick = () => {

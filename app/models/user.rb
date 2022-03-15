@@ -12,7 +12,8 @@ class User < ApplicationRecord
 
   has_many :items, dependent: :destroy
   has_many :answers, dependent: :destroy
-
+  has_many :bosses, dependent: :destroy
+  
   private def generate_bag_code
     self.bag_code = SecureRandom.alphanumeric
   end
