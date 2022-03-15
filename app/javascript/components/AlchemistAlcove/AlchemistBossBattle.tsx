@@ -286,7 +286,7 @@ const NamedSpellsPhase: React.FC<NamesSpellsPhaseProps> = ({ messagesOnMount, sh
   useEffect(() => {
     if(showForm) {
       setDialogueBarMessages([
-        { character: 'alchemist', message: spell.text },
+        { character: 'alchemist', message: spell.text, notClosable: true },
       ])
     }
   }, [showForm])

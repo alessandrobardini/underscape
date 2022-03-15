@@ -81,6 +81,7 @@ export type DialogueBarMessageType = {
   message: string
   onCloseMessage?: Function
   disappearAfterSeconds?: number
+  notClosable?: boolean
 }
 
 type GameProps = {

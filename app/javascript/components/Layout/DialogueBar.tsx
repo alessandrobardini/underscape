@@ -59,6 +59,9 @@ const Message: React.FC<MessageProps> = ({ message, onMessageClick, imageCompone
     }
   }, [index, message.message])
 
+  const manuallyClosable = (message.notClosable == undefined) || (message.notClosable === false)
+  const autoClosable = (message.disappearAfterSeconds !== undefined)
+
   return <div className='DialogueBar'>
     <div className='content'>
       <div className='container image'>
@@ -70,7 +73,7 @@ const Message: React.FC<MessageProps> = ({ message, onMessageClick, imageCompone
           <span className='message'>{ message.message }</span>
         </div>
       </div>
-      <div className='container button'>{!message.disappearAfterSeconds && <Button icon size='xl' iconLeft={icon} onClick={onMessageClick}/>}</div>
+      <div className='container button'>{(manuallyClosable && !autoClosable) && <Button icon size='xl' iconLeft={icon} onClick={onMessageClick}/>}</div>
     </div>
   </div>
 }
