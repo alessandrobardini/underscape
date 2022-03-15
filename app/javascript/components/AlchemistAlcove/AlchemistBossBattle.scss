@@ -13,6 +13,7 @@
       display: flex;
       justify-content: center;
       align-items: center;
+      flex-direction: column;
 
       &.blink-red {
         animation: blink-red 5s infinite;
@@ -38,9 +39,27 @@
         animation-direction: alternate;
       }
 
+      &.blink-crazy {
+        border: 1px solid black;
+        animation: blink-crazy 1s infinite;
+        animation-iteration-count: infinite;
+        animation-direction: alternate;
+      }
+
       .spin {
         animation:spin 1s linear;
       }
+
+      .away {
+        animation-name: away;
+        animation-duration: 1.5s;
+        animation-fill-mode: forwards;
+      }
+    }
+
+    @keyframes away { 
+      0% { transform: translate(0px) rotate(0deg); }
+      100% { transform: translateY(600px) rotate(360deg); }
     }
 
     @keyframes spin { 100% { -webkit-transform: rotate(360deg); transform:rotate(360deg); } }
@@ -79,6 +98,12 @@
       60% { background: #feffaa; }
       80% { background: #fff48c; }
       100% { background: #ffdf57 ; }
+    }
+
+    @keyframes blink-crazy {
+      0% { border-color: white; }
+      50% { border-color: grey; }
+      100% { border-color: black ; }
     }
 
     .column {

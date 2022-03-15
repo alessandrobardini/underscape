@@ -57,7 +57,7 @@ const Message: React.FC<MessageProps> = ({ message, onMessageClick, imageCompone
           return clearTimeout(timeout);
       }
     }
-  }, [index])
+  }, [index, message.message])
 
   return <div className='DialogueBar'>
     <div className='content'>

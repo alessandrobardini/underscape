@@ -58,6 +58,7 @@ const Form: React.FC<FormProps> = props => {
     validationSchema,
     validateOnMount,
     children,
+    className,
     ...formProps
   } = props
 
@@ -78,7 +79,7 @@ const Form: React.FC<FormProps> = props => {
   return (
     <Formik {...formikProps}>
       {({ handleSubmit, ...props }) => (
-        <form onSubmit={handleSubmit} {...formProps} className='Form'>
+        <form onSubmit={handleSubmit} {...formProps} className={`Form ${className}`}>
           {children(props)}
         </form>
       )}

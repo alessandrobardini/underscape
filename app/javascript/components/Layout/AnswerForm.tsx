@@ -4,6 +4,8 @@ import Button from 'ui/Button'
 import Input from 'ui/Input'
 import Form from './Form'
 
+import './AnswerForm.scss'
+
 type AnswerFormProps = {
   checkAnswer: (answer: string) => Promise<{ data: { ok }}>
   onCorrectAnswer?: () => void

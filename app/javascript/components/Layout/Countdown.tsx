@@ -5,13 +5,14 @@ import './Countdown.scss'
 
 type CountdownTimerProps = {
   targetDate: number
+  onFinish?: () => void
 }
 
-const CountdownTimer: React.FC<CountdownTimerProps> = ({ targetDate }) => {
+const CountdownTimer: React.FC<CountdownTimerProps> = ({ targetDate, onFinish }) => {
   const [days, hours, minutes, seconds] = useCountdown(targetDate)
 
   if(days + hours + minutes + seconds <= 0) {
-    window.location.reload()
+    onFinish ? onFinish() : window.location.reload()
   }
 
   return <div className='Countdown'>
