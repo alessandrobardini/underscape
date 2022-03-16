@@ -12,6 +12,7 @@ import textFile from 'images/text-file.jpg'
 import spells from 'images/spells.jpg'
 import alchemist from 'images/alchemist_boss.png'
 import Modal from 'components/Layout/Modal'
+import SorryToDisturb from 'components/SorryToDisturb'
 
 import './Game.scss'
 
@@ -127,6 +128,7 @@ const Game: React.FC<GameProps> = (props) => {
     <div className='Game'>
       <SessionContext.Provider value={sessionContext}>
         <TopBar />
+        <SorryToDisturb />
         <Switch>
           <Route exact path={appPath('/map')} component={MapBoard} />
           <Route exact path={appPath('/alchemist')} component={AlchemistAlcove} />

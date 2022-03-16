@@ -1,0 +1,59 @@
+#SorryToDisturb {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 10000;
+
+  .backdrop {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background: black;
+    opacity: 0.8;
+    animate: opacity 3s;
+  }
+
+  .conversation {
+    position: absolute;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+
+    .message {
+      background: white;
+      padding: 2em 3em;
+      border: solid 1px #black;
+      border-radius: 1.5em;
+      margin-top: 1em;
+
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+
+      .text {
+        white-space: pre;
+        line-height: 1.4em;
+      }
+
+      .from {
+        background: #34c;
+        color: #ddd;
+        font-weight: bold;
+        width: 40px;
+        height: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 20px;
+        margin: 10px;
+      }
+
+      form {
+        width: 100%;
+      }
+    }
+  }
+}
