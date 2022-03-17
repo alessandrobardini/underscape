@@ -22,30 +22,11 @@ const HiddenElement: React.FC<HiddenElementProps> = ({
   onClick,
   pickableItem,
 }) => {
-  const { setDialogueBarMessages, refetch } = useContext(SessionContext)
-  
-
-  const handlePickUpItem = () => {
-    const { imageSrc, name, message } = ITEMS[pickableItem]
-    setDialogueBarMessages([
-      { message: 'You found an item!' }, 
-      { imageSrc, title: name, message },
-      { message: 'You put the item in your bag', onCloseMessage: () => pickUpItem(pickableItem).then(() => refetch())}
-    ])
-  }
-
+  const { pickUpItem  } = useContext(SessionContext)
   if (pickableItem) {
-    return !bagContains(pickableItem) ? <div className='HiddenElement' style={{ top, left, width, height }} onClick={() => handlePickUpItem()} /> : null  
+    return !bagContains(pickableItem) ? <div className='HiddenElement' style={{ top, left, width, height }} onClick={() => pickUpItem({ pickableItem })} /> : null  
   }
   return <div className='HiddenElement' style={{ top, left, width, height }} {...(onClick && { onClick })} />
-}
-
-const pickUpItem = (name: string) => {
-  return axios.post(
-    '/items',
-    { item: { name }, authenticity_token: csrfToken() },
-    { headers: { Accept: 'application/json' }, responseType: 'json' }
-  )
 }
 
 export default HiddenElement 

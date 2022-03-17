@@ -1,0 +1,52 @@
+.CrystalCrypts {
+  overflow: auto;
+
+  .map {
+    position: relative;
+    background-image: url('../../images/mine.jpeg');
+    width: 1920px;
+    height: 863px;
+    background-size: 1920px 863px;
+  }
+
+  .Grid {
+    .board {
+      height: calc(100vh - 50px);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+
+      .row {
+        display: flex;
+        .cell {
+          cursor: pointer;
+          width: 50px;
+          height: 50px;
+          padding: 5px;
+          border: 1px solid black;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+
+          &.hidden {
+            background-color: white;
+            color: white;
+            border: none;
+          }
+
+          &.visited {
+            background-color: royalblue;
+            cursor: default;
+            color: white;
+          }
+
+          &.exit {
+            background-color: goldenrod;
+            cursor: default;
+          }
+        }
+      }
+    }
+  }
+}
