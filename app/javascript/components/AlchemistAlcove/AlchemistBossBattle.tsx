@@ -44,7 +44,7 @@ const BUTTONS_WITH_GREEN_SPELL = {
   buttons: [
     { text: '5 B' },
     { text: '18 Ar' },
-    { text: '38 Sb', correct: true },
+    { text: '38 Sr', correct: true },
     { text: '39 Y' },
     { text: '48 Cd' },
     { text: '68 Er' },
@@ -98,7 +98,7 @@ const MEDITATION_SPELL = { counter: '568166819', text: 'Some seconds of MEDITATI
 const BLACKOUT_SPELL = { counter: '957161', text: 'And now lights out! BLACKOUT!'}
 const PURIFICATION_SPELL = { counter: '158531687', text: 'You are corrupted! Need a PURIFICATION!'}
 const FORESIGHT_SPELL = { counter: '75745360', text: 'FORESIGHT! I see a crushing defeat for you in the future!'}
-const SADNESS_SPELL = { counter: '16182062', text: 'What is that smile? You are suppose to laugh only at my jokes! SADNESS!'}
+const SADNESS_SPELL = { counter: '16182062', text: 'What is that smile? You are supposed to laugh only at my jokes! SADNESS!'}
 
 const AlchemistBossBattle: React.FC = () => {
   const { setDialogueBarMessages } = useContext(SessionContext)

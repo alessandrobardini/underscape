@@ -25,7 +25,7 @@ const AlchemistAlcove: React.FC = () => {
       setDialogueBarMessages([
         { character: 'alchemist', message: 'Who the hell dares to sneak into my lair?!?' },
         { character: 'alchemist', message: 'I am SANS, the master alchemist of Magaland and I hate being disturbed!' },
-        { character: 'alchemist', message: 'Moreover, I am the most appreciate comedian of the kingdom!' },
+        { character: 'alchemist', message: 'Moreover, I am the most appreciated comedian of the kingdom!' },
         { character: 'alchemist', message: 'My bone jokes are the best of the best, they are so... HUMERUS!' },
         { character: 'alchemist', message: 'Unless you came here to see my pretty little BONE-sai tree, please go away and let me prepare my standup show!' },
         { character: 'alchemist', message: '... ... ...' },
