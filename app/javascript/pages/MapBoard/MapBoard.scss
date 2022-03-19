@@ -4,4 +4,35 @@
   background-attachment: fixed;
   background-size: cover;
   flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  .row {
+    display: flex;
+    flex-basis: 50%;
+    justify-content: space-around;
+    align-items: center;
+
+    .location {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      font-size: 40px;
+      cursor: pointer;
+      color: black;
+
+      span.done, span.blocked {
+        font-size: 20px;
+      }
+
+      &.done {
+        color: green;
+      }
+
+      &.blocked {
+        color: red;
+      }
+    }
+  }
 }
