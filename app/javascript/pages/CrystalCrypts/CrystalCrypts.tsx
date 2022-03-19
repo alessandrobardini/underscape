@@ -25,7 +25,10 @@ const MAZE_1 = {
   ],
   itemGivenOnMount: 'maze_map_1',
   messagesOnMount: [
-    { character: 'ghost', message: `... Something about the first maze ... ` }
+    { character: 'ghost', message: 'So what? Are you already lost?' },
+    { character: 'ghost', message: 'Come on, your current position is the blue cell! I really need to tell you everything...' },
+    { character: 'ghost', message: 'Are you able to find the exit? Ehehe...' },
+    { character: 'ghost', message: 'Take this and learn something new, you fool!' }
   ]
 }
 
@@ -55,7 +58,7 @@ const MAZE_2 = {
   ],
   itemGivenOnMount: 'maze_map_2',
   messagesOnMount: [
-    { character: 'ghost', message: `... Something about the second maze ... ` }
+    { character: 'ghost', message: `The training is not over yet! Move on, slowpoke!` }
   ]
 }
 
@@ -106,7 +109,7 @@ const MAZE_3 = {
   exit: { row: 1, column: 11 },
   itemGivenOnMount: 'maze_map_3',
   messagesOnMount: [
-    { character: 'ghost', message: `... Something about the third maze ... ` }
+    { character: 'ghost', message: `Boring, boring, boring... You take ages to find the exit!` }
   ]
 }
 
@@ -125,7 +128,7 @@ const MAZE_4 = {
   ],
   itemGivenOnMount: 'maze_map_4',
   messagesOnMount: [
-    { character: 'ghost', message: `... Something about the fourth maze ... ` }
+    { character: 'ghost', message: `Hmm... Actually, you are not so useless...` }
   ],
   numberOfInvisibleLayers: 3
 }
@@ -147,11 +150,24 @@ const CrystalCrypts: React.FC = () => {
   if(bosses.map(({ name }) => name).includes('ghost')) {
     history.goBack()
   }
+  
 
   useEffect(() => {
     if(!bagContainsMaze1Map) {
       setDialogueBarMessages([
-        { character: 'ghost', message: 'Something...', onCloseMessage: () => setMazeIndex(0) }
+        { character: 'ghost', message: 'Uhhh! It\'s been a long time since I received any visits, down here  at the Cyrstal Crypts!' },
+        { character: 'ghost', message: '...' },
+        { character: 'ghost', message: 'Who am I? Wait, are you serious or what?!' },
+        { character: 'ghost', message: `How can you not recognize ${CHARACTERS['ghost'].name}, the great olympic champion?!` },
+        { character: 'ghost', message: 'The king suggested me to come down here to train for the next kingdom games. This is the duty of a gold medalist champion like me!' },
+        { character: 'ghost', message: 'This place is wonderful, full of scary caves and deadly labyrinths!' },
+        { character: 'ghost', message: 'Do you know in which discipline I won my gold medal, right?' },
+        { character: 'ghost', message: '...' },
+        { character: 'ghost', message: 'Soccer? Did you really say "Soccer?"' },
+        { character: 'ghost', message: 'I AM A F**KING GHOST WITH NO LEGS, HOW AM I SUPPOSED TO PLAY SOCCER?' },
+        { character: 'ghost', message: 'Of course, I am the Spooky Sprint champion! It\'s the Magaland national sport!' },
+        { character: 'ghost', message: 'Your insolence bothered me! I have no time to lose with dummies like you...' },
+        { character: 'ghost', message: 'Let\'s test your orienteering skills, ehehe... They are the basis to become a good Spooky Sprint player!', onCloseMessage: () => setMazeIndex(0) }
       ])
     } else {
       if(bagContainsMaze4Map) {
@@ -169,7 +185,7 @@ const CrystalCrypts: React.FC = () => {
 
     const handleMazeSolved = () => { 
       setDialogueBarMessages([
-        { character: 'ghost', message: 'Something that tells you that you cleared the maze', onCloseMessage: () => setMazeIndex(mazeIndex + 1) }
+        { character: 'ghost', message: 'Oh well... this was not really challenging, don\'t think you\'re special!', onCloseMessage: () => setMazeIndex(mazeIndex + 1) }
       ])
     }
 
@@ -235,7 +251,7 @@ const Maze: React.FC<MazeProps> = ({ data: { allowedPath, itemGivenOnMount, mess
     setCanClickOnMaze(false)
     setDialogueBarMessages([
       { message: `Oh no! This cell contains a pit...` },
-      { character: 'ghost', message: `Problems in exiting the maze?` },
+      { character: 'ghost', message: `Sorry, you will never become a Spooky Sprint champion...` },
       { title: 'GAME OVER!', message: '... but you can retry the game!', onCloseMessage: () => location.reload() }
     ])
   }
@@ -320,7 +336,9 @@ const SpookySprint = () => {
     if(!bagContainsSpookySprint) {
     setDialogueBarMessages(
       [
-        { character: 'ghost', message: 'Something about spooky sprint...', onCloseMessage: () => { pickUpItem({ pickableItem: 'spooky_sprint', firstMessage: `${CHARACTERS['ghost'].name} wants to play Spooky Sprint with you!` }); setCanInteractWithGrid(true) } }
+        { character: 'ghost', message: 'Enough, you rookie! These mazes were easy as 1-2-3... ' },
+        { character: 'ghost', message: 'It\'s time for a real challenge! Are you ready to challenge me at Spooky Sprint? ' },
+        { character: 'ghost', message: 'Just for you to know... No one defeated me so far! Eheheh', onCloseMessage: () => { pickUpItem({ pickableItem: 'spooky_sprint', firstMessage: `${CHARACTERS['ghost'].name} wants to play Spooky Sprint with you!` }); setCanInteractWithGrid(true) } }
       ]
     )} else {
       setDialogueBarMessages(
@@ -368,7 +386,7 @@ const SpookySprint = () => {
     if(bombCells.length === 0) {
       clearInterval(timer)
       setDialogueBarMessages([
-        { character: 'ghost', message: `You defeated me!`, disappearAfterSeconds: 3 },
+        { character: 'ghost', message: `What the hell!? You won! This cannot be real!`, disappearAfterSeconds: 3 },
         { message: `Excellent! You defeated ${CHARACTERS['ghost'].name}. You can proceed to the next location now.`, disappearAfterSeconds: 3, onCloseMessage: () => handleBossDefeated() }
       ])
     }

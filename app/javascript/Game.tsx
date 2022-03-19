@@ -50,25 +50,25 @@ export const ITEMS: { [key: string]: ItemType } = {
   },
   'maze_map_1': {
     imageSrc: maze,
-    name: 'How to exit a maze - Chapter 1',
+    name: 'Labyrinths - Chapter 1',
     message: 'When you feel lost...',
     href: 'https://storage.googleapis.com/escape-room-bucket/maze_1.txt'
   },
   'maze_map_2': {
     imageSrc: maze,
-    name: 'How to exit a maze - Chapter 2',
+    name: 'Labyrinths - Chapter 2',
     message: 'When you feel loster...',
     href: 'https://storage.googleapis.com/escape-room-bucket/maze_2.txt'
   },
   'maze_map_3': {
     imageSrc: maze,
-    name: 'How to exit a maze - Chapter 3',
+    name: 'Labyrinths - Chapter 3',
     message: 'When you feel the lostest...',
     href: 'https://storage.googleapis.com/escape-room-bucket/maze_3.txt'
   },
   'maze_map_4': {
     imageSrc: maze,
-    name: 'How to exit a maze - Chapter 4',
+    name: 'Labyrinths - Chapter 4',
     message: 'When you feel the lostest among the lostest...',
     href: 'https://storage.googleapis.com/escape-room-bucket/maze_4.txt'
   },
