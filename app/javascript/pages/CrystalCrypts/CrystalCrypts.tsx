@@ -1,8 +1,8 @@
-import AlchemistBossBattle from 'components/AlchemistAlcove/AlchemistBossBattle'
-import HiddenElement from 'components/Layout/HiddenElement'
-import AnswerSubmission from 'components/Layout/ModalContent/AnswerSubmission'
-import { bagContains, CHARACTERS, DialogueBarMessageType, riddleSolved, SessionContext } from 'Game'
+import { bagContains, CHARACTERS, DialogueBarMessageType, SessionContext } from 'Game'
 import React, { useContext, useEffect, useState } from 'react'
+import Button from 'ui/Button'
+import axios from 'axios'
+import csrfToken from 'helpers/csrfToken'
 import { useHistory } from 'react-router-dom'
 
 import './CrystalCrypts.scss'
@@ -133,12 +133,20 @@ const MAZE_4 = {
 const MAZES = [MAZE_1, MAZE_2, MAZE_3, MAZE_4]
 
 const CrystalCrypts: React.FC = () => {
-  const { setDialogueBarMessages } = useContext(SessionContext)
+  const { setDialogueBarMessages, bosses } = useContext(SessionContext)
   const [mazeIndex, setMazeIndex] = useState(null)
   const bagContainsMaze1Map = bagContains(MAZE_1.itemGivenOnMount)
   const bagContainsMaze2Map = bagContains(MAZE_2.itemGivenOnMount)
   const bagContainsMaze3Map = bagContains(MAZE_3.itemGivenOnMount)
   const bagContainsMaze4Map = bagContains(MAZE_4.itemGivenOnMount)
+  const bagContainsSpookySprint = bagContains('spooky_sprint')
+  const history = useHistory()
+
+  const canRenderSpookySprint = mazeIndex === 4 || bagContainsSpookySprint
+
+  if(bosses.map(({ name }) => name).includes('ghost')) {
+    history.goBack()
+  }
 
   useEffect(() => {
     if(!bagContainsMaze1Map) {
@@ -159,15 +167,19 @@ const CrystalCrypts: React.FC = () => {
     }
   }, [])
 
-  const handleMazeSolved = () => { 
-    setDialogueBarMessages([
-      { character: 'ghost', message: 'Something that tells you that you cleared the maze', onCloseMessage: () => setMazeIndex(mazeIndex + 1) }
-    ])
-  }
+    const handleMazeSolved = () => { 
+      setDialogueBarMessages([
+        { character: 'ghost', message: 'Something that tells you that you cleared the maze', onCloseMessage: () => setMazeIndex(mazeIndex + 1) }
+      ])
+    }
 
 
   return <div className='CrystalCrypts'>
-    {mazeIndex !== null ? <Maze key={mazeIndex} data={MAZES[mazeIndex]} onMazeSolved={handleMazeSolved}  /> : <div className='map' />}
+    {canRenderSpookySprint ? <SpookySprint /> : 
+      (mazeIndex !== null) ?
+        <Maze key={mazeIndex} data={MAZES[mazeIndex]} onMazeSolved={handleMazeSolved}  /> :
+        <div className='map' />
+    }
   </div>
 }
 
@@ -266,6 +278,218 @@ const Maze: React.FC<MazeProps> = ({ data: { allowedPath, itemGivenOnMount, mess
       })}
     </div>
   </div>
+}
+
+const NUMBER_OF_SPOOKY_SPRINT_ROWS = 8
+const NUMBER_OF_SPOOKY_SPRINT_COLUMNS = 8
+const NUMBER_OF_ARROWS_TO_PLACE = 3
+const INITIAL_GHOST_CELL = { row: 7, column: 4, direction: 'up' }
+const EXIT_CELLS = []
+const BOMB_CELLS = [
+  { row: 2, column: 1 },
+  { row: 3, column: 5 },
+  { row: 5, column: 2 }
+]
+const ARROW_CELLS = [
+  { row: 1, column: 1, direction: 'down' },
+  { row: 2, column: 2 , direction: 'left' },
+  { row: 1, column: 6, direction: 'left' },
+  { row: 6, column: 6, direction: 'left' },
+  { row: 5, column: 5, direction: 'right' },
+  { row: 4, column: 5, direction: 'up' },
+]
+
+const NEXT_DIRECTION = {
+  'up' : 'right',
+  'right': 'down',
+  'down': 'left',
+  'left': 'up'
+}
+
+const SpookySprint = () => {
+  const { setDialogueBarMessages, pickUpItem } = useContext(SessionContext)
+  const bagContainsSpookySprint = bagContains('spooky_sprint')
+  const [canInteractWithGrid, setCanInteractWithGrid] = useState(false)
+  const [placedArrows, setPlacedArrows] = useState([])
+  const [isGameInProgress, setIsGameInProgress] = useState(false)
+  const [ghostPosition, setGhostPosition] = useState(INITIAL_GHOST_CELL)
+  const [timer, setTimer] = useState(null)
+  const [bombCells, setBombCells] = useState(BOMB_CELLS)
+
+  useEffect(() => {
+    if(!bagContainsSpookySprint) {
+    setDialogueBarMessages(
+      [
+        { character: 'ghost', message: 'Something about spooky sprint...', onCloseMessage: () => { pickUpItem({ pickableItem: 'spooky_sprint', firstMessage: `${CHARACTERS['ghost'].name} wants to play Spooky Sprint with you!` }); setCanInteractWithGrid(true) } }
+      ]
+    )} else {
+      setDialogueBarMessages(
+        [
+          { character: 'ghost', message: 'Come on!', onCloseMessage: () => setCanInteractWithGrid(true)},
+        ]
+      )}
+  }, [])
+
+  useEffect(() => {
+    if(isGameInProgress) {
+      setTimer(setInterval(() => {
+        setGhostPosition(ghostPosition => ({...nextGhostPosition(ghostPosition), direction: ghostPosition.direction }))
+      }, 1000))
+      return () => timer && clearInterval(timer)
+    }
+  }, [isGameInProgress == true])
+
+  useEffect(() => {
+    if(ghostPosition !== INITIAL_GHOST_CELL) {
+      if(isExit(ghostPosition.row, ghostPosition.column)) {
+        clearInterval(timer)
+        setDialogueBarMessages([
+          { message: `Oh no! ${CHARACTERS['ghost'].name} reached the exit...` },
+          { character: 'ghost', message: 'And the Spooky Sprint champion is still...' },
+          { title: 'GAME OVER!', message: '... but you can retry the game!', onCloseMessage: () => location.reload() }
+        ])
+      }
+      if((isArrowCell(ghostPosition.row, ghostPosition.column) || isPlacedArrowCell(ghostPosition.row, ghostPosition.column)) && ghostPosition.direction !== getArrow(ghostPosition.row, ghostPosition.column).direction) {
+        setDialogueBarMessages([
+          { message: `${CHARACTERS['ghost'].name} changes direction!`, disappearAfterSeconds: 0.5 }
+        ])
+        setGhostPosition({...ghostPosition, direction: getArrow(ghostPosition.row, ghostPosition.column).direction})
+      }
+      if((isBombCell(ghostPosition.row, ghostPosition.column))) {
+        setDialogueBarMessages([
+          { message: `The bomb damaged ${CHARACTERS['ghost'].name}!`, disappearAfterSeconds: 0.5 }
+        ])
+        setBombCells([...bombCells.filter(bombCell => bombCell.row !== ghostPosition.row || bombCell.column !== ghostPosition.column)])
+      }
+    }
+  }, [ghostPosition])
+
+  useEffect(() => {
+    if(bombCells.length === 0) {
+      clearInterval(timer)
+      setDialogueBarMessages([
+        { character: 'ghost', message: `You defeated me!`, disappearAfterSeconds: 3 },
+        { message: `Excellent! You defeated ${CHARACTERS['ghost'].name}. You can proceed to the next location now.`, disappearAfterSeconds: 3, onCloseMessage: () => handleBossDefeated() }
+      ])
+    }
+  }, [bombCells])
+
+  const isExit = (rowIndex, columnIndex) => {
+    return ((rowIndex === 0) || 
+    (rowIndex + 1 === NUMBER_OF_SPOOKY_SPRINT_ROWS) ||
+    (columnIndex === 0) || 
+    (columnIndex + 1) === NUMBER_OF_SPOOKY_SPRINT_COLUMNS) || EXIT_CELLS.filter(({ row: bombRowIndex, column: bombColumnIndex }) => bombRowIndex === rowIndex && bombColumnIndex === columnIndex).length > 0
+  }
+
+  const isBombCell = (rowIndex, columnIndex) => {
+    return bombCells.filter(({ row: bombRowIndex, column: bombColumnIndex }) => bombRowIndex === rowIndex && bombColumnIndex === columnIndex).length > 0
+  }
+
+  const isArrowCell = (rowIndex, columnIndex) => {
+    return ARROW_CELLS.filter(({ row: arrowRowIndex, column: arrowColumnIndex }) => arrowRowIndex === rowIndex && arrowColumnIndex === columnIndex).length > 0
+  }
+
+  const isPlacedArrowCell = (rowIndex, columnIndex) => {
+    return placedArrows.filter(({ row: arrowRowIndex, column: arrowColumnIndex }) => arrowRowIndex === rowIndex && arrowColumnIndex === columnIndex).length > 0
+  }
+
+  const isPossibleToPlaceArrow = (rowIndex, columnIndex) => {
+    return (NUMBER_OF_ARROWS_TO_PLACE - placedArrows.length > 0) &&!(isBombCell(rowIndex, columnIndex) || isExit(rowIndex, columnIndex) || isArrowCell(rowIndex, columnIndex)) 
+  }
+
+  const placeArrow = (rowIndex, columnIndex) => {
+    setPlacedArrows([...placedArrows, { row: rowIndex, column: columnIndex, direction: 'up' }])
+  }
+
+  const changeArrowDirection = (rowIndex, columnIndex) => {
+    const currentArrow = getArrow(rowIndex, columnIndex)
+    const updatedArrows = [...placedArrows.filter((arrow) => arrow.row !== rowIndex || arrow.column !== columnIndex), { ...currentArrow, direction: NEXT_DIRECTION[currentArrow.direction]}]
+    setPlacedArrows(updatedArrows)  
+  }
+
+  const getArrow = (rowIndex, columnIndex) => {
+    return ARROW_CELLS.concat(placedArrows).find(({ row: arrowRowIndex, column: arrowColumnIndex }) => arrowRowIndex === rowIndex && arrowColumnIndex === columnIndex)
+  }
+
+  const isGhostPosition = (rowIndex, columnIndex) => {
+    return ghostPosition.row  === rowIndex && ghostPosition.column === columnIndex
+  }
+
+  const nextGhostPosition = (ghostPosition) => {
+    switch (ghostPosition.direction) {
+      case 'up': return { row: ghostPosition.row - 1, column: ghostPosition.column }
+      case 'down': return { row: ghostPosition.row + 1, column: ghostPosition.column }
+      case 'left': return { row: ghostPosition.row, column: ghostPosition.column - 1 }
+      case 'right': return { row: ghostPosition.row, column: ghostPosition.column + 1 }
+    }
+  }
+
+  const handleResetPlacedArrows = () => {
+    setPlacedArrows([])  
+  }
+
+  const handleStartSpookySprint = () => {
+    setIsGameInProgress(true)
+  }
+
+  const numberOfArrowsToPlaceYet = NUMBER_OF_ARROWS_TO_PLACE - placedArrows.length
+
+  return <div className='Grid'>
+    <div className='container'>
+      <div className='column'>
+      </div>
+      <div className='column'>
+        <div className='board'>
+          {Array.from(Array(NUMBER_OF_SPOOKY_SPRINT_ROWS).keys()).map((rowIndex) => {
+            return <div key={rowIndex} className='row'>
+              {Array.from(Array(NUMBER_OF_SPOOKY_SPRINT_COLUMNS).keys()).map((columnIndex) => {
+                const bomb = isBombCell(rowIndex, columnIndex)
+                const exit = isExit(rowIndex, columnIndex)
+                const ghost = isGhostPosition(rowIndex, columnIndex)
+                const arrow = isArrowCell(rowIndex, columnIndex)
+                const placedArrow = isPlacedArrowCell(rowIndex, columnIndex)
+                const possibleToPlaceArrow = isPossibleToPlaceArrow(rowIndex, columnIndex)
+                const possibleToChangeArrowPosition = isPlacedArrowCell(rowIndex, columnIndex)
+                return <div key={columnIndex} className={`${(exit && !ghost) && 'exit'} ${bomb && 'bomb'} cell`} {...((canInteractWithGrid && !isGameInProgress) && { onClick: () => possibleToChangeArrowPosition ? changeArrowDirection(rowIndex, columnIndex) : possibleToPlaceArrow ? placeArrow(rowIndex, columnIndex) : null } )} >
+                  <span>{ghost ? <img src={CHARACTERS['ghost'].imageSrc} /> : (arrow || placedArrow) ? <i className={`fa fa-arrow-${getArrow(rowIndex, columnIndex).direction}`} /> : bomb ? 'BOMB' : exit ? 'EXIT' : ''}</span>
+                </div>
+              })}
+            </div>
+          })}
+        </div>
+      </div>
+      <div className='column'>
+        <div className='commands'>
+          {canInteractWithGrid &&
+            <>
+              {numberOfArrowsToPlaceYet > 0 ? <div className='arrows'>
+                <span>{`You need to place ${numberOfArrowsToPlaceYet} arrows yet.`}</span>
+                <span>Click on the board to place an arrow.</span>
+                <span>Click again to change its direction.</span>
+                <Button size='s' onClick={handleResetPlacedArrows}>Reset placed arrows</Button>
+              </div> : <>
+                {isGameInProgress ? <>
+                  <span>SPOOKY SPRINT IS IN PROGRESS!</span>
+                </> : <>
+                  <Button size='s' onClick={handleStartSpookySprint}>Start Spooky Sprint!</Button>
+                  <Button size='s' onClick={handleResetPlacedArrows}>Reset placed arrows</Button>
+                </> }
+              </>
+              }
+            </>
+          }
+        </div>
+      </div>
+    </div>
+  </div>
+}
+
+const handleBossDefeated = () => {
+  axios.post(
+    '/bosses',
+    { boss: { name: 'ghost' }, authenticity_token: csrfToken() },
+    { headers: { Accept: 'application/json' }, responseType: 'json' }
+  ).then(() => location.reload())
 }
 
 export default CrystalCrypts 

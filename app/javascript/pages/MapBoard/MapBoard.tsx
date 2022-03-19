@@ -8,7 +8,7 @@ const MapBoard: React.FC = () => {
   const history = useHistory()
   return <div className='MapBoard'>
     <Button onClick={() => history.push(appPath('/alchemist'))}>Alchemist Alcove</Button>
-    <Button onClick={() => history.push(appPath('/miner'))}>Crystal Crypts</Button>
+    <Button onClick={() => history.push(appPath('/crypts'))}>Crystal Crypts</Button>
   </div>
 }
 

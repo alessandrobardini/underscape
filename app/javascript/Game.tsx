@@ -13,6 +13,7 @@ import spells from 'images/spells.jpg'
 import maze from 'images/maze.png'
 import alchemist from 'images/alchemist_boss.png'
 import ghost from 'images/ghost.png'
+import sprint from 'images/spooky.png'
 import Modal from 'components/Layout/Modal'
 
 import './Game.scss'
@@ -70,6 +71,12 @@ export const ITEMS: { [key: string]: ItemType } = {
     name: 'How to exit a maze - Chapter 4',
     message: 'When you feel the lostest among the lostest...',
     href: 'https://storage.googleapis.com/escape-room-bucket/maze_4.txt'
+  },
+  'spooky_sprint': {
+    imageSrc: sprint,
+    name: 'How to play Spooky Sprint',
+    message: 'Better than the Squid Game',
+    href: 'https://storage.googleapis.com/escape-room-bucket/spooky_sprint.txt'
   }
 }
 
@@ -178,7 +185,7 @@ const Game: React.FC<GameProps> = (props) => {
         <Switch>
           <Route exact path={appPath('/map')} component={MapBoard} />
           <Route exact path={appPath('/alchemist')} component={AlchemistAlcove} />
-          <Route exact path={appPath('/miner')} component={CrystalCrypts} />
+          <Route exact path={appPath('/crypts')} component={CrystalCrypts} />
           <Route component={NotFound} />
         </Switch>
         { modalChildren && <Modal closeModal={closeModal}>
