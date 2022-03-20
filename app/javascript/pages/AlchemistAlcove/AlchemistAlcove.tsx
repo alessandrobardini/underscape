@@ -1,7 +1,7 @@
 import AlchemistBossBattle from 'components/AlchemistAlcove/AlchemistBossBattle'
 import HiddenElement from 'components/Layout/HiddenElement'
 import AnswerSubmission from 'components/Layout/ModalContent/AnswerSubmission'
-import { bagContains, riddleSolved, SessionContext } from 'Game'
+import { bagContains, CHARACTERS, riddleSolved, SessionContext } from 'Game'
 import React, { useContext, useEffect, useState } from 'react'
 import { useHistory } from 'react-router-dom'
 
@@ -24,7 +24,7 @@ const AlchemistAlcove: React.FC = () => {
     if(items.length === 0) {
       setDialogueBarMessages([
         { character: 'alchemist', message: 'Who the hell dares to sneak into my lair?!?' },
-        { character: 'alchemist', message: 'I am SANS, the master alchemist of Magaland and I hate being disturbed!' },
+        { character: 'alchemist', message: `I am ${CHARACTERS['alchemist'].name}, the master alchemist of Magaland and I hate being disturbed!` },
         { character: 'alchemist', message: 'Moreover, I am the most appreciated comedian of the kingdom!' },
         { character: 'alchemist', message: 'My bone jokes are the best of the best, they are so... HUMERUS!' },
         { character: 'alchemist', message: 'Unless you came here to see my pretty little BONE-sai tree, please go away and let me prepare my standup show!' },
