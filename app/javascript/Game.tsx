@@ -212,7 +212,7 @@ const Game: React.FC<GameProps> = (props) => {
           <Route exact path={appPath('/alchemist')} component={AlchemistAlcove} />
           <Route exact path={appPath('/crypts')} component={CrystalCrypts} />
           <Route exact path={appPath('/wall')} component={WallBreach} />
-          <Route exact path={appPath('/MIAOOOOWASDFGHJKL')} component={DemiurgeBattle} />
+          <Route exact path={appPath('/MIAOOOOW789ASDFGHJKL')} component={DemiurgeBattle} />
           <Route component={NotFound} />
         </Switch>
         { modalChildren && <Modal closeModal={closeModal}>
