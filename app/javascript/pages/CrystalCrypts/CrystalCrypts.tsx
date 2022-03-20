@@ -6,6 +6,7 @@ import csrfToken from 'helpers/csrfToken'
 import { useHistory } from 'react-router-dom'
 
 import './CrystalCrypts.scss'
+import { appPath } from 'App'
 
 const MAZE_1 = {
   allowedPath: [
@@ -148,7 +149,7 @@ const CrystalCrypts: React.FC = () => {
   const canRenderSpookySprint = mazeIndex === 4 || bagContainsSpookySprint
 
   if(bosses.map(({ name }) => name).includes('ghost')) {
-    history.goBack()
+    history.replace(appPath('/map'))
   }
   
 

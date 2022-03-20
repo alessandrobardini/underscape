@@ -1,3 +1,4 @@
+import { appPath } from 'App'
 import AlchemistBossBattle from 'components/AlchemistAlcove/AlchemistBossBattle'
 import HiddenElement from 'components/Layout/HiddenElement'
 import AnswerSubmission from 'components/Layout/ModalContent/AnswerSubmission'
@@ -17,7 +18,7 @@ const AlchemistAlcove: React.FC = () => {
   const canProceedToBossBattle = alchemistRiddleSolved && bookOfSpellsAlreadyFound
 
   if(bosses.map(({ name }) => name).includes('alchemist')) {
-    history.goBack()
+    history.replace(appPath('/map'))
   }
 
   useEffect(() => {

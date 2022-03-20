@@ -5,39 +5,40 @@ import { useHistory } from 'react-router-dom'
 import './MapBoard.scss'
 
 const MapBoard: React.FC = () => {
-  const history = useHistory()
-  const { bosses } = useContext(SessionContext)
-
-  const alchemistDefeated = bosses.map(({ name }) => name).includes('alchemist')
-  const ghostDefeated = bosses.map(({ name }) => name).includes('ghost')
-  const demiurgeDefeated = bosses.map(({ name }) => name).includes('demiurge')
-
   return <div className='MapBoard'>
     <div className='row'>
-      <div className={`location ${alchemistDefeated ? 'done' : ''}`} {...(!alchemistDefeated && { onClick: () => history.push(appPath('/crypts'))})}>
-        <i className='fa fa-magic'/>
-        <span>Alchemist Alcove</span>
-        {alchemistDefeated && <span className='done'>DONE!</span>}
-      </div>
-      <div className={`location ${!alchemistDefeated ? 'blocked' : ''} ${ghostDefeated ? 'done' : ''}`} {...((!ghostDefeated)  && { onClick: () => history.push(appPath('/crypts'))})}>
-        <i className='fa fa-diamond'/>
-        <span>Crystal Crypts</span>
-        {/* {!alchemistDefeated && <span className='blocked'>LOCKED</span>} */}
-        {ghostDefeated && <span className='done'>DONE!</span>}
-      </div>
+      <Location title='Alchemist Alcove' icon='fa-magic' currentBoss='alchemist' path='/alchemist'/>
+      <Location title='Crystal Crypts' icon='fa-diamond' currentBoss='ghost' previousBoss='alchemist' path='/crypts'/>
     </div>
     <div className='row'>
-      <div className={`location ${!ghostDefeated ? 'blocked' : ''} ${demiurgeDefeated ? 'done' : ''}`} {...((!demiurgeDefeated)  && { onClick: () => history.push(appPath('/wall'))})}>
-        <i className='fa fa-building'/>
-        <span>(Fourth) Wall Breach</span>
-        {/* {!ghostDefeated && <span className='blocked'>LOCKED</span>} */}
-        {demiurgeDefeated && <span className='done'>DONE!</span>}
-      </div>
+      <Location title='(Fourth) Wall Breach' icon='fa-building' currentBoss='demiurge' previousBoss='ghost' path='/wall'/>
       <div className='location' onClick={() => alert('TODO')}>
         <i className='fa fa-diamond'/>
         <span>TODO</span>
       </div>
     </div>
+  </div>
+}
+
+type LocationProps = {
+  icon: string
+  title: string
+  path: string
+  previousBoss?: string 
+  currentBoss: string
+}
+
+const Location: React.FC<LocationProps> = ({ previousBoss = null, currentBoss, title, icon, path }) => {
+  const { bosses } = useContext(SessionContext)
+  const history = useHistory()
+  const previousBossDefeated = previousBoss === null ? true: bosses.map(({ name }) => name).includes(previousBoss)
+  const currentBossDefeated = bosses.map(({ name }) => name).includes(currentBoss)
+
+  return <div className={`location ${!previousBossDefeated ? 'blocked' : ''} ${currentBossDefeated ? 'done' : ''}`} {...((!currentBossDefeated && previousBossDefeated) && { onClick: () => history.push(appPath(path))})}>
+    <i className={`fa ${icon}`}/>
+    <span>{title}</span>
+    {!previousBossDefeated && <span className='blocked'>LOCKED</span>}
+    {currentBossDefeated && <span className='done'>DONE!</span>}
   </div>
 }
 
