@@ -5,6 +5,7 @@ import { useHistory } from 'react-router-dom'
 import './MapBoard.scss'
 
 const MapBoard: React.FC = () => {
+  // NB: if you want to quickly test an area without going through the previous ones, simply remove the previousBoss prop from Location
   return <div className='MapBoard'>
     <div className='row'>
       <Location title='Alchemist Alcove' icon='fa-magic' currentBoss='alchemist' path='/alchemist'/>
