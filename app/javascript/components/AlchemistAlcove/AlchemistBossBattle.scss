@@ -15,6 +15,11 @@
       align-items: center;
       flex-direction: column;
 
+      &.with-form {
+      justify-content: flex-start;
+      margin-top: 20px;
+    }
+
       &.blink-red {
         animation: blink-red 5s infinite;
         animation-iteration-count: infinite;

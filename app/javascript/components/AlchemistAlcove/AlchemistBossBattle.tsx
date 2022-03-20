@@ -308,8 +308,8 @@ const NamedSpellsPhase: React.FC<NamesSpellsPhaseProps> = ({ messagesOnMount, sh
   const checkAnswer = (answer) => Promise.resolve({ data: { ok: answer === spell.counter } })
 
   return <div className='AlchemistBossBattle'>
-    <div className={'alchemist-area'}>
-      <div className={`alchemist-image ${showBlinking ? 'blink-crazy' : ''}`}>
+    <div className='alchemist-area named'>
+      <div className={`alchemist-image ${showBlinking ? 'blink-crazy' : ''} ${showForm ? 'with-form' : ''}`}>
       <img src={alchemist} className={imageClass}></img>
         {showForm && 
           <div>
