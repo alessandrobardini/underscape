@@ -13,13 +13,18 @@ import spells from 'images/spells.jpg'
 import maze from 'images/maze.png'
 import alchemist from 'images/alchemist_boss.png'
 import ghost from 'images/ghost.png'
+import demiurge from 'images/demiurge.png'
 import sprint from 'images/spooky.png'
+import password from 'images/password.png'
+import cat from 'images/kitty.jpeg'
 import Modal from 'components/Layout/Modal'
-
-import './Game.scss'
 import CrystalCrypts from 'pages/CrystalCrypts/CrystalCrypts'
 import axios from 'axios'
 import csrfToken from 'helpers/csrfToken'
+import WallBreach from 'pages/WallBreach/WallBreach'
+
+import './Game.scss'
+import DemiurgeBattle from 'pages/DemiurgeBattle/DemiurgeBattle'
 
 export type ItemType = {
   imageSrc: string
@@ -77,6 +82,18 @@ export const ITEMS: { [key: string]: ItemType } = {
     name: 'How to play Spooky Sprint',
     message: 'Better than the Squid Game',
     href: 'https://storage.googleapis.com/escape-room-bucket/spooky_sprint.txt'
+  },
+  'psychological_note': {
+    imageSrc: textFile,
+    name: 'Medical records',
+    message: 'Of a medieval psychologist',
+    href: 'https://storage.googleapis.com/escape-room-bucket/psychological.txt'
+  },
+  'password': {
+    imageSrc: password,
+    name: 'Password',
+    message: 'Do not share with anyone! - The demiurge',
+    href: 'https://storage.googleapis.com/escape-room-bucket/mystery.txt'
   }
 }
 
@@ -88,6 +105,14 @@ export const CHARACTERS = {
   'ghost' : {
     imageSrc: ghost,
     name: 'Napstablook'
+  },
+  'demiurge' : {
+    imageSrc: demiurge,
+    name: 'Papyrus'
+  },
+  'cat' : {
+    imageSrc: cat,
+    name: 'Kitty'
   }
 }
 
@@ -186,6 +211,8 @@ const Game: React.FC<GameProps> = (props) => {
           <Route exact path={appPath('/map')} component={MapBoard} />
           <Route exact path={appPath('/alchemist')} component={AlchemistAlcove} />
           <Route exact path={appPath('/crypts')} component={CrystalCrypts} />
+          <Route exact path={appPath('/wall')} component={WallBreach} />
+          <Route exact path={appPath('/MIAOOOOWASDFGHJKL')} component={DemiurgeBattle} />
           <Route component={NotFound} />
         </Switch>
         { modalChildren && <Modal closeModal={closeModal}>

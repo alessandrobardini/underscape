@@ -10,25 +10,28 @@ const MapBoard: React.FC = () => {
 
   const alchemistDefeated = bosses.map(({ name }) => name).includes('alchemist')
   const ghostDefeated = bosses.map(({ name }) => name).includes('ghost')
+  const demiurgeDefeated = bosses.map(({ name }) => name).includes('demiurge')
 
   return <div className='MapBoard'>
     <div className='row'>
-      <div className={`location ${alchemistDefeated ? 'done' : ''}`} onClick={() => history.push(appPath('/alchemist'))}>
+      <div className={`location ${alchemistDefeated ? 'done' : ''}`} {...(!alchemistDefeated && { onClick: () => history.push(appPath('/crypts'))})}>
         <i className='fa fa-magic'/>
         <span>Alchemist Alcove</span>
         {alchemistDefeated && <span className='done'>DONE!</span>}
       </div>
-      <div className={`location ${!alchemistDefeated ? 'blocked' : ''} ${ghostDefeated ? 'done' : ''}`} {...(alchemistDefeated && { onClick: () => history.push(appPath('/crypts'))})}>
+      <div className={`location ${!alchemistDefeated ? 'blocked' : ''} ${ghostDefeated ? 'done' : ''}`} {...((!ghostDefeated)  && { onClick: () => history.push(appPath('/crypts'))})}>
         <i className='fa fa-diamond'/>
         <span>Crystal Crypts</span>
-        {!alchemistDefeated && <span className='blocked'>LOCKED</span>}
+        {/* {!alchemistDefeated && <span className='blocked'>LOCKED</span>} */}
         {ghostDefeated && <span className='done'>DONE!</span>}
       </div>
     </div>
     <div className='row'>
-      <div className='location' onClick={() => alert('TODO')}>
-        <i className='fa fa-magic'/>
-        <span>TODO</span>
+      <div className={`location ${!ghostDefeated ? 'blocked' : ''} ${demiurgeDefeated ? 'done' : ''}`} {...((!demiurgeDefeated)  && { onClick: () => history.push(appPath('/wall'))})}>
+        <i className='fa fa-building'/>
+        <span>(Fourth) Wall Breach</span>
+        {/* {!ghostDefeated && <span className='blocked'>LOCKED</span>} */}
+        {demiurgeDefeated && <span className='done'>DONE!</span>}
       </div>
       <div className='location' onClick={() => alert('TODO')}>
         <i className='fa fa-diamond'/>
