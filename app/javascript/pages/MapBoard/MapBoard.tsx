@@ -9,6 +9,7 @@ const MapBoard: React.FC = () => {
   return <div className='MapBoard'>
     <Button onClick={() => history.push(appPath('/alchemist'))}>Alchemist Alcove</Button>
     <Button onClick={() => history.push(appPath('/miner'))}>Crystal Crypts</Button>
+    <Button onClick={() => history.push(appPath('/booby_traps'))}>Booby Traps</Button>
   </div>
 }
 

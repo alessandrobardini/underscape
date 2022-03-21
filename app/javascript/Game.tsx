@@ -19,6 +19,7 @@ import './Game.scss'
 import CrystalCrypts from 'pages/CrystalCrypts/CrystalCrypts'
 import axios from 'axios'
 import csrfToken from 'helpers/csrfToken'
+import BoobyTraps from "./pages/BoobyTraps/BoobyTraps";
 
 export type ItemType = {
   imageSrc: string
@@ -99,6 +100,7 @@ export type SessionContextType = {
     name: string
   }[],
   gameEndsAt: string,
+  lives: number,
   setDialogueBarMessages: (messages: Array<DialogueBarMessageType>) => void
   setModalChildren: (children: JSX.Element) => void
   closeModal: () => void
@@ -152,7 +154,7 @@ const Game: React.FC<GameProps> = (props) => {
   const pickUpItem = ({ pickableItem, firstMessage = null, lastMessage = null }) => {
     const { imageSrc, name, message } = ITEMS[pickableItem]
     setDialogueBarMessages([
-      { message: firstMessage || 'You found an item!' }, 
+      { message: firstMessage || 'You found an item!' },
       { imageSrc, title: name, message },
       { message: lastMessage || 'You put the item in your bag', onCloseMessage: () =>
         axios.post(
@@ -179,6 +181,7 @@ const Game: React.FC<GameProps> = (props) => {
           <Route exact path={appPath('/map')} component={MapBoard} />
           <Route exact path={appPath('/alchemist')} component={AlchemistAlcove} />
           <Route exact path={appPath('/miner')} component={CrystalCrypts} />
+          <Route exact path={appPath('/booby_traps')} component={BoobyTraps} />
           <Route component={NotFound} />
         </Switch>
         { modalChildren && <Modal closeModal={closeModal}>
