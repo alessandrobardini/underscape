@@ -6,9 +6,9 @@ import cat from 'images/kitty.jpeg'
 import './WallBreach.scss'
 
 const CATS = [
-  { age: '4 ', answer: 'MEOOOOOOW!' },
-  { age: '9 ', answer: 'MIAOOOOW!' },
-  { age: '2 ', answer: 'MIAW-MEOWWWW!' }
+  { age: '4 ', answer: 'MEOOOOOOW' },
+  { age: '9 ', answer: 'MIAOOOOW' },
+  { age: '2 ', answer: 'MIAW-MEOWWWW' }
 ]
 
 const SEQUENCE = '535241'
