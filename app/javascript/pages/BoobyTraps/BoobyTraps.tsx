@@ -3,6 +3,7 @@ import React, {useContext, useEffect, useState} from 'react'
 import './BoobyTraps.scss'
 import {SessionContext} from "../../Game";
 import HiddenElement from "../../components/Layout/HiddenElement";
+import {generateCode} from "../../helpers/morseGenerator";
 
 const BoobyTraps: React.FC = () => {
 
@@ -10,31 +11,6 @@ const BoobyTraps: React.FC = () => {
   const [corridorLights, setCorridorLights] = useState(true)
   const [lanternLight, setLanternLight] = useState(false)
   const [lanternClassName, setLanternClassName] = useState('light')
-
-  let phrase = 'Light'
-  phrase = phrase.toLowerCase().replace(/[^a-z]/g, '')
-
-  const alphabet = {
-    'a': '.-', 'b': '-...', 'c': '-.-.', 'd': '-..',
-    'e': '.', 'f': '..-.', 'g': '--.', 'h': '....',
-    'i': '..', 'j': '.---', 'k': '-.-', 'l': '.-..',
-    'm': '--', 'n': '-.', 'o': '---', 'p': '.--.',
-    'q': '--.-', 'r': '.-.', 's': '...', 't': '-',
-    'u': '..-', 'v': '...-', 'w': '.--', 'x': '-..-',
-    'y': '-.--', 'z': '--..', ' ': '/',
-    '1': '.----', '2': '..---', '3': '...--', '4': '....-',
-    '5': '.....', '6': '-....', '7': '--...', '8': '---..',
-    '9': '----.', '0': '-----',
-  }
-
-  phrase = phrase
-    .split('')            // Transform the string into an array: ['T', 'h', 'i', 's'...
-    .map(function (e) {     // Replace each character with a morse "letter"
-      return alphabet[e.toLowerCase()] || '' // Lowercase only, ignore unknown characters.
-    })
-    .join(' ')
-
-  const phraseArray = phrase.split('')
 
   useEffect(() => {
     setDialogueBarMessages([
@@ -64,7 +40,7 @@ const BoobyTraps: React.FC = () => {
   let i = 0
   let time = 0
 
-  const playMorseCode = () => {
+  const playMorseCode = (phrase) => {
     if (lanternClassName) {
       setTimeout(function () {
         console.log(phrase[i])
@@ -83,7 +59,7 @@ const BoobyTraps: React.FC = () => {
         i++
 
         if (i < phrase.length) {
-          playMorseCode()
+          playMorseCode(phrase)
         } else {
           i = 0
           setTimeout(() => playMorseCode, 5000)
@@ -96,7 +72,8 @@ const BoobyTraps: React.FC = () => {
   const switchLanternLights = () => {
     if (corridorLights == false) {
       setLanternLight(true)
-      playMorseCode()
+      const phrase = generateCode('light')
+      playMorseCode(phrase)
     }
   }
 
@@ -118,6 +95,14 @@ const BoobyTraps: React.FC = () => {
     <div className={corridorLights ? 'corridor' : 'dark-corridor'}>
       <HiddenElement top='160px' left='900px' width='110px' height='40px' onClick={() => switchCorridorLights()}/>
       <HiddenElement extraClassName={lanternLight ? lanternClassName : 'light-off'} top='370px' left='830px'
+                     width='35px' height='35px' onClick={() => switchLanternLights()}/>
+      <HiddenElement extraClassName={lanternLight ? lanternClassName : 'light-off'} top='380px' left='870px'
+                     width='35px' height='35px' onClick={() => switchLanternLights()}/>
+      <HiddenElement extraClassName={lanternLight ? lanternClassName : 'light-off'} top='370px' left='1060px'
+                     width='35px' height='35px' />
+      <HiddenElement extraClassName={lanternLight ? lanternClassName : 'light-off'} top='320px' left='700px'
+                     width='35px' height='35px' onClick={() => switchLanternLights()}/>
+      <HiddenElement extraClassName={lanternLight ? lanternClassName : 'light-off'} top='320px' left='1190px'
                      width='35px' height='35px' onClick={() => switchLanternLights()}/>
     </div>
   </div>
