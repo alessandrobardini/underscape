@@ -10,6 +10,26 @@
   }
 
   .Grid {
+    .container {
+      display: flex;
+
+      .column {
+        flex-basis: 33%;
+
+        .commands {
+          display: flex;
+          height: 100%;
+          flex-direction: column;
+          justify-content: center;
+        }
+
+        .arrows {
+          display: flex;
+          flex-direction: column;
+        }
+      }
+    }
+
     .board {
       height: calc(100vh - 50px);
       display: flex;
@@ -44,6 +64,20 @@
           &.exit {
             background-color: goldenrod;
             cursor: default;
+          }
+
+          &.bomb {
+            background-color: black;
+            cursor: default;
+            color: white;
+          }
+
+          i {
+            font-size: 20px;
+          }
+
+          img {
+            width: 50px;
           }
         }
       }

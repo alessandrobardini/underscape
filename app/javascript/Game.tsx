@@ -13,13 +13,19 @@ import spells from 'images/spells.jpg'
 import maze from 'images/maze.png'
 import alchemist from 'images/alchemist_boss.png'
 import ghost from 'images/ghost.png'
+import demiurge from 'images/demiurge.png'
+import sprint from 'images/spooky.png'
+import password from 'images/password.png'
+import cat from 'images/kitty.jpeg'
 import Modal from 'components/Layout/Modal'
-
-import './Game.scss'
 import CrystalCrypts from 'pages/CrystalCrypts/CrystalCrypts'
 import axios from 'axios'
 import csrfToken from 'helpers/csrfToken'
 import BoobyTraps from "./pages/BoobyTraps/BoobyTraps";
+import WallBreach from 'pages/WallBreach/WallBreach'
+
+import './Game.scss'
+import DemiurgeBattle from 'pages/DemiurgeBattle/DemiurgeBattle'
 
 export type ItemType = {
   imageSrc: string
@@ -50,27 +56,45 @@ export const ITEMS: { [key: string]: ItemType } = {
   },
   'maze_map_1': {
     imageSrc: maze,
-    name: 'How to exit a maze - Chapter 1',
+    name: 'Labyrinths - Chapter 1',
     message: 'When you feel lost...',
     href: 'https://storage.googleapis.com/escape-room-bucket/maze_1.txt'
   },
   'maze_map_2': {
     imageSrc: maze,
-    name: 'How to exit a maze - Chapter 2',
+    name: 'Labyrinths - Chapter 2',
     message: 'When you feel loster...',
     href: 'https://storage.googleapis.com/escape-room-bucket/maze_2.txt'
   },
   'maze_map_3': {
     imageSrc: maze,
-    name: 'How to exit a maze - Chapter 3',
+    name: 'Labyrinths - Chapter 3',
     message: 'When you feel the lostest...',
     href: 'https://storage.googleapis.com/escape-room-bucket/maze_3.txt'
   },
   'maze_map_4': {
     imageSrc: maze,
-    name: 'How to exit a maze - Chapter 4',
+    name: 'Labyrinths - Chapter 4',
     message: 'When you feel the lostest among the lostest...',
     href: 'https://storage.googleapis.com/escape-room-bucket/maze_4.txt'
+  },
+  'spooky_sprint': {
+    imageSrc: sprint,
+    name: 'How to play Spooky Sprint',
+    message: 'Better than the Squid Game',
+    href: 'https://storage.googleapis.com/escape-room-bucket/spooky_sprint.txt'
+  },
+  'psychological_note': {
+    imageSrc: textFile,
+    name: 'Medical records',
+    message: 'Of a medieval psychologist',
+    href: 'https://storage.googleapis.com/escape-room-bucket/psychological.txt'
+  },
+  'password': {
+    imageSrc: password,
+    name: 'Password',
+    message: 'Do not share with anyone! - The demiurge',
+    href: 'https://storage.googleapis.com/escape-room-bucket/mystery.txt'
   }
 }
 
@@ -82,6 +106,14 @@ export const CHARACTERS = {
   'ghost' : {
     imageSrc: ghost,
     name: 'Napstablook'
+  },
+  'demiurge' : {
+    imageSrc: demiurge,
+    name: 'Papyrus'
+  },
+  'cat' : {
+    imageSrc: cat,
+    name: 'Kitty'
   }
 }
 
@@ -180,7 +212,9 @@ const Game: React.FC<GameProps> = (props) => {
         <Switch>
           <Route exact path={appPath('/map')} component={MapBoard} />
           <Route exact path={appPath('/alchemist')} component={AlchemistAlcove} />
-          <Route exact path={appPath('/miner')} component={CrystalCrypts} />
+          <Route exact path={appPath('/crypts')} component={CrystalCrypts} />
+          <Route exact path={appPath('/wall')} component={WallBreach} />
+          <Route exact path={appPath('/MIAOOOOW789ASDFGHJKL')} component={DemiurgeBattle} />
           <Route exact path={appPath('/booby_traps')} component={BoobyTraps} />
           <Route component={NotFound} />
         </Switch>

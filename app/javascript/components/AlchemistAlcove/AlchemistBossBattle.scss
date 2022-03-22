@@ -15,6 +15,11 @@
       align-items: center;
       flex-direction: column;
 
+      &.with-form {
+      justify-content: flex-start;
+      margin-top: 20px;
+    }
+
       &.blink-red {
         animation: blink-red 5s infinite;
         animation-iteration-count: infinite;
@@ -59,7 +64,7 @@
 
     @keyframes away { 
       0% { transform: translate(0px) rotate(0deg); }
-      100% { transform: translateY(600px) rotate(360deg); }
+      100% { transform: translateY(900px) rotate(360deg); }
     }
 
     @keyframes spin { 100% { -webkit-transform: rotate(360deg); transform:rotate(360deg); } }

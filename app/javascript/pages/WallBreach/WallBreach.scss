@@ -1,0 +1,44 @@
+.WallBreach {
+  height: 100%;
+
+  .content {
+    height: 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+
+    &.kittens {
+      background-image: url('../../images/kittens.jpeg');
+    }
+
+    &.start {
+      background-image: url('../../images/wall.jpeg');
+    }
+
+    .sentences {
+      display: flex;
+      flex-direction: column;
+      font-size: 40px;
+
+      .start {
+        align-self: flex-start;
+      }
+
+      .center {
+        align-self: center;
+      }
+
+      .end {
+        align-self: flex-end;
+      }
+
+      .ButtonV2 {
+        width: 100px;
+      }
+
+      img {
+        width: 100px;
+        cursor: pointer;
+      }
+    }
+  }
+}

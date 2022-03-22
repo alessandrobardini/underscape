@@ -10,9 +10,11 @@ type AnswerFormProps = {
   checkAnswer: (answer: string) => Promise<{ data: { ok }}>
   onCorrectAnswer?: () => void
   onWrongAnswer?: () => void
+  placeholder?: string
+  numberInput?: boolean
 }
 
-const AnswerForm: React.FC<AnswerFormProps> = ({ checkAnswer, onCorrectAnswer, onWrongAnswer }) => {
+const AnswerForm: React.FC<AnswerFormProps> = ({ checkAnswer, onCorrectAnswer, onWrongAnswer, placeholder, numberInput = false }) => {
   const { refetch } = useContext(SessionContext)
 
   const handleSubmit = ({ answer }, { resetForm }) => {
@@ -31,12 +33,14 @@ const AnswerForm: React.FC<AnswerFormProps> = ({ checkAnswer, onCorrectAnswer, o
     {({ errors, touched, values, setFieldValue }) => (
         <>
           <Input
+            type={numberInput ? 'number' : 'string'}
             formik
             name='answer'
             errors={errors}
             touched={touched}
             value={values.answer}
             setFieldValue={setFieldValue}
+            {...(placeholder && { placeholder }) }
           />
           <Button submit type='primary'>Submit</Button>
         </>

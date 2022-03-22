@@ -1,0 +1,104 @@
+.DemiurgeBattle {
+  .Phase1 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    .demiurge-area {
+      img {
+        width: 200px;
+      }
+    }
+  }
+
+  .Phase2 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    .buttons {
+      display: flex;
+      width: 1200px;
+      justify-content: space-between;
+
+      img {
+        width: 150px;
+
+        &.spin {
+          animation:spin 1s linear;
+        }
+
+        @keyframes spin { 100% { -webkit-transform: rotate(360deg); transform:rotate(360deg); } }
+      }
+
+      .button-area {
+        flex-basis: 150px;
+        display: flex;
+        justify-content: center;
+        position: relative;
+
+        .ray {
+          position: absolute;
+          width: 50%;
+          height: 100%;
+
+          &.animate {
+            display: flex;
+            animation-name: laser-beam;
+            animation-duration: 1.5s;
+          }
+
+          @keyframes laser-beam { 
+            0% { background-color: red; bottom: 56px; }
+            100% { background-color: blue; bottom: 500px; }
+          }
+        }
+      }
+    }
+  }
+
+  .Phase3 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    .demiurge-area {
+      img {
+        width: 200px;
+      }
+    }
+  }
+
+  .Phase3 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    .demiurge-area {
+      img {
+        width: 200px;
+
+        &.away {
+          animation-name: away;
+          animation-duration: 1.5s;
+          animation-fill-mode: forwards;
+        }
+      }
+    }
+
+    .error {
+      margin: 10px;
+      color: red;
+      font-size: 30px;
+    }
+
+    .Form {
+      width: 700px;
+    }
+
+    @keyframes away { 
+      0% { transform: translate(0px) rotate(0deg); }
+      100% { transform: translateY(1000px) rotate(360deg); }
+    }
+  }
+}
