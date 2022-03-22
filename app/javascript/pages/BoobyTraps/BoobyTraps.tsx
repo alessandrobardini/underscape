@@ -9,8 +9,16 @@ const BoobyTraps: React.FC = () => {
 
   const {setDialogueBarMessages, lives} = useContext(SessionContext)
   const [corridorLights, setCorridorLights] = useState(true)
-  const [lanternLight, setLanternLight] = useState(false)
-  const [lanternClassName, setLanternClassName] = useState('light')
+  const [frontRightLight, setFrontRightLight] = useState(false)
+  const [frontLeftLight, setFrontLeftLight] = useState(false)
+  const [backLeftLight, setBackLeftLight] = useState(false)
+  const [backRightLight, setBackRightLight] = useState(false)
+  const [lastLight, setLastLight] = useState(false)
+  const [lanternFrontRightClassName, setLanternFrontRightClassName] = useState('light')
+  const [lanternFrontLeftClassName, setLanternFrontLeftClassName] = useState('light')
+  const [lanternBackRightClassName, setLanternBackRightClassName] = useState('light')
+  const [lanternBackLeftClassName, setLanternBackLeftClassName] = useState('light')
+  const [lanternLastClassName, setLanternLastClassName] = useState('light')
 
   useEffect(() => {
     setDialogueBarMessages([
@@ -21,18 +29,18 @@ const BoobyTraps: React.FC = () => {
     ])
   }, [])
 
-  const morseL = () => {
+  const morseL = (lanternClassName: string, setLanternClassName: any) => {
     setLanternClassName(lanternClassName.replace('short', ''))
     setLanternClassName(lanternClassName.replace('long', ''))
     setLanternClassName(lanternClassName.concat(' long'))
     setTimeout(() => setLanternClassName(lanternClassName.replace('long', '')), 1200)
   }
-  const morseS = () => {
+  const morseS = (lanternClassName: string, setLanternClassName: any) => {
     setLanternClassName(lanternClassName.replace('long', ''))
     setLanternClassName(lanternClassName.concat(' short'))
     setTimeout(() => setLanternClassName(lanternClassName.replace('short', '')), 400)
   }
-  const morseN = () => {
+  const morseN = (lanternClassName: string, setLanternClassName: any) => {
     setLanternClassName(lanternClassName.replace('short', ''))
     setLanternClassName(lanternClassName.replace('long', ''))
   }
@@ -40,18 +48,18 @@ const BoobyTraps: React.FC = () => {
   let i = 0
   let time = 0
 
-  const playMorseCode = (phrase) => {
+  const playMorseCode = (phrase: string, lanternClassName: string, setLanternClassName: any, setLight: any) => {
     if (lanternClassName) {
       setTimeout(function () {
         console.log(phrase[i])
         if (phrase[i] === '-') {
-          morseL()
+          morseL(lanternClassName, setLanternClassName)
           time = 1400
         } else if (phrase[i] === '.') {
-          morseS()
+          morseS(lanternClassName, setLanternClassName)
           time = 800
         } else if (phrase[i] === ' ') {
-          morseN()
+          morseN(lanternClassName, setLanternClassName)
 
           time = 1200
         }
@@ -59,51 +67,61 @@ const BoobyTraps: React.FC = () => {
         i++
 
         if (i < phrase.length) {
-          playMorseCode(phrase)
+          playMorseCode(phrase, lanternClassName, setLanternClassName, setLight)
         } else {
           i = 0
           setTimeout(() => playMorseCode, 5000)
+          setTimeout(() => setLight(false), 1000)
+
         }
 
       }, time)
     }
   }
 
-  const switchLanternLights = () => {
+  const switchLanternLights = (word: string, lanternClassName: string, setLanternClassName: any, setLight: any) => {
     if (corridorLights == false) {
-      setLanternLight(true)
-      const phrase = generateCode('light')
-      playMorseCode(phrase)
+      setLight(true)
+      const phrase = generateCode(word)
+      playMorseCode(phrase, lanternClassName, setLanternClassName, setLight)
     }
+  }
+
+  const switchOffAllLanternLights = () => {
+    setBackLeftLight(false)
+    setBackRightLight(false)
+    setFrontLeftLight(false)
+    setFrontRightLight(false)
+    setLastLight(false)
   }
 
   const switchCorridorLights = () => {
     setCorridorLights(!corridorLights)
     if (corridorLights) {
       setDialogueBarMessages([{
-        message: 'Whoo, where did the light go?'
+        message: 'Whoo, where did the light go? How can I see the way now?'
       }])
-      setLanternLight(false)
     } else {
       setDialogueBarMessages([{
-        message: 'Whoo, where did the light go?'
+        message: 'Whoo, much better now.'
       }])
+      switchOffAllLanternLights()
     }
   }
 
   return <div className={'BoobyTraps'}>
     <div className={corridorLights ? 'corridor' : 'dark-corridor'}>
       <HiddenElement top='160px' left='900px' width='110px' height='40px' onClick={() => switchCorridorLights()}/>
-      <HiddenElement extraClassName={lanternLight ? lanternClassName : 'light-off'} top='370px' left='830px'
-                     width='35px' height='35px' onClick={() => switchLanternLights()}/>
-      <HiddenElement extraClassName={lanternLight ? lanternClassName : 'light-off'} top='380px' left='870px'
-                     width='35px' height='35px' onClick={() => switchLanternLights()}/>
-      <HiddenElement extraClassName={lanternLight ? lanternClassName : 'light-off'} top='370px' left='1060px'
-                     width='35px' height='35px' />
-      <HiddenElement extraClassName={lanternLight ? lanternClassName : 'light-off'} top='320px' left='700px'
-                     width='35px' height='35px' onClick={() => switchLanternLights()}/>
-      <HiddenElement extraClassName={lanternLight ? lanternClassName : 'light-off'} top='320px' left='1190px'
-                     width='35px' height='35px' onClick={() => switchLanternLights()}/>
+      <HiddenElement extraClassName={backLeftLight ? lanternBackLeftClassName : 'light-off'} top='370px' left='825px' width='35px' height='35px'
+                     onClick={() => switchLanternLights('l', lanternBackLeftClassName, setLanternBackLeftClassName, setBackLeftLight)}/>
+      <HiddenElement extraClassName={lastLight ? lanternLastClassName : 'light-off'} top='390px' left='865px' width='25px' height='25px'
+                     onClick={() => switchLanternLights('i', lanternLastClassName, setLanternLastClassName, setLastLight)}/>
+      <HiddenElement extraClassName={backRightLight ? lanternBackRightClassName : 'light-off'} top='370px' left='1060px' width='35px' height='35px'
+                     onClick={() => switchLanternLights('g', lanternBackRightClassName, setLanternBackRightClassName, setBackRightLight)}/>
+      <HiddenElement extraClassName={frontLeftLight ? lanternFrontLeftClassName : 'light-off'} top='310px' left='700px' width='50px' height='60px'
+                     onClick={() => switchLanternLights('h', lanternFrontLeftClassName, setLanternFrontLeftClassName, setFrontLeftLight)}/>
+      <HiddenElement extraClassName={frontRightLight ? lanternFrontRightClassName : 'light-off'} top='310px' left='1160px' width='70px' height='60px'
+                     onClick={() => switchLanternLights('t', lanternFrontRightClassName, setLanternFrontRightClassName, setFrontRightLight)}/>
     </div>
   </div>
 

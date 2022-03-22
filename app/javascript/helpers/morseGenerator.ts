@@ -11,7 +11,7 @@ const alphabet = {
   '9': '----.', '0': '-----',
 }
 
-export const generateCode = (word:string) => {
+export const generateCode = (word: string) => {
   let phrase = word.toLowerCase().replace(/[^a-z]/g, '')
   return phrase
     .split('')            // Transform the string into an array: ['T', 'h', 'i', 's'...
