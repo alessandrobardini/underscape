@@ -123,6 +123,20 @@ const BoobyTraps: React.FC = () => {
       <HiddenElement extraClassName={frontRightLight ? lanternFrontRightClassName : 'light-off'} top='310px' left='1160px' width='70px' height='60px'
                      onClick={() => switchLanternLights('t', lanternFrontRightClassName, setLanternFrontRightClassName, setFrontRightLight)}/>
     </div>
+    <div className={'fogwrapper'}>
+      <div id="foglayer_01" className="fog">
+        <div className="image01"/>
+        <div className="image02"/>
+      </div>
+      <div id="foglayer_02" className="fog">
+        <div className="image01"/>
+        <div className="image02"/>
+      </div>
+      <div id="foglayer_03" className="fog">
+        <div className="image01"/>
+        <div className="image02"/>
+      </div>
+    </div>
   </div>
 
 }
