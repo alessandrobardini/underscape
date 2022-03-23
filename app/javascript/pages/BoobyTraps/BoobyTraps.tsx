@@ -9,6 +9,7 @@ const BoobyTraps: React.FC = () => {
 
   const {setDialogueBarMessages, lives} = useContext(SessionContext)
   const [corridorLights, setCorridorLights] = useState(true)
+  const [fog, setFog] = useState(true)
   const [frontRightLight, setFrontRightLight] = useState(false)
   const [frontLeftLight, setFrontLeftLight] = useState(false)
   const [backLeftLight, setBackLeftLight] = useState(false)
@@ -112,18 +113,23 @@ const BoobyTraps: React.FC = () => {
   return <div className={'BoobyTraps'}>
     <div className={corridorLights ? 'corridor' : 'dark-corridor'}>
       <HiddenElement top='160px' left='900px' width='110px' height='40px' onClick={() => switchCorridorLights()}/>
-      <HiddenElement extraClassName={backLeftLight ? lanternBackLeftClassName : 'light-off'} top='370px' left='825px' width='35px' height='35px'
+      <HiddenElement extraClassName={backLeftLight ? lanternBackLeftClassName : 'light-off'} top='370px' left='825px'
+                     width='35px' height='35px'
                      onClick={() => switchLanternLights('l', lanternBackLeftClassName, setLanternBackLeftClassName, setBackLeftLight)}/>
-      <HiddenElement extraClassName={lastLight ? lanternLastClassName : 'light-off'} top='390px' left='865px' width='25px' height='25px'
+      <HiddenElement extraClassName={lastLight ? lanternLastClassName : 'light-off'} top='390px' left='865px'
+                     width='25px' height='25px'
                      onClick={() => switchLanternLights('i', lanternLastClassName, setLanternLastClassName, setLastLight)}/>
-      <HiddenElement extraClassName={backRightLight ? lanternBackRightClassName : 'light-off'} top='370px' left='1060px' width='35px' height='35px'
+      <HiddenElement extraClassName={backRightLight ? lanternBackRightClassName : 'light-off'} top='370px' left='1060px'
+                     width='35px' height='35px'
                      onClick={() => switchLanternLights('g', lanternBackRightClassName, setLanternBackRightClassName, setBackRightLight)}/>
-      <HiddenElement extraClassName={frontLeftLight ? lanternFrontLeftClassName : 'light-off'} top='310px' left='700px' width='50px' height='60px'
+      <HiddenElement extraClassName={frontLeftLight ? lanternFrontLeftClassName : 'light-off'} top='310px' left='700px'
+                     width='50px' height='60px'
                      onClick={() => switchLanternLights('h', lanternFrontLeftClassName, setLanternFrontLeftClassName, setFrontLeftLight)}/>
-      <HiddenElement extraClassName={frontRightLight ? lanternFrontRightClassName : 'light-off'} top='310px' left='1160px' width='70px' height='60px'
+      <HiddenElement extraClassName={frontRightLight ? lanternFrontRightClassName : 'light-off'} top='310px'
+                     left='1160px' width='70px' height='60px'
                      onClick={() => switchLanternLights('t', lanternFrontRightClassName, setLanternFrontRightClassName, setFrontRightLight)}/>
     </div>
-    <div className={'fogwrapper'}>
+    <div className={fog ? 'fogwrapper' : 'no-fog'}>
       <div id="foglayer_01" className="fog">
         <div className="image01"/>
         <div className="image02"/>
