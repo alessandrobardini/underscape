@@ -1,12 +1,19 @@
-.BoobyTraps {
+.PrimevalPrison {
   overflow: auto;
+
+  .dark {
+    background-image: none;
+    background-color: black;
+    width: 1920px;
+    height: 863px;
+  }
 
   .corridor {
     position: relative;
     background-image: url('../../images/corridor.jpeg');
+    background-size: 1920px 863px;
     width: 1920px;
     height: 863px;
-    background-size: 1920px 863px;
   }
 
   .dark-corridor {
@@ -34,35 +41,17 @@
       content: "";
       opacity: 0;
     }
-  }
 
-  .long {
-    &:after {
-      animation: flash 0.6s ease-out alternate 2;
-    }
-  }
-
-  .short {
-    &:after {
-      animation: flash 0.2s ease-out alternate 2;
-    }
-  }
-
-  @keyframes flash {
-    to {
-      color: #fff;
-      background: black;
-      opacity: 1;
-    }
   }
 
   /* ---------- Fog ---------- */
   .fogwrapper {
-    top: 480px;
-    height: 150px;
+    cursor: pointer;
+    top: 300px;
+    height: 249px;
     position: absolute;
-    left: 790px;
-    width: 345px;
+    left: 879px;
+    width: 168px;
     filter: blur(1px) grayscale(0.2) saturate(1.2) sepia(0.2);
     overflow-x: hidden;
   }
