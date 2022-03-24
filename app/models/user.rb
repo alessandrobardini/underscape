@@ -13,6 +13,11 @@ class User < ApplicationRecord
   has_many :items, dependent: :destroy
   has_many :answers, dependent: :destroy
   has_many :bosses, dependent: :destroy
+
+  def progress
+    total_number_of_steps = Answer::riddles.size + Boss::names.size + Item::names.size
+    (BigDecimal((self.answers + self.bosses + self.items).size) * 100 / total_number_of_steps).to_i
+  end
   
   private def generate_bag_code
     self.bag_code = SecureRandom.alphanumeric

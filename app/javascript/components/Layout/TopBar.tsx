@@ -11,7 +11,7 @@ import './TopBar.scss'
 import { useHistory } from 'react-router-dom'
 
 const TopBar: React.FC = () => {
-  const { user, gameEndsAt, setModalChildren } = useContext(SessionContext)
+  const { user, gameEndsAt, setModalChildren, progress } = useContext(SessionContext)
   const history = useHistory()
   const onHomeClick = () => {
     window.confirm('Do you want to go back to the main map? Some progress could not be saved!') && history.push('/app/map')
@@ -19,7 +19,7 @@ const TopBar: React.FC = () => {
   return (
     <div className='TopBar'>
       <div className='container top-left'>
-        <div>Progress: 60%</div>
+        <div>{`Progress: ${progress}%`}</div>
         <div><Button icon iconLeft='fa fa-suitcase' onClick={() => setModalChildren(<Bag />)} /></div>
         <div><Button icon iconLeft='fa fa-home' onClick={onHomeClick} /></div>
       </div>
@@ -34,8 +34,8 @@ const TopBar: React.FC = () => {
   )
 }
 
-type HeartProps = {
-  lives: number
+const formatProgress = (progress: string) => {
+
 }
 
 export const signOut = () => axios.delete('/users/sign_out', {

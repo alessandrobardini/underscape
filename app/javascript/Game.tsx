@@ -165,6 +165,7 @@ export type SessionContextType = {
     name: string
   }[],
   gameEndsAt: string,
+  progress: string,
   setDialogueBarMessages: (messages: Array<DialogueBarMessageType>) => void
   setModalChildren: (children: JSX.Element) => void
   closeModal: () => void
@@ -200,6 +201,7 @@ type GameProps = {
       bosses: {
         name: string
       }[],
+      progress: string,
       game_ends_at: string
     }
   }
@@ -209,7 +211,7 @@ const Game: React.FC<GameProps> = (props) => {
   const [data, setData] = useState(props.data)
   const [dialogueBarMessages, setDialogueBarMessages] = useState<Array<DialogueBarMessageType>>([])
   const [modalChildren, setModalChildren] = useState<JSX.Element>(null)
-  const { data: { user, game_ends_at, items, answers, bosses } } = data
+  const { data: { user, game_ends_at, items, answers, bosses, progress } } = data
 
   const refetch = () => {
     getUser().then((data) => setData(data))
@@ -231,7 +233,7 @@ const Game: React.FC<GameProps> = (props) => {
 
   const closeModal= () => setModalChildren(null)
 
-  const sessionContext = { user, gameEndsAt: game_ends_at, items, answers, bosses, setDialogueBarMessages, setModalChildren, closeModal, refetch, pickUpItem }
+  const sessionContext = { user, gameEndsAt: game_ends_at, items, answers, bosses, setDialogueBarMessages, setModalChildren, closeModal, refetch, pickUpItem, progress }
 
   if(timeIsOver(game_ends_at)) {
     return <YouLost />
