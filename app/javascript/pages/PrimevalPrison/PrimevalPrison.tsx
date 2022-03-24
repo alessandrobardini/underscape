@@ -5,10 +5,11 @@ import {bagContains, CHARACTERS, riddleSolved, SessionContext} from "../../Game"
 import HiddenElement from "../../components/Layout/HiddenElement";
 import {generateCode} from "../../helpers/morseGenerator";
 import AnswerSubmission from 'components/Layout/ModalContent/AnswerSubmission';
+import GoatBossBattle from 'components/PrimevalPrison/GoatBossBattle';
 
 const PrimevalPrison: React.FC = () => {
 
-  const { setDialogueBarMessages, pickUpItem, setModalChildren, closeModal } = useContext(SessionContext)
+  const { setDialogueBarMessages, pickUpItem, setModalChildren, closeModal, bosses } = useContext(SessionContext)
   const bagContainsMorse = bagContains('morse')
   const bagContainsOde = bagContains('ode')
   const bagContainsRainbow = bagContains('rainbow')
@@ -32,6 +33,8 @@ const PrimevalPrison: React.FC = () => {
 
   const canProceedToBossBattle = morseRiddleSolved && bagContainsAllItems
 
+  const goatDefeated = bosses.map(({ name }) => name).includes('goat')
+
   useEffect(() => {
     if(!bagContainsMorse) {
       setDialogueBarMessages([
@@ -51,14 +54,19 @@ const PrimevalPrison: React.FC = () => {
         {character: 'goat', message: 'Deadly Fog, my dear friend! You must block this shiny knight!'},
         {character: 'goat', message: 'Goodbye, warrior of light! See you never!', onCloseMessage: () => setShowFog(true)},
       ])
+    } else if(goatDefeated) {
+      alert('something to conclude the game!')
     }
   }, [])
 
   useEffect(() => {
-    if(canProceedToBossBattle) {
+    if(canProceedToBossBattle && !goatDefeated) {
       setDialogueBarMessages([
-        { character: 'goat', message: 'Something...' },
-        { character: 'goat', message: 'You will be hit by a ton of spells today... A skele-TON!!!', onCloseMessage: () => setShowBattlePage(true) },
+        { character: 'goat', message: 'Deadly Fog! Why did you allow this noble heart to reach me!' },
+        { character: 'goat', message: 'Please, go away! I cannot stand your pure light!'},
+        { character: 'goat', message: 'I am the last obstacle before the king, but I have some tricks up my sleeve yet!'},
+        { character: 'goat', message: 'Colored Fogs! Debriefing!'},
+        { character: 'goat', message: 'Protect me and block the path to the warrior of light! Move on!', onCloseMessage: () => setShowBattlePage(true)}
       ])
     }
   }, [canProceedToBossBattle])
@@ -159,7 +167,7 @@ const PrimevalPrison: React.FC = () => {
     }
   }
 
-  return showBattlePage ? <div>Ciao</div> : <div className={`PrimevalPrison`}>
+  return goatDefeated ? null : showBattlePage ? <GoatBossBattle /> : <div className={`PrimevalPrison`}>
     <div className={isCompletelyDark ? 'dark' : corridorLights ? 'corridor' : 'dark-corridor'}>
       <HiddenElement top='160px' left='900px' width='110px' height='40px' onClick={() => switchCorridorLights()}/>
       <HiddenElement extraClassName={backLeftLight ? lanternBackLeftClassName : 'light-off'} top='370px' left='825px'

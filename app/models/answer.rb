@@ -5,6 +5,6 @@ class Answer < ApplicationRecord
   ANSWERS_BY_RIDDLE = {
     # ReSPoNSiBiLiTiEs
     alchemist_cave: '7516847148332299',
-    fog: 'past'
+    morse: 'past'
   }
 end

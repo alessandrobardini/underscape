@@ -32,41 +32,6 @@
     }
   }
 
-  .strong-heart {
-    fill: red;
-    position: relative;
-    top: 2px;
-    width: 35px;
-    animation: strong-pulse 1s ease infinite;
-  }
-
-  .weak-heart {
-    fill: red;
-    position: relative;
-    top: 2px;
-    width: 35px;
-    animation: weak-pulse 1s ease infinite;
-  }
-
-  .dead-heart {
-    fill: black;
-    position: relative;
-    top: 2px;
-    width: 35px;
-  }
-
-  @keyframes strong-pulse {
-    0% { transform: scale(1); }
-    50% { transform: scale(1.3); }
-    100% { transform: scale(1); }
-  }
-
-  @keyframes weak-pulse {
-    0% { transform: scale(0.5); }
-    50% { transform: scale(0.7); }
-    100% { transform: scale(0.5); }
-  }
-
   .Link.xsmall {
     color: grey;
   }
