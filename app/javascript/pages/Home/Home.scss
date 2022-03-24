@@ -1,12 +1,23 @@
 .Home {
   display: flex;
-  flex-direction: column;
-  margin: 0 auto;
-  max-width: 600px;
+  width: 100%;
+
+  h1 {
+    margin: 5px;
+  }
 
 
   .container {
-    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    width: 50%;
+    
+    &.left {
+      margin-left: 10px;
+    }
 
     .Input {
       width: auto;
@@ -14,6 +25,7 @@
   }
 
   .Form {
+    width: 80%;
     input {
       height: 30px;
     }
