@@ -16,12 +16,18 @@ import ghost from 'images/ghost.png'
 import demiurge from 'images/demiurge.png'
 import sprint from 'images/spooky.png'
 import password from 'images/password.png'
+import goat from 'images/asriel.png'
 import cat from 'images/kitty.jpeg'
 import Modal from 'components/Layout/Modal'
 import CrystalCrypts from 'pages/CrystalCrypts/CrystalCrypts'
 import axios from 'axios'
 import csrfToken from 'helpers/csrfToken'
+import PrimevalPrison from "./pages/PrimevalPrison/PrimevalPrison";
 import WallBreach from 'pages/WallBreach/WallBreach'
+import morse from 'images/morse.png'
+import rainbow from 'images/rainbow.png'
+import prison_keeper from 'images/prison_keeper.jpeg'
+import poetry from 'images/poetry.jpeg'
 
 import './Game.scss'
 import DemiurgeBattle from 'pages/DemiurgeBattle/DemiurgeBattle'
@@ -94,6 +100,30 @@ export const ITEMS: { [key: string]: ItemType } = {
     name: 'Password',
     message: 'Do not share with anyone! - The demiurge',
     href: 'https://storage.googleapis.com/escape-room-bucket/mystery.txt'
+  },
+  'morse': {
+    imageSrc: morse,
+    name: 'Morse Code',
+    message: 'Dot dash dot',
+    href: 'https://storage.googleapis.com/escape-room-bucket/morse.jpeg'
+  },
+  'rainbow': {
+    imageSrc: rainbow,
+    name: 'Wheel of colors',
+    message: 'Where are my coloured pastels?',
+    href: 'https://storage.googleapis.com/escape-room-bucket/colors.png'
+  },
+  'ode': {
+    imageSrc: poetry,
+    name: 'Ode to light',
+    message: 'Poetry by a medieval bard',
+    href: 'https://storage.googleapis.com/escape-room-bucket/ode.txt'
+  },
+  'prison_keeper': {
+    imageSrc: prison_keeper,
+    name: 'Prison keeper note',
+    message: 'The prison keeper loves cleanliness',
+    href: 'https://storage.googleapis.com/escape-room-bucket/prison_keeper.txt'
   }
 }
 
@@ -113,6 +143,10 @@ export const CHARACTERS = {
   'cat' : {
     imageSrc: cat,
     name: 'Kitty'
+  },
+  'goat' : {
+    imageSrc: goat,
+    name: 'Asriel'
   }
 }
 
@@ -184,7 +218,7 @@ const Game: React.FC<GameProps> = (props) => {
   const pickUpItem = ({ pickableItem, firstMessage = null, lastMessage = null }) => {
     const { imageSrc, name, message } = ITEMS[pickableItem]
     setDialogueBarMessages([
-      { message: firstMessage || 'You found an item!' }, 
+      { message: firstMessage || 'You found an item!' },
       { imageSrc, title: name, message },
       { message: lastMessage || 'You put the item in your bag', onCloseMessage: () =>
         axios.post(
@@ -213,6 +247,7 @@ const Game: React.FC<GameProps> = (props) => {
           <Route exact path={appPath('/crypts')} component={CrystalCrypts} />
           <Route exact path={appPath('/wall')} component={WallBreach} />
           <Route exact path={appPath('/MIAOOOOW789ASDFGHJKL')} component={DemiurgeBattle} />
+          <Route exact path={appPath('/prison')} component={PrimevalPrison} />
           <Route component={NotFound} />
         </Switch>
         { modalChildren && <Modal closeModal={closeModal}>

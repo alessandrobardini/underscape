@@ -1,4 +1,4 @@
-import { SessionContext } from 'Game'
+import {ItemType, SessionContext} from 'Game'
 import React, { useContext } from 'react'
 import CountdownTimer from './Countdown'
 import axios from 'axios'
@@ -11,7 +11,7 @@ import './TopBar.scss'
 
 const TopBar: React.FC = () => {
   const { user, gameEndsAt, setModalChildren } = useContext(SessionContext)
-  
+  const lives = 1
   return (
     <div className='TopBar'>
       <div className='container top-left'>
@@ -27,6 +27,10 @@ const TopBar: React.FC = () => {
       </div>
     </div>
   )
+}
+
+type HeartProps = {
+  lives: number
 }
 
 export const signOut = () => axios.delete('/users/sign_out', {
