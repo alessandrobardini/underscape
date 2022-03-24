@@ -1,5 +1,6 @@
 .AlchemistBossBattle {
   overflow-x: auto;
+  overflow-y: hidden;
   height: calc(100vh - 50px);
 
   .alchemist-area {
@@ -46,7 +47,7 @@
 
       &.blink-crazy {
         border: 1px solid black;
-        animation: blink-crazy 1s infinite;
+        animation: blink-crazy 0.5s infinite;
         animation-iteration-count: infinite;
         animation-direction: alternate;
       }
@@ -106,9 +107,9 @@
     }
 
     @keyframes blink-crazy {
-      0% { border-color: white; }
-      50% { border-color: grey; }
-      100% { border-color: black ; }
+      0% { border-color: white; border-width: 1px; }
+      50% { border-color: grey; border-width: 5px; }
+      100% { border-color: black ; border-width: 10px; }
     }
 
     .column {
