@@ -28,13 +28,13 @@ const AlchemistAlcove: React.FC = () => {
         { character: 'alchemist', message: `I am ${CHARACTERS['alchemist'].name}, the master alchemist of Magaland and I hate being disturbed!` },
         { character: 'alchemist', message: 'Moreover, I am the most appreciated comedian of the kingdom!' },
         { character: 'alchemist', message: 'My bone jokes are the best of the best, they are so... HUMERUS!' },
-        { character: 'alchemist', message: 'Unless you came here to see my pretty little BONE-sai tree, please go away and let me prepare my standup show!' },
+        { character: 'alchemist', message: 'Do you want a friend to talk to? Are you feeling BONELY? I can show my pretty little BONEsai tree!' },
         { character: 'alchemist', message: '... ... ...' },
-        { character: 'alchemist', message: 'Oh, so do you want my amulet? Here we go, another dull who wants to play with higher powers...' },
-        { character: 'alchemist', message: 'This amulet has an unbearable power inside, it must be guarded by trusted (and humorous) people like me!' },
+        { character: 'alchemist', message: 'Wait, are you not here to take a SKELFIE with me? So, go away! I need to prepare my stand-up comedy show!' },
         { character: 'alchemist', message: '... ... ...' },
-        { character: 'alchemist', message: 'You are so stubborn! Do you want to fight me and steal the amulet?' },
-        { character: 'alchemist', message: 'Ok, reach me at the end of the cave. I\'ll be waiting for you! I may be a skeleton, buy I have guts!' }
+        { character: 'alchemist', message: 'Wanna fight me? Because you want to meet the king?' },
+        { character: 'alchemist', message: 'You are so annoying!' },
+        { character: 'alchemist', message: 'Ok, if you insist, reach me at the end of the cave. I\'ll be waiting for you! I may be a skeleton, buy I have guts!' }
       ])
     }
   }, [])
@@ -42,7 +42,7 @@ const AlchemistAlcove: React.FC = () => {
   useEffect(() => {
     if(canProceedToBossBattle) {
       setDialogueBarMessages([
-        { character: 'alchemist', message: 'So, you\'re doing chemistry pretty well...' },
+        { character: 'alchemist', message: 'BONEjour! We meet again! So, you\'re doing chemistry pretty well...' },
         { character: 'alchemist', message: 'Unfortunately, I think that I forgot to tell you something....' },
         { character: 'alchemist', message: 'I took a master in witchcraft when I was young!' },
         { character: 'alchemist', message: 'Prepare to get destroyed by my BONE-fide skills!' },
@@ -50,7 +50,7 @@ const AlchemistAlcove: React.FC = () => {
         { character: 'alchemist', message: 'Come on, did you understand the pun?' },
         { character: 'alchemist', message: 'I am a skeleton and I have BONES, so BONE-fide...' },
         { character: 'alchemist', message: 'Oh, screw you! You pretend to steal my amulet and you don\'t laugh at my jokes! You are useless!' },
-        { character: 'alchemist', message: 'You will be hit by a ton of spells today... A skele-TON!!!', onCloseMessage: () => setShowBattlePage(true) },
+        { character: 'alchemist', message: 'You will be hit by a ton of spells today... A skele-TON!!! It\'s not going TIBIA okay for you!', onCloseMessage: () => setShowBattlePage(true) },
       ])
     }
   }, [canProceedToBossBattle])

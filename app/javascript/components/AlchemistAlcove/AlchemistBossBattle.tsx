@@ -158,7 +158,7 @@ const AlchemistBossBattle: React.FC = () => {
   ]
 
   const phase5MessagesOnMount = [
-    { character: 'alchemist', message: `This kingdom is doomed to fail without my jokes...`, disappearAfterSeconds: 3 },
+    { character: 'alchemist', message: `This kingdom is doomed to fail without my puns...`, disappearAfterSeconds: 3 },
     { message: `Excellent! You defeated ${CHARACTERS['alchemist'].name}. You can proceed to the next location now.`, disappearAfterSeconds: 3, onCloseMessage: () => handleBossDefeated() }
   ]
 
