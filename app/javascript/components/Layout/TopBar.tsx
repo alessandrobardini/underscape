@@ -8,15 +8,20 @@ import Link from 'ui/Link'
 import Bag from './ModalContent/Bag'
 
 import './TopBar.scss'
+import { useHistory } from 'react-router-dom'
 
 const TopBar: React.FC = () => {
   const { user, gameEndsAt, setModalChildren } = useContext(SessionContext)
-  const lives = 1
+  const history = useHistory()
+  const onHomeClick = () => {
+    window.confirm('Do you want to go back to the main map? Some progress could not be saved!') && history.push('/app/map')
+  }
   return (
     <div className='TopBar'>
       <div className='container top-left'>
         <div>Progress: 60%</div>
         <div><Button icon iconLeft='fa fa-suitcase' onClick={() => setModalChildren(<Bag />)} /></div>
+        <div><Button icon iconLeft='fa fa-home' onClick={onHomeClick} /></div>
       </div>
       <div className='username container'>
         <span>{ user.name }</span>
