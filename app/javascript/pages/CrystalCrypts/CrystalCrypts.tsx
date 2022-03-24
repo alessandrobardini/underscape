@@ -287,7 +287,8 @@ const Maze: React.FC<MazeProps> = ({ data: { allowedPath, itemGivenOnMount, mess
         return <div key={rowIndex} className='row'>
           {Array.from(Array(numberOfColumns).keys()).map((columnIndex) => {
             const isExit = exit?.row === rowIndex && exit?.column === columnIndex
-            return <div key={columnIndex} className={`${grid[rowIndex][columnIndex] == VISITED_CHAR ? 'visited' : 'unvisited'} ${isExit && 'exit'} ${isInvisibleCell(rowIndex, columnIndex) && 'hidden'} cell`} {...(canClickOnMaze && { onClick: () => handleCellClick(rowIndex, columnIndex) } )} >
+            const isVisited = grid[rowIndex][columnIndex] == VISITED_CHAR
+            return <div key={columnIndex} className={`${isVisited ? 'visited' : 'unvisited'} ${isExit && 'exit'} ${isInvisibleCell(rowIndex, columnIndex) && 'hidden'} cell`} {...((canClickOnMaze && !isVisited) && { onClick: () => handleCellClick(rowIndex, columnIndex) } )} >
               <span>{isExit ? 'EXIT' : grid[rowIndex][columnIndex]}</span>
             </div>
           })}
