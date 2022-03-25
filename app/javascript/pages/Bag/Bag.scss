@@ -21,6 +21,10 @@
     border: none;
   }
 
+  .BagItemList {
+    max-height: 100%;
+  }
+
   @media(min-width: 768px) {
     .list {
       display: flex;

@@ -49,7 +49,7 @@ const AlchemistAlcove: React.FC = () => {
         { character: 'alchemist', message: '... ... ...' },
         { character: 'alchemist', message: 'Come on, did you understand the pun?' },
         { character: 'alchemist', message: 'I am a skeleton and I have BONES, so BONE-fide...' },
-        { character: 'alchemist', message: 'Oh, screw you! You pretend to steal my amulet and you don\'t laugh at my jokes! You are useless!' },
+        { character: 'alchemist', message: 'Oh, screw you! You don\'t laugh at my jokes! You are useless!' },
         { character: 'alchemist', message: 'You will be hit by a ton of spells today... A skele-TON!!! It\'s not going TIBIA okay for you!', onCloseMessage: () => setShowBattlePage(true) },
       ])
     }

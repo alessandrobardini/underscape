@@ -18,7 +18,7 @@ const BagItemList: React.FC<BagItemListProps> = ({ items, onItemClick }) => (
         <li key={name}>
           <img src={ITEMS[name].imageSrc} width='50px'/>
           <div className='m-l-sm'>{ITEMS[name].name}</div>
-          <Button size='s' onClick={() => onItemClick(ITEMS[name])}>USE</Button>
+          <Button size='s' className='m-l-sm' onClick={() => onItemClick(ITEMS[name])}>USE</Button>
         </li>
       )}
       </ul>
