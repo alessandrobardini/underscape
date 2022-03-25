@@ -7,6 +7,7 @@ import { useHistory } from 'react-router-dom'
 
 import './CrystalCrypts.scss'
 import { appPath } from 'App'
+import ghostFan from 'images/spooky.png'
 
 const MAZE_1 = {
   allowedPath: [
@@ -388,7 +389,8 @@ const SpookySprint = () => {
     if(bombCells.length === 0) {
       clearInterval(timer)
       setDialogueBarMessages([
-        { character: 'ghost', message: `What the hell!? You won! This cannot be real!`, disappearAfterSeconds: 3 },
+        { character: 'ghost', message: `What the hell!? You won! This cannot be real!` },
+        { character: 'ghost', message: `My fans... Do you still love me? Do you still want to marry me?` },
         { message: `Excellent! You defeated ${CHARACTERS['ghost'].name}. You can proceed to the next location now.`, disappearAfterSeconds: 3, onCloseMessage: () => handleBossDefeated() }
       ])
     }
@@ -457,6 +459,22 @@ const SpookySprint = () => {
   return <div className='Grid'>
     <div className='container'>
       <div className='column'>
+        {isGameInProgress && 
+          <div className='ghost-fan'>
+            <div className='fan-1'>
+              <span>{`GO ${CHARACTERS['ghost'].name.toUpperCase()}!`}</span>
+              <img src={ghostFan  } />
+            </div>
+            <div className='fan-2'>
+              <img src={ghostFan  } />
+              <span>I AM YOUR BIGGEST FAN!</span>
+            </div>
+            <div className='fan-3'>
+              <span>{`YOU'RE AWESOME! MARRY ME ${CHARACTERS['ghost'].name.toUpperCase()}!`}</span>
+              <img src={ghostFan  } />
+            </div>
+          </div>
+        }
       </div>
       <div className='column'>
         <div className='board'>
@@ -487,14 +505,14 @@ const SpookySprint = () => {
                 <span>Click on the board to place an arrow.</span>
                 <span>Click again to change its direction.</span>
                 <Button size='s' onClick={handleResetPlacedArrows}>Reset placed arrows</Button>
-              </div> : <>
+              </div> : <div className='arrows'>
                 {isGameInProgress ? <>
                   <span>SPOOKY SPRINT IS IN PROGRESS!</span>
                 </> : <>
                   <Button size='s' onClick={handleStartSpookySprint}>Start Spooky Sprint!</Button>
                   <Button size='s' onClick={handleResetPlacedArrows}>Reset placed arrows</Button>
                 </> }
-              </>
+              </div>
               }
             </>
           }

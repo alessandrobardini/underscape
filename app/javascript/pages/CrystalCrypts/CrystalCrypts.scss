@@ -16,6 +16,28 @@
       .column {
         flex-basis: 33%;
 
+        .ghost-fan {
+          height: 100%;
+          display: flex;
+          justify-content: center;
+          flex-direction: column;
+          align-items: center;
+
+          img {
+            width: 100px;
+            animation: up-down 1s linear infinite;
+          }
+
+          @keyframes up-down {
+            0%, 100% {
+              width: 100px;
+            }
+            50% {
+              width: 110px;
+            }
+          }
+        }
+
         .commands {
           display: flex;
           height: 100%;
@@ -24,6 +46,7 @@
         }
 
         .arrows {
+          margin-left: 20px;
           display: flex;
           flex-direction: column;
         }
