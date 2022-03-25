@@ -6,9 +6,9 @@ import cat from 'images/kitty.jpeg'
 import './WallBreach.scss'
 
 const CATS = [
-  { age: '4 ', answer: 'MEOOOOOOW' },
-  { age: '9 ', answer: 'MIAOOOOW' },
-  { age: '2 ', answer: 'MIAW-MEOWWWW' }
+  { age: '4 months', answer: 'MEOOOOOOW' },
+  { age: '14 months', answer: 'MIAOOOOW' },
+  { age: '2 months', answer: 'MIAW-MEOWWWW' }
 ]
 
 const SEQUENCE = '535241'
@@ -34,7 +34,7 @@ const WallBreach: React.FC = () => {
         { character: 'demiurge', message: 'Come on, enough with this bullshit!' },
         { character: 'demiurge', message: 'Castles, walls, mines, alchemists... Nothing is real! THIS IS AN ONLINE GAME, you are not in a medieval land!' },
         { character: 'demiurge', message: 'Come on, have a look at the background! The developer even forgot to adapt the image to fit the screen size! HOW CAN YOU THINK THAT THIS IS REALISTIC?' },
-        { character: 'demiurge', message: 'I\'m sick of playing my role! It\'s time to you to show that I am the real demiurge of this world!' },
+        { character: 'demiurge', message: 'I\'m sick of playing my role! It\'s time to show that I am the real demiurge of this world!' },
         { character: 'demiurge', message: 'Don\'t you believe me? Do you think I have no control over this world?' },
         { character: 'demiurge', message: 'Let me show you what I am able to do! Come on, what do you expect to see?' },
         { character: 'demiurge', message: '...' },
