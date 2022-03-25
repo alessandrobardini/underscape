@@ -34,7 +34,7 @@ class Users::SessionsController < Devise::SessionsController
     if user_signed_in?
       render json: { 
         user: current_user,
-        items: current_user.items,
+        items: current_user.items.order('created_at DESC'),
         answers: current_user.answers,
         bosses: current_user.bosses,
         progress: current_user.progress,
