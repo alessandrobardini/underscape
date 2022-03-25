@@ -68,7 +68,7 @@ const Home: React.FC = () => {
                   setFieldValue={setFieldValue}
                   placeholder='Password'
                 />
-                <Button size='l' className='m-t-md' submit type='primary'>Start the game!</Button>
+                <Button size='l' disabled={!values.password && values.name} className='m-t-md' submit type='primary'>Start the game!</Button>
               </>
           )}
         </Form>
