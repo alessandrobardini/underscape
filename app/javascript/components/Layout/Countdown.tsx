@@ -16,18 +16,23 @@ const CountdownTimer: React.FC<CountdownTimerProps> = ({ targetDate, onFinish })
   }
 
   return <div className='Countdown'>
-      <ShowCounter minutes={minutes} seconds={seconds}/>
+      <ShowCounter minutes={minutes} seconds={seconds} hours={hours} />
     </div>
 }
 
 type ShowCounterProps = {
+  hours: number
   minutes: number
   seconds: number
 }
 
-const ShowCounter: React.FC<ShowCounterProps> = ({ minutes, seconds }) => {
+const ShowCounter: React.FC<ShowCounterProps> = ({ minutes, seconds, hours }) => {
   return (
-    <div className={`show-counter ${minutes < 10 ? 'danger' : ''}`}>
+    <div className={`show-counter ${(minutes < 10 && hours === 0) ? 'danger' : ''}`}>
+      {hours > 0 && <>
+        <DateTimeDisplay value={hours} />
+      <span>:</span>
+      </>}
       <DateTimeDisplay value={minutes} />
       <span>:</span>
       <DateTimeDisplay value={seconds} />

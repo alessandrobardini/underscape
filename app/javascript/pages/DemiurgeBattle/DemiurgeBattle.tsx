@@ -308,7 +308,7 @@ const Phase4: React.FC<PhaseProps> = ({ onPhaseCleared }) => {
           { character: 'demiurge', message: 'Too many bugs! I cannot handle them all together!' },
           { character: 'demiurge', message: 'They make me crazy!' },
           { character: 'demiurge', message: 'NOOOOOOOOOO', disappearAfterSeconds: 3, onCloseMessage: () => setIsBossDefeated(true) },
-          { message: `Excellent! You defeated ${CHARACTERS['demiurge'].name}. You can proceed to the final location now.`, disappearAfterSeconds: 3, onCloseMessage: () => handleBossDefeated() }
+          { message: `Excellent! You defeated ${CHARACTERS['demiurge'].name}. A bonus of 10 minutes has been granted to you. You can proceed to the final location now.`, disappearAfterSeconds: 3, onCloseMessage: () => handleBossDefeated() }
         ])
       }
     }, [isEmailError, isAgeError, isPasswordError])

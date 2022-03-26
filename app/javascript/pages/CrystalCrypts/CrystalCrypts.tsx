@@ -391,7 +391,7 @@ const SpookySprint = () => {
       setDialogueBarMessages([
         { character: 'ghost', message: `What the hell!? You won! This cannot be real!` },
         { character: 'ghost', message: `My fans... Do you still love me? Do you still want to marry me?` },
-        { message: `Excellent! You defeated ${CHARACTERS['ghost'].name}. You can proceed to the next location now.`, disappearAfterSeconds: 3, onCloseMessage: () => handleBossDefeated() }
+        { message: `Excellent! You defeated ${CHARACTERS['ghost'].name}. A bonus of 10 minutes has been granted to you. You can proceed to the next location now.`, disappearAfterSeconds: 3, onCloseMessage: () => handleBossDefeated() }
       ])
     }
   }, [bombCells])
