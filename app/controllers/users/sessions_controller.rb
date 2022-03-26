@@ -47,6 +47,6 @@ class Users::SessionsController < Devise::SessionsController
   end
 
   def winners
-    render json: { winners: User.where.not(game_finished_at: nil).order('game_finished_in_seconds') }
+    render json: { winners: User.where.not(game_finished_in_seconds: nil).order('game_finished_in_seconds') }
   end
 end

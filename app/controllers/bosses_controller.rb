@@ -7,7 +7,7 @@ class BossesController < AppController
     boss = Boss.new({ user_id: current_user.id, name: params[:boss][:name]})
     # last boss
     now = Time.zone.now
-    current_user.update!({ game_finished_at: now, game_finished_in_seconds: now - current_user.created_at.to_i  }) if params[:boss][:name] == 'goat'
+    current_user.update!({ game_finished_in_seconds: now - current_user.created_at.to_i  }) if params[:boss][:name] == 'goat'
     if boss.save
       render json: { ok: true }
     else
