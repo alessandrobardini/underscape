@@ -73,7 +73,7 @@ const Message: React.FC<MessageProps> = ({ message, onMessageClick, imageCompone
           <span className='message'>{ message.message }</span>
         </div>
       </div>
-      <div className='container button'>{(manuallyClosable && !autoClosable) && <Button icon size='xl' iconLeft={icon} onClick={onMessageClick}/>}</div>
+      <div className='container button'>{(manuallyClosable && !autoClosable) && <Button className='m-l-md' icon size='xl' iconLeft={icon} onClick={onMessageClick}/>}</div>
     </div>
   </div>
 }

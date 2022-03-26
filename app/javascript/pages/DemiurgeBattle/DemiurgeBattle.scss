@@ -1,4 +1,5 @@
 .DemiurgeBattle {
+  height: 100%;
   .Phase1 {
     display: flex;
     flex-direction: column;
@@ -70,6 +71,8 @@
   }
 
   .Phase3 {
+    overflow: hidden;
+    height: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -90,6 +93,13 @@
       margin: 10px;
       color: red;
       font-size: 30px;
+      animation: scale 5s infinite;
+    }
+
+    @keyframes scale {
+      0% { transform: scale(1); }
+      50% { transform: scale(70); }
+      100% { transform: scale(1); }
     }
 
     .Form {

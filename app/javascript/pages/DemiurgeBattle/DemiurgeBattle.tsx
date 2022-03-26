@@ -8,7 +8,6 @@ import cat from 'images/kitty.jpeg'
 import demiurge from 'images/demiurge.png'
 
 import './DemiurgeBattle.scss'
-import { now, sample } from 'lodash'
 import AnswerForm from 'components/Layout/AnswerForm'
 import { appPath } from 'App'
 
@@ -91,7 +90,7 @@ const Phase1: React.FC<PhaseProps> = ({ onPhaseCleared }) => {
     if(hitIndex > DIALOGUES_BY_HIT.length - 1) {
       return null
     }
-    setDialogueBarMessages([{ character: 'demiurge', message: DIALOGUES_BY_HIT[hitIndex], notClosable: true, ...(isLastMessage && { onCloseMessage: onPhaseCleared, disappearAfterSeconds: 2 }) } ])
+    setDialogueBarMessages([{ character: 'demiurge', message: DIALOGUES_BY_HIT[hitIndex], notClosable: true, ...(isLastMessage && { onCloseMessage: onPhaseCleared, disappearAfterSeconds: 4 }) } ])
     setHitIndex(hitIndex + 1)
   }
 
@@ -107,17 +106,13 @@ const NUMBER_OF_BUTTONS = 8
 
 const DEMIURGE_POSITIONS = [
   5,
-  1,
-  7,
-  5,
-  0,
   2,
-  6,
-  1,
-  4,
+  7,
   3,
   0,
-  1
+  1,
+  4,
+  6,
 ]
 
 const INITIAL_HITS = 2
@@ -125,8 +120,6 @@ const REMAINING_HEALTH = 3
 
 const Phase2: React.FC<PhaseProps> = ({ onPhaseCleared, onGameOver }) => {
   const { setDialogueBarMessages } = useContext(SessionContext)
-  // const [hitIndex, setHitIndex]  = useState(0)
-  // const isLastMessage = hitIndex === DIALOGUES_BY_HIT.length - 1
   const [canClickButtons, setCanClickButtons] = useState(true)
   const [classes, setClasses] = useState(Array(NUMBER_OF_BUTTONS).fill(''))
   const [demiurgePositionIndex, setDemiurgePositionIndex] = useState(Math.floor(Math.random() * DEMIURGE_POSITIONS.length))
@@ -136,11 +129,12 @@ const Phase2: React.FC<PhaseProps> = ({ onPhaseCleared, onGameOver }) => {
   const [isTimeoutActive, setIsTimeoutActive] = useState(false)
 
   const handleButtonClick = (index: number) => {
-    if(index === DEMIURGE_POSITIONS[demiurgePositionIndex + 1]) {
+    setCanClickButtons(false)
+    if(index === DEMIURGE_POSITIONS[(demiurgePositionIndex + 1) % DEMIURGE_POSITIONS.length]) {
       setSpin(true)
       setRemainingHealth(remainingHealth - 1)
       setDialogueBarMessages([
-        { character: 'demiurge', message: 'WHAT... Why in the world am I spinning? Is the "damage" animation ideated by my developer? Damn, it sucks...', disappearAfterSeconds: 4 } 
+        { character: 'demiurge', message: 'WHAT... Why in the world am I spinning? Is the "damage" animation ideated by my developer? Damn, it sucks...', disappearAfterSeconds: 4, onCloseMessage: () => setCanClickButtons(true) } 
       ])
     } else {
       setRemainingHits(remainingHits - 1)
@@ -158,22 +152,23 @@ const Phase2: React.FC<PhaseProps> = ({ onPhaseCleared, onGameOver }) => {
         setIsTimeoutActive(false)
         setSpin(false)
         setClasses(Array(NUMBER_OF_BUTTONS).fill(''))
-      }, 1000)
+      }, 2000)
       return () => clearTimeout(timeout)
     }
   }, [classes])
 
   useEffect(() => {
     if(remainingHits === 1) {
+      setCanClickButtons(false)
       setDialogueBarMessages([
-        { character: 'demiurge', message: 'I foresee you moves! You will never hit me!', disappearAfterSeconds: 1 } 
+        { character: 'demiurge', message: 'I foresee you moves! You will never hit me!', disappearAfterSeconds: 2, onCloseMessage: () => setCanClickButtons(true) } 
       ])
     }
     if(remainingHits === 0) {
       setCanClickButtons(false)
       setDialogueBarMessages([
         { character: 'demiurge', message: 'Wrong button... again! Let\'s close it here!' },
-        { character: 'demiurge', message: 'You are so fool that you didn\'t realized I am moving following a fixed sequence! Eheheh...' },
+        { character: 'demiurge', message: 'You are so fool that you didn\'t realize I am moving according to a fixed sequence! You are so brainless...' },
         { title: 'GAME OVER!', message: '... but you can retry the game!' },
         {character: 'demiurge', message: 'Hell no! Don\'t you dare restarting everything from...', onCloseMessage: () => onGameOver(), disappearAfterSeconds: 2}
       ])
@@ -201,7 +196,7 @@ const Phase2: React.FC<PhaseProps> = ({ onPhaseCleared, onGameOver }) => {
         {Array.from(Array(NUMBER_OF_BUTTONS).keys()).map((index) => {
           return <div key={index} className='button-area' {...((!isTimeoutActive && canClickButtons) &&  { onClick: () => handleButtonClick(index)})}>
             {<span className={`ray ${classes[index]}`}></span>}
-            <Button>HIT</Button>
+            <Button disabled={(isTimeoutActive || !canClickButtons)}>HIT</Button>
           </div>
         })}
       </div>
@@ -225,7 +220,7 @@ const Phase3: React.FC<PhaseProps> = ({ onPhaseCleared }) => {
   const [message, setMessage] = useState(null)
 
   useEffect(() => {
-    const message = `${firstNumber} + XXX = ${fakeResult}. You need to replace XXX. Ehehehe...`
+    const message = `${firstNumber} + XXX = ${fakeResult}. You need to replace XXX. Come on!`
     setDialogueBarMessages([
       { character: 'demiurge', message: 'Enough moving! Let\'s use the brain now...' },
       { character: 'demiurge', message: 'Math calculations!' },
@@ -238,9 +233,11 @@ const Phase3: React.FC<PhaseProps> = ({ onPhaseCleared }) => {
         setShowForm(false)
         if((isNaN(answer) ? 0 : parseInt(answer)) + firstNumber !== ANSWERS[riddleIndex]) {
           setDialogueBarMessages([
-            { character: 'demiurge', message: `So, ${firstNumber} + ${answer} = ${fakeResult}, uh?`, notClosable: true, disappearAfterSeconds: 3 },
-            { character: 'demiurge', message: `Wait, I asked you ${firstNumber} + XXX = ${ANSWERS[riddleIndex]}!`, notClosable: true, disappearAfterSeconds: 3 },
-            { character: 'demiurge', message: `${firstNumber} + ${answer} is not equal to ${ANSWERS[riddleIndex]}! Eheheh...`, notClosable: true, disappearAfterSeconds: 3 },
+            { character: 'demiurge', message: `So, ${firstNumber} + ${answer} = ${fakeResult}, uh?` },
+            { character: 'demiurge', message: `So, ${firstNumber} + ${answer} = ${ANSWERS[riddleIndex]}, uh?` },
+            { character: 'demiurge', message: `Oh, it seems that the equation changed on the fly! What a pity...` },
+            { character: 'demiurge', message: `${firstNumber} + ${answer} is not equal to ${ANSWERS[riddleIndex]}! This is basic math...` },
+            { character: 'demiurge', message: `I want to know which numbers sum up to ${ANSWERS[riddleIndex]}!` },
             { title: 'GAME OVER!', message: '... but you can retry the game!' },
             {character: 'demiurge', message: 'Hell no! Don\'t you dare restarting everything from...', disappearAfterSeconds: 3, onCloseMessage: () => {
             setRiddleIndex((riddleIndex + 1) % ANSWERS.length)
@@ -248,7 +245,7 @@ const Phase3: React.FC<PhaseProps> = ({ onPhaseCleared }) => {
             setFirstNumber(firstNumber)
             const fakeResult = Math.floor(Math.random() * 8) + 9
             setFakeResult(fakeResult)
-            const message = `${firstNumber} + XXX = ${fakeResult}. You need to replace XXX. Ehehehe...`
+            const message = `${firstNumber} + XXX = ${fakeResult}. You need to replace XXX. Come on!`
             setDialogueBarMessages([
               { character: 'demiurge', message: 'Enough moving! Let\'s use the brain now...' },
               { character: 'demiurge', message: 'Math calculations!' },
@@ -258,11 +255,13 @@ const Phase3: React.FC<PhaseProps> = ({ onPhaseCleared }) => {
           ])
         } else {
           setDialogueBarMessages([
-            { character: 'demiurge', message: `So, ${firstNumber} + ${answer} = ${fakeResult}, uh?`, notClosable: true, disappearAfterSeconds: 3 },
-            { character: 'demiurge', message: `Wait, I asked you ${firstNumber} + XXX = ${ANSWERS[riddleIndex]}!`, notClosable: true, disappearAfterSeconds: 3 },
+            { character: 'demiurge', message: `So, ${firstNumber} + ${answer} = ${fakeResult}, uh?` },
+            { character: 'demiurge', message: `So, ${firstNumber} + ${answer} = ${ANSWERS[riddleIndex]}, uh?` },
+            { character: 'demiurge', message: `Oh, it seems that the equation changed on the fly! What a pity...` },
+            { character: 'demiurge', message: `!?!` },
             { character: 'demiurge', message: 'What? It\'s the correct answer?' },
-            { character: 'demiurge', message: 'But I modified the equation to make you lose!' },
-            { character: 'demiurge', message: 'You are predicting my moves!', onCloseMessage: () => onPhaseCleared() }
+            { character: 'demiurge', message: 'But the game was planned to make you lose!'},
+            { character: 'demiurge', message: 'You are predicting my moves! You cheater!', onCloseMessage: () => onPhaseCleared() }
           ])
         }
       }
@@ -278,7 +277,7 @@ const Phase3: React.FC<PhaseProps> = ({ onPhaseCleared }) => {
         <img src={demiurge} />
       </div>
       {message && <span>{message}</span>}
-      {showForm && <AnswerForm checkAnswer={checkAnswer} onWrongAnswer={null} onCorrectAnswer={null} />}
+      {showForm && <AnswerForm numberInput checkAnswer={checkAnswer} onWrongAnswer={null} onCorrectAnswer={null} />}
     </div>
 }
 
@@ -307,6 +306,7 @@ const Phase4: React.FC<PhaseProps> = ({ onPhaseCleared }) => {
         setDialogueBarMessages([
           { character: 'demiurge', message: 'MY PERFECT SOFTWARE!' },
           { character: 'demiurge', message: 'Too many bugs! I cannot handle them all together!' },
+          { character: 'demiurge', message: 'They make me crazy!' },
           { character: 'demiurge', message: 'NOOOOOOOOOO', disappearAfterSeconds: 3, onCloseMessage: () => setIsBossDefeated(true) },
           { message: `Excellent! You defeated ${CHARACTERS['demiurge'].name}. You can proceed to the final location now.`, disappearAfterSeconds: 3, onCloseMessage: () => handleBossDefeated() }
         ])
