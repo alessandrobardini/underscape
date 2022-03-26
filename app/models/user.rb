@@ -25,7 +25,7 @@ class User < ApplicationRecord
   end
 
   def game_finished_in_seconds
-    self.game_finished_at - self.created_at if self.game_finished_at.present?
+    self.game_finished_at.to_i - self.created_at.to_i if self.game_finished_at.present?
   end
   
   private def generate_bag_code

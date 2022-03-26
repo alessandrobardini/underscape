@@ -239,10 +239,13 @@ const Game: React.FC<GameProps> = (props) => {
   const sessionContext = { user, gameEndsAt: game_ends_at, items, answers, bosses, setDialogueBarMessages, setModalChildren, closeModal, refetch, pickUpItem, progress, gameFinishedInSeconds: game_finished_in_seconds }
 
   if(!!game_finished_in_seconds) {
-    return <YouWin />
+    return <>
+      <YouWin setDialogueBarMessages={setDialogueBarMessages} gameFinishedInSeconds={game_finished_in_seconds}/>
+      <DialogueBar messages={dialogueBarMessages} closeDialogueBar={() => setDialogueBarMessages([])}/>
+    </>
   }
 
-  if(timeIsOver(game_ends_at)) {
+  if(timeIsOver(game_ends_at) && !game_finished_in_seconds) {
     return <YouLost />
   }
 
