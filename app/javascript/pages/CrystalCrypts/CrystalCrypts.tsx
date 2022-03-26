@@ -501,6 +501,7 @@ const SpookySprint = () => {
           {canInteractWithGrid &&
             <>
               {numberOfArrowsToPlaceYet > 0 ? <div className='arrows'>
+              <span>You play the role of the saboteur!</span>
                 <span>{`You need to place ${numberOfArrowsToPlaceYet} arrows yet.`}</span>
                 <span>Click on the board to place an arrow.</span>
                 <span>Click again to change its direction.</span>
