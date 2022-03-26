@@ -31,6 +31,7 @@ import poetry from 'images/poetry.jpeg'
 
 import './Game.scss'
 import DemiurgeBattle from 'pages/DemiurgeBattle/DemiurgeBattle'
+import YouWin from 'pages/YouWin'
 
 export type ItemType = {
   imageSrc: string
@@ -165,6 +166,7 @@ export type SessionContextType = {
     name: string
   }[],
   gameEndsAt: string,
+  gameFinishedInSeconds: number,
   progress: string,
   setDialogueBarMessages: (messages: Array<DialogueBarMessageType>) => void
   setModalChildren: (children: JSX.Element) => void
@@ -203,6 +205,7 @@ type GameProps = {
       }[],
       progress: string,
       game_ends_at: string
+      game_finished_in_seconds: number
     }
   }
 }
@@ -211,7 +214,7 @@ const Game: React.FC<GameProps> = (props) => {
   const [data, setData] = useState(props.data)
   const [dialogueBarMessages, setDialogueBarMessages] = useState<Array<DialogueBarMessageType>>([])
   const [modalChildren, setModalChildren] = useState<JSX.Element>(null)
-  const { data: { user, game_ends_at, items, answers, bosses, progress } } = data
+  const { data: { user, game_ends_at, items, answers, bosses, progress, game_finished_in_seconds } } = data
 
   const refetch = () => {
     getUser().then((data) => setData(data))
@@ -233,7 +236,11 @@ const Game: React.FC<GameProps> = (props) => {
 
   const closeModal= () => setModalChildren(null)
 
-  const sessionContext = { user, gameEndsAt: game_ends_at, items, answers, bosses, setDialogueBarMessages, setModalChildren, closeModal, refetch, pickUpItem, progress }
+  const sessionContext = { user, gameEndsAt: game_ends_at, items, answers, bosses, setDialogueBarMessages, setModalChildren, closeModal, refetch, pickUpItem, progress, gameFinishedInSeconds: game_finished_in_seconds }
+
+  if(!!game_finished_in_seconds) {
+    return <YouWin />
+  }
 
   if(timeIsOver(game_ends_at)) {
     return <YouLost />

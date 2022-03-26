@@ -5,6 +5,8 @@ class BossesController < AppController
 
   def create
     boss = Boss.new({ user_id: current_user.id, name: params[:boss][:name]})
+    # last boss
+    current_user.update!({ game_finished_at: Time.zone.now }) if params[:boss][:name] == 'goat'
     if boss.save
       render json: { ok: true }
     else

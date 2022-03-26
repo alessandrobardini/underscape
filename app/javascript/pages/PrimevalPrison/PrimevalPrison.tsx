@@ -6,10 +6,13 @@ import HiddenElement from "../../components/Layout/HiddenElement";
 import {generateCode} from "../../helpers/morseGenerator";
 import AnswerSubmission from 'components/Layout/ModalContent/AnswerSubmission';
 import GoatBossBattle from 'components/PrimevalPrison/GoatBossBattle';
+import { appPath } from 'App';
+import { useHistory } from 'react-router-dom';
 
 const PrimevalPrison: React.FC = () => {
 
   const { setDialogueBarMessages, pickUpItem, setModalChildren, closeModal, bosses } = useContext(SessionContext)
+  const history = useHistory()
   const bagContainsMorse = bagContains('morse')
   const bagContainsOde = bagContains('ode')
   const bagContainsRainbow = bagContains('rainbow')
@@ -33,7 +36,9 @@ const PrimevalPrison: React.FC = () => {
 
   const canProceedToBossBattle = morseRiddleSolved && bagContainsAllItems
 
-  const goatDefeated = bosses.map(({ name }) => name).includes('goat')
+  if(bosses.map(({ name }) => name).includes('goat')) {
+    history.replace(appPath('/map'))
+  }
 
   useEffect(() => {
     if(!bagContainsMorse) {
@@ -54,13 +59,11 @@ const PrimevalPrison: React.FC = () => {
         {character: 'goat', message: 'Deadly Fog, my dear friend! You must block this shiny knight!'},
         {character: 'goat', message: 'Goodbye, warrior of light! See you never!', onCloseMessage: () => setShowFog(true)},
       ])
-    } else if(goatDefeated) {
-      alert('something to conclude the game!')
     }
   }, [])
 
   useEffect(() => {
-    if(canProceedToBossBattle && !goatDefeated) {
+    if(canProceedToBossBattle) {
       setDialogueBarMessages([
         { character: 'goat', message: 'Deadly Fog! Why did you allow this noble heart to reach me!' },
         { character: 'goat', message: 'Please, go away! I cannot stand your pure light!'},
@@ -166,7 +169,7 @@ const PrimevalPrison: React.FC = () => {
     }
   }
 
-  return goatDefeated ? null : showBattlePage ? <GoatBossBattle /> : <div className={`PrimevalPrison`}>
+  return showBattlePage ? <GoatBossBattle /> : <div className={`PrimevalPrison`}>
     <div className={isCompletelyDark ? 'dark' : corridorLights ? 'corridor' : 'dark-corridor'}>
       <HiddenElement top='160px' left='900px' width='110px' height='40px' onClick={() => switchCorridorLights()}/>
       <HiddenElement extraClassName={backLeftLight ? lanternBackLeftClassName : 'light-off'} top='370px' left='825px'

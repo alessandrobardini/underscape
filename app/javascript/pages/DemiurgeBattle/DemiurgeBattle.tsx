@@ -316,48 +316,54 @@ const Phase4: React.FC<PhaseProps> = ({ onPhaseCleared }) => {
   const checkEmailAnswer = (answer) => Promise.resolve({ data: { ok: EMAIL_REGEX.test(answer) } })
 
   const onCorrectEmailAnswer = () => {
+    setShowForm(false)
     setDialogueBarMessages([
       { message: 'Thank you for providing your email!' },
-      { character: 'demiurge', message: 'YEEEEES! A world without bugs!', disappearAfterSeconds: 5 },
+      { character: 'demiurge', message: 'YEEEEES! A world without bugs!', disappearAfterSeconds: 5, onCloseMessage: () => setShowForm(true) },
     ])
   }
 
   const onWrongEmailAnswer = () => {
     setIsEmailError(true)
+    setShowForm(false)
     setDialogueBarMessages([
-      { character: 'demiurge', message: 'WHAT ARE YOU DOING?!? Are you blowing up my perfect software!', disappearAfterSeconds: 5 },
+      { character: 'demiurge', message: 'WHAT ARE YOU DOING?!? Are you blowing up my perfect software!', disappearAfterSeconds: 5, onCloseMessage: () => setShowForm(true) },
     ])
   }
 
   const checkAgeAnswer = (answer) => Promise.resolve({ data: { ok: answer > 0 } })
 
   const onCorrectAgeAnswer = () => {
+    setShowForm(false)
     setDialogueBarMessages([
       { message: 'Thank you for providing your age!' },
-      { character: 'demiurge', message: 'YEEEEES! A world without bugs!', disappearAfterSeconds: 5 },
+      { character: 'demiurge', message: 'YEEEEES! A world without bugs!', disappearAfterSeconds: 5, onCloseMessage: () => setShowForm(true) },
     ])
   }
 
   const onWrongAgeAnswer = () => {
     setIsAgeError(true)
+    setShowForm(false)
     setDialogueBarMessages([
-      { character: 'demiurge', message: 'WHAT ARE YOU DOING?!? Are you blowing up my perfect software!', disappearAfterSeconds: 5 },
+      { character: 'demiurge', message: 'WHAT ARE YOU DOING?!? Are you blowing up my perfect software!', disappearAfterSeconds: 5, onCloseMessage: () => setShowForm(true) },
     ])
   }
 
   const checkPasswordAnswer = (answer) => Promise.resolve({ data: { ok: answer ? answer.length > 7 : false } })
 
   const onCorrectPasswordAnswer = () => {
+    setShowForm(false)
     setDialogueBarMessages([
       { message: 'Thank you for providing a safe password!' },
-      { character: 'demiurge', message: 'YEEEEES! A world without bugs!', disappearAfterSeconds: 5 },
+      { character: 'demiurge', message: 'YEEEEES! A world without bugs!', disappearAfterSeconds: 5, onCloseMessage: () => setShowForm(true) },
     ])
   }
 
   const onWrongPasswordAnswer = () => {
     setIsPasswordError(true)
+    setShowForm(false)
     setDialogueBarMessages([
-      { character: 'demiurge', message: 'WHAT ARE YOU DOING?!? Are you blowing up my perfect software!', disappearAfterSeconds: 5 },
+      { character: 'demiurge', message: 'WHAT ARE YOU DOING?!? Are you blowing up my perfect software!', disappearAfterSeconds: 5, onCloseMessage: () => setShowForm(true) },
     ])
   }
 

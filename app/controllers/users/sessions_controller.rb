@@ -38,7 +38,8 @@ class Users::SessionsController < Devise::SessionsController
         answers: current_user.answers,
         bosses: current_user.bosses,
         progress: current_user.progress,
-        game_ends_at: current_user.created_at + current_user.time_for_beating_the_game
+        game_ends_at: current_user.time_for_beating_the_game,
+        game_finished_in_seconds: current_user.game_finished_in_seconds
       }
     else
       render json: { ok: false }, status: :unauthorized
