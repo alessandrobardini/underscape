@@ -326,9 +326,11 @@ const Phase4: React.FC<PhaseProps> = ({ onPhaseCleared }) => {
   const onWrongEmailAnswer = () => {
     setIsEmailError(true)
     setShowForm(false)
-    setDialogueBarMessages([
-      { character: 'demiurge', message: 'WHAT ARE YOU DOING?!? Are you blowing up my perfect software!', disappearAfterSeconds: 5, onCloseMessage: () => setShowForm(true) },
-    ])
+    if(!(isAgeError && isPasswordError)) {
+      setDialogueBarMessages([
+        { character: 'demiurge', message: 'WHAT ARE YOU DOING?!? Are you blowing up my perfect software!', disappearAfterSeconds: 5, onCloseMessage: () => setShowForm(true) },
+      ])
+    }
   }
 
   const checkAgeAnswer = (answer) => Promise.resolve({ data: { ok: answer > 0 } })
@@ -344,9 +346,11 @@ const Phase4: React.FC<PhaseProps> = ({ onPhaseCleared }) => {
   const onWrongAgeAnswer = () => {
     setIsAgeError(true)
     setShowForm(false)
-    setDialogueBarMessages([
-      { character: 'demiurge', message: 'WHAT ARE YOU DOING?!? Are you blowing up my perfect software!', disappearAfterSeconds: 5, onCloseMessage: () => setShowForm(true) },
-    ])
+    if(!(isEmailError && isPasswordError)) {
+      setDialogueBarMessages([
+        { character: 'demiurge', message: 'WHAT ARE YOU DOING?!? Are you blowing up my perfect software!', disappearAfterSeconds: 5, onCloseMessage: () => setShowForm(true) },
+      ])
+    }
   }
 
   const checkPasswordAnswer = (answer) => Promise.resolve({ data: { ok: answer ? answer.length > 7 : false } })
@@ -362,9 +366,11 @@ const Phase4: React.FC<PhaseProps> = ({ onPhaseCleared }) => {
   const onWrongPasswordAnswer = () => {
     setIsPasswordError(true)
     setShowForm(false)
-    setDialogueBarMessages([
-      { character: 'demiurge', message: 'WHAT ARE YOU DOING?!? Are you blowing up my perfect software!', disappearAfterSeconds: 5, onCloseMessage: () => setShowForm(true) },
-    ])
+    if(!(isAgeError && isEmailError)) {
+      setDialogueBarMessages([
+        { character: 'demiurge', message: 'WHAT ARE YOU DOING?!? Are you blowing up my perfect software!', disappearAfterSeconds: 5, onCloseMessage: () => setShowForm(true) },
+      ])
+    }
   }
 
   const handleBossDefeated = () => {
