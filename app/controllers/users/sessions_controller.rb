@@ -45,4 +45,8 @@ class Users::SessionsController < Devise::SessionsController
       render json: { ok: false }, status: :unauthorized
     end
   end
+
+  def winners
+    render json: { winners: User.where.not(game_finished_at: nil).order('game_finished_in_seconds') }
+  end
 end

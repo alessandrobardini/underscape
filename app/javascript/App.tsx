@@ -5,6 +5,7 @@ import React from 'react'
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 import axios from 'axios'
 import Game from 'Game'
+import HallOfFame from 'pages/HallOfFame/HallOfFame'
 
 const basePath = '/app'
 
@@ -14,6 +15,7 @@ const App: React.FC = () => (
   <Router>
     <Switch>
       <Route exact path={appPath('/')} component={Home} />
+      <Route exact path={appPath('/hall_of_fame')} component={HallOfFame} />
       <Route exact path={appPath('/bag')} component={Bag} />
       <Route render={() =>
         <PromiseWrap promise={getUser()} timeout={500}>

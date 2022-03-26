@@ -23,11 +23,6 @@ class User < ApplicationRecord
   def time_for_beating_the_game
     self.created_at + INITIAL_TIME_FOR_BEATING_THE_GAME + (self.bosses.where.not(name: 'goat').size * BONUS_TIME_AFTER_DEFEATING_BOSS)
   end
-
-  def game_finished_in_seconds
-    self.game_finished_at.to_i - self.created_at.to_i if self.game_finished_at.present?
-  end
-  
   private def generate_bag_code
     self.bag_code = SecureRandom.alphanumeric
   end

@@ -19,6 +19,10 @@
       margin-left: 10px;
     }
 
+    &.right {
+      justify-content: space-around;
+    }
+
     .Input {
       width: auto;
     }

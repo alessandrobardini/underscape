@@ -7,6 +7,7 @@ import Input from 'ui/Input'
 import Button from 'ui/Button'
 
 import './Home.scss'
+import Link from 'ui/Link'
 
 const Home: React.FC = () => {
   const handleSubmit = ({name, password}) => {
@@ -43,7 +44,7 @@ const Home: React.FC = () => {
           </ul>
         </div>
       </div>
-      <div className='container'>
+      <div className='container right'>
         <Form onSubmit={handleSubmit} initialValues={{name: '', password: ''}}>
           {({ errors, touched, values, setFieldValue }) => (
               <>
@@ -72,6 +73,9 @@ const Home: React.FC = () => {
               </>
           )}
         </Form>
+        <div className='hall-of-fame'>
+          <Link to='/app/hall_of_fame'>Hall of Fame</Link>
+        </div>
       </div>
     </div>
 }
