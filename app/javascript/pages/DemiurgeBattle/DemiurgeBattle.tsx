@@ -10,6 +10,7 @@ import demiurge from 'images/demiurge.png'
 import './DemiurgeBattle.scss'
 import AnswerForm from 'components/Layout/AnswerForm'
 import { appPath } from 'App'
+import { sample } from 'lodash'
 
 const DemiurgeBattle: React.FC = () => {
   const { setDialogueBarMessages, bosses } = useContext(SessionContext)
@@ -214,7 +215,7 @@ const Phase3: React.FC<PhaseProps> = ({ onPhaseCleared }) => {
   const { setDialogueBarMessages } = useContext(SessionContext)
   const [riddleIndex, setRiddleIndex] = useState(Math.floor(Math.random() * ANSWERS.length))
   const [firstNumber, setFirstNumber] = useState(() => Math.floor(Math.random() * 8))
-  const [fakeResult, setFakeResult] = useState(() => Math.floor(Math.random() * 8) + 9)
+  const [fakeResult, setFakeResult] = useState(() => sample([10, 12, 13, 14, 15, 16, 17, 18, 19]))
   const [answer, setAnswer] = useState(null)
   const [showForm, setShowForm] = useState(false)
   const [message, setMessage] = useState(null)
