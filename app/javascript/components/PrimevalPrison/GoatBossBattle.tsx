@@ -9,6 +9,8 @@ import axios from 'axios'
 import csrfToken from 'helpers/csrfToken'
 
 import './GoatBossBattle.scss'
+import { appPath } from 'App'
+import { useHistory } from 'react-router-dom'
 
 const COLORS = [
   { name: 'blue', operation: 'plus', operand: '5'},
@@ -25,6 +27,7 @@ const COLORS = [
 ]
 
 const GoatBossBattle: React.FC = () => {
+  const history = useHistory()
   const { setDialogueBarMessages, bosses } = useContext(SessionContext)
   const [heartPosition, setHeartPosition] = useState(0)
   const [fogs, setFogs] = useState([])
@@ -74,7 +77,7 @@ const GoatBossBattle: React.FC = () => {
       '/bosses',
       { boss: { name: 'goat' }, authenticity_token: csrfToken() },
       { headers: { Accept: 'application/json' }, responseType: 'json' }
-    ).then(() => location.reload())
+    ).then(() => history.replace(appPath('/map')))
   }
 
   const checkAnswer = answer => {

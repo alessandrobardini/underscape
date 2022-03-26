@@ -9,6 +9,8 @@ import axios from 'axios'
 import csrfToken from 'helpers/csrfToken'
 
 import './AlchemistBossBattle.scss'
+import { appPath } from 'App'
+import { useHistory } from 'react-router-dom'
 
 type ButtonType = {
   text: string
@@ -101,6 +103,7 @@ const FORESIGHT_SPELL = { counter: '75745360', text: 'FORESIGHT! I see a crushin
 const SADNESS_SPELL = { counter: '16182062', text: 'What is that smile? You are supposed to laugh only at my jokes! SADNESS!'}
 
 const AlchemistBossBattle: React.FC = () => {
+  const history = useHistory()
   const { setDialogueBarMessages } = useContext(SessionContext)
   const [phase, setPhase] = useState(1)
   const [buttons, setButtons] = useState<{ phase1: PhaseStatusType, phase2: PhaseStatusType}>({ phase1: { color: '', content: []}, phase2: { color: '', content: []}})
@@ -121,7 +124,7 @@ const AlchemistBossBattle: React.FC = () => {
       '/bosses',
       { boss: { name: 'alchemist' }, authenticity_token: csrfToken() },
       { headers: { Accept: 'application/json' }, responseType: 'json' }
-    ).then(() => location.reload())
+    ).then(() => history.replace(appPath('/map')))
   }
 
   useEffect(() => {

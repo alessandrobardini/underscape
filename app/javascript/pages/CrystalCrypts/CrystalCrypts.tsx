@@ -326,6 +326,7 @@ const NEXT_DIRECTION = {
 }
 
 const SpookySprint = () => {
+  const history = useHistory()
   const { setDialogueBarMessages, pickUpItem } = useContext(SessionContext)
   const bagContainsSpookySprint = bagContains('spooky_sprint')
   const [canInteractWithGrid, setCanInteractWithGrid] = useState(false)
@@ -384,6 +385,14 @@ const SpookySprint = () => {
       }
     }
   }, [ghostPosition])
+
+  const handleBossDefeated = () => {
+    axios.post(
+      '/bosses',
+      { boss: { name: 'ghost' }, authenticity_token: csrfToken() },
+      { headers: { Accept: 'application/json' }, responseType: 'json' }
+    ).then(() => history.replace(appPath('/map')))
+  }
 
   useEffect(() => {
     if(bombCells.length === 0) {
@@ -521,14 +530,6 @@ const SpookySprint = () => {
       </div>
     </div>
   </div>
-}
-
-const handleBossDefeated = () => {
-  axios.post(
-    '/bosses',
-    { boss: { name: 'ghost' }, authenticity_token: csrfToken() },
-    { headers: { Accept: 'application/json' }, responseType: 'json' }
-  ).then(() => location.reload())
 }
 
 export default CrystalCrypts 

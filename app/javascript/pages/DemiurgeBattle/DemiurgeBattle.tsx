@@ -285,6 +285,7 @@ const Phase3: React.FC<PhaseProps> = ({ onPhaseCleared }) => {
 const EMAIL_REGEX = /^[^@]+@[^@]+\.\w+$/
 
 const Phase4: React.FC<PhaseProps> = ({ onPhaseCleared }) => {
+  const history = useHistory()
   const { setDialogueBarMessages } = useContext(SessionContext)
   const [showForm, setShowForm] = useState(false)
   const [message, setMessage] = useState(null)
@@ -379,7 +380,7 @@ const Phase4: React.FC<PhaseProps> = ({ onPhaseCleared }) => {
       '/bosses',
       { boss: { name: 'demiurge' }, authenticity_token: csrfToken() },
       { headers: { Accept: 'application/json' }, responseType: 'json' }
-    ).then(() => location.reload())
+    ).then(() => history.replace(appPath('/map')))
   }
 
   return <div className='Phase3'>
