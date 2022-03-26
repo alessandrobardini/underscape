@@ -67,7 +67,7 @@ const YouWin: React.FC<YouWinProps> = ({ setDialogueBarMessages, gameFinishedInS
       </div>
       <span className='thanks'>THANKS FOR PLAYING!</span>
       <span className='finished'>{`Game finished in: ${secondsToHms(gameFinishedInSeconds)}`}</span>
-      <Link to='/app'>Back to home</Link>
+      <Link to='#' onClick={() => signOut().then(() => window.location.replace('/app'))}>Back to home</Link>
     </div> : <div className='throne'/>}
   </div>
 }
