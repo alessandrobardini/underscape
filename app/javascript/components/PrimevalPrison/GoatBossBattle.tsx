@@ -31,14 +31,17 @@ const GoatBossBattle: React.FC = () => {
   const [showGame, setShowGame] = useState(false)
   const [showForm, setShowForm] = useState(false)
   const [selectedOption, setSelectedOption] = useState('plus')
+  const [message, setMessage] = useState(null)
 
   useEffect(() => {
     const fogs = sampleSize(COLORS, 3)
+    const message = `I am the ${fogs[0].name} fog! Your journey ends here!`
+    setMessage(message)
     setFogs(fogs)
     setDialogueBarMessages([
       {message: 'Come on, noble heart! One last effort before meeting the king!'},
       {message: `Destroy the three colored fogs and ${CHARACTERS['goat'].name} will be annihilated by your shimmer!`, onCloseMessage: () => setShowGame(true)},
-      {message: `I am the ${fogs[0].name} fog! Your journey ends here!`, onCloseMessage: () => setShowForm(true)},
+      {message, onCloseMessage: () => setShowForm(true)},
     ])
   }, [])
 
@@ -58,8 +61,10 @@ const GoatBossBattle: React.FC = () => {
       ])  
     }
     else if(heartPosition > 0) {
+      const message = `I am the ${fogs[heartPosition].name} fog! Your journey ends here!`
+      setMessage(message)
       setDialogueBarMessages([
-        {message: `I am the ${fogs[heartPosition].name} fog! Your journey ends here!`, onCloseMessage: () => setShowForm(true)},
+        {message, onCloseMessage: () => setShowForm(true)},
       ])
     }
   }, [heartPosition])
@@ -134,6 +139,7 @@ const GoatBossBattle: React.FC = () => {
         <input type="radio" value="minus" name="sign" checked={selectedOption === 'minus'} onChange={() => setSelectedOption('minus')} /> Minus
       </div>
       <AnswerForm numberInput checkAnswer={checkAnswer} onWrongAnswer={handleWrongAnswer} onCorrectAnswer={handleCorrectAnswer} />
+      <span className='m-t-md'>{message}</span>
     </div>}
 </div>
 }

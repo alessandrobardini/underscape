@@ -98,7 +98,6 @@ const PrimevalPrison: React.FC = () => {
         if (i < phrase.length) {
           playMorseCode(phrase, lanternClassName, setLanternClassName, setLight)
         } else {
-          console.log('entro')
           i = 0
           setTimeout(() => playMorseCode, 5000)
           setTimeout(() => setLight(false), 3200)

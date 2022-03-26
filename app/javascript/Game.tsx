@@ -120,7 +120,7 @@ export const ITEMS: { [key: string]: ItemType } = {
     href: 'https://storage.googleapis.com/escape-room-bucket/ode.txt'
   },
   'prison_keeper': {
-    imageSrc: prison_keeper,
+    imageSrc: textFile,
     name: 'Prison keeper note',
     message: 'The prison keeper loves cleanliness',
     href: 'https://storage.googleapis.com/escape-room-bucket/prison_keeper.txt'
