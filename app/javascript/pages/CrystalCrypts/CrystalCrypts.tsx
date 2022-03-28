@@ -157,7 +157,7 @@ const CrystalCrypts: React.FC = () => {
   useEffect(() => {
     if(!bagContainsMaze1Map) {
       setDialogueBarMessages([
-        { character: 'ghost', message: 'Uhhh! It\'s been a long time since I received any visits, down here  at the Cyrstal Crypts!' },
+        { character: 'ghost', message: 'Uhhh! It\'s been a long time since I received any visits, down here  at the Crystal Crypts!' },
         { character: 'ghost', message: '...' },
         { character: 'ghost', message: 'Who am I? Wait, are you serious or what?!' },
         { character: 'ghost', message: `How can you not recognize ${CHARACTERS['ghost'].name}, the great olympic champion?!` },
