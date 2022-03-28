@@ -31,6 +31,7 @@ const PrimevalPrison: React.FC = () => {
   const [isCompletelyDark, setIsCompletelyDark] = useState(true && !bagContainsAtLeastOneItem)
   const [showFog, setShowFog] = useState(false || bagContainsAtLeastOneItem)
   const [showBattlePage, setShowBattlePage] = useState<boolean>(false)
+  const [canClickOnLamps, setCanClickOnLamps] = useState(true)
 
   const morseRiddleSolved = riddleSolved('morse')
 
@@ -102,11 +103,8 @@ const PrimevalPrison: React.FC = () => {
           playMorseCode(phrase, lanternClassName, setLanternClassName, setLight)
         } else {
           i = 0
-          setTimeout(() => playMorseCode, 5000)
-          setTimeout(() => setLight(false), 3200)
-
+          setTimeout(() => { setLight(false); setCanClickOnLamps(true) }, time)
         }
-
       }, time)
     }
   }
@@ -133,14 +131,17 @@ const PrimevalPrison: React.FC = () => {
   }
 
   const handleLanternClick = ({ item, itemMessage, letter, lanternClassName, setLanternClassName, setLight, bagContains } ) => {
-    if(corridorLights) {
-      if(!bagContains) {
-        pickUpItem({ firstMessage: itemMessage, pickableItem: item })
+    if(canClickOnLamps) {
+      if(corridorLights) {
+        if(!bagContains) {
+          pickUpItem({ firstMessage: itemMessage, pickableItem: item })
+        }
+      } else {
+        setLight(true)
+        const phrase = generateCode(letter)
+        setCanClickOnLamps(false)
+        playMorseCode(phrase, lanternClassName, setLanternClassName, setLight)
       }
-    } else {
-      setLight(true)
-      const phrase = generateCode(letter)
-      playMorseCode(phrase, lanternClassName, setLanternClassName, setLight)
     }
   }
 

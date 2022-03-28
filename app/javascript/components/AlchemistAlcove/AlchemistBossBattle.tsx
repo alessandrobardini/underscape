@@ -23,7 +23,7 @@ type PhaseStatusType = {
   content: Array<ButtonType>
 }
 
-const SECONDS_FOR_ANSWERING = 60
+const SECONDS_FOR_ANSWERING = 120
 
 const BUTTONS_WITH_RED_SPELL = {
   color: 'red', 
