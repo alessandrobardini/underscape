@@ -24,6 +24,7 @@ const WallBreach: React.FC = () => {
   const [showSentences, setShowSentences] = useState(bagContainsPsyNote)
   const [showButtons, setShowButtons] = useState(bagContainsPsyNote)
   const [insertedSequence, setInsertedSequence] = useState('')
+  const [canInteractWithElements, setCanInteractWithElements] = useState(false)
 
   useEffect(() => {
     if(!bagContainsPsyNote) {
@@ -48,7 +49,7 @@ const WallBreach: React.FC = () => {
         { character: 'cat', message: 'Meeeeeow!'},
         { character: 'demiurge', message: 'Long story short... I will not subordinate to the rules of my creator! I AM THE REAL CREATOR OF THIS WORLD!'},
         { character: 'demiurge', message: 'So... If my creator wants you to defeat me in order to win the game... Well, this is not possible!'},
-        { character: 'demiurge', message: 'Let me move away from here! Goodbye!'},
+        { character: 'demiurge', message: 'Let me move away from here! Goodbye!', onCloseMessage: () => setCanInteractWithElements(true)},
       ])
     }
   }, [])
@@ -88,21 +89,21 @@ const WallBreach: React.FC = () => {
     <div className={`content ${showKittensBg ? 'kittens' : ''} ${!(showSentences || showKittensBg) ? 'start' : ''}`}>
       {showSentences &&
         <div className='sentences'>
-          { showButtons && <Button className='center' onClick={() => handleSequenceButtonClick('2')}>2</Button> }
-          { showKittens && <img className='start' src={cat} onClick={() => handleCatClick(0)}/> }
+          { showButtons && <Button className='center' {...(canInteractWithElements && { onClick: () => handleSequenceButtonClick('2')})}>2</Button> }
+          { showKittens && <img className='start' src={cat} {...(canInteractWithElements && { onClick: () => handleCatClick(0)})}/> }
           <span className='center'>QWERTYUIOP</span>
-          { showButtons && <Button className='start' onClick={() => handleSequenceButtonClick('5')}>5</Button> }
-          { showKittens && <img className='end' src={cat} onClick={() => handleCatClick(1)}/> }
-          { showButtons && <Button className='end' onClick={() => handleSequenceButtonClick('4')}>4</Button> }
+          { showButtons && <Button className='start' {...(canInteractWithElements && { onClick: () => handleSequenceButtonClick('5')})}>5</Button> }
+          { showKittens && <img className='end' src={cat} {...(canInteractWithElements && { onClick: () => handleCatClick(1)})}/> }
+          { showButtons && <Button className='end' {...(canInteractWithElements && { onClick: () => handleSequenceButtonClick('4')})}>4</Button> }
           <span className='center' >{`${CHARACTERS['demiurge'].name} is simply the best!`}</span>
           <span className='start'>ASDFGHJKL</span>
-          { showKittens && <img className='center' src={cat} onClick={() => handleCatClick(2)}/> }
+          { showKittens && <img className='center' src={cat} {...(canInteractWithElements && { onClick: () => handleCatClick(2)})}/> }
           <span className='start'>{`Long live ${CHARACTERS['demiurge'].name}`}</span>
-          { showButtons && <Button className='start' onClick={() => handleSequenceButtonClick('1')}>1</Button> }
+          { showButtons && <Button className='start' {...(canInteractWithElements && { onClick: () => handleSequenceButtonClick('1')})}>1</Button> }
           <span className='end'>ZXCVBNM</span>
-          { (showButtons && !bagContainsPsyNote) && <Button onClick={() => pickUpItem({ pickableItem: 'psychological_note'})}>???</Button> }
+          { (showButtons && !bagContainsPsyNote) && <Button {...(canInteractWithElements && { onClick: () => pickUpItem({ pickableItem: 'psychological_note'})})}>???</Button> }
           <span className='center'>{`${CHARACTERS['demiurge'].name}: for a perfect world!`}</span>
-          { showButtons && <Button onClick={() => handleSequenceButtonClick('3')}>3</Button> }
+          { showButtons && <Button {...(canInteractWithElements && { onClick: () => handleSequenceButtonClick('3')})}>3</Button> }
         </div>
       }
     </div>
