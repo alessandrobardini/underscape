@@ -93,7 +93,7 @@ const AlchemistAlcove: React.FC = () => {
     explanations={[
       'The access to the cave seems to be blocked by an invisible barrier...',
       'There is a writing on the floor: "It\'s elementary!"',
-      'It seems you need to insert a password to deactivate the barrier: '
+      'It seems you need to insert a password made of numbers to deactivate the barrier: '
     ]}
     onCorrectAnswerSubmission={closeModal}
   />
