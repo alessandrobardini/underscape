@@ -75,13 +75,13 @@ const PrimevalPrison: React.FC = () => {
     }
   }, [canProceedToBossBattle])
 
-  const morseL = (lanternClassName: string, setLanternClassName: any) => {
-    setLanternClassName(lanternClassName.replace('light-off', 'light'))
-    setTimeout(() => setLanternClassName(lanternClassName.replace('light', 'light-off')), 3000)
+  const morseL = (setLanternClassName: any) => {
+    setLanternClassName(l => l.replace('light-off', 'light'))
+    setTimeout(() => setLanternClassName(l => l.replace('light', 'light-off')), 3000)
   }
-  const morseS = (lanternClassName: string, setLanternClassName: any) => {
-    setLanternClassName(lanternClassName.replace('light-off', 'light'))
-    setTimeout(() => setLanternClassName(lanternClassName.replace('light', 'light-off')), 500)
+  const morseS = (setLanternClassName: any) => {
+    setLanternClassName(l => l.replace('light-off', 'light'))
+    setTimeout(() => setLanternClassName(l => l.replace('light', 'light-off')), 500)
   }
 
   let i = 0
@@ -91,10 +91,10 @@ const PrimevalPrison: React.FC = () => {
     if (lanternClassName) {
       setTimeout(function () {
         if (phrase[i] === '-') {
-          morseL(lanternClassName, setLanternClassName)
+          morseL(setLanternClassName)
           time = 3200
         } else if (phrase[i] === '.') {
-          morseS(lanternClassName, setLanternClassName)
+          morseS(setLanternClassName)
           time = 700
         } 
         i++
