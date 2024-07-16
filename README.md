@@ -1,4 +1,4 @@
-# Online escape room
+# Undertale online escape room
 
 Repository for an online company event: teams are required to play an online escape room and solve the riddles to win the game! 🎲 🎮
 
