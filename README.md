@@ -1,6 +1,6 @@
 # Online escape room
 
-Repository for the Magaloop online company event of March 2022: teams are required to play an online escape room and solve the riddles to win the game! 🎲 🎮
+Repository for an online company event: teams are required to play an online escape room and solve the riddles to win the game! 🎲 🎮
 
 ## Local game
 
