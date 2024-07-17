@@ -167,7 +167,7 @@ const CrystalCrypts: React.FC = () => {
         { character: 'ghost', message: '...' },
         { character: 'ghost', message: 'Soccer? Did you really say "Soccer?"' },
         { character: 'ghost', message: 'I AM A F**KING GHOST WITH NO LEGS, HOW AM I SUPPOSED TO PLAY SOCCER?' },
-        { character: 'ghost', message: 'Of course, I am the Spooky Sprint champion! It\'s the Magaland national sport!' },
+        { character: 'ghost', message: 'Of course, I am the Spooky Sprint champion! It\'s the kingdom national sport!' },
         { character: 'ghost', message: 'Your insolence bothered me! I have no time to lose with dummies like you...' },
         { character: 'ghost', message: 'Let\'s test your orienteering skills, ehehe... They are the basis to become a good Spooky Sprint player!', onCloseMessage: () => setMazeIndex(0) }
       ])

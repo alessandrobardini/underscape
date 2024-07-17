@@ -2,8 +2,7 @@ import React, { useState, useEffect } from 'react'
 import PromiseWrap from 'components/Promise/PromiseWrap'
 import { getUser } from 'App'
 import BagItemList from 'components/BagItemList/BagItemList'
-import Link from 'ui/Link'
-import { signOut } from 'components/Layout/TopBar'
+import { ItemType } from 'Game'
 
 import './Bag.scss'
 
@@ -24,11 +23,9 @@ const Bag = () => {
 }
 
 const BagPage = ({ data, refetch } ) => {
-  const [frameSource, setFrameSource] = useState(null)
+  const [selectedItem, setSelectedItem] = useState<ItemType>(null)
   const handleItemClick = (item) => {
-    if (item.href) {
-      setFrameSource(item.href)
-    }
+    setSelectedItem(item)
   }
 
   useEffect(() => {
@@ -40,13 +37,16 @@ const BagPage = ({ data, refetch } ) => {
     <div className='BagPage'>
       <div className='list'>
         <header>
-          <i className='fa fa-suitcase' />
-          {data.data.user.name}
-          <Link to='#' type='danger' size='xs' onClick={() => window.confirm('Are you sure? The timer will not be stopped!') && signOut().then(() => window.location.replace('/app'))}>Logout</Link>
+          Your bag
         </header>
-        <BagItemList items={data.data.items} onItemClick={handleItemClick} />
+        <BagItemList items={data.data.items} onItemClick={handleItemClick} selected={selectedItem} />
       </div>
-      {frameSource ? <iframe src={frameSource} /> : null}
+      {selectedItem && <div className='selectedItem'>
+        <header>
+          {selectedItem.name}
+        </header>
+        {<div className='content'>{selectedItem.markdown}</div>}
+      </div>}
     </div>
   )
 }

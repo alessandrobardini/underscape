@@ -19,7 +19,6 @@ const Bag: React.FC = () => {
   }
 
   return <div className='Bag'>
-    <label className='share'>Share this bag with your teammates <code>{shareBagUrl}</code></label>
     <BagItemList items={items} onItemClick={activateItem} />
   </div>
 }

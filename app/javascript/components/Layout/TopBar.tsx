@@ -20,7 +20,7 @@ const TopBar: React.FC = () => {
     <div className='TopBar'>
       <div className='container top-left'>
         <div>{`Progress: ${progress}%`}</div>
-        <div><Button icon iconLeft='fa fa-suitcase' onClick={() => setModalChildren(<Bag />)} /></div>
+        <div><Button icon iconLeft='fa fa-suitcase' to='/app/bag' target='_blank' /></div>
         <div><Button icon iconLeft='fa fa-home' onClick={onHomeClick} /></div>
       </div>
       <div className='username container'>

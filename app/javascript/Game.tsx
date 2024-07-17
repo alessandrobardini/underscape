@@ -26,18 +26,18 @@ import PrimevalPrison from "./pages/PrimevalPrison/PrimevalPrison";
 import WallBreach from 'pages/WallBreach/WallBreach'
 import morse from 'images/morse.png'
 import rainbow from 'images/rainbow.png'
-import prison_keeper from 'images/prison_keeper.jpeg'
 import poetry from 'images/poetry.jpeg'
-
-import './Game.scss'
 import DemiurgeBattle from 'pages/DemiurgeBattle/DemiurgeBattle'
 import YouWin from 'pages/YouWin'
+import periodicTable from 'images/periodic_table.svg'
+
+import './Game.scss'
 
 export type ItemType = {
   imageSrc: string
   name: string
   message: string
-  href?: string
+  markdown?: JSX.Element
   action?: () => void
 }
 
@@ -46,19 +46,39 @@ export const ITEMS: { [key: string]: ItemType } = {
     imageSrc: hydrogen,
     name: 'Periodic table of elements',
     message: 'Do yo want to create delightful cocktails?',
-    href: 'https://storage.googleapis.com/escape-room-bucket/periodic_table.svg'
+    markdown: <img src={periodicTable} />
   },
   'principles_of_life': {
     imageSrc: textFile,
     name: 'Principles of life',
     message: 'For your everyday living',
-    href: 'https://storage.googleapis.com/escape-room-bucket/principles.txt'
+    markdown: <div>
+      <p>Be kind to others</p>
+      <p>Take your ReSPoNSiBiLiTiEs</p>
+      <p>Do physical activity</p>
+      <p>Eat your vegetables</p>
+    </div>
   },
   'book_of_spells': {
     imageSrc: spells,
     name: 'The book of spells',
     message: 'Bestseller of the year!',
-    href: 'https://storage.googleapis.com/escape-room-bucket/spells.txt'
+    markdown: <div>
+      <h4>BASIC MAGIC</h4>
+      <p><li>Green wins over blue</li></p>
+      <p><li>Blue wins over yellow</li></p>
+      <p><li>Yellow wins over red</li></p>
+      <p><li>Red wins over green</li></p>
+      <br/>
+      <h4>ADVANCED MAGIC</h4>
+      <p><li>ICeBeRg vs TITANIC</li></p>
+      <p><li>FlAmEs vs IGLOO</li></p>
+      <p><li>BErSErK vs MEDITATION</li></p>
+      <p><li>FLaSH vs BLACKOUT</li></p>
+      <p><li>POISON vs PURIFICATION</li></p>
+      <p><li>ReWINd vs FORESIGHT</li></p>
+      <p><li>SArCaSm vs SADNESS</li></p>
+    </div>
   },
   'maze_map_1': {
     imageSrc: maze,

@@ -22,6 +22,29 @@
     border: none;
   }
 
+  .selectedItem {
+    flex-grow: 1;
+
+    header {
+      height: 50px;
+      border-bottom: solid 1px #ccc;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0 1em;
+      font-size: 20px;
+      margin-right: -1px;
+      i {
+        display: block;
+      }
+    }
+
+    .content {
+      display: flex;
+      justify-content: center;
+    }
+  }
+
   .BagItemList {
     max-height: 100%;
   }
@@ -35,6 +58,8 @@
 
       header {
         border-right: solid 1px #ccc;
+        display: flex;
+        justify-content: center;
       }
 
       .BagItemList {

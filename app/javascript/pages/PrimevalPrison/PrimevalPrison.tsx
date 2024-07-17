@@ -49,7 +49,7 @@ const PrimevalPrison: React.FC = () => {
         {character: 'goat', message: 'WHAT ARE YOU DOING???'},
         {character: 'goat', message: 'What is this bright light?'},
         {character: 'goat', message: '...'},
-        {character: 'goat', message: 'Oh, the prophecy was right! "One day, a noble warrior of light will come to brighten the kingdom of Magaland..."'},
+        {character: 'goat', message: 'Oh, the prophecy was right! "One day, a noble warrior of light will come to brighten the kingdom..."'},
         {character: 'goat', message: 'The day has come! YOU are the warrior of light!'},
         {character: 'goat', message: '...'},
         {character: 'goat', message: 'What? Why I hate light?'},

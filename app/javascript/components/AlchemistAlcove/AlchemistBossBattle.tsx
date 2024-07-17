@@ -94,12 +94,19 @@ type SpellType = {
   text: string
 }
 
+// 53-58-4-111: ICeBeRg
 const TITANIC_SPELL = { counter: '53584111', text: 'My powers are TITANIC!'}
+// 114-95-99: FlAmEs
 const IGLOO_SPELL = { counter: '1149599', text: 'I will freeze you like an IGLOO!'}
+// 5-68-16-68-19: BErSErK
 const MEDITATION_SPELL = { counter: '568166819', text: 'Some seconds of MEDITATION now...'}
+// 9-57-16-1: FLaSH
 const BLACKOUT_SPELL = { counter: '957161', text: 'And now lights out! BLACKOUT!'}
+// 15-8-53-16-8-7: POISON
 const PURIFICATION_SPELL = { counter: '158531687', text: 'You are corrupted! Need a PURIFICATION!'}
+// 75-74-53-60: ReWINd
 const FORESIGHT_SPELL = { counter: '75745360', text: 'FORESIGHT! I see a crushing defeat for you in the future!'}
+// 16-18-20-62: SArCaSm
 const SADNESS_SPELL = { counter: '16182062', text: 'What is that smile? You are supposed to laugh only at my jokes! SADNESS!'}
 
 const AlchemistBossBattle: React.FC = () => {
