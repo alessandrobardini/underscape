@@ -1,6 +1,8 @@
-# Undertale online escape room
+# Underscape
 
-Repository for an online company event: teams are required to play an online escape room and solve the riddles to win the game! 🎲 🎮
+Are you brave enough to solve the riddles and win the game? 🎲 🎮
+
+Online escape room inspired by the videogame [Undertale](https://undertale.com/)
 
 ## Local game
 
