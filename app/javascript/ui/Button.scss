@@ -11,6 +11,9 @@
   transition: all .5s;
   background: transparent;
   font-family: $body-font;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   &:not(.d-block) {
     max-width: 345px;
   }
