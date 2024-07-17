@@ -10,6 +10,14 @@ Meet weird friends...
 ... and overcome crazy challenges!
 <video width="1095" alt="video" src='https://github.com/user-attachments/assets/2e6f9c58-0c4b-4a6c-a9fd-6ca083b0885f'>
 
+Face deadly (?) enemies...
+<video width="1095" alt="video" src='https://github.com/user-attachments/assets/6bb4c54d-ae90-4183-9468-0396fb20c788'>
+
+
+
+... and submit the correct answers!
+<video width="1095" alt="video" src='https://github.com/user-attachments/assets/8052bc8f-5ce9-4bbb-ba98-59295bbb6a6f'>
+
 
 
 
