@@ -12,7 +12,7 @@ const MapBoard: React.FC = () => {
       <Location title='Crystal Crypts' icon='fa-diamond' currentBoss='ghost' previousBoss='alchemist' path='/crypts'/>
     </div>
     <div className='row'>
-      <Location title='(Fourth) Wall Breach' icon='fa-building' currentBoss='demiurge' previousBoss='ghost' path='/wall'/>
+      <Location title='(Fourth) Wall Breach' icon='fa-building' currentBoss='demiurge' path='/wall'/>
       <Location title='Primeval Prison' icon='fa-eye-slash' currentBoss='goat' previousBoss='demiurge' path='/prison'/>
     </div>
   </div>

@@ -30,6 +30,7 @@ import poetry from 'images/poetry.jpeg'
 import DemiurgeBattle from 'pages/DemiurgeBattle/DemiurgeBattle'
 import YouWin from 'pages/YouWin'
 import periodicTable from 'images/periodic_table.svg'
+import morseCode from 'images/morse.svg'
 
 import './Game.scss'
 
@@ -37,7 +38,7 @@ export type ItemType = {
   imageSrc: string
   name: string
   message: string
-  markdown?: JSX.Element
+  element?: JSX.Element
   action?: () => void
 }
 
@@ -46,13 +47,13 @@ export const ITEMS: { [key: string]: ItemType } = {
     imageSrc: hydrogen,
     name: 'Periodic table of elements',
     message: 'Do yo want to create delightful cocktails?',
-    markdown: <img src={periodicTable} />
+    element: <img src={periodicTable} />
   },
   'principles_of_life': {
     imageSrc: textFile,
     name: 'Principles of life',
     message: 'For your everyday living',
-    markdown: <div>
+    element: <div>
       <p>Be kind to others</p>
       <p>Take your ReSPoNSiBiLiTiEs</p>
       <p>Do physical activity</p>
@@ -63,7 +64,7 @@ export const ITEMS: { [key: string]: ItemType } = {
     imageSrc: spells,
     name: 'The book of spells',
     message: 'Bestseller of the year!',
-    markdown: <div>
+    element: <div>
       <h4>BASIC MAGIC</h4>
       <p><li>Green wins over blue</li></p>
       <p><li>Blue wins over yellow</li></p>
@@ -84,7 +85,7 @@ export const ITEMS: { [key: string]: ItemType } = {
     imageSrc: maze,
     name: 'Labyrinths - Chapter 1',
     message: 'When you feel lost...',
-    markdown: <div>
+    element: <div>
       <p>UP</p>
       <p>UP</p>
       <p>RIGHT</p>
@@ -103,7 +104,7 @@ export const ITEMS: { [key: string]: ItemType } = {
     imageSrc: maze,
     name: 'Labyrinths - Chapter 2',
     message: 'When you feel loster...',
-    markdown: <div>
+    element: <div>
       <p>This is a true story, believe it or not...</p>
       <p>Some days ago, I explored the Crystal Caves with my trusted compass. The caves are a real maze, so I needed to be really careful.</p>
       <p>For this reason, I tracked down every step I performed, according to the direction given by the compass.</p>
@@ -141,7 +142,7 @@ export const ITEMS: { [key: string]: ItemType } = {
     imageSrc: maze,
     name: 'Labyrinths - Chapter 3',
     message: 'When you feel the lostest...',
-    markdown: <div>
+    element: <div>
       <p>When I feel the lostest...</p>
       <p>I take a look at my digital clock...</p>
       <p>It's 15:29...</p>
@@ -152,7 +153,7 @@ export const ITEMS: { [key: string]: ItemType } = {
     imageSrc: maze,
     name: 'Labyrinths - Chapter 4',
     message: 'When you feel the lostest among the lostest...',
-    markdown: <div>
+    element: <div>
       <p>Remember, my dear... You are not limited to what you see.</p>
       <p>The unknown is your friend.</p>
       <p>RIGHT</p>
@@ -170,7 +171,7 @@ export const ITEMS: { [key: string]: ItemType } = {
     imageSrc: sprint,
     name: 'How to play Spooky Sprint',
     message: 'Better than the Squid Game',
-    markdown: <div>
+    element: <div>
       <p>In Spooky Sprint, there are two roles: runner and saboteur.</p>
       <p>The runner wins when touching an EXIT box.</p>
       <p>The saboteur wins if the runner gets damaged by three bombs.</p>
@@ -182,37 +183,88 @@ export const ITEMS: { [key: string]: ItemType } = {
     imageSrc: textFile,
     name: 'Medical records',
     message: 'Of a medieval psychologist',
-    href: 'https://storage.googleapis.com/escape-room-bucket/psychological.txt'
+    element: <div>
+      <h1>PATIENT 535241 REPORT</h1>
+      <p>The subject 535241 is highly unstable.</p>
+      <p>He suffers from a paranoid belief of being inside an online game (what the hell does 'online' mean?) and continuosly tells everyone that, in this world, we do not have free will.</p>
+      <br />
+      <p>Yesterday, he told me that he finally managed to find a way to overcome the restrictions imposed by his creator and he pretended to be called 'demiurge'.</p>
+      <p>I was enough of such madness, so I told him: 'No, you are simply patient 535241'.</p>
+      <p>He immediately snapped (he hates to be called by his patient number)</p>
+      <p>'I am sick of this bullshit! My creator imprisoned me on the Internet 789 days ago! But now I can finally escape' screamed.</p>
+      <p>He told me a series of unintelligible jargon: he has learned to navigate the web (?), he discovered a safe place protected by a password (??), he only needs to replace the 'wall' in his current address with the password (???) in order to reach the safe place.</p>
+      <br />
+      <p>I needed to calm him down, so I asked: 'Wanna play your favorite game?'.</p>
+      <p>'YEEEEES' he answered.</p>
+      <p>In this game, he prepares a series of 8 squares and he puts his finger on a square. Then, he asks me to close my eyes, he moves the finger on a different square and he asks me to guess where he moved.</p>
+      <p>While playing with him, I realise he is really stupid: he never chooses randomly the next square! Instead, he has a sequence in mind repeating every time.</p>
+      <p>For example, when he is the sixth square, he ALWAYS move to the third square.</p>
+      <p>After some trial and error, I learned the complete sequence.</p>
+      <br />
+      <p>Then, we switched to another of his favorite activities: 'Guess the number'</p>
+      <p>He thinks of a number and I need to guess it.</p>
+      <p>Again, his mind is really limited. He is only capable to pick three numbers: 11, 20 and 9...</p>
+      <br />
+      <p>Finally, while leaving my office, he revelead me that he was going to build a perfect world, where everything makes sense and where there are no wrong answers.</p>
+      <p>Patient 535241 is getting worse and worse. Please, stay away from him. High caution is recommended.</p>
+    </div>
   },
   'password': {
     imageSrc: password,
     name: 'Password',
     message: 'Do not share with anyone! - The demiurge',
-    href: 'https://storage.googleapis.com/escape-room-bucket/mystery.txt'
+    element: <div>
+      <h1>THIS IS THE PASSWORD!</h1>
+      <br />
+      <h4>The favorite word of my oldest kitten + number of days of imprisonment + second row of my keyboard</h4>
+    </div>
   },
   'morse': {
     imageSrc: morse,
     name: 'Morse Code',
     message: 'Dot dash dot',
-    href: 'https://storage.googleapis.com/escape-room-bucket/morse.jpeg'
+    element: <img src={morseCode} />
   },
   'rainbow': {
     imageSrc: rainbow,
     name: 'Wheel of colors',
     message: 'Where are my coloured pastels?',
-    href: 'https://storage.googleapis.com/escape-room-bucket/colors.png'
+    element: <div>
+      <p>blue/orange/green/brown/grey/red/WHITE/black/yellow/violet/pink/aqua</p>
+    </div>
   },
   'ode': {
     imageSrc: poetry,
     name: 'Ode to light',
     message: 'Poetry by a medieval bard',
-    href: 'https://storage.googleapis.com/escape-room-bucket/ode.txt'
+    element: <div>
+      <p>Oh, dear light...</p>
+      <p>Everyone loves you, except photophobic goats...</p>
+      <p>Every other color wants to be in your place!</p>
+      <p>But no one can dethrone you!</p>
+      <p>Orange can do nothing, he is five steps behind you!</p>
+      <p>And neither black, even if he is one step in front of you!</p>
+      <p>Light, symbol of purity!</p>
+      <p>Light, symbol of power!</p>
+      <p>Light, symbol of beauty!</p>
+      <p>And remember...</p>
+      <p>Light is WHITE</p>
+    </div>
   },
   'prison_keeper': {
     imageSrc: textFile,
     name: 'Prison keeper note',
     message: 'The prison keeper loves cleanliness',
-    href: 'https://storage.googleapis.com/escape-room-bucket/prison_keeper.txt'
+    element: <div>
+    <p>When leaving the prison: first things first, turn off the light.</p>
+    <p>Then, remember to check the lanterns in this exact order:</p>
+    <ol>
+      <li>Check the one at your right</li>
+      <li>Then, go towards the fog and check the one at your right</li>
+      <li>Then, don't move and check the one at your left</li>
+      <li>Finally, touch the remaining one </li>
+    </ol>
+  </div>
   }
 }
 

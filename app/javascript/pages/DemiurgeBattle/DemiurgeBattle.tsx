@@ -330,7 +330,7 @@ const Phase4: React.FC<PhaseProps> = ({ onPhaseCleared }) => {
     setShowForm(false)
     if(!(isAgeError && isPasswordError)) {
       setDialogueBarMessages([
-        { character: 'demiurge', message: 'WHAT ARE YOU DOING?!? Are you blowing up my perfect software!', disappearAfterSeconds: 5, onCloseMessage: () => setShowForm(true) },
+        { character: 'demiurge', message: 'WHAT ARE YOU DOING?!? You are blowing up my perfect software!', disappearAfterSeconds: 5, onCloseMessage: () => setShowForm(true) },
       ])
     }
   }

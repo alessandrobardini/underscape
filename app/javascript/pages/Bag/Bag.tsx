@@ -45,7 +45,7 @@ const BagPage = ({ data, refetch } ) => {
         <header>
           {selectedItem.name}
         </header>
-        {<div className='content'>{selectedItem.markdown}</div>}
+        {<div className='content'>{selectedItem.element}</div>}
       </div>}
     </div>
   )

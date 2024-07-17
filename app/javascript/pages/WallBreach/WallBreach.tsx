@@ -24,7 +24,7 @@ const WallBreach: React.FC = () => {
   const [showSentences, setShowSentences] = useState(bagContainsPsyNote)
   const [showButtons, setShowButtons] = useState(bagContainsPsyNote)
   const [insertedSequence, setInsertedSequence] = useState('')
-  const [canInteractWithElements, setCanInteractWithElements] = useState(false)
+  const [canInteractWithElements, setCanInteractWithElements] = useState(bagContainsPsyNote || false)
 
   useEffect(() => {
     if(!bagContainsPsyNote) {
