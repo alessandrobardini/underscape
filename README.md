@@ -8,7 +8,8 @@ Online escape room inspired by the videogame [Undertale](https://undertale.com/)
 Meet weird friends...
 <img width="1095" alt="image" src="https://github.com/user-attachments/assets/11ead262-f5de-409b-a9a5-81fb000e7132">
 ... and overcome crazy challenges!
-https://github.com/user-attachments/assets/3ea7318a-6cd4-47f5-bf85-34e97ee24e95
+<video width="1095" alt="video" src='https://github.com/user-attachments/assets/2e6f9c58-0c4b-4a6c-a9fd-6ca083b0885f'>
+
 
 
 
