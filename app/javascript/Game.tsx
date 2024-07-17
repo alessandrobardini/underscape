@@ -84,31 +84,99 @@ export const ITEMS: { [key: string]: ItemType } = {
     imageSrc: maze,
     name: 'Labyrinths - Chapter 1',
     message: 'When you feel lost...',
-    href: 'https://storage.googleapis.com/escape-room-bucket/maze_1.txt'
+    markdown: <div>
+      <p>UP</p>
+      <p>UP</p>
+      <p>RIGHT</p>
+      <p>UP</p>
+      <p>LEFT</p>
+      <p>LEFT</p>
+      <p>LEFT</p>
+      <p>LEFT</p>
+      <p>LEFT</p>
+      <p>DOWN</p>
+      <p>DOWN</p>
+      <p>DOWN</p>
+    </div>
   },
   'maze_map_2': {
     imageSrc: maze,
     name: 'Labyrinths - Chapter 2',
     message: 'When you feel loster...',
-    href: 'https://storage.googleapis.com/escape-room-bucket/maze_2.txt'
+    markdown: <div>
+      <p>This is a true story, believe it or not...</p>
+      <p>Some days ago, I explored the Crystal Caves with my trusted compass. The caves are a real maze, so I needed to be really careful.</p>
+      <p>For this reason, I tracked down every step I performed, according to the direction given by the compass.</p>
+      <p>At my eighth step, I encountered a friendly ghost. It looked like he was lost in the caves!</p>
+      <p>So, I approached him and, out of nowhere, the ghost took my compass and replaced it with another one, before running away.</p>
+      <p>I was really confused... then, I realised what the ghost did: now, my compass was messed up! The North of the compass indicated the West!</p>
+      <p>What a mess...</p>
+      <p>After seven additonal steps, the ghost came back and, again, replaced my compass!</p>
+      <p>This time, the North indicated the South and the West indicated the East...</p>
+      <p>Luckily, I managed to find the exit of the cave.</p>
+      <p>Here below, you can find all the steps I made, according to my compasses:</p>
+      <p>NORTH</p>
+      <p>NORTH</p>
+      <p>WEST</p>
+      <p>NORTH</p>
+      <p>NORTH</p>
+      <p>EAST</p>
+      <p>EAST</p>
+      <p>EAST</p>
+      <p>SOUTH</p>
+      <p>WEST</p>
+      <p>SOUTH</p>
+      <p>WEST</p>
+      <p>WEST</p>
+      <p>WEST</p>
+      <p>SOUTH</p>
+      <p>UP</p>
+      <p>UP</p>
+      <p>RIGHT</p>
+      <p>RIGHT</p>
+      <p>RIGHT</p>
+    </div>
   },
   'maze_map_3': {
     imageSrc: maze,
     name: 'Labyrinths - Chapter 3',
     message: 'When you feel the lostest...',
-    href: 'https://storage.googleapis.com/escape-room-bucket/maze_3.txt'
+    markdown: <div>
+      <p>When I feel the lostest...</p>
+      <p>I take a look at my digital clock...</p>
+      <p>It's 15:29...</p>
+      <p>What a beatiful time!</p>
+    </div>
   },
   'maze_map_4': {
     imageSrc: maze,
     name: 'Labyrinths - Chapter 4',
     message: 'When you feel the lostest among the lostest...',
-    href: 'https://storage.googleapis.com/escape-room-bucket/maze_4.txt'
+    markdown: <div>
+      <p>Remember, my dear... You are not limited to what you see.</p>
+      <p>The unknown is your friend.</p>
+      <p>RIGHT</p>
+      <p>RIGHT</p>
+      <p>RIGHT</p>
+      <p>UP</p>
+      <p>UP</p>
+      <p>UP</p>
+      <p>LEFT</p>
+      <p>LEFT</p>
+      <p>UP</p>
+    </div>
   },
   'spooky_sprint': {
     imageSrc: sprint,
     name: 'How to play Spooky Sprint',
     message: 'Better than the Squid Game',
-    href: 'https://storage.googleapis.com/escape-room-bucket/spooky_sprint.txt'
+    markdown: <div>
+      <p>In Spooky Sprint, there are two roles: runner and saboteur.</p>
+      <p>The runner wins when touching an EXIT box.</p>
+      <p>The saboteur wins if the runner gets damaged by three bombs.</p>
+      <p>When the runner enters the board, he/she is forced to run following a straight line. In case the runner touches a directional arrow, he/she is forced to change direction.</p>
+      <p>The saboteur is allowed to place 3 additional arrows on the board, before the run starts.</p>
+    </div>
   },
   'psychological_note': {
     imageSrc: textFile,

@@ -11,18 +11,31 @@ import ghostFan from 'images/spooky.png'
 
 const MAZE_1 = {
   allowedPath: [
+    // START
     { row: 4, column: 5 },
+    // UP
     { row: 3, column: 5 },
+    // UP
     { row: 2, column: 5 },
+    // RIGHT
     { row: 2, column: 6 },
+    // UP
     { row: 1, column: 6 },
+    // LEFT
     { row: 1, column: 5 },
+    // LEFT
     { row: 1, column: 4 },
+    // LEFT
     { row: 1, column: 3 },
+    // LEFT
     { row: 1, column: 2 },
+    // LEFT
     { row: 1, column: 1 },
+    // DOWN
     { row: 2, column: 1 },
+    // DOWN
     { row: 3, column: 1 },
+    // DOWN
     { row: 4, column: 1 }
   ],
   itemGivenOnMount: 'maze_map_1',
@@ -36,26 +49,47 @@ const MAZE_1 = {
 
 const MAZE_2 = {
   allowedPath: [
+    // START
     { row: 7, column: 4 },
+    // UP
     { row: 6, column: 4 },
+    // UP
     { row: 5, column: 4 },
+    // LEFT
     { row: 5, column: 3 },
+    // UP
     { row: 4, column: 3 },
+    // UP
     { row: 3, column: 3 },
+    // RIGHT
     { row: 3, column: 4 },
+    // RIGHT
     { row: 3, column: 5 },
+    // RIGHT
     { row: 3, column: 6 },
+    // RIGHT
     { row: 3, column: 7 },
+    // DOWN
     { row: 4, column: 7 },
+    // RIGHT
     { row: 4, column: 8 },
+    // DOWN
     { row: 5, column: 8 },
+    // DOWN
     { row: 6, column: 8 },
+    // DOWN
     { row: 7, column: 8 },
+    // RIGHT
     { row: 7, column: 9 },
+    // DOWN
     { row: 8, column: 9 },
+    // DOWN
     { row: 9, column: 9 },
+    // LEFT
     { row: 9, column: 8 },
+    // LEFT
     { row: 9, column: 7 },
+    // LEFT
     { row: 9, column: 6 }
   ],
   itemGivenOnMount: 'maze_map_2',
@@ -68,44 +102,83 @@ const MAZE_3 = {
   numberOfRows: 5,
   numberOfColumns: 12,
   allowedPath: [
+    // START
     { row: 0, column: 2 },
+    // DOWN
     { row: 1, column: 2 },
+    // DOWN
     { row: 2, column: 2 },
+    // DOWN
     { row: 3, column: 2 },
+    // DOWN
     { row: 4, column: 2 },
+    // RIGHT
     { row: 4, column: 3 },
+    // RIGHT
     { row: 4, column: 4 },
+    // RIGHT
     { row: 4, column: 5 },
+    // UP
     { row: 3, column: 5 },
+    // UP
     { row: 2, column: 5 },
+    // LEFT
     { row: 2, column: 4 },
+    // LEFT
     { row: 2, column: 3 },
+    // UP
     { row: 1, column: 3 },
+    // UP
     { row: 0, column: 3 },
+    // RIGHT
     { row: 0, column: 4 },
+    // RIGHT
     { row: 0, column: 5 },
+    // RIGHT
     { row: 0, column: 6 },
+    // RIGHT
     { row: 0, column: 7 },
+    // RIGHT
     { row: 0, column: 8 },
+    // DOWN
     { row: 1, column: 8 },
+    // DOWN
     { row: 2, column: 8 },
+    // LEFT
     { row: 2, column: 7 },
+    // LEFT
     { row: 2, column: 6 },
+    // DOWN
     { row: 3, column: 6 },
+    // DOWN
     { row: 4, column: 6 },
+    // RIGHT
     { row: 4, column: 7 },
+    // RIGHT
     { row: 4, column: 8 },
+    // RIGHT
     { row: 4, column: 9 },
+    // RIGHT
     { row: 4, column: 10 },
+    // RIGHT
     { row: 4, column: 11 },
+    // UP
     { row: 3, column: 11 },
+    // UP
     { row: 2, column: 11 },
+    // LEFT
     { row: 2, column: 10 },
+    // LEFT
     { row: 2, column: 9 },
+    // UP
     { row: 1, column: 9 },
+    // UP
     { row: 0, column: 9 },
+    // RIGHT
     { row: 0, column: 10 },
+    // RIGHT
     { row: 0, column: 11 },
+    // DOWN
     { row: 1, column: 11 }
   ],
   exit: { row: 1, column: 11 },
@@ -117,15 +190,25 @@ const MAZE_3 = {
 
 const MAZE_4 = {
   allowedPath: [
+    // START
     { row: 4, column: 5 },
+    // RIGHT
     { row: 4, column: 6 },
+    // RIGHT
     { row: 4, column: 7 },
+    // RIGHT
     { row: 4, column: 8 },
+    // UP
     { row: 3, column: 8 },
+    // UP
     { row: 2, column: 8 },
+    // UP
     { row: 1, column: 8 },
+    // LEFT
     { row: 1, column: 7 },
+    // LEFT
     { row: 1, column: 6 },
+    // UP
     { row: 0, column: 6 }
   ],
   itemGivenOnMount: 'maze_map_4',
