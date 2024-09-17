@@ -1,7 +1,7 @@
-import { appPath } from 'App'
 import { SessionContext } from 'Game'
 import React, { useContext } from 'react'
 import { useHistory } from 'react-router-dom'
+import { TranslatorContext } from 'containers/TranslatorLoader'
 import './MapBoard.scss'
 
 const MapBoard: React.FC = () => {
@@ -32,7 +32,9 @@ const Location: React.FC<LocationProps> = ({ previousBoss = null, currentBoss, t
   const previousBossDefeated = previousBoss === null ? true: bosses.map(({ name }) => name).includes(previousBoss)
   const currentBossDefeated = bosses.map(({ name }) => name).includes(currentBoss)
 
-  return <div className={`location ${!previousBossDefeated ? 'blocked' : ''} ${currentBossDefeated ? 'done' : ''}`} {...((!currentBossDefeated && previousBossDefeated) && { onClick: () => history.push(appPath(path))})}>
+  const i18n = useContext(TranslatorContext)
+
+  return <div className={`location ${!previousBossDefeated ? 'blocked' : ''} ${currentBossDefeated ? 'done' : ''}`} {...((!currentBossDefeated && previousBossDefeated) && { onClick: () => history.push(`/app/${i18n.locale}${path}`)})}>
     <i className={`fa ${icon}`}/>
     <span>{title}</span>
     {!previousBossDefeated && <span className='blocked'>LOCKED</span>}

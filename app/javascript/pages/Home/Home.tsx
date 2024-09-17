@@ -17,15 +17,15 @@ const LOCALES = [
 ]
 
 const Home: React.FC = () => {
-  const handleSubmit = ({name, password}) => {
-    userExists(name).then(({ data: { exists }}) => {
-      exists ? signIn(name, password) : signUp(name, password)
-    })
-  }
-
   const history = useHistory()
 
   const i18n = useContext(TranslatorContext)
+
+  const handleSubmit = ({name, password}) => {
+    userExists(name).then(({ data: { exists }}) => {
+      exists ? signIn(name, password, i18n.locale) : signUp(name, password, i18n.locale)
+    })
+  }
 
   const onFlagClick = (code: string) => {
     history.push(`/app/${code}`)
@@ -123,7 +123,7 @@ export const userExists = (name) => {
   )
 }
 
-export const signIn = (name, password) => {
+export const signIn = (name: string, password: string, locale: string) => {
   return axios.post(
     '/users/sign_in',
     {
@@ -137,10 +137,10 @@ export const signIn = (name, password) => {
       headers: { Accept: 'application/json' },
       responseType: 'json'
     }
-  ).then(() => window.location.replace('/app/map')).catch(() => window.alert('error'))
+  ).then(() => window.location.replace(`/app/${locale}/map`)).catch(() => window.alert('error'))
 }
 
-export const signUp = (name, password) => {
+export const signUp = (name: string, password: string, locale: string) => {
   return axios.post(
     '/users',
     {
@@ -154,7 +154,7 @@ export const signUp = (name, password) => {
       headers: { Accept: 'application/json' },
       responseType: 'json'
     }
-  ).then(() => window.location.replace('/app/map')).catch(() => window.alert('error'))
+  ).then(() => window.location.replace(`/app/${locale}/map`)).catch(() => window.alert('error'))
 }
 
 
