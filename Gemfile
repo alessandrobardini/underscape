@@ -31,6 +31,7 @@ gem 'bootsnap', '>= 1.4.4', require: false
 gem 'sprockets', '~> 3.7'
 gem 'sprockets-es6', '~> 0.9.2'
 gem 'devise', '~> 4.6'
+gem 'i18n-js', '~> 4.2.3'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

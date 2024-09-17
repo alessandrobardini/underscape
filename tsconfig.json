@@ -10,7 +10,8 @@
     "sourceMap": true,
     "target": "es5",
     "jsx": "react",
-    "baseUrl": "app/javascript"
+    "baseUrl": "app/javascript",
+    "resolveJsonModule": true
   },
   "exclude": [
     "**/*.test.ts",
