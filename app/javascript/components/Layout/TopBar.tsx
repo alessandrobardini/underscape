@@ -1,17 +1,18 @@
-import {ItemType, SessionContext} from 'Game'
+import {SessionContext} from 'Game'
 import React, { useContext } from 'react'
 import CountdownTimer from './Countdown'
 import axios from 'axios'
 import csrfToken from 'helpers/csrfToken'
 import Button from 'ui/Button'
 import Link from 'ui/Link'
-import Bag from './ModalContent/Bag'
+import { useHistory } from 'react-router-dom'
+import { TranslatorContext } from 'containers/TranslatorLoader'
 
 import './TopBar.scss'
-import { useHistory } from 'react-router-dom'
 
 const TopBar: React.FC = () => {
-  const { user, gameEndsAt, setModalChildren, progress } = useContext(SessionContext)
+  const { user, gameEndsAt, progress } = useContext(SessionContext)
+  const i18n = useContext(TranslatorContext)
   const history = useHistory()
   const onHomeClick = () => {
     window.confirm('Do you want to go back to the main map? Some progress could not be saved!') && history.push('/app/map')
@@ -20,7 +21,7 @@ const TopBar: React.FC = () => {
     <div className='TopBar'>
       <div className='container top-left'>
         <div>{`Progress: ${progress}%`}</div>
-        <div><Button icon iconLeft='fa fa-suitcase' to='/app/bag' target='_blank' /></div>
+        <div><Button icon iconLeft='fa fa-suitcase' to={`/app/${i18n.locale}/bag`} target='_blank' /></div>
         <div><Button icon iconLeft='fa fa-home' onClick={onHomeClick} /></div>
       </div>
       <div className='username container'>

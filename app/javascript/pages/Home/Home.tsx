@@ -1,13 +1,14 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import logo from 'images/underscape.png'
 import axios from 'axios'
 import csrfToken from 'helpers/csrfToken'
 import Form from 'components/Layout/Form'
 import Input from 'ui/Input'
 import Button from 'ui/Button'
+import Link from 'ui/Link'
+import { TranslatorContext } from 'containers/TranslatorLoader'
 
 import './Home.scss'
-import Link from 'ui/Link'
 
 const Home: React.FC = () => {
   const handleSubmit = ({name, password}) => {
@@ -16,11 +17,13 @@ const Home: React.FC = () => {
     })
   }
 
+  const i18n = useContext(TranslatorContext)
+
     return <div className='Home'>
       <div className='container left'>
         <img src={logo}></img>
         <div className='explanation'>
-          <p>Are you ready to enter a mysterious kingdom?</p>
+          <p>{i18n.t('home.introduction.1')}</p>
           <p>An evil king is reigning mercilessy with the help of his four minions!</p>
           <p>As a valiant knight, you are asked to defeat them and enter the king's castle!</p>
           <p>Hurry up, the kingdom needs your help!</p>
@@ -75,7 +78,7 @@ const Home: React.FC = () => {
           )}
         </Form>
         <div className='hall-of-fame'>
-          <Link to='/app/hall_of_fame'>Hall of Fame</Link>
+          <Link to={`/app/${i18n.locale}/hall_of_fame`}>Hall of Fame</Link>
         </div>
       </div>
     </div>

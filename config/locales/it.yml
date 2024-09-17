@@ -29,7 +29,7 @@
 # To learn more, please read the Rails Internationalization guide
 # available at https://guides.rubyonrails.org/i18n.html.
 
-en:
+it:
   home:
     introduction:
-      1: 'Are you ready to enter a mysterious kingdom?'
+      1: 'Siete pronti ad entrare in un regno misterioso?'
