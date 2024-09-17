@@ -279,7 +279,8 @@
     },
     "home": {
       "introduction": {
-        "1": "Are you ready to enter a mysterious kingdom?"
+        "1": "Are you ready to enter a mysterious kingdom?",
+        "2": "An evil king is reigning mercilessy with the help of his four minions!"
       }
     },
     "number": {
@@ -378,7 +379,8 @@
     },
     "home": {
       "introduction": {
-        "1": "Siete pronti ad entrare in un regno misterioso?"
+        "1": "Siete pronti ad entrare in un regno misterioso?",
+        "2": "Un re malvagio regna senza pietà con l'aiuto dei suoi quattro servitori!"
       }
     }
   }

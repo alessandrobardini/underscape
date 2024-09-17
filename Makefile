@@ -7,3 +7,8 @@ release:
 .PHONY: deploy
 deploy:
 	gcloud run deploy onlinecompanyevent --platform managed --region europe-central2 --image gcr.io/online-escape-room-342721/onlinecompanyevent
+
+.PHONY: translate
+translate:
+	bundle exec rake translate
+

@@ -36,7 +36,7 @@ const Home: React.FC = () => {
         <img src={logo}></img>
         <div className='explanation'>
           <p>{i18n.t('home.introduction.1')}</p>
-          <p>An evil king is reigning mercilessy with the help of his four minions!</p>
+          <p>{i18n.t('home.introduction.2')}</p>
           <p>As a valiant knight, you are asked to defeat them and enter the king's castle!</p>
           <p>Hurry up, the kingdom needs your help!</p>
         </div>
