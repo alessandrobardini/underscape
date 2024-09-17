@@ -41,3 +41,22 @@ en:
     introduction:
       1: 'Are you ready to enter a mysterious kingdom?'
       2: 'An evil king is reigning mercilessy with the help of his four minions!'
+      3: "As a valiant knight, you are asked to defeat them and enter the king's castle!"
+      4: "Hurry up, the kingdom needs your help!"
+    rules:
+      title: 'Rules'
+      explanation:
+        1: 'You have 60 minutes to clear the game. Once you register, the timer starts!'
+    bag:
+      title: 'The bag'
+      explanation:
+        1: 'During your adventure, you will find some objects. You can have a look at them in every moment, by clicking on the bag icon on the top left'
+        2: "The objects you'll find are vital to solve the riddles! Don't overlook them!"
+    credits:
+      title: 'Credits'
+      explanation:
+        1: "Inspired by the videogame <a href='https://undertale.com/' target='_blank'>Undertale</a>. All the characters images are fan-art found on the web"
+    input:
+      team_name: 'Team Name'
+      password: 'Password'
+      start: 'Start the game!'

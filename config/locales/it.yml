@@ -41,3 +41,23 @@ it:
     introduction:
       1: 'Siete pronti ad entrare in un regno misterioso?'
       2: "Un re malvagio regna senza pietà con l'aiuto dei suoi quattro servitori!"
+      3: "Nei panni di un valoroso cavaliere, ti verrà chiesto di sconfiggerli ed entrare nel castello del re!"
+      4: "Sbrigati, il regno ha bisogno del tuo aiuto!"
+    rules:
+      title: 'Regole'
+      explanation:
+        1: 'Hai 60 minuti per finire il gioco. Il timer parte non appena ti registri!'
+    bag:
+      title: 'Lo zaino'
+      explanation:
+        1: "Durante la tua avventura troverai alcuni oggetti. Puoi visionarli in ogni momento, cliccando sull'icona dello zaino in alto a sinistra"
+        2: 'Gli oggetti che troverai sono fondamentali per risolvere gli enigmi! Non trascurarli!'
+    credits:
+      title: 'Credits'
+      explanation:
+        1: "Ispirato al videogioco <a href='https://undertale.com/' target='_blank'>Undertale</a>. Tutte le immagini dei personaggi sono fan-art trovate sul web"
+    input:
+      team_name: 'Nome Team'
+      password: 'Password'
+      start: 'Iniziamo!'
+    

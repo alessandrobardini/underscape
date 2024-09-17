@@ -37,26 +37,26 @@ const Home: React.FC = () => {
         <div className='explanation'>
           <p>{i18n.t('home.introduction.1')}</p>
           <p>{i18n.t('home.introduction.2')}</p>
-          <p>As a valiant knight, you are asked to defeat them and enter the king's castle!</p>
-          <p>Hurry up, the kingdom needs your help!</p>
+          <p>{i18n.t('home.introduction.3')}</p>
+          <p>{i18n.t('home.introduction.4')}</p>
         </div>
         <div className='suggestions'>
-          <p>Rules</p>
+          <p>{i18n.t('home.rules.title')}</p>
           <ul>
-            <li>You have 60 minutes to clear the game. Once you register, the timer starts!</li>
+            <li>{i18n.t('home.rules.explanation.1')}</li>
           </ul>
         </div>
         <div className='suggestions'>
-          <p>The bag</p>
+          <p>{i18n.t('home.bag.title')}</p>
           <ul>
-            <li>During your adventure, you will find some objects. You can have a look at them in every moment, by clicking on the bag icon on the top left</li>
-            <li>The objects you'll find are vital to solve the riddles! Don't overlook them!</li>
+            <li>{i18n.t('home.bag.explanation.1')}</li>
+            <li>{i18n.t('home.bag.explanation.2')}</li>
           </ul>
         </div>
         <div className='suggestions'>
-          <p>Credits</p>
+          <p>{i18n.t('home.credits.title')}</p>
           <ul>
-            <li>Inspired by the videogame <a href='https://undertale.com/' target='_blank'>Undertale</a>. All the characters images are fan-art found on the web</li>
+            <li dangerouslySetInnerHTML={{ __html: i18n.t('home.credits.explanation.1')}}/>
           </ul>
         </div>
         <div className='languages'>
@@ -83,7 +83,7 @@ const Home: React.FC = () => {
                   touched={touched}
                   value={values.name}
                   setFieldValue={setFieldValue}
-                  placeholder='Team name'
+                  placeholder={i18n.t('home.input.team_name')}
                 />
                 <Input
                   label='Password'
@@ -94,9 +94,9 @@ const Home: React.FC = () => {
                   touched={touched}
                   value={values.password}
                   setFieldValue={setFieldValue}
-                  placeholder='Password'
+                  placeholder={i18n.t('home.input.password')}
                 />
-                <Button size='l' disabled={!(values.password && values.name)} className='m-t-md' submit type='primary'>Start the game!</Button>
+                <Button size='l' disabled={!(values.password && values.name)} className='m-t-md' submit type='primary'>{i18n.t('home.input.start')}</Button>
               </>
           )}
         </Form>

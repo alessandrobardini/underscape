@@ -278,9 +278,35 @@
       }
     },
     "home": {
+      "bag": {
+        "explanation": {
+          "1": "During your adventure, you will find some objects. You can have a look at them in every moment, by clicking on the bag icon on the top left",
+          "2": "The objects you'll find are vital to solve the riddles! Don't overlook them!"
+        },
+        "title": "The bag"
+      },
+      "credits": {
+        "explanation": {
+          "1": "Inspired by the videogame <a href='https://undertale.com/' target='_blank'>Undertale</a>. All the characters images are fan-art found on the web"
+        },
+        "title": "Credits"
+      },
+      "input": {
+        "password": "Password",
+        "start": "Start the game!",
+        "team_name": "Team Name"
+      },
       "introduction": {
         "1": "Are you ready to enter a mysterious kingdom?",
-        "2": "An evil king is reigning mercilessy with the help of his four minions!"
+        "2": "An evil king is reigning mercilessy with the help of his four minions!",
+        "3": "As a valiant knight, you are asked to defeat them and enter the king's castle!",
+        "4": "Hurry up, the kingdom needs your help!"
+      },
+      "rules": {
+        "explanation": {
+          "1": "You have 60 minutes to clear the game. Once you register, the timer starts!"
+        },
+        "title": "Rules"
       }
     },
     "number": {
@@ -378,9 +404,35 @@
       "title": "Hall of Fame"
     },
     "home": {
+      "bag": {
+        "explanation": {
+          "1": "Durante la tua avventura troverai alcuni oggetti. Puoi visionarli in ogni momento, cliccando sull'icona dello zaino in alto a sinistra",
+          "2": "Gli oggetti che troverai sono fondamentali per risolvere gli enigmi! Non trascurarli!"
+        },
+        "title": "Lo zaino"
+      },
+      "credits": {
+        "explanation": {
+          "1": "Ispirato al videogioco <a href='https://undertale.com/' target='_blank'>Undertale</a>. Tutte le immagini dei personaggi sono fan-art trovate sul web"
+        },
+        "title": "Credits"
+      },
+      "input": {
+        "password": "Password",
+        "start": "Iniziamo!",
+        "team_name": "Nome Team"
+      },
       "introduction": {
         "1": "Siete pronti ad entrare in un regno misterioso?",
-        "2": "Un re malvagio regna senza pietà con l'aiuto dei suoi quattro servitori!"
+        "2": "Un re malvagio regna senza pietà con l'aiuto dei suoi quattro servitori!",
+        "3": "Nei panni di un valoroso cavaliere, ti verrà chiesto di sconfiggerli ed entrare nel castello del re!",
+        "4": "Sbrigati, il regno ha bisogno del tuo aiuto!"
+      },
+      "rules": {
+        "explanation": {
+          "1": "Hai 60 minuti per finire il gioco. Il timer parte non appena ti registri!"
+        },
+        "title": "Regole"
       }
     }
   }
