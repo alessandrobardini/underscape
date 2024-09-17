@@ -7,8 +7,14 @@ import Input from 'ui/Input'
 import Button from 'ui/Button'
 import Link from 'ui/Link'
 import { TranslatorContext } from 'containers/TranslatorLoader'
+import { useHistory } from 'react-router-dom'
 
 import './Home.scss'
+
+const LOCALES = [
+  { flag: '🇬🇧', code: 'en'},
+  { flag: '🇮🇹', code: 'it'}
+]
 
 const Home: React.FC = () => {
   const handleSubmit = ({name, password}) => {
@@ -17,7 +23,13 @@ const Home: React.FC = () => {
     })
   }
 
+  const history = useHistory()
+
   const i18n = useContext(TranslatorContext)
+
+  const onFlagClick = (code: string) => {
+    history.push(`/app/${code}`)
+  }
 
     return <div className='Home'>
       <div className='container left'>
@@ -46,6 +58,17 @@ const Home: React.FC = () => {
           <ul>
             <li>Inspired by the videogame <a href='https://undertale.com/' target='_blank'>Undertale</a>. All the characters images are fan-art found on the web</li>
           </ul>
+        </div>
+        <div className='languages'>
+          {LOCALES.map(({ flag, code }) => {
+            return <span 
+              key={code} 
+              className={i18n.locale === code ? 'selected' : ''}
+              {...(code !== i18n.locale && { onClick: () => onFlagClick(code) })}
+            >
+              {flag}
+            </span>
+          })}
         </div>
       </div>
       <div className='container right'>

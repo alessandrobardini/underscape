@@ -1,3 +1,5 @@
+@import '../../../assets/stylesheets/base/variables.scss';
+
 .Home {
   display: flex;
   width: 100%;
@@ -26,6 +28,24 @@
 
       .suggestions {
         width: 90%;
+      }
+
+      .languages {
+        margin-top: 15px;
+
+        span {
+          font-size: 40px;
+          cursor: pointer;
+
+          &.selected {
+            border: 2px solid $primary-color;
+            cursor: unset;
+          }
+        }
+
+        :not(:last-child) {
+          margin-right: 20px;
+        }
       }
     }
 
