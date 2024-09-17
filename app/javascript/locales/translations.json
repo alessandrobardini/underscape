@@ -259,6 +259,14 @@
         }
       }
     },
+    "hall_of_fame": {
+      "game_finished_in": "Game finished in",
+      "game_started_at": "Game started at",
+      "position": "Position",
+      "subtitle": "Who are the fastest players?",
+      "team_name": "Team Name",
+      "title": "Hall of Fame"
+    },
     "helpers": {
       "select": {
         "prompt": "Please select"
@@ -360,6 +368,14 @@
     }
   },
   "it": {
+    "hall_of_fame": {
+      "game_finished_in": "Partita finita in",
+      "game_started_at": "Partita iniziata alle",
+      "position": "Posizione",
+      "subtitle": "Chi sono i giocatori migliori?",
+      "team_name": "Nome Team",
+      "title": "Hall of Fame"
+    },
     "home": {
       "introduction": {
         "1": "Siete pronti ad entrare in un regno misterioso?"

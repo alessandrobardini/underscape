@@ -1,13 +1,9 @@
-import React, { useEffect, useState } from 'react'
-import logo from 'images/magaloop_logo_color.png'
-import csrfToken from 'helpers/csrfToken'
-import Form from 'components/Layout/Form'
-import Input from 'ui/Input'
-import Button from 'ui/Button'
+import React, { useContext, useEffect, useState } from 'react'
 import axios from 'axios'
+import { secondsToHms } from 'pages/YouWin'
+import { TranslatorContext } from 'containers/TranslatorLoader'
 
 import './HallOfFame.scss'
-import { secondsToHms } from 'pages/YouWin'
 
 const HallOfFame: React.FC = () => {
   const [winners, setWinners] = useState([])
@@ -15,17 +11,19 @@ const HallOfFame: React.FC = () => {
     axios.get('/users/sessions/winners').then((data) => setWinners(data.data.winners as any))
   }, [])
 
+  const i18n = useContext(TranslatorContext)
+
     return <div className='HallOfFame'>
-      <h1>Hall of Fame</h1>
-      <h3>Who are the fastest players?</h3>
+      <h1>{i18n.t('hall_of_fame.title')}</h1>
+      <h3>{i18n.t('hall_of_fame.subtitle')}</h3>
       {winners.length > 0 ? <div className='winners'>
         <table>
           <thead>
             <tr>
-              <th>Position</th>
-              <th>Team name</th>
-              <th>Game started at</th>
-              <th>Game finished in</th>
+              <th>{i18n.t('hall_of_fame.position')}</th>
+              <th>{i18n.t('hall_of_fame.team_name')}</th>
+              <th>{i18n.t('hall_of_fame.game_started_at')}</th>
+              <th>{i18n.t('hall_of_fame.game_finished_in')}</th>
             </tr>
           </thead>
           <tbody>
