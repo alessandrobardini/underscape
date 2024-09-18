@@ -57,6 +57,7 @@ const Home: React.FC = () => {
           <p>{i18n.t('home.credits.title')}</p>
           <ul>
             <li dangerouslySetInnerHTML={{ __html: i18n.t('home.credits.explanation.1')}}/>
+            <li dangerouslySetInnerHTML={{ __html: i18n.t('home.credits.explanation.2')}}/>
           </ul>
         </div>
         <div className='languages'>

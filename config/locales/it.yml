@@ -56,6 +56,7 @@ it:
       title: 'Credits'
       explanation:
         1: "Ispirato al videogioco <a href='https://undertale.com/' target='_blank'>Undertale</a>. Tutte le immagini dei personaggi sono fan-art trovate sul web"
+        2: "Ideato da <a href='https://github.com/alessandrobardini' target='_blank'>Alessandro Bardini</a>"
     input:
       team_name: 'Nome Team'
       password: 'Password'

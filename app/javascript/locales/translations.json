@@ -287,7 +287,8 @@
       },
       "credits": {
         "explanation": {
-          "1": "Inspired by the videogame <a href='https://undertale.com/' target='_blank'>Undertale</a>. All the characters images are fan-art found on the web"
+          "1": "Inspired by the videogame <a href='https://undertale.com/' target='_blank'>Undertale</a>. All the characters images are fan-art found on the web",
+          "2": "Designed by <a href='https://github.com/alessandrobardini' target='_blank'>Alessandro Bardini</a>"
         },
         "title": "Credits"
       },
@@ -413,7 +414,8 @@
       },
       "credits": {
         "explanation": {
-          "1": "Ispirato al videogioco <a href='https://undertale.com/' target='_blank'>Undertale</a>. Tutte le immagini dei personaggi sono fan-art trovate sul web"
+          "1": "Ispirato al videogioco <a href='https://undertale.com/' target='_blank'>Undertale</a>. Tutte le immagini dei personaggi sono fan-art trovate sul web",
+          "2": "Ideato da <a href='https://github.com/alessandrobardini' target='_blank'>Alessandro Bardini</a>"
         },
         "title": "Credits"
       },
