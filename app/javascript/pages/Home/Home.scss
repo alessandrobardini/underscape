@@ -56,6 +56,10 @@
 
     .Input {
       width: 80%;
+
+      &:not(:last-child) {
+        margin-top: 5px;
+      }
     }
   }
 
