@@ -15,7 +15,7 @@ const TopBar: React.FC = () => {
   const i18n = useContext(TranslatorContext)
   const history = useHistory()
   const onHomeClick = () => {
-    window.confirm('Do you want to go back to the main map? Some progress could not be saved!') && history.push('/app/map')
+    window.confirm(i18n.t('top_bar.back_to_home_alert')) && history.push(`/app/${i18n.locale}/map`)
   }
   return (
     <div className='TopBar'>
@@ -29,14 +29,12 @@ const TopBar: React.FC = () => {
       </div>
       <div className='container countdown'>
         <CountdownTimer targetDate={Date.parse(gameEndsAt)}/>
-        <Link to='#' type='danger' size='xs' onClick={() => window.confirm('Are you sure? The timer will not be stopped!') && signOut().then(() => window.location.replace('/app'))}>Logout</Link>
+        <Link to='#' type='danger' size='xs' onClick={() => window.confirm(i18n.t('top_bar.logout_alert')) && signOut().then(() => window.location.replace(`/app/${i18n.locale}`))}>
+          {i18n.t('top_bar.logout')}
+        </Link>
       </div>
     </div>
   )
-}
-
-const formatProgress = (progress: string) => {
-
 }
 
 export const signOut = () => axios.delete('/users/sign_out', {

@@ -61,4 +61,8 @@ it:
       team_name: 'Nome Team'
       password: 'Password'
       start: 'Iniziamo!'
+  top_bar:
+    back_to_home_alert: 'Vuoi tornare alla mappa principale? I progressi potrebbero non essere salvati!'
+    logout_alert: 'Sei sicuro? Il timer non verrà fermato!'
+    logout: 'Logout'
     

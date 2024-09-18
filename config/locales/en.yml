@@ -61,3 +61,7 @@ en:
       team_name: 'Team Name'
       password: 'Password'
       start: 'Start the game!'
+  top_bar:
+    back_to_home_alert: 'Do you want to go back to the main map? Progress may not be saved!'
+    logout_alert: 'Are you sure? The timer will not be stopped!'
+    logout: 'Logout'
