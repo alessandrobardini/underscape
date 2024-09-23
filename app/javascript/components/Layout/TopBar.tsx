@@ -20,7 +20,7 @@ const TopBar: React.FC = () => {
   return (
     <div className='TopBar'>
       <div className='container top-left'>
-        <div>{`Progress: ${progress}%`}</div>
+        <div>{`${i18n.t('top_bar.progress')}: ${progress}%`}</div>
         <div><Button icon iconLeft='fa fa-suitcase' to={`/app/${i18n.locale}/bag`} target='_blank' /></div>
         <div><Button icon iconLeft='fa fa-home' onClick={onHomeClick} /></div>
       </div>

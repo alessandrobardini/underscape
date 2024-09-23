@@ -30,6 +30,97 @@
 # available at https://guides.rubyonrails.org/i18n.html.
 
 en:
+  alchemist:
+    dialogues:
+      1: 'Who the hell dares to sneak into my lair?!?'
+      2: 'I am %{name}, the master alchemist and I hate being disturbed!'
+      3: 'Moreover, I am the most appreciated comedian of the kingdom!'
+      4: 'My bone jokes are the best of the best, they are so... HUMERUS!'
+      5: 'Do you want a friend to talk to? Are you feeling BONELY? I can show my pretty little BONEsai tree!'
+      6: '... ... ...'
+      7: 'Wait, are you not here to take a SKELFIE with me? So, go away! I need to prepare my stand-up comedy show!'
+      8: '... ... ...'
+      9: 'Wanna fight me? Because you want to meet the king?'
+      10: 'You are so annoying!'
+      11: "Ok, if you insist, reach me at the end of the cave. I'll be waiting for you! I may be a skeleton, buy I have guts!"
+      12: "BONEjour! We meet again! So, you're doing chemistry pretty well..."
+      13: 'Unfortunately, I think that I forgot to tell you something...'
+      14: 'I took a master in witchcraft when I was young!'
+      15: 'Prepare to get destroyed by my BONE-fide skills!'
+      16: '... ... ...'
+      17: 'Come on, did you understand the pun?'
+      18: 'I am a skeleton and I have BONES, so BONE-fide...'
+      19: "Oh, screw you! You don't laugh at my jokes! You are useless!"
+      20: "You will be hit by a ton of spells today... A skele-TON!!! It's not going TIBIA okay for you!"
+      21: '%{name} is preparing a colored spell! You need to neutralize it!'
+      22: "So lucky! Let's change color!"
+      23: "%{name} is preparing another colored spell! Come on, same as before!"
+      24: "ENOUGH! Colored spells are child's play. How do you cope with advanced magic?"
+      25: "I only need %{seconds} seconds to prepare my final attack!"
+      26: "%{name} is blinking weirdly! Cast a spell, quickly!"
+      27: "ARRRGH! You are cheating!"
+      28: 'Come on, %{name} is exhausted! One more shot!'
+      29: 'This kingdom is doomed to fail without my puns...'
+      30: 'Excellent! You defeated %{name}. A bonus of 10 minutes has been granted to you. You can proceed to the next location now.'
+      31: 'My powers are TITANIC!'
+      32: 'I will freeze you like an IGLOO!'
+      33: 'Some seconds of MEDITATION now...'
+      34: 'And now lights out! BLACKOUT!'
+      35: 'You are corrupted! Need a PURIFICATION!'
+      36: 'FORESIGHT! I see a crushing defeat for you in the future!'
+      37: 'What is that smile? You are supposed to laugh only at my jokes! SADNESS!'
+      38: "Well done! You hit %{name}"
+      39: 'NOOOOOOO!'
+      40: 'Oh no! %{name} hit you...'
+      41: 'Eheheh... Go away now, I need to prepare my stand-up comedy show!'
+      42: '... but you can retry the battle!'
+    objects:
+      mirror: 'The mirror reflects your image. You are so handsome!'
+      furnace: 'The furnace is hot as hell. Unfortunately, you forgot to bring the sunscreen with you. Better to get a tan only after this adventure.'
+      skull: 'The alchemist is a great fan of Hamlet.'
+      battle_gate:
+        error: 'The password is wrong...'
+        ready:
+          1: 'The access to the cave seems to be blocked by an invisible barrier...'
+          2: "There is a writing on the floor: \"It's elementary!\""
+          3: "It seems you need to insert a password made of numbers to deactivate the barrier: "
+        not_ready:
+          1: 'Well done you deactivated the barrier!'
+          2: 'But the alchemist casts very powerful spells! Better to discover how to neutralize them first...'
+  bag:
+    title: 'Your bag'
+    you_found_an_item: 'You found an item!'
+    you_put_the_item: 'You put the item in your bag'
+    items:
+      periodic_table:
+        name: 'Periodic table of elements'
+        description: 'Do yo want to create delightful cocktails?'
+      principles_of_life:
+        name: 'Principles of life'
+        description: 'For your everyday living'
+        content:
+          1: 'Eat your vegetables!'
+          2: 'Taking ReSPoNSiBiLiTiEs is elementary!'
+          3: 'Go to bed early!'
+          4: 'Be kind with your words and your actions!'
+          5: 'Stay fit!'
+      book_of_spells:
+        name: 'The book of spells'
+        description: 'Bestseller of the year!'
+        content:
+          1: 'COLOURED SPELLS'
+          2: 'Green wins over blue'
+          3: 'Blue wins over yellow'
+          4: 'Yellow wins over red'
+          5: 'Red wins over green'
+          6: 'HOW TO COUNTERACT AN ADVANCED SPELL'
+          7: 'TITANIC -> ICeBeRg'
+          8: 'IGLOO -> FlAmEs'
+          9: 'MEDITATION -> BErSErK'
+          10: 'BLACKOUT -> FLaSH'
+          11: 'PURIFICATION -> POISON'
+          12: 'FORESIGHT -> ReWINd'
+          13: 'SADNESS -> SArCaSm'
   hall_of_fame:
     title: 'Hall of Fame'
     subtitle: 'Who are the fastest players?'
@@ -61,7 +152,18 @@ en:
       team_name: 'Team Name'
       password: 'Password'
       start: 'Start the game!'
+  map_board:
+    location_1: 'Alchemist Alcove'
+    location_2: 'Crystal Crypts'
+    location_3: '(Fourth) Wall Breach'
+    location_4: 'Primeval Prison'
+    locked: 'LOCKED'
+    done: 'DONE!'
   top_bar:
     back_to_home_alert: 'Do you want to go back to the main map? Progress may not be saved!'
     logout_alert: 'Are you sure? The timer will not be stopped!'
     logout: 'Logout'
+    progress: 'Progress'
+  logout: 'Logout'
+  not_logged_in: 'You are not logged in!'
+  you_lost: 'YOU LOST!'

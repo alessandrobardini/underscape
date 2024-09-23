@@ -1,6 +1,7 @@
 import React, { useContext } from 'react'
-import { SessionContext, ItemType } from 'Game'
+import { SessionContext } from 'Game'
 import BagItemList from 'components/BagItemList/BagItemList'
+import { ItemType } from 'containers/BagItemsLoader'
 
 import './Bag.scss'
 

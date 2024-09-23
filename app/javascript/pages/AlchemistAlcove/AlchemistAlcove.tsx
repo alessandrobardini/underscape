@@ -5,6 +5,7 @@ import AnswerSubmission from 'components/Layout/ModalContent/AnswerSubmission'
 import { bagContains, CHARACTERS, riddleSolved, SessionContext } from 'Game'
 import React, { useContext, useEffect, useState } from 'react'
 import { useHistory } from 'react-router-dom'
+import { TranslatorContext } from 'containers/TranslatorLoader'
 
 import './AlchemistAlcove.scss'
 
@@ -12,6 +13,7 @@ const AlchemistAlcove: React.FC = () => {
   const { setDialogueBarMessages, setModalChildren, closeModal, items, bosses } = useContext(SessionContext)
   const [showBattlePage, setShowBattlePage] = useState<boolean>(false)
   const history = useHistory()
+  const i18n = useContext(TranslatorContext)
 
   const alchemistRiddleSolved = riddleSolved('alchemist_cave')
   const bookOfSpellsAlreadyFound = bagContains('book_of_spells')
@@ -24,17 +26,17 @@ const AlchemistAlcove: React.FC = () => {
   useEffect(() => {
     if(items.length === 0) {
       setDialogueBarMessages([
-        { character: 'alchemist', message: 'Who the hell dares to sneak into my lair?!?' },
-        { character: 'alchemist', message: `I am ${CHARACTERS['alchemist'].name}, the master alchemist and I hate being disturbed!` },
-        { character: 'alchemist', message: 'Moreover, I am the most appreciated comedian of the kingdom!' },
-        { character: 'alchemist', message: 'My bone jokes are the best of the best, they are so... HUMERUS!' },
-        { character: 'alchemist', message: 'Do you want a friend to talk to? Are you feeling BONELY? I can show my pretty little BONEsai tree!' },
-        { character: 'alchemist', message: '... ... ...' },
-        { character: 'alchemist', message: 'Wait, are you not here to take a SKELFIE with me? So, go away! I need to prepare my stand-up comedy show!' },
-        { character: 'alchemist', message: '... ... ...' },
-        { character: 'alchemist', message: 'Wanna fight me? Because you want to meet the king?' },
-        { character: 'alchemist', message: 'You are so annoying!' },
-        { character: 'alchemist', message: 'Ok, if you insist, reach me at the end of the cave. I\'ll be waiting for you! I may be a skeleton, buy I have guts!' }
+        { character: 'alchemist', message: i18n.t('alchemist.dialogues.1') },
+        { character: 'alchemist', message: i18n.t('alchemist.dialogues.2', { name: CHARACTERS['alchemist'].name }) },
+        { character: 'alchemist', message: i18n.t('alchemist.dialogues.3') },
+        { character: 'alchemist', message: i18n.t('alchemist.dialogues.4') },
+        { character: 'alchemist', message: i18n.t('alchemist.dialogues.5') },
+        { character: 'alchemist', message: i18n.t('alchemist.dialogues.6') },
+        { character: 'alchemist', message: i18n.t('alchemist.dialogues.7') },
+        { character: 'alchemist', message: i18n.t('alchemist.dialogues.8') },
+        { character: 'alchemist', message: i18n.t('alchemist.dialogues.9') },
+        { character: 'alchemist', message: i18n.t('alchemist.dialogues.10') },
+        { character: 'alchemist', message: i18n.t('alchemist.dialogues.11') }
       ])
     }
   }, [])
@@ -42,34 +44,34 @@ const AlchemistAlcove: React.FC = () => {
   useEffect(() => {
     if(canProceedToBossBattle) {
       setDialogueBarMessages([
-        { character: 'alchemist', message: 'BONEjour! We meet again! So, you\'re doing chemistry pretty well...' },
-        { character: 'alchemist', message: 'Unfortunately, I think that I forgot to tell you something....' },
-        { character: 'alchemist', message: 'I took a master in witchcraft when I was young!' },
-        { character: 'alchemist', message: 'Prepare to get destroyed by my BONE-fide skills!' },
-        { character: 'alchemist', message: '... ... ...' },
-        { character: 'alchemist', message: 'Come on, did you understand the pun?' },
-        { character: 'alchemist', message: 'I am a skeleton and I have BONES, so BONE-fide...' },
-        { character: 'alchemist', message: 'Oh, screw you! You don\'t laugh at my jokes! You are useless!' },
-        { character: 'alchemist', message: 'You will be hit by a ton of spells today... A skele-TON!!! It\'s not going TIBIA okay for you!', onCloseMessage: () => setShowBattlePage(true) },
+        { character: 'alchemist', message: i18n.t('alchemist.dialogues.12') },
+        { character: 'alchemist', message: i18n.t('alchemist.dialogues.13') },
+        { character: 'alchemist', message: i18n.t('alchemist.dialogues.14') },
+        { character: 'alchemist', message: i18n.t('alchemist.dialogues.15') },
+        { character: 'alchemist', message: i18n.t('alchemist.dialogues.16') },
+        { character: 'alchemist', message: i18n.t('alchemist.dialogues.17') },
+        { character: 'alchemist', message: i18n.t('alchemist.dialogues.18') },
+        { character: 'alchemist', message: i18n.t('alchemist.dialogues.19') },
+        { character: 'alchemist', message: i18n.t('alchemist.dialogues.20'), onCloseMessage: () => setShowBattlePage(true) },
       ])
     }
   }, [canProceedToBossBattle])
 
   const handleMirrorClick = () => {
     setDialogueBarMessages([
-      { message: 'The mirror reflects your image. You are so handsome!' }
+      { message: i18n.t('alchemist.objects.mirror') }
     ])
   }
 
   const handleFurnaceClick = () => {
     setDialogueBarMessages([
-      { message: 'The furnace is hot as hell. Unfortunately, you forgot to bring the sunscreen with you. Better to get a tan only after this adventure.' }
+      { message: i18n.t('alchemist.objects.furnace') }
     ])
   }
 
   const handleSkullClick = () => {
     setDialogueBarMessages([
-      { message: 'The alchemist is a great fan of Hamlet.' }
+      { message: i18n.t('alchemist.objects.skull') }
     ])
   }
 
@@ -78,8 +80,8 @@ const AlchemistAlcove: React.FC = () => {
       // this item is needed to beat the boss!
       if(!bookOfSpellsAlreadyFound) {
         setDialogueBarMessages([
-          { message: 'Well done you deactivated the barrier!' },
-          { message: 'But the alchemist casts very powerful spells! Better to discover how to neutralize them first...' }
+          { message: i18n.t('alchemist.objects.battle_gate.not_ready.1') },
+          { message: i18n.t('alchemist.objects.battle_gate.not_ready.2') }
         ])
       }
     } else {
@@ -89,11 +91,11 @@ const AlchemistAlcove: React.FC = () => {
 
   const answerSubmissionComponent = <AnswerSubmission
     riddle='alchemist_cave'
-    errorMessage='The password is wrong...' 
+    errorMessage={i18n.t('alchemist.objects.battle_gate.error')}
     explanations={[
-      'The access to the cave seems to be blocked by an invisible barrier...',
-      'There is a writing on the floor: "It\'s elementary!"',
-      'It seems you need to insert a password made of numbers to deactivate the barrier: '
+      i18n.t('alchemist.objects.battle_gate.ready.1'),
+      i18n.t('alchemist.objects.battle_gate.ready.2'),
+      i18n.t('alchemist.objects.battle_gate.ready.3')
     ]}
     onCorrectAnswerSubmission={closeModal}
   />

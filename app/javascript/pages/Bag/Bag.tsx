@@ -1,8 +1,9 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useContext } from 'react'
 import PromiseWrap from 'components/Promise/PromiseWrap'
-import { getUser } from 'App'
+import { NotLoggedIn, getUser } from 'App'
 import BagItemList from 'components/BagItemList/BagItemList'
-import { ItemType } from 'Game'
+import { TranslatorContext } from 'containers/TranslatorLoader'
+import { ItemType } from 'containers/BagItemsLoader'
 
 import './Bag.scss'
 
@@ -14,10 +15,10 @@ const Bag = () => {
   }
 
   useEffect(refetch, [])
-  
+
   return (
     <PromiseWrap promise={promise} timeout={500} staleWhileLoading>
-      {props => props.data ? <BagPage refetch={refetch} data={props.data} /> : (!props.loading ? <div>You are not logged in!</div>: null)}
+      {props => props.data ? <BagPage refetch={refetch} data={props.data} /> : (!props.loading ? <NotLoggedIn />: null)}
     </PromiseWrap>
   )
 }
@@ -28,6 +29,8 @@ const BagPage = ({ data, refetch } ) => {
     setSelectedItem(item)
   }
 
+  const i18n = useContext(TranslatorContext)
+
   useEffect(() => {
     const timer = setInterval(refetch, 10000)
     return () => clearInterval(timer)
@@ -37,7 +40,7 @@ const BagPage = ({ data, refetch } ) => {
     <div className='BagPage'>
       <div className='list'>
         <header>
-          Your bag
+          {i18n.t('bag.title')}
         </header>
         <BagItemList items={data.data.items} onItemClick={handleItemClick} selected={selectedItem} />
       </div>

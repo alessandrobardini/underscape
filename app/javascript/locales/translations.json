@@ -11,6 +11,110 @@
         }
       }
     },
+    "alchemist": {
+      "dialogues": {
+        "1": "Who the hell dares to sneak into my lair?!?",
+        "10": "You are so annoying!",
+        "11": "Ok, if you insist, reach me at the end of the cave. I'll be waiting for you! I may be a skeleton, buy I have guts!",
+        "12": "BONEjour! We meet again! So, you're doing chemistry pretty well...",
+        "13": "Unfortunately, I think that I forgot to tell you something...",
+        "14": "I took a master in witchcraft when I was young!",
+        "15": "Prepare to get destroyed by my BONE-fide skills!",
+        "16": "... ... ...",
+        "17": "Come on, did you understand the pun?",
+        "18": "I am a skeleton and I have BONES, so BONE-fide...",
+        "19": "Oh, screw you! You don't laugh at my jokes! You are useless!",
+        "2": "I am %{name}, the master alchemist and I hate being disturbed!",
+        "20": "You will be hit by a ton of spells today... A skele-TON!!! It's not going TIBIA okay for you!",
+        "21": "%{name} is preparing a colored spell! You need to neutralize it!",
+        "22": "So lucky! Let's change color!",
+        "23": "%{name} is preparing another colored spell! Come on, same as before!",
+        "24": "ENOUGH! Colored spells are child's play. How do you cope with advanced magic?",
+        "25": "I only need %{seconds} seconds to prepare my final attack!",
+        "26": "%{name} is blinking weirdly! Cast a spell, quickly!",
+        "27": "ARRRGH! You are cheating!",
+        "28": "Come on, %{name} is exhausted! One more shot!",
+        "29": "This kingdom is doomed to fail without my puns...",
+        "3": "Moreover, I am the most appreciated comedian of the kingdom!",
+        "30": "Excellent! You defeated %{name}. A bonus of 10 minutes has been granted to you. You can proceed to the next location now.",
+        "31": "My powers are TITANIC!",
+        "32": "I will freeze you like an IGLOO!",
+        "33": "Some seconds of MEDITATION now...",
+        "34": "And now lights out! BLACKOUT!",
+        "35": "You are corrupted! Need a PURIFICATION!",
+        "36": "FORESIGHT! I see a crushing defeat for you in the future!",
+        "37": "What is that smile? You are supposed to laugh only at my jokes! SADNESS!",
+        "38": "Well done! You hit %{name}",
+        "39": "NOOOOOOO!",
+        "4": "My bone jokes are the best of the best, they are so... HUMERUS!",
+        "40": "Oh no! %{name} hit you...",
+        "41": "Eheheh... Go away now, I need to prepare my stand-up comedy show!",
+        "42": "... but you can retry the battle!",
+        "5": "Do you want a friend to talk to? Are you feeling BONELY? I can show my pretty little BONEsai tree!",
+        "6": "... ... ...",
+        "7": "Wait, are you not here to take a SKELFIE with me? So, go away! I need to prepare my stand-up comedy show!",
+        "8": "... ... ...",
+        "9": "Wanna fight me? Because you want to meet the king?"
+      },
+      "objects": {
+        "battle_gate": {
+          "error": "The password is wrong...",
+          "not_ready": {
+            "1": "Well done you deactivated the barrier!",
+            "2": "But the alchemist casts very powerful spells! Better to discover how to neutralize them first..."
+          },
+          "ready": {
+            "1": "The access to the cave seems to be blocked by an invisible barrier...",
+            "2": "There is a writing on the floor: \"It's elementary!\"",
+            "3": "It seems you need to insert a password made of numbers to deactivate the barrier: "
+          }
+        },
+        "furnace": "The furnace is hot as hell. Unfortunately, you forgot to bring the sunscreen with you. Better to get a tan only after this adventure.",
+        "mirror": "The mirror reflects your image. You are so handsome!",
+        "skull": "The alchemist is a great fan of Hamlet."
+      }
+    },
+    "bag": {
+      "items": {
+        "book_of_spells": {
+          "content": {
+            "1": "COLOURED SPELLS",
+            "10": "BLACKOUT -> FLaSH",
+            "11": "PURIFICATION -> POISON",
+            "12": "FORESIGHT -> ReWINd",
+            "13": "SADNESS -> SArCaSm",
+            "2": "Green wins over blue",
+            "3": "Blue wins over yellow",
+            "4": "Yellow wins over red",
+            "5": "Red wins over green",
+            "6": "HOW TO COUNTERACT AN ADVANCED SPELL",
+            "7": "TITANIC -> ICeBeRg",
+            "8": "IGLOO -> FlAmEs",
+            "9": "MEDITATION -> BErSErK"
+          },
+          "description": "Bestseller of the year!",
+          "name": "The book of spells"
+        },
+        "periodic_table": {
+          "description": "Do yo want to create delightful cocktails?",
+          "name": "Periodic table of elements"
+        },
+        "principles_of_life": {
+          "content": {
+            "1": "Eat your vegetables!",
+            "2": "Taking ReSPoNSiBiLiTiEs is elementary!",
+            "3": "Go to bed early!",
+            "4": "Be kind with your words and your actions!",
+            "5": "Stay fit!"
+          },
+          "description": "For your everyday living",
+          "name": "Principles of life"
+        }
+      },
+      "title": "Your bag",
+      "you_found_an_item": "You found an item!",
+      "you_put_the_item": "You put the item in your bag"
+    },
     "date": {
       "abbr_day_names": [
         "Sun",
@@ -310,6 +414,16 @@
         "title": "Rules"
       }
     },
+    "logout": "Logout",
+    "map_board": {
+      "done": "DONE!",
+      "location_1": "Alchemist Alcove",
+      "location_2": "Crystal Crypts",
+      "location_3": "(Fourth) Wall Breach",
+      "location_4": "Primeval Prison",
+      "locked": "LOCKED"
+    },
+    "not_logged_in": "You are not logged in!",
     "number": {
       "currency": {
         "format": {
@@ -397,10 +511,116 @@
     "top_bar": {
       "back_to_home_alert": "Do you want to go back to the main map? Progress may not be saved!",
       "logout": "Logout",
-      "logout_alert": "Are you sure? The timer will not be stopped!"
-    }
+      "logout_alert": "Are you sure? The timer will not be stopped!",
+      "progress": "Progress"
+    },
+    "you_lost": "YOU LOST!"
   },
   "it": {
+    "alchemist": {
+      "dialogues": {
+        "1": "Chi diavolo osa intrufolarsi nel mio rifugio?!?",
+        "10": "Sei così fastidioso!",
+        "11": "Ok, se insisti, raggiungimi dentro la caverna. Ti aspetterò! Sarò anche uno scheletro, ma ho del fegato!",
+        "12": "Ci incontriamo di nuovo! Così, te ne intendi di chimica...",
+        "13": "Sfortunatamente, mi sono scordato di dirti una cosa...",
+        "14": "Ho preso un master in stregoneria quando ero giovane!",
+        "15": "Un'ultima chicca prima di distruggerti: lo sai qual è il colmo per un osso?",
+        "16": "... ... ...",
+        "17": "Non te lo pOSSO dire, LOSSO solo io!",
+        "18": "L'hai capita, vero?",
+        "19": "Non ridi nemmeno alle mie battute! Sei inutile!",
+        "2": "Io sono %{name}, il capo alchimista e odio essere disturbato!",
+        "20": "Se OSSI ancora sfidarmi, sarai colpito da una mole di incantesimi! Ti devi ancora fare le ossa per competere con me!",
+        "21": "%{name} sta preparando un incantesimo colorato! Devi neutralizzarlo!",
+        "22": "Sei fortunato! Ma cambiamo colore ora!",
+        "23": "%{name} sta preparando un altro incantesimo colorato! Dai, come prima!",
+        "24": "BASTA! Gli incantesimi colorati sono roba da bambini. Come te la cavi con la magia avanzata?",
+        "25": "Ho solo bisogno di %{seconds} secondi per preparare il mio attacco finale!",
+        "26": "%{name} sta luccicando pericolosamente! Lancia un incantesimo, in fretta!",
+        "27": "ARRRGH! Stai barando!",
+        "28": "Dai, %{name} è esausto! Ancora un colpo!",
+        "29": "Questo regno è destinato a fallire senza le mie battute...",
+        "3": "Oltretutto sono il comico più apprezzato del regno!",
+        "30": "Eccellente! Hai sconfitto %{name}. Hai guadagnato un bonus di 10 minuti. Ora, puoi procedere verso il prossimo luogo.",
+        "31": "I miei poteri sono TITANICi!",
+        "32": "Ti congelerò come un IGLOO!",
+        "33": "Qualche secondo di MEDITATION now...",
+        "34": "E ora tutti al buio! BLACKOUT!",
+        "35": "Sei corrotto! Hai bisogno di una PURIFICATION!",
+        "36": "FORESIGHT! Prevedo una sconfitta cocente per te in futuro!",
+        "37": "Cos'è quel sorriso? Tu devi ridere solo alle mie battute! SADNESS!",
+        "38": "Ben fatto! Hai colpito %{name}",
+        "39": "NOOOOOOO!",
+        "4": "Le mie battute sulle ossa sono il meglio del meglio, sono così... OMERISTICHE!",
+        "40": "Oh no! %{name} ti ha colpito...",
+        "41": "Eheheh... Vai via ora, devo preparare il mio show di standup comedy!",
+        "42": "... ma puoi ritentare la battaglia!",
+        "5": "Sei venuto a portare i tuoi OSSequi? Sei OSSessionato perchè vuoi incontrarmi?",
+        "6": "... ... ...",
+        "7": "La finisci di OSServarmi? Vai via! Devo preparare il mio show di standup comedy!",
+        "8": "... ... ...",
+        "9": "Mi vuoi sfidare? Perchè vuoi incontrare il re?"
+      },
+      "objects": {
+        "battle_gate": {
+          "error": "La password è sbagliata...",
+          "not_ready": {
+            "1": "Ben fatto, hai disattivato la barriera!",
+            "2": "Ma l'alchimista è in grado di lanciare potenti incantesimi! Meglio scoprire prima come neutralizzarli..."
+          },
+          "ready": {
+            "1": "L'accesso alla caverna sembra essere bloccato da una barriera invisibile...",
+            "2": "C'è un messaggio sul pavimento: \"È elementare!\"",
+            "3": "Sembra che tu debba inserire una password fatta di numeri per disattivare la barriera: "
+          }
+        },
+        "furnace": "Lo fornace è caldissima. Purtroppo, ti sei dimenticato di portare la crema abbronzante. Meglio prendere il sole solo dopo questa avventura.",
+        "mirror": "Lo specchio riflette la tua immagine. Sei così splendido!",
+        "skull": "L'alchimista è un grande fan di Amleto."
+      }
+    },
+    "bag": {
+      "items": {
+        "book_of_spells": {
+          "content": {
+            "1": "INCANTESIMI COLORATI",
+            "10": "BLACKOUT -> FLaSH",
+            "11": "PURIFICATION -> POISON",
+            "12": "FORESIGHT -> ReWINd",
+            "13": "SADNESS -> SArCaSm",
+            "2": "Verde vince su blu",
+            "3": "Blu vince su giallo",
+            "4": "Giallo vince su rosso",
+            "5": "Rosso vince su verde",
+            "6": "COME CONTRATTACCARE UN INCANTESIMO AVANZATO",
+            "7": "TITANIC -> ICeBeRg",
+            "8": "IGLOO -> FlAmEs",
+            "9": "MEDITATION -> BErSErK"
+          },
+          "description": "Bestseller dell'anno!",
+          "name": "Il libro degli incantesimi"
+        },
+        "periodic_table": {
+          "description": "Vuoi creare cocktail deliziosi?",
+          "name": "Tavola periodica degli elementi"
+        },
+        "principles_of_life": {
+          "content": {
+            "1": "Mangia tante verdure!",
+            "2": "Usa sempre l'inglese perchè fa figo (vedi sotto, come suona bene!)",
+            "3": "Taking ReSPoNSiBiLiTiEs is elementary!",
+            "4": "Be kind with your words and your actions!",
+            "5": "Stay fit!"
+          },
+          "description": "Per la tua vita di tutti i giorni",
+          "name": "Come essere una brava persona"
+        }
+      },
+      "title": "Il tuo zaino",
+      "you_found_an_item": "Hai trovato un oggetto!",
+      "you_put_the_item": "Hai messo l'oggetto nel tuo zaino"
+    },
     "hall_of_fame": {
       "game_finished_in": "Partita finita in",
       "game_started_at": "Partita iniziata alle",
@@ -442,10 +662,22 @@
         "title": "Regole"
       }
     },
+    "logout": "Logout",
+    "map_board": {
+      "done": "FATTO!",
+      "location_1": "Alcova dell'Alchimista",
+      "location_2": "Cripte di Cristallo",
+      "location_3": "Breccia della (Quarta) Parete",
+      "location_4": "Prigione Primordiale",
+      "locked": "BLOCCATO"
+    },
+    "not_logged_in": "Non sei loggato!",
     "top_bar": {
       "back_to_home_alert": "Vuoi tornare alla mappa principale? I progressi potrebbero non essere salvati!",
       "logout": "Logout",
-      "logout_alert": "Sei sicuro? Il timer non verrà fermato!"
-    }
+      "logout_alert": "Sei sicuro? Il timer non verrà fermato!",
+      "progress": "Progresso"
+    },
+    "you_lost": "HAI PERSO!"
   }
 }

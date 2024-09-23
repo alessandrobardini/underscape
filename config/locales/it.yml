@@ -30,6 +30,97 @@
 # available at https://guides.rubyonrails.org/i18n.html.
 
 it:
+  alchemist:
+    dialogues:
+      1: 'Chi diavolo osa intrufolarsi nel mio rifugio?!?'
+      2: 'Io sono %{name}, il capo alchimista e odio essere disturbato!'
+      3: 'Oltretutto sono il comico più apprezzato del regno!'
+      4: 'Le mie battute sulle ossa sono il meglio del meglio, sono così... OMERISTICHE!'
+      5: 'Sei venuto a portare i tuoi OSSequi? Sei OSSessionato perchè vuoi incontrarmi?'
+      6: '... ... ...'
+      7: 'La finisci di OSServarmi? Vai via! Devo preparare il mio show di standup comedy!'
+      8: '... ... ...'
+      9: 'Mi vuoi sfidare? Perchè vuoi incontrare il re?'
+      10: 'Sei così fastidioso!'
+      11: "Ok, se insisti, raggiungimi dentro la caverna. Ti aspetterò! Sarò anche uno scheletro, ma ho del fegato!"
+      12: "Ci incontriamo di nuovo! Così, te ne intendi di chimica..."
+      13: 'Sfortunatamente, mi sono scordato di dirti una cosa...'
+      14: 'Ho preso un master in stregoneria quando ero giovane!'
+      15: "Un'ultima chicca prima di distruggerti: lo sai qual è il colmo per un osso?"
+      16: '... ... ...'
+      17: 'Non te lo pOSSO dire, LOSSO solo io!'
+      18: "L'hai capita, vero?"
+      19: "Non ridi nemmeno alle mie battute! Sei inutile!"
+      20: "Se OSSI ancora sfidarmi, sarai colpito da una mole di incantesimi! Ti devi ancora fare le ossa per competere con me!"
+      21: '%{name} sta preparando un incantesimo colorato! Devi neutralizzarlo!'
+      22: "Sei fortunato! Ma cambiamo colore ora!"
+      23: "%{name} sta preparando un altro incantesimo colorato! Dai, come prima!"
+      24: "BASTA! Gli incantesimi colorati sono roba da bambini. Come te la cavi con la magia avanzata?"
+      25: "Ho solo bisogno di %{seconds} secondi per preparare il mio attacco finale!"
+      26: "%{name} sta luccicando pericolosamente! Lancia un incantesimo, in fretta!"
+      27: "ARRRGH! Stai barando!"
+      28: 'Dai, %{name} è esausto! Ancora un colpo!'
+      29: 'Questo regno è destinato a fallire senza le mie battute...'
+      30: 'Eccellente! Hai sconfitto %{name}. Hai guadagnato un bonus di 10 minuti. Ora, puoi procedere verso il prossimo luogo.'
+      31: 'I miei poteri sono TITANICi!'
+      32: 'Ti congelerò come un IGLOO!'
+      33: 'Qualche secondo di MEDITATION now...'
+      34: 'E ora tutti al buio! BLACKOUT!'
+      35: 'Sei corrotto! Hai bisogno di una PURIFICATION!'
+      36: 'FORESIGHT! Prevedo una sconfitta cocente per te in futuro!'
+      37: "Cos'è quel sorriso? Tu devi ridere solo alle mie battute! SADNESS!"
+      38: "Ben fatto! Hai colpito %{name}"
+      39: 'NOOOOOOO!'
+      40: 'Oh no! %{name} ti ha colpito...'
+      41: 'Eheheh... Vai via ora, devo preparare il mio show di standup comedy!'
+      42: '... ma puoi ritentare la battaglia!'
+    objects:
+      mirror: 'Lo specchio riflette la tua immagine. Sei così splendido!'
+      furnace: 'Lo fornace è caldissima. Purtroppo, ti sei dimenticato di portare la crema abbronzante. Meglio prendere il sole solo dopo questa avventura.'
+      skull: "L'alchimista è un grande fan di Amleto."
+      battle_gate:
+        error: 'La password è sbagliata...'
+        ready:
+          1: "L'accesso alla caverna sembra essere bloccato da una barriera invisibile..."
+          2: "C'è un messaggio sul pavimento: \"È elementare!\""
+          3: "Sembra che tu debba inserire una password fatta di numeri per disattivare la barriera: "
+        not_ready:
+          1: 'Ben fatto, hai disattivato la barriera!'
+          2: "Ma l'alchimista è in grado di lanciare potenti incantesimi! Meglio scoprire prima come neutralizzarli..."
+  bag:
+    title: 'Il tuo zaino'
+    you_found_an_item: 'Hai trovato un oggetto!'
+    you_put_the_item: "Hai messo l'oggetto nel tuo zaino"
+    items:
+      periodic_table:
+        name: 'Tavola periodica degli elementi'
+        description: 'Vuoi creare cocktail deliziosi?'
+      principles_of_life:
+        name: 'Come essere una brava persona'
+        description: 'Per la tua vita di tutti i giorni'
+        content:
+          1: 'Mangia tante verdure!'
+          2: "Usa sempre l'inglese perchè fa figo (vedi sotto, come suona bene!)"
+          3: 'Taking ReSPoNSiBiLiTiEs is elementary!'
+          4: 'Be kind with your words and your actions!'
+          5: 'Stay fit!'
+      book_of_spells:
+        name: 'Il libro degli incantesimi'
+        description: "Bestseller dell'anno!"
+        content:
+          1: 'INCANTESIMI COLORATI'
+          2: 'Verde vince su blu'
+          3: 'Blu vince su giallo'
+          4: 'Giallo vince su rosso'
+          5: 'Rosso vince su verde'
+          6: 'COME CONTRATTACCARE UN INCANTESIMO AVANZATO'
+          7: 'TITANIC -> ICeBeRg'
+          8: 'IGLOO -> FlAmEs'
+          9: 'MEDITATION -> BErSErK'
+          10: 'BLACKOUT -> FLaSH'
+          11: 'PURIFICATION -> POISON'
+          12: 'FORESIGHT -> ReWINd'
+          13: 'SADNESS -> SArCaSm'
   hall_of_fame:
     title: 'Hall of Fame'
     subtitle: 'Chi sono i giocatori migliori?'
@@ -61,8 +152,18 @@ it:
       team_name: 'Nome Team'
       password: 'Password'
       start: 'Iniziamo!'
+  map_board:
+    location_1: "Alcova dell'Alchimista"
+    location_2: 'Cripte di Cristallo'
+    location_3: 'Breccia della (Quarta) Parete'
+    location_4: Prigione Primordiale
+    locked: 'BLOCCATO'
+    done: 'FATTO!'
   top_bar:
     back_to_home_alert: 'Vuoi tornare alla mappa principale? I progressi potrebbero non essere salvati!'
     logout_alert: 'Sei sicuro? Il timer non verrà fermato!'
     logout: 'Logout'
-    
+    progress: 'Progresso'
+  not_logged_in: 'Non sei loggato!'
+  logout: 'Logout'
+  you_lost: 'HAI PERSO!'

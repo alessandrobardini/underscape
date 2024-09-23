@@ -5,15 +5,16 @@ import { TranslatorContext } from 'containers/TranslatorLoader'
 import './MapBoard.scss'
 
 const MapBoard: React.FC = () => {
+  const i18n = useContext(TranslatorContext)
   // NB: if you want to quickly test an area without going through the previous ones, simply remove the previousBoss prop from Location
   return <div className='MapBoard'>
     <div className='row'>
-      <Location title='Alchemist Alcove' icon='fa-magic' currentBoss='alchemist' path='/alchemist'/>
-      <Location title='Crystal Crypts' icon='fa-diamond' currentBoss='ghost' previousBoss='alchemist' path='/crypts'/>
+      <Location title={i18n.t('map_board.location_1')} icon='fa-magic' currentBoss='alchemist' path='/alchemist'/>
+      <Location title={i18n.t('map_board.location_2')} icon='fa-diamond' currentBoss='ghost' previousBoss='alchemist' path='/crypts'/>
     </div>
     <div className='row'>
-      <Location title='(Fourth) Wall Breach' icon='fa-building' currentBoss='demiurge' previousBoss='ghost' path='/wall'/>
-      <Location title='Primeval Prison' icon='fa-eye-slash' currentBoss='goat' previousBoss='demiurge' path='/prison'/>
+      <Location title={i18n.t('map_board.location_3')} icon='fa-building' currentBoss='demiurge' previousBoss='ghost' path='/wall'/>
+      <Location title={i18n.t('map_board.location_4')} icon='fa-eye-slash' currentBoss='goat' previousBoss='demiurge' path='/prison'/>
     </div>
   </div>
 }
@@ -37,8 +38,8 @@ const Location: React.FC<LocationProps> = ({ previousBoss = null, currentBoss, t
   return <div className={`location ${!previousBossDefeated ? 'blocked' : ''} ${currentBossDefeated ? 'done' : ''}`} {...((!currentBossDefeated && previousBossDefeated) && { onClick: () => history.push(`/app/${i18n.locale}${path}`)})}>
     <i className={`fa ${icon}`}/>
     <span>{title}</span>
-    {!previousBossDefeated && <span className='blocked'>LOCKED</span>}
-    {currentBossDefeated && <span className='done'>DONE!</span>}
+    {!previousBossDefeated && <span className='blocked'>{i18n.t('map_board.locked')}</span>}
+    {currentBossDefeated && <span className='done'>{i18n.t('map_board.done')}</span>}
   </div>
 }
 

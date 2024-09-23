@@ -3,14 +3,14 @@ import CountdownTimer from 'components/Layout/Countdown'
 import { CHARACTERS, DialogueBarMessageType, SessionContext } from 'Game'
 import alchemist from 'images/alchemist_boss.png'
 import { sampleSize, shuffle } from 'lodash'
-import React, { useContext, useEffect, useState } from 'react'
+import React, { useContext, useEffect, useMemo, useState } from 'react'
 import Button from 'ui/Button'
 import axios from 'axios'
 import csrfToken from 'helpers/csrfToken'
+import { useHistory } from 'react-router-dom'
+import { TranslatorContext } from 'containers/TranslatorLoader'
 
 import './AlchemistBossBattle.scss'
-import { appPath } from 'App'
-import { useHistory } from 'react-router-dom'
 
 type ButtonType = {
   text: string
@@ -94,22 +94,8 @@ type SpellType = {
   text: string
 }
 
-// 53-58-4-111: ICeBeRg
-const TITANIC_SPELL = { counter: '53584111', text: 'My powers are TITANIC!'}
-// 114-95-99: FlAmEs
-const IGLOO_SPELL = { counter: '1149599', text: 'I will freeze you like an IGLOO!'}
-// 5-68-16-68-19: BErSErK
-const MEDITATION_SPELL = { counter: '568166819', text: 'Some seconds of MEDITATION now...'}
-// 9-57-16-1: FLaSH
-const BLACKOUT_SPELL = { counter: '957161', text: 'And now lights out! BLACKOUT!'}
-// 15-8-53-16-8-7: POISON
-const PURIFICATION_SPELL = { counter: '158531687', text: 'You are corrupted! Need a PURIFICATION!'}
-// 75-74-53-60: ReWINd
-const FORESIGHT_SPELL = { counter: '75745360', text: 'FORESIGHT! I see a crushing defeat for you in the future!'}
-// 16-18-20-62: SArCaSm
-const SADNESS_SPELL = { counter: '16182062', text: 'What is that smile? You are supposed to laugh only at my jokes! SADNESS!'}
-
 const AlchemistBossBattle: React.FC = () => {
+  const i18n = useContext(TranslatorContext)
   const history = useHistory()
   const { setDialogueBarMessages } = useContext(SessionContext)
   const [phase, setPhase] = useState(1)
@@ -119,6 +105,24 @@ const AlchemistBossBattle: React.FC = () => {
   const [showButtons, setShowButtons] = useState<boolean>(false)
   const [showForm, setShowForm] = useState<boolean>(false)
   const buttonGroups = [BUTTONS_WITH_RED_SPELL, BUTTONS_WITH_GREEN_SPELL, BUTTONS_WITH_BLUE_SPELL, BUTTONS_WITH_YELLOW_SPELL]
+  const namedSpells = useMemo(() => {
+    // 53-58-4-111: ICeBeRg
+    const TITANIC_SPELL = { counter: '53584111', text: i18n.t('alchemist.dialogues.31')}
+    // 114-95-99: FlAmEs
+    const IGLOO_SPELL = { counter: '1149599', text: i18n.t('alchemist.dialogues.32')}
+    // 5-68-16-68-19: BErSErK
+    const MEDITATION_SPELL = { counter: '568166819', text: i18n.t('alchemist.dialogues.33')}
+    // 9-57-16-1: FLaSH
+    const BLACKOUT_SPELL = { counter: '957161', text: i18n.t('alchemist.dialogues.34')}
+    // 15-8-53-16-8-7: POISON
+    const PURIFICATION_SPELL = { counter: '158531687', text: i18n.t('alchemist.dialogues.35')}
+    // 75-74-53-60: ReWINd
+    const FORESIGHT_SPELL = { counter: '75745360', text: i18n.t('alchemist.dialogues.36')}
+    // 16-18-20-62: SArCaSm
+    const SADNESS_SPELL = { counter: '16182062', text: i18n.t('alchemist.dialogues.37')}
+
+    return [TITANIC_SPELL, IGLOO_SPELL, MEDITATION_SPELL, BLACKOUT_SPELL, PURIFICATION_SPELL, FORESIGHT_SPELL, SADNESS_SPELL]
+  }, [])
 
   const createShuffledButtons = (buttons: Array<ButtonType>) => {
     const shuffledStyles = shuffle(Array.from(Array(buttons.length).keys()))
@@ -131,12 +135,12 @@ const AlchemistBossBattle: React.FC = () => {
       '/bosses',
       { boss: { name: 'alchemist' }, authenticity_token: csrfToken() },
       { headers: { Accept: 'application/json' }, responseType: 'json' }
-    ).then(() => history.replace(appPath('/map')))
+    ).then(() => history.replace(`/app/${i18n.locale}/map`))
   }
 
   useEffect(() => {
     const [phase1Buttons, phase2Buttons] = sampleSize(buttonGroups, 2)
-    const [phase3Spell, phase4Spell] = sampleSize([TITANIC_SPELL, IGLOO_SPELL, MEDITATION_SPELL, BLACKOUT_SPELL, PURIFICATION_SPELL, FORESIGHT_SPELL, SADNESS_SPELL], 2)
+    const [phase3Spell, phase4Spell] = sampleSize(namedSpells, 2)
     setButtons({
       phase1: { color: phase1Buttons.color, content: createShuffledButtons(phase1Buttons.buttons) },
       phase2: { color: phase2Buttons.color, content: createShuffledButtons(phase2Buttons.buttons) }
@@ -148,28 +152,28 @@ const AlchemistBossBattle: React.FC = () => {
   }, [])
 
   const phase1MessagesOnMount = [
-    { message: `${CHARACTERS['alchemist'].name} is preparing a colored spell! You need to neutralize it!`, disappearAfterSeconds: 3, onCloseMessage: ()  => setShowButtons(true)}
+    { message: i18n.t('alchemist.dialogues.21', { name: CHARACTERS['alchemist'].name }), disappearAfterSeconds: 3, onCloseMessage: ()  => setShowButtons(true)}
   ]
 
   const phase2MessagesOnMount = [
-    { character: 'alchemist', message: `So lucky! Let's change color!`, disappearAfterSeconds: 3, onCloseMessage: () => setShowBlinking(true) },
-    { message: `${CHARACTERS['alchemist'].name} is preparing another colored spell! Come on, same as before!`, disappearAfterSeconds: 3, onCloseMessage: ()  => setShowButtons(true) }
+    { character: 'alchemist', message: i18n.t('alchemist.dialogues.22'), disappearAfterSeconds: 3, onCloseMessage: () => setShowBlinking(true) },
+    { message: i18n.t('alchemist.dialogues.23', { name: CHARACTERS['alchemist'].name }), disappearAfterSeconds: 3, onCloseMessage: ()  => setShowButtons(true) }
   ]
 
   const phase3MessagesOnMount = [
-    { character: 'alchemist', message: `ENOUGH! Colored spells are child\'s play. How do you cope with advanced magic?`, disappearAfterSeconds: 3 },
-    { character: 'alchemist', message: `I only need ${SECONDS_FOR_ANSWERING} seconds to prepare my final attack!`, disappearAfterSeconds: 3, onCloseMessage: () => setShowBlinking(true) },
-    { message: `${CHARACTERS['alchemist'].name} is blinking weirdly! Cast a spell, quickly!`, disappearAfterSeconds: 3, onCloseMessage: ()  => setShowForm(true) }
+    { character: 'alchemist', message: i18n.t('alchemist.dialogues.24'), disappearAfterSeconds: 3 },
+    { character: 'alchemist', message: i18n.t('alchemist.dialogues.25', { seconds: SECONDS_FOR_ANSWERING }), disappearAfterSeconds: 3, onCloseMessage: () => setShowBlinking(true) },
+    { message: i18n.t('alchemist.dialogues.26', { name: CHARACTERS['alchemist'].name }), disappearAfterSeconds: 3, onCloseMessage: ()  => setShowForm(true) }
   ]
 
   const phase4MessagesOnMount = [
-    { character: 'alchemist', message: `ARRRGH! You are cheating!`, disappearAfterSeconds: 3, onCloseMessage: () => setShowBlinking(true) },
-    { message: `Come on, ${CHARACTERS['alchemist'].name} is exhausted! One more shot!`, disappearAfterSeconds: 3, onCloseMessage: ()  => setShowForm(true) }
+    { character: 'alchemist', message: i18n.t('alchemist.dialogues.27'), disappearAfterSeconds: 3, onCloseMessage: () => setShowBlinking(true) },
+    { message: i18n.t('alchemist.dialogues.28', { name: CHARACTERS['alchemist'].name }), disappearAfterSeconds: 3, onCloseMessage: ()  => setShowForm(true) }
   ]
 
   const phase5MessagesOnMount = [
-    { character: 'alchemist', message: `This kingdom is doomed to fail without my puns...`, disappearAfterSeconds: 3 },
-    { message: `Excellent! You defeated ${CHARACTERS['alchemist'].name}. A bonus of 10 minutes has been granted to you. You can proceed to the next location now.`, disappearAfterSeconds: 3, onCloseMessage: () => handleBossDefeated() }
+    { character: 'alchemist', message: i18n.t('alchemist.dialogues.29'), disappearAfterSeconds: 3 },
+    { message: i18n.t('alchemist.dialogues.30', { name: CHARACTERS['alchemist'].name }), disappearAfterSeconds: 3, onCloseMessage: () => handleBossDefeated() }
   ]
 
   const handleCorrectButtonClick = () => {
@@ -177,7 +181,7 @@ const AlchemistBossBattle: React.FC = () => {
     setShowButtons(false)
     setDialogueBarMessages([
       { character: 'alchemist', message: `OUCH!`, disappearAfterSeconds: 3 },
-      { message: `Well done! You hit ${CHARACTERS['alchemist'].name}`, disappearAfterSeconds: 3, onCloseMessage: () => { setPhase(phase + 1) } }
+      { message: i18n.t('alchemist.dialogues.38', { name: CHARACTERS['alchemist'].name }), disappearAfterSeconds: 3, onCloseMessage: () => { setPhase(phase + 1) } }
     ])
   }
 
@@ -186,7 +190,7 @@ const AlchemistBossBattle: React.FC = () => {
     setShowBlinking(false)
     setDialogueBarMessages([
       { character: 'alchemist', message: `OUCH!`, disappearAfterSeconds: 3 },
-      { message: `Well done! You hit ${CHARACTERS['alchemist'].name}`, disappearAfterSeconds: 3, onCloseMessage: () => { setPhase(phase + 1) } }
+      { message: i18n.t('alchemist.dialogues.38', { name: CHARACTERS['alchemist'].name }), disappearAfterSeconds: 3, onCloseMessage: () => { setPhase(phase + 1) } }
     ])
   }
 
@@ -194,7 +198,7 @@ const AlchemistBossBattle: React.FC = () => {
     setShowForm(false)
     setShowBlinking(false)
     setDialogueBarMessages([
-      { character: 'alchemist', message: `NOOOOOOO!`, disappearAfterSeconds: 2, onCloseMessage: () => { setPhase(phase + 1) }}
+      { character: 'alchemist', message: i18n.t('alchemist.dialogues.39'), disappearAfterSeconds: 2, onCloseMessage: () => { setPhase(phase + 1) }}
     ])
   }
 
@@ -286,6 +290,7 @@ type NamesSpellsPhaseProps = {
 }
 
 const NamedSpellsPhase: React.FC<NamesSpellsPhaseProps> = ({ messagesOnMount, showForm, spell, showBlinking, onCorrectAnswer, onWrongAnswer }) => {
+  const i18n = useContext(TranslatorContext)
   const { setDialogueBarMessages } = useContext(SessionContext)
   const [imageClass, setImageClass]  = useState<string>('')
 
@@ -304,9 +309,9 @@ const NamedSpellsPhase: React.FC<NamesSpellsPhaseProps> = ({ messagesOnMount, sh
   const handleWrongAnswer = () => {
     onWrongAnswer()
     setDialogueBarMessages([
-      { message: `Oh no! ${CHARACTERS['alchemist'].name} hit you...` },
-      { character: 'alchemist', message: `Eheheh... Go away now, I need to prepare my stand-up comedy show!` },
-      { title: 'GAME OVER!', message: '... but you can retry the battle!', onCloseMessage: () => location.reload() }
+      { message: i18n.t('alchemist.dialogues.40', { name: CHARACTERS['alchemist'].name }) },
+      { character: 'alchemist', message: i18n.t('alchemist.dialogues.41') },
+      { title: 'GAME OVER!', message: i18n.t('alchemist.dialogues.42'), onCloseMessage: () => location.reload() }
     ])
   }
 

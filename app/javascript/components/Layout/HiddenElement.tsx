@@ -1,7 +1,5 @@
-import { bagContains, ITEMS, SessionContext } from 'Game'
+import { bagContains, SessionContext } from 'Game'
 import React, { MouseEventHandler, useContext } from 'react'
-import axios from 'axios'
-import csrfToken from 'helpers/csrfToken'
 
 import './HiddenElement.scss'
 
