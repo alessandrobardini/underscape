@@ -1,232 +1,231 @@
 import { bagContains, CHARACTERS, DialogueBarMessageType, SessionContext } from 'Game'
-import React, { useContext, useEffect, useState } from 'react'
+import React, { useContext, useEffect, useMemo, useState } from 'react'
 import Button from 'ui/Button'
 import axios from 'axios'
 import csrfToken from 'helpers/csrfToken'
 import { useHistory } from 'react-router-dom'
-
-import './CrystalCrypts.scss'
 import { appPath } from 'App'
 import ghostFan from 'images/spooky.png'
+import { TranslatorContext } from 'containers/TranslatorLoader'
 
-const MAZE_1 = {
-  allowedPath: [
-    // START
-    { row: 4, column: 5 },
-    // UP
-    { row: 3, column: 5 },
-    // UP
-    { row: 2, column: 5 },
-    // RIGHT
-    { row: 2, column: 6 },
-    // UP
-    { row: 1, column: 6 },
-    // LEFT
-    { row: 1, column: 5 },
-    // LEFT
-    { row: 1, column: 4 },
-    // LEFT
-    { row: 1, column: 3 },
-    // LEFT
-    { row: 1, column: 2 },
-    // LEFT
-    { row: 1, column: 1 },
-    // DOWN
-    { row: 2, column: 1 },
-    // DOWN
-    { row: 3, column: 1 },
-    // DOWN
-    { row: 4, column: 1 }
-  ],
-  itemGivenOnMount: 'maze_map_1',
-  messagesOnMount: [
-    { character: 'ghost', message: 'So what? Are you already lost?' },
-    { character: 'ghost', message: 'Come on, your current position is the blue cell! I really need to tell you everything...' },
-    { character: 'ghost', message: 'Are you able to find the exit? Ehehe...' },
-    { character: 'ghost', message: 'Take this and learn something new, you fool!' }
-  ]
-}
-
-const MAZE_2 = {
-  allowedPath: [
-    // START
-    { row: 7, column: 4 },
-    // UP
-    { row: 6, column: 4 },
-    // UP
-    { row: 5, column: 4 },
-    // LEFT
-    { row: 5, column: 3 },
-    // UP
-    { row: 4, column: 3 },
-    // UP
-    { row: 3, column: 3 },
-    // RIGHT
-    { row: 3, column: 4 },
-    // RIGHT
-    { row: 3, column: 5 },
-    // RIGHT
-    { row: 3, column: 6 },
-    // RIGHT
-    { row: 3, column: 7 },
-    // DOWN
-    { row: 4, column: 7 },
-    // RIGHT
-    { row: 4, column: 8 },
-    // DOWN
-    { row: 5, column: 8 },
-    // DOWN
-    { row: 6, column: 8 },
-    // DOWN
-    { row: 7, column: 8 },
-    // RIGHT
-    { row: 7, column: 9 },
-    // DOWN
-    { row: 8, column: 9 },
-    // DOWN
-    { row: 9, column: 9 },
-    // LEFT
-    { row: 9, column: 8 },
-    // LEFT
-    { row: 9, column: 7 },
-    // LEFT
-    { row: 9, column: 6 }
-  ],
-  itemGivenOnMount: 'maze_map_2',
-  messagesOnMount: [
-    { character: 'ghost', message: `The training is not over yet! Move on, slowpoke!` }
-  ]
-}
-
-const MAZE_3 = {
-  numberOfRows: 5,
-  numberOfColumns: 12,
-  allowedPath: [
-    // START
-    { row: 0, column: 2 },
-    // DOWN
-    { row: 1, column: 2 },
-    // DOWN
-    { row: 2, column: 2 },
-    // DOWN
-    { row: 3, column: 2 },
-    // DOWN
-    { row: 4, column: 2 },
-    // RIGHT
-    { row: 4, column: 3 },
-    // RIGHT
-    { row: 4, column: 4 },
-    // RIGHT
-    { row: 4, column: 5 },
-    // UP
-    { row: 3, column: 5 },
-    // UP
-    { row: 2, column: 5 },
-    // LEFT
-    { row: 2, column: 4 },
-    // LEFT
-    { row: 2, column: 3 },
-    // UP
-    { row: 1, column: 3 },
-    // UP
-    { row: 0, column: 3 },
-    // RIGHT
-    { row: 0, column: 4 },
-    // RIGHT
-    { row: 0, column: 5 },
-    // RIGHT
-    { row: 0, column: 6 },
-    // RIGHT
-    { row: 0, column: 7 },
-    // RIGHT
-    { row: 0, column: 8 },
-    // DOWN
-    { row: 1, column: 8 },
-    // DOWN
-    { row: 2, column: 8 },
-    // LEFT
-    { row: 2, column: 7 },
-    // LEFT
-    { row: 2, column: 6 },
-    // DOWN
-    { row: 3, column: 6 },
-    // DOWN
-    { row: 4, column: 6 },
-    // RIGHT
-    { row: 4, column: 7 },
-    // RIGHT
-    { row: 4, column: 8 },
-    // RIGHT
-    { row: 4, column: 9 },
-    // RIGHT
-    { row: 4, column: 10 },
-    // RIGHT
-    { row: 4, column: 11 },
-    // UP
-    { row: 3, column: 11 },
-    // UP
-    { row: 2, column: 11 },
-    // LEFT
-    { row: 2, column: 10 },
-    // LEFT
-    { row: 2, column: 9 },
-    // UP
-    { row: 1, column: 9 },
-    // UP
-    { row: 0, column: 9 },
-    // RIGHT
-    { row: 0, column: 10 },
-    // RIGHT
-    { row: 0, column: 11 },
-    // DOWN
-    { row: 1, column: 11 }
-  ],
-  exit: { row: 1, column: 11 },
-  itemGivenOnMount: 'maze_map_3',
-  messagesOnMount: [
-    { character: 'ghost', message: `Boring, boring, boring... You take ages to find the exit!` }
-  ]
-}
-
-const MAZE_4 = {
-  allowedPath: [
-    // START
-    { row: 4, column: 5 },
-    // RIGHT
-    { row: 4, column: 6 },
-    // RIGHT
-    { row: 4, column: 7 },
-    // RIGHT
-    { row: 4, column: 8 },
-    // UP
-    { row: 3, column: 8 },
-    // UP
-    { row: 2, column: 8 },
-    // UP
-    { row: 1, column: 8 },
-    // LEFT
-    { row: 1, column: 7 },
-    // LEFT
-    { row: 1, column: 6 },
-    // UP
-    { row: 0, column: 6 }
-  ],
-  itemGivenOnMount: 'maze_map_4',
-  messagesOnMount: [
-    { character: 'ghost', message: `Hmm... Actually, you are not so useless...` }
-  ],
-  numberOfInvisibleLayers: 3
-}
-
-const MAZES = [MAZE_1, MAZE_2, MAZE_3, MAZE_4]
+import './CrystalCrypts.scss'
 
 const CrystalCrypts: React.FC = () => {
+  const i18n = useContext(TranslatorContext)
+  const mazes = useMemo(() => {
+    const maze_1 = {
+      allowedPath: [
+        // START
+        { row: 4, column: 5 },
+        // UP
+        { row: 3, column: 5 },
+        // UP
+        { row: 2, column: 5 },
+        // RIGHT
+        { row: 2, column: 6 },
+        // UP
+        { row: 1, column: 6 },
+        // LEFT
+        { row: 1, column: 5 },
+        // LEFT
+        { row: 1, column: 4 },
+        // LEFT
+        { row: 1, column: 3 },
+        // LEFT
+        { row: 1, column: 2 },
+        // LEFT
+        { row: 1, column: 1 },
+        // DOWN
+        { row: 2, column: 1 },
+        // DOWN
+        { row: 3, column: 1 },
+        // DOWN
+        { row: 4, column: 1 }
+      ],
+      itemGivenOnMount: 'maze_map_1',
+      messagesOnMount: [
+        { character: 'ghost', message: i18n.t('ghost.dialogues.15') },
+        { character: 'ghost', message: i18n.t('ghost.dialogues.16') },
+        { character: 'ghost', message: i18n.t('ghost.dialogues.17') },
+        { character: 'ghost', message: i18n.t('ghost.dialogues.18') }
+      ]
+    }
+    const maze_2 = {
+      allowedPath: [
+        // START
+        { row: 7, column: 4 },
+        // UP
+        { row: 6, column: 4 },
+        // UP
+        { row: 5, column: 4 },
+        // LEFT
+        { row: 5, column: 3 },
+        // UP
+        { row: 4, column: 3 },
+        // UP
+        { row: 3, column: 3 },
+        // RIGHT
+        { row: 3, column: 4 },
+        // RIGHT
+        { row: 3, column: 5 },
+        // RIGHT
+        { row: 3, column: 6 },
+        // RIGHT
+        { row: 3, column: 7 },
+        // DOWN
+        { row: 4, column: 7 },
+        // RIGHT
+        { row: 4, column: 8 },
+        // DOWN
+        { row: 5, column: 8 },
+        // DOWN
+        { row: 6, column: 8 },
+        // DOWN
+        { row: 7, column: 8 },
+        // RIGHT
+        { row: 7, column: 9 },
+        // DOWN
+        { row: 8, column: 9 },
+        // DOWN
+        { row: 9, column: 9 },
+        // LEFT
+        { row: 9, column: 8 },
+        // LEFT
+        { row: 9, column: 7 },
+        // LEFT
+        { row: 9, column: 6 }
+      ],
+      itemGivenOnMount: 'maze_map_2',
+      messagesOnMount: [
+        { character: 'ghost', message: i18n.t('ghost.dialogues.19') }
+      ]
+    }
+    const maze_3 = {
+      numberOfRows: 5,
+      numberOfColumns: 12,
+      allowedPath: [
+        // START
+        { row: 0, column: 2 },
+        // DOWN
+        { row: 1, column: 2 },
+        // DOWN
+        { row: 2, column: 2 },
+        // DOWN
+        { row: 3, column: 2 },
+        // DOWN
+        { row: 4, column: 2 },
+        // RIGHT
+        { row: 4, column: 3 },
+        // RIGHT
+        { row: 4, column: 4 },
+        // RIGHT
+        { row: 4, column: 5 },
+        // UP
+        { row: 3, column: 5 },
+        // UP
+        { row: 2, column: 5 },
+        // LEFT
+        { row: 2, column: 4 },
+        // LEFT
+        { row: 2, column: 3 },
+        // UP
+        { row: 1, column: 3 },
+        // UP
+        { row: 0, column: 3 },
+        // RIGHT
+        { row: 0, column: 4 },
+        // RIGHT
+        { row: 0, column: 5 },
+        // RIGHT
+        { row: 0, column: 6 },
+        // RIGHT
+        { row: 0, column: 7 },
+        // RIGHT
+        { row: 0, column: 8 },
+        // DOWN
+        { row: 1, column: 8 },
+        // DOWN
+        { row: 2, column: 8 },
+        // LEFT
+        { row: 2, column: 7 },
+        // LEFT
+        { row: 2, column: 6 },
+        // DOWN
+        { row: 3, column: 6 },
+        // DOWN
+        { row: 4, column: 6 },
+        // RIGHT
+        { row: 4, column: 7 },
+        // RIGHT
+        { row: 4, column: 8 },
+        // RIGHT
+        { row: 4, column: 9 },
+        // RIGHT
+        { row: 4, column: 10 },
+        // RIGHT
+        { row: 4, column: 11 },
+        // UP
+        { row: 3, column: 11 },
+        // UP
+        { row: 2, column: 11 },
+        // LEFT
+        { row: 2, column: 10 },
+        // LEFT
+        { row: 2, column: 9 },
+        // UP
+        { row: 1, column: 9 },
+        // UP
+        { row: 0, column: 9 },
+        // RIGHT
+        { row: 0, column: 10 },
+        // RIGHT
+        { row: 0, column: 11 },
+        // DOWN
+        { row: 1, column: 11 }
+      ],
+      exit: { row: 1, column: 11 },
+      itemGivenOnMount: 'maze_map_3',
+      messagesOnMount: [
+        { character: 'ghost', message: i18n.t('ghost.dialogues.20') }
+      ]
+    }
+    const maze_4 = {
+      allowedPath: [
+        // START
+        { row: 4, column: 5 },
+        // RIGHT
+        { row: 4, column: 6 },
+        // RIGHT
+        { row: 4, column: 7 },
+        // RIGHT
+        { row: 4, column: 8 },
+        // UP
+        { row: 3, column: 8 },
+        // UP
+        { row: 2, column: 8 },
+        // UP
+        { row: 1, column: 8 },
+        // LEFT
+        { row: 1, column: 7 },
+        // LEFT
+        { row: 1, column: 6 },
+        // UP
+        { row: 0, column: 6 }
+      ],
+      itemGivenOnMount: 'maze_map_4',
+      messagesOnMount: [
+        { character: 'ghost', message: i18n.t('ghost.dialogues.20') }
+      ],
+      numberOfInvisibleLayers: 3
+    }
+    return [maze_1, maze_2, maze_3, maze_4]
+  }, [])
   const { setDialogueBarMessages, bosses } = useContext(SessionContext)
   const [mazeIndex, setMazeIndex] = useState(null)
-  const bagContainsMaze1Map = bagContains(MAZE_1.itemGivenOnMount)
-  const bagContainsMaze2Map = bagContains(MAZE_2.itemGivenOnMount)
-  const bagContainsMaze3Map = bagContains(MAZE_3.itemGivenOnMount)
-  const bagContainsMaze4Map = bagContains(MAZE_4.itemGivenOnMount)
+  const bagContainsMaze1Map = bagContains(mazes[0].itemGivenOnMount)
+  const bagContainsMaze2Map = bagContains(mazes[1].itemGivenOnMount)
+  const bagContainsMaze3Map = bagContains(mazes[2].itemGivenOnMount)
+  const bagContainsMaze4Map = bagContains(mazes[3].itemGivenOnMount)
   const bagContainsSpookySprint = bagContains('spooky_sprint')
   const history = useHistory()
 
@@ -240,19 +239,19 @@ const CrystalCrypts: React.FC = () => {
   useEffect(() => {
     if(!bagContainsMaze1Map) {
       setDialogueBarMessages([
-        { character: 'ghost', message: 'Uhhh! It\'s been a long time since I received any visits, down here  at the Crystal Crypts!' },
-        { character: 'ghost', message: '...' },
-        { character: 'ghost', message: 'Who am I? Wait, are you serious or what?!' },
-        { character: 'ghost', message: `How can you not recognize ${CHARACTERS['ghost'].name}, the great olympic champion?!` },
-        { character: 'ghost', message: 'The king suggested me to come down here to train for the next kingdom games. This is the duty of a gold medalist champion like me!' },
-        { character: 'ghost', message: 'This place is wonderful, full of scary caves and deadly labyrinths!' },
-        { character: 'ghost', message: 'Do you know in which discipline I won my gold medal, right?' },
-        { character: 'ghost', message: '...' },
-        { character: 'ghost', message: 'Soccer? Did you really say "Soccer?"' },
-        { character: 'ghost', message: 'I AM A F**KING GHOST WITH NO LEGS, HOW AM I SUPPOSED TO PLAY SOCCER?' },
-        { character: 'ghost', message: 'Of course, I am the Spooky Sprint champion! It\'s the kingdom national sport!' },
-        { character: 'ghost', message: 'Your insolence bothered me! I have no time to lose with dummies like you...' },
-        { character: 'ghost', message: 'Let\'s test your orienteering skills, ehehe... They are the basis to become a good Spooky Sprint player!', onCloseMessage: () => setMazeIndex(0) }
+        { character: 'ghost', message: i18n.t('ghost.dialogues.1') },
+        { character: 'ghost', message: i18n.t('ghost.dialogues.2') },
+        { character: 'ghost', message: i18n.t('ghost.dialogues.3') },
+        { character: 'ghost', message: i18n.t('ghost.dialogues.4', { name: CHARACTERS['ghost'].name })},
+        { character: 'ghost', message: i18n.t('ghost.dialogues.5') },
+        { character: 'ghost', message: i18n.t('ghost.dialogues.6') },
+        { character: 'ghost', message: i18n.t('ghost.dialogues.7') },
+        { character: 'ghost', message: i18n.t('ghost.dialogues.8') },
+        { character: 'ghost', message: i18n.t('ghost.dialogues.9') },
+        { character: 'ghost', message: i18n.t('ghost.dialogues.10') },
+        { character: 'ghost', message: i18n.t('ghost.dialogues.11') },
+        { character: 'ghost', message: i18n.t('ghost.dialogues.12') },
+        { character: 'ghost', message: i18n.t('ghost.dialogues.13'), onCloseMessage: () => setMazeIndex(0) }
       ])
     } else {
       if(bagContainsMaze4Map) {
@@ -270,7 +269,7 @@ const CrystalCrypts: React.FC = () => {
 
     const handleMazeSolved = () => { 
       setDialogueBarMessages([
-        { character: 'ghost', message: 'Oh well... this was not really challenging, don\'t think you\'re special!', onCloseMessage: () => setMazeIndex(mazeIndex + 1) }
+        { character: 'ghost', message: i18n.t('ghost.dialogues.14'), onCloseMessage: () => setMazeIndex(mazeIndex + 1) }
       ])
     }
 
@@ -278,7 +277,7 @@ const CrystalCrypts: React.FC = () => {
   return <div className='CrystalCrypts'>
     {canRenderSpookySprint ? <SpookySprint /> : 
       (mazeIndex !== null) ?
-        <Maze key={mazeIndex} data={MAZES[mazeIndex]} onMazeSolved={handleMazeSolved}  /> :
+        <Maze key={mazeIndex} data={mazes[mazeIndex]} onMazeSolved={handleMazeSolved}  /> :
         <div className='map' />
     }
   </div>
@@ -301,6 +300,7 @@ type MazeProps = {
 }
 
 const Maze: React.FC<MazeProps> = ({ data: { allowedPath, itemGivenOnMount, messagesOnMount, numberOfRows = 10, numberOfColumns = 10, exit, numberOfInvisibleLayers }, onMazeSolved }) => {
+  const i18n = useContext(TranslatorContext)
   const { setDialogueBarMessages, pickUpItem } = useContext(SessionContext)
   const [grid, setGrid] = useState(() => new Array(numberOfRows).fill(UNVISITED_CHAR).map(() => new Array(numberOfColumns).fill(UNVISITED_CHAR)))
   const [currentMoveIndex, setCurrentMoveIndex] = useState(0)
@@ -311,13 +311,13 @@ const Maze: React.FC<MazeProps> = ({ data: { allowedPath, itemGivenOnMount, mess
   useEffect(() => {
     if(!bagContainsMazeMap) {
       const onCloseLastMessage = () => {
-        pickUpItem({ pickableItem: itemGivenOnMount, firstMessage: `${CHARACTERS['ghost'].name} threw a book over you!` })
+        pickUpItem({ pickableItem: itemGivenOnMount, firstMessage: i18n.t('ghost.dialogues.22', { name: CHARACTERS['ghost'].name }) })
         setCanClickOnMaze(true)
       }
       setDialogueBarMessages([...messagesOnMount.slice(0, -1), {...messagesOnMount.slice(-1)[0], onCloseMessage: onCloseLastMessage}])
     } else {
       setDialogueBarMessages([
-        { character: 'ghost', message: 'Come on loser, retry!', onCloseMessage: () => setCanClickOnMaze(true) }
+        { character: 'ghost', message: i18n.t('ghost.dialogues.23'), onCloseMessage: () => setCanClickOnMaze(true) }
       ])
     }
     const copiedGrid = [...grid]
@@ -335,9 +335,9 @@ const Maze: React.FC<MazeProps> = ({ data: { allowedPath, itemGivenOnMount, mess
   const handleWrongCellClick = () => {
     setCanClickOnMaze(false)
     setDialogueBarMessages([
-      { message: `Oh no! This cell contains a pit...` },
-      { character: 'ghost', message: `Sorry, you will never become a Spooky Sprint champion...` },
-      { title: 'GAME OVER!', message: '... but you can retry the game!', onCloseMessage: () => location.reload() }
+      { message: i18n.t('ghost.dialogues.24') },
+      { character: 'ghost', message: i18n.t('ghost.dialogues.25') },
+      { title: 'GAME OVER!', message: i18n.t('ghost.dialogues.26'), onCloseMessage: () => location.reload() }
     ])
   }
 
@@ -409,6 +409,7 @@ const NEXT_DIRECTION = {
 }
 
 const SpookySprint = () => {
+  const i18n = useContext(TranslatorContext)
   const history = useHistory()
   const { setDialogueBarMessages, pickUpItem } = useContext(SessionContext)
   const bagContainsSpookySprint = bagContains('spooky_sprint')
@@ -423,14 +424,14 @@ const SpookySprint = () => {
     if(!bagContainsSpookySprint) {
     setDialogueBarMessages(
       [
-        { character: 'ghost', message: 'Enough, you rookie! These mazes were easy as 1-2-3... ' },
-        { character: 'ghost', message: 'It\'s time for a real challenge! Are you ready to challenge me at Spooky Sprint? ' },
-        { character: 'ghost', message: 'Just for you to know... No one defeated me so far! Eheheh', onCloseMessage: () => { pickUpItem({ pickableItem: 'spooky_sprint', firstMessage: `${CHARACTERS['ghost'].name} wants to play Spooky Sprint with you!` }); setCanInteractWithGrid(true) } }
+        { character: 'ghost', message: i18n.t('ghost.dialogues.27') },
+        { character: 'ghost', message: i18n.t('ghost.dialogues.28') },
+        { character: 'ghost', message: i18n.t('ghost.dialogues.29'), onCloseMessage: () => { pickUpItem({ pickableItem: 'spooky_sprint', firstMessage: i18n.t('ghost.dialogues.30', { name: CHARACTERS['ghost'].name }) }); setCanInteractWithGrid(true) } }
       ]
     )} else {
       setDialogueBarMessages(
         [
-          { character: 'ghost', message: 'Come on!', onCloseMessage: () => setCanInteractWithGrid(true)},
+          { character: 'ghost', message: i18n.t('ghost.dialogues.31'), onCloseMessage: () => setCanInteractWithGrid(true)},
         ]
       )}
   }, [])
@@ -449,20 +450,20 @@ const SpookySprint = () => {
       if(isExit(ghostPosition.row, ghostPosition.column)) {
         clearInterval(timer)
         setDialogueBarMessages([
-          { message: `Oh no! ${CHARACTERS['ghost'].name} reached the exit...` },
-          { character: 'ghost', message: 'And the Spooky Sprint champion is still...' },
-          { title: 'GAME OVER!', message: '... but you can retry the game!', onCloseMessage: () => location.reload() }
+          { message: i18n.t('ghost.dialogues.32', { name: CHARACTERS['ghost'].name }) },
+          { character: 'ghost', message: i18n.t('ghost.dialogues.33') },
+          { title: 'GAME OVER!', message: i18n.t('ghost.dialogues.34'), onCloseMessage: () => location.reload() }
         ])
       }
       if((isArrowCell(ghostPosition.row, ghostPosition.column) || isPlacedArrowCell(ghostPosition.row, ghostPosition.column)) && ghostPosition.direction !== getArrow(ghostPosition.row, ghostPosition.column).direction) {
         setDialogueBarMessages([
-          { message: `${CHARACTERS['ghost'].name} changes direction!`, disappearAfterSeconds: 0.5 }
+          { message: i18n.t('ghost.dialogues.35', { name: CHARACTERS['ghost'].name }), disappearAfterSeconds: 0.5 }
         ])
         setGhostPosition({...ghostPosition, direction: getArrow(ghostPosition.row, ghostPosition.column).direction})
       }
       if((isBombCell(ghostPosition.row, ghostPosition.column))) {
         setDialogueBarMessages([
-          { message: `The bomb damaged ${CHARACTERS['ghost'].name}!`, disappearAfterSeconds: 0.5 }
+          { message: i18n.t('ghost.dialogues.36', { name: CHARACTERS['ghost'].name }), disappearAfterSeconds: 0.5 }
         ])
         setBombCells([...bombCells.filter(bombCell => bombCell.row !== ghostPosition.row || bombCell.column !== ghostPosition.column)])
       }
@@ -481,9 +482,9 @@ const SpookySprint = () => {
     if(bombCells.length === 0) {
       clearInterval(timer)
       setDialogueBarMessages([
-        { character: 'ghost', message: `What the hell!? You won! This cannot be real!` },
-        { character: 'ghost', message: `My fans... Do you still love me? Do you still want to marry me?` },
-        { message: `Excellent! You defeated ${CHARACTERS['ghost'].name}. A bonus of 10 minutes has been granted to you. You can proceed to the next location now.`, disappearAfterSeconds: 3, onCloseMessage: () => handleBossDefeated() }
+        { character: 'ghost', message: i18n.t('ghost.dialogues.37') },
+        { character: 'ghost', message: i18n.t('ghost.dialogues.38') },
+        { message: i18n.t('ghost.dialogues.39', { name: CHARACTERS['ghost'].name }), disappearAfterSeconds: 3, onCloseMessage: () => handleBossDefeated() }
       ])
     }
   }, [bombCells])
@@ -554,16 +555,16 @@ const SpookySprint = () => {
         {isGameInProgress && 
           <div className='ghost-fan'>
             <div className='fan-1'>
-              <span>{`GO ${CHARACTERS['ghost'].name.toUpperCase()}!`}</span>
+              <span>{i18n.t('ghost.spooky_sprint.3', { name: CHARACTERS['ghost'].name.toUpperCase() })}</span>
               <img src={ghostFan  } />
             </div>
             <div className='fan-2'>
-              <img src={ghostFan  } />
-              <span>I AM YOUR BIGGEST FAN!</span>
+              <img src={ghostFan} />
+              <span>{i18n.t('ghost.spooky_sprint.1')}</span>
             </div>
             <div className='fan-3'>
-              <span>{`YOU'RE AWESOME! MARRY ME ${CHARACTERS['ghost'].name.toUpperCase()}!`}</span>
-              <img src={ghostFan  } />
+              <span>{i18n.t('ghost.spooky_sprint.2', { name: CHARACTERS['ghost'].name.toUpperCase() })}</span>
+              <img src={ghostFan} />
             </div>
           </div>
         }
@@ -593,17 +594,17 @@ const SpookySprint = () => {
           {canInteractWithGrid &&
             <>
               {numberOfArrowsToPlaceYet > 0 ? <div className='arrows'>
-              <span>You play the role of the saboteur!</span>
-                <span>{`You need to place ${numberOfArrowsToPlaceYet} arrows yet.`}</span>
-                <span>Click on the board to place an arrow.</span>
-                <span>Click again to change its direction.</span>
-                <Button size='s' onClick={handleResetPlacedArrows}>Reset placed arrows</Button>
+              <span>{i18n.t('ghost.spooky_sprint.4')}</span>
+                <span>{i18n.t('ghost.spooky_sprint.5', { arrows: numberOfArrowsToPlaceYet })}</span>
+                <span>{i18n.t('ghost.spooky_sprint.6')}</span>
+                <span>{i18n.t('ghost.spooky_sprint.7')}</span>
+                <Button size='s' onClick={handleResetPlacedArrows}>{i18n.t('ghost.spooky_sprint.8')}</Button>
               </div> : <div className='arrows'>
                 {isGameInProgress ? <>
-                  <span>SPOOKY SPRINT IS IN PROGRESS!</span>
+                  <span>{i18n.t('ghost.spooky_sprint.9')}</span>
                 </> : <>
-                  <Button size='s' onClick={handleStartSpookySprint}>Start Spooky Sprint!</Button>
-                  <Button size='s' onClick={handleResetPlacedArrows}>Reset placed arrows</Button>
+                  <Button size='s' onClick={handleStartSpookySprint}>{i18n.t('ghost.spooky_sprint.10')}</Button>
+                  <Button size='s' onClick={handleResetPlacedArrows}>{i18n.t('ghost.spooky_sprint.8')}</Button>
                 </> }
               </div>
               }

@@ -21,9 +21,9 @@ import WallBreach from 'pages/WallBreach/WallBreach'
 import DemiurgeBattle from 'pages/DemiurgeBattle/DemiurgeBattle'
 import YouWin from 'pages/YouWin'
 import { BagItemsContext } from 'containers/BagItemsLoader'
+import { TranslatorContext } from 'containers/TranslatorLoader'
 
 import './Game.scss'
-import { TranslatorContext } from 'containers/TranslatorLoader'
 
 export const CHARACTERS = {
   'alchemist' : {

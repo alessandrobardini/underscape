@@ -91,6 +91,8 @@ it:
     title: 'Il tuo zaino'
     you_found_an_item: 'Hai trovato un oggetto!'
     you_put_the_item: "Hai messo l'oggetto nel tuo zaino"
+    empty: 'Il tuo zaino è vuoto'
+    use: 'USA'
     items:
       periodic_table:
         name: 'Tavola periodica degli elementi'
@@ -121,6 +123,106 @@ it:
           11: 'PURIFICATION -> POISON'
           12: 'FORESIGHT -> ReWINd'
           13: 'SADNESS -> SArCaSm'
+      maze_map_1:
+        name: 'Labirinti - Capitolo 1'
+        description: 'Quando ti senti perso...'
+      maze_map_2:
+        name: 'Labirinti - Capitolo 2'
+        description: 'Quando ti senti più perso...'
+        content:
+          1: 'Questa è una storia vera, credeteci o no...'
+          2: 'Qualche giorno fa, stavo esplorando le Cripte di Cristallo con la mia fidata bussola. Le caverne sono un vero labirinto.'
+          3: 'Per questo motivo, ho segnato ogni passo effettuato, secondo la direzione della bussola.'
+          4: 'Al mio ottavo passo, incontrai un fantasma amichevole. Sembrava proprio che si fosse perso nelle caverne!'
+          5: "Così, mi avvicinai e, dal nulla, il fantasma mi prese la bussola e la rimpiazzò con un'altra, prima di scappare via."
+          6: "Ero così confuso... poi, ho capito cosa mi aveva fatto il fantasma: ora, la mia bussola era incasinata! Il Nord della bussola ora indicava l'Ovest!"
+          7: 'Che disastro...'
+          8: 'Dopo altri sette passi, il fantasma ritornò e rimpiazzò ancora la mia bussola!'
+          9: "Questa volta, il Nord indicava il Sud e l'Ovest indicava l'Est..."
+          10: "Fortunatamente, sono riuscito a trovare l'uscita delle caverne."
+          11: 'Di seguito, potete vedere tutti i passi che ho effettuato, secondo le mie bussole:'
+      maze_map_3:
+        name: 'Labirinti - Capitolo 3'
+        description: 'Quando ti senti il più perso...'
+        content:
+          1: 'Sai cosa faccio quando mi sento il più perso?'
+          2: 'Contemplo il display del mio orologio digitale...'
+          3: 'Che ore sono?'
+          4: 'Sono le 15:29...'
+          5: 'Che orario meraviglioso!'
+      maze_map_4:
+        name: 'Labirinti - Capitolo 4'
+        description: 'Quando ti senti il più perso tra i più persi...'
+        content:
+          1: "Ricorda, amico mio: è importante avere fede nell'ignoto"
+          2: "Non essere spaventato a pensare fuori dagli schemi."
+          3: 'Non sei limitato da ciò che vedi.'
+      spooky_sprint:
+        name: 'Come giocare a Spooky Sprint'
+        description: 'Meglio che lo Squid Game'
+        content:
+          1: 'In Spooky Sprint, ci sono due ruoli: corridore e sabotatore.'
+          2: 'Il corridore vince quando tocca una casella EXIT.'
+          3: 'Il sabotatore vince se il corridere viene danneggiato da tre bombe.'
+          4: 'Quando il corridore entra nel percorso, è obbligato a correre in linea dritta. Se il corridere tocca una freccia direzionale, deve cambiare direzione.'
+          5: 'Il sabotatore può posizioare 3 ulteriori frecce sul percorso, prima che la gara cominci.'
+  ghost:
+    dialogues:
+      1: "Uhhh! È da così tanto che non ricevo visite, qui alle Cripte di Cristallo!"
+      2: '...'
+      3: 'Chi sono io? Ma stai scherzando?'
+      4: 'Come puoi non riconoscere %{name}, il grande campione olimpico?!'
+      5: "Il re mi ha suggerito di venire qua ad allenarmi per i prossimi giochi del regno. Questo è il dovere di una medaglia d'oro olimpica come me!"
+      6: 'Questo posto è meraviglioso, pieno di caverne spaventose e labirinti mortali'
+      7: "Sai in quale disciplina ho vinto la mia medaglia d'oro, vero?"
+      8: '...'
+      9: 'Calcio? Hai veramente detto "Calcio?"'
+      10: 'SONO UN CAZZO DI FANTASMA SENZA GAMBE, COME POTREI MAI GIOCARE A CALCIO?!?'
+      11: "Ovviamente, io sono campione di Spooky Sprint! È lo sport nazionale del regno!"
+      12: 'La tua insolenza mi ha offeso! Non ho tempo da perdere con idioti come te...'
+      13: 'Testiamo le tue abilità di orientamento, ehehe... Sono la base per diventare un buon giocatore di Spooky Sprint!'
+      14: 'Vabbè... questo non era molto impegnativo, non pensare di essere speciale!'
+      15: 'Allora? Ti sei già perso?'
+      16: 'Dai, la casella blu è la tua posizione attuale! Devo proprio spiegarti tutto...'
+      17: "Sei in grado di trovare l'uscita? Ehehe..."
+      18: 'Prendi questo e impara qualcosa di nuovo, stupido!'
+      19: "L'allenamento non è ancora finito! Muoviti, lumaca!"
+      20: "Noioso, noioso, noioso... Ci metti anni a trovare l'uscita!"
+      21: 'Hmm... In realtà, non sei così inutile...'
+      22: '%{name} ti ha lanciato un libro addosso!'
+      23: 'Dai perdente, riprova!'
+      24: 'Oh no! Questa casella contiene una fossa...'
+      25: 'Spiacente, non diventerai mai un campione di Spooky Sprint...'
+      26: '... ma puoi ancora ritentare!'
+      27: 'Basta, novellino! Questi labirinti erano troppo semplici...'
+      28: 'È il momento di una vera sfida! Sei pronto a sfidarmi a Spooky Sprint?'
+      29: 'Per tua informazione... Nessuno mi ha sconfitto finora! Eheheh'
+      30: '%{name} vuole giocare a Spooky Sprint con te!'
+      31: 'Dai!'
+      32: "Oh no! %{name} ha raggiunto l'uscita..."
+      33: 'E il campione di Spooky Sprint è ancora...'
+      34: '... ma puoi ancora ritentare!'
+      35: '%{name} cambia direzione!'
+      36: 'La bomba ha danneggiato %{name}!'
+      37: 'Ma che cazzo!? Hai vinto! Questo non può essere vero!'
+      38: 'I miei fan... Mi adorate ancora? Volete ancora sposarmi?'
+      39: 'Eccellente! Hai sconfitto %{name}. Hai guadagnato un bonus di 10 minuti. Ora, puoi procedere verso il prossimo luogo.'
+    spooky_sprint:
+      1: 'IO SONO IL TUO FAN NUMERO 1!'
+      2: "SEI UNICO! SPOSAMI %{name}!"
+      3: 'VAI %{name}!'
+      4: 'Il tuo ruolo è quello del sabotatore!'
+      5: 'Devi ancora posizionare %{arrows} frecce.'
+      6: 'Clicca sulla mappa per posizionare una freccia.'
+      7: 'Clicca ancora per cambiare direzione.'
+      8: 'Resetta le frecce già posizionate.'
+      9: 'SPOOKY SPRINT È IN CORSO!'
+      10: 'Comincia Spooky Sprint!'
+    directions:
+      up: 'SU'
+      down: 'GIÙ'
+      right: 'DESTRA'
+      left: 'SINISTRA'
   hall_of_fame:
     title: 'Hall of Fame'
     subtitle: 'Chi sono i giocatori migliori?'

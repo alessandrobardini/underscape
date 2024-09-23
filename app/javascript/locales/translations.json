@@ -75,6 +75,7 @@
       }
     },
     "bag": {
+      "empty": "Your bag is empty",
       "items": {
         "book_of_spells": {
           "content": {
@@ -95,6 +96,47 @@
           "description": "Bestseller of the year!",
           "name": "The book of spells"
         },
+        "maze_map_1": {
+          "description": "When you feel lost...",
+          "name": "Labyrinths - Chapter 1"
+        },
+        "maze_map_2": {
+          "content": {
+            "1": "This is a true story, believe it or not...",
+            "10": "Luckily, I managed to find the exit of the cave.",
+            "11": "Here below, you can find all the steps I made, according to my compasses:",
+            "2": "Some days ago, I explored the Crystal Crypts with my trusted compass. The caves are a real maze, so I needed to be really careful.",
+            "3": "For this reason, I tracked down every step I performed, according to the direction given by the compass.",
+            "4": "At my eighth step, I encountered a friendly ghost. It looked like he was lost in the caves!",
+            "5": "So, I approached him and, out of nowhere, the ghost took my compass and replaced it with another one, before running away.",
+            "6": "I was really confused... then, I realised what the ghost did: now, my compass was messed up! The North of the compass indicated the West!",
+            "7": "What a mess...",
+            "8": "After seven additonal steps, the ghost came back and, again, replaced my compass!",
+            "9": "This time, the North indicated the South and the West indicated the East..."
+          },
+          "description": "When you feel loster...",
+          "name": "Labyrinths - Chapter 2"
+        },
+        "maze_map_3": {
+          "content": {
+            "1": "Do you know what I do when I feel the lostest?",
+            "2": "I contemplate the display of my LED alarm clock...",
+            "3": "What time is it?",
+            "4": "It's 15:29...",
+            "5": "What a beatiful time!"
+          },
+          "description": "When you feel the lostest...",
+          "name": "Labyrinths - Chapter 3"
+        },
+        "maze_map_4": {
+          "content": {
+            "1": "Remember, my friend: it's important to have faith in the unknown.",
+            "2": "Don't be afraid to think outside the schemes.",
+            "3": "You are not limited by what you see."
+          },
+          "description": "When you feel the lostest among the lostest...",
+          "name": "Labyrinths - Chapter 4"
+        },
         "periodic_table": {
           "description": "Do yo want to create delightful cocktails?",
           "name": "Periodic table of elements"
@@ -109,9 +151,21 @@
           },
           "description": "For your everyday living",
           "name": "Principles of life"
+        },
+        "spooky_sprint": {
+          "content": {
+            "1": "In Spooky Sprint, there are two roles: runner and saboteur.",
+            "2": "The runner wins when touching an EXIT box.",
+            "3": "The saboteur wins if the runner gets damaged by three bombs.",
+            "4": "When the runner enters the board, he/she is forced to run following a straight line. In case the runner touches a directional arrow, he/she is forced to change direction.",
+            "5": "The saboteur is allowed to place 3 additional arrows on the board, before the run starts."
+          },
+          "description": "Better than the Squid Game",
+          "name": "How to play Spooky Sprint"
         }
       },
       "title": "Your bag",
+      "use": "USE",
       "you_found_an_item": "You found an item!",
       "you_put_the_item": "You put the item in your bag"
     },
@@ -363,6 +417,67 @@
         }
       }
     },
+    "ghost": {
+      "dialogues": {
+        "1": "Uhhh! It's been a long time since I received any visits, down here  at the Crystal Crypts!",
+        "10": "I AM A F**KING GHOST WITH NO LEGS, HOW AM I SUPPOSED TO PLAY SOCCER?",
+        "11": "Of course, I am the Spooky Sprint champion! It's the kingdom national sport!",
+        "12": "Your insolence bothered me! I have no time to lose with dummies like you...",
+        "13": "Let's test your orienteering skills, ehehe... They are the basis to become a good Spooky Sprint player!",
+        "14": "Oh well... this was not really challenging, don't think you're special!",
+        "15": "So what? Are you already lost?",
+        "16": "Come on, your current position is the blue cell! I really need to tell you everything...",
+        "17": "Are you able to find the exit? Ehehe...",
+        "18": "Take this and learn something new, you fool!",
+        "19": "The training is not over yet! Move on, slowpoke!",
+        "2": "...",
+        "20": "Boring, boring, boring... You take ages to find the exit!",
+        "21": "Hmm... Actually, you are not so useless...",
+        "22": "%{name} threw a book over you!",
+        "23": "Come on loser, retry!",
+        "24": "Oh no! This cell contains a pit...",
+        "25": "Sorry, you will never become a Spooky Sprint champion...",
+        "26": "... but you can retry the game!",
+        "27": "Enough, you rookie! These mazes were easy as 1-2-3...",
+        "28": "It's time for a real challenge! Are you ready to challenge me at Spooky Sprint?",
+        "29": "Just for you to know... No one defeated me so far! Eheheh",
+        "3": "Who am I? Wait, are you serious or what?!",
+        "30": "%{name} wants to play Spooky Sprint with you!",
+        "31": "Come on!",
+        "32": "Oh no! %{name} reached the exit...",
+        "33": "And the Spooky Sprint champion is still...",
+        "34": "... but you can retry the game!",
+        "35": "%{name} changes direction!",
+        "36": "The bomb damaged %{name}!",
+        "37": "What the hell!? You won! This cannot be real!",
+        "38": "My fans... Do you still love me? Do you still want to marry me?",
+        "39": "Excellent! You defeated %{name}. A bonus of 10 minutes has been granted to you. You can proceed to the next location now.",
+        "4": "How can you not recognize %{name}, the great olympic champion?!",
+        "5": "The king suggested me to come down here to train for the next kingdom games. This is the duty of a gold medalist champion like me!",
+        "6": "This place is wonderful, full of scary caves and deadly labyrinths!",
+        "7": "Do you know in which discipline I won my gold medal, right?",
+        "8": "...",
+        "9": "Soccer? Did you really say \"Soccer?\""
+      },
+      "directions": {
+        "down": "DOWN",
+        "left": "LEFT",
+        "right": "RIGHT",
+        "up": "UP"
+      },
+      "spooky_sprint": {
+        "1": "I AM YOUR BIGGEST FAN!",
+        "10": "Start Spooky Sprint!",
+        "2": "YOU'RE AWESOME! MARRY ME %{name}!",
+        "3": "GO %{name}!",
+        "4": "You play the role of the saboteur!",
+        "5": "You need to place %{arrows} arrows yet.",
+        "6": "Click on the board to place an arrow.",
+        "7": "Click again to change its direction.",
+        "8": "Reset placed arrows",
+        "9": "SPOOKY SPRINT IS IN PROGRESS!"
+      }
+    },
     "hall_of_fame": {
       "game_finished_in": "Game finished in",
       "game_started_at": "Game started at",
@@ -581,6 +696,7 @@
       }
     },
     "bag": {
+      "empty": "Il tuo zaino è vuoto",
       "items": {
         "book_of_spells": {
           "content": {
@@ -601,6 +717,47 @@
           "description": "Bestseller dell'anno!",
           "name": "Il libro degli incantesimi"
         },
+        "maze_map_1": {
+          "description": "Quando ti senti perso...",
+          "name": "Labirinti - Capitolo 1"
+        },
+        "maze_map_2": {
+          "content": {
+            "1": "Questa è una storia vera, credeteci o no...",
+            "10": "Fortunatamente, sono riuscito a trovare l'uscita delle caverne.",
+            "11": "Di seguito, potete vedere tutti i passi che ho effettuato, secondo le mie bussole:",
+            "2": "Qualche giorno fa, stavo esplorando le Cripte di Cristallo con la mia fidata bussola. Le caverne sono un vero labirinto.",
+            "3": "Per questo motivo, ho segnato ogni passo effettuato, secondo la direzione della bussola.",
+            "4": "Al mio ottavo passo, incontrai un fantasma amichevole. Sembrava proprio che si fosse perso nelle caverne!",
+            "5": "Così, mi avvicinai e, dal nulla, il fantasma mi prese la bussola e la rimpiazzò con un'altra, prima di scappare via.",
+            "6": "Ero così confuso... poi, ho capito cosa mi aveva fatto il fantasma: ora, la mia bussola era incasinata! Il Nord della bussola ora indicava l'Ovest!",
+            "7": "Che disastro...",
+            "8": "Dopo altri sette passi, il fantasma ritornò e rimpiazzò ancora la mia bussola!",
+            "9": "Questa volta, il Nord indicava il Sud e l'Ovest indicava l'Est..."
+          },
+          "description": "Quando ti senti più perso...",
+          "name": "Labirinti - Capitolo 2"
+        },
+        "maze_map_3": {
+          "content": {
+            "1": "Sai cosa faccio quando mi sento il più perso?",
+            "2": "Contemplo il display del mio orologio digitale...",
+            "3": "Che ore sono?",
+            "4": "Sono le 15:29...",
+            "5": "Che orario meraviglioso!"
+          },
+          "description": "Quando ti senti il più perso...",
+          "name": "Labirinti - Capitolo 3"
+        },
+        "maze_map_4": {
+          "content": {
+            "1": "Ricorda, amico mio: è importante avere fede nell'ignoto",
+            "2": "Non essere spaventato a pensare fuori dagli schemi.",
+            "3": "Non sei limitato da ciò che vedi."
+          },
+          "description": "Quando ti senti il più perso tra i più persi...",
+          "name": "Labirinti - Capitolo 4"
+        },
         "periodic_table": {
           "description": "Vuoi creare cocktail deliziosi?",
           "name": "Tavola periodica degli elementi"
@@ -615,11 +772,84 @@
           },
           "description": "Per la tua vita di tutti i giorni",
           "name": "Come essere una brava persona"
+        },
+        "spooky_sprint": {
+          "content": {
+            "1": "In Spooky Sprint, ci sono due ruoli: corridore e sabotatore.",
+            "2": "Il corridore vince quando tocca una casella EXIT.",
+            "3": "Il sabotatore vince se il corridere viene danneggiato da tre bombe.",
+            "4": "Quando il corridore entra nel percorso, è obbligato a correre in linea dritta. Se il corridere tocca una freccia direzionale, deve cambiare direzione.",
+            "5": "Il sabotatore può posizioare 3 ulteriori frecce sul percorso, prima che la gara cominci."
+          },
+          "description": "Meglio che lo Squid Game",
+          "name": "Come giocare a Spooky Sprint"
         }
       },
       "title": "Il tuo zaino",
+      "use": "USA",
       "you_found_an_item": "Hai trovato un oggetto!",
       "you_put_the_item": "Hai messo l'oggetto nel tuo zaino"
+    },
+    "ghost": {
+      "dialogues": {
+        "1": "Uhhh! È da così tanto che non ricevo visite, qui alle Cripte di Cristallo!",
+        "10": "SONO UN CAZZO DI FANTASMA SENZA GAMBE, COME POTREI MAI GIOCARE A CALCIO?!?",
+        "11": "Ovviamente, io sono campione di Spooky Sprint! È lo sport nazionale del regno!",
+        "12": "La tua insolenza mi ha offeso! Non ho tempo da perdere con idioti come te...",
+        "13": "Testiamo le tue abilità di orientamento, ehehe... Sono la base per diventare un buon giocatore di Spooky Sprint!",
+        "14": "Vabbè... questo non era molto impegnativo, non pensare di essere speciale!",
+        "15": "Allora? Ti sei già perso?",
+        "16": "Dai, la casella blu è la tua posizione attuale! Devo proprio spiegarti tutto...",
+        "17": "Sei in grado di trovare l'uscita? Ehehe...",
+        "18": "Prendi questo e impara qualcosa di nuovo, stupido!",
+        "19": "L'allenamento non è ancora finito! Muoviti, lumaca!",
+        "2": "...",
+        "20": "Noioso, noioso, noioso... Ci metti anni a trovare l'uscita!",
+        "21": "Hmm... In realtà, non sei così inutile...",
+        "22": "%{name} ti ha lanciato un libro addosso!",
+        "23": "Dai perdente, riprova!",
+        "24": "Oh no! Questa casella contiene una fossa...",
+        "25": "Spiacente, non diventerai mai un campione di Spooky Sprint...",
+        "26": "... ma puoi ancora ritentare!",
+        "27": "Basta, novellino! Questi labirinti erano troppo semplici...",
+        "28": "È il momento di una vera sfida! Sei pronto a sfidarmi a Spooky Sprint?",
+        "29": "Per tua informazione... Nessuno mi ha sconfitto finora! Eheheh",
+        "3": "Chi sono io? Ma stai scherzando?",
+        "30": "%{name} vuole giocare a Spooky Sprint con te!",
+        "31": "Dai!",
+        "32": "Oh no! %{name} ha raggiunto l'uscita...",
+        "33": "E il campione di Spooky Sprint è ancora...",
+        "34": "... ma puoi ancora ritentare!",
+        "35": "%{name} cambia direzione!",
+        "36": "La bomba ha danneggiato %{name}!",
+        "37": "Ma che cazzo!? Hai vinto! Questo non può essere vero!",
+        "38": "I miei fan... Mi adorate ancora? Volete ancora sposarmi?",
+        "39": "Eccellente! Hai sconfitto %{name}. Hai guadagnato un bonus di 10 minuti. Ora, puoi procedere verso il prossimo luogo.",
+        "4": "Come puoi non riconoscere %{name}, il grande campione olimpico?!",
+        "5": "Il re mi ha suggerito di venire qua ad allenarmi per i prossimi giochi del regno. Questo è il dovere di una medaglia d'oro olimpica come me!",
+        "6": "Questo posto è meraviglioso, pieno di caverne spaventose e labirinti mortali",
+        "7": "Sai in quale disciplina ho vinto la mia medaglia d'oro, vero?",
+        "8": "...",
+        "9": "Calcio? Hai veramente detto \"Calcio?\""
+      },
+      "directions": {
+        "down": "GIÙ",
+        "left": "SINISTRA",
+        "right": "DESTRA",
+        "up": "SU"
+      },
+      "spooky_sprint": {
+        "1": "IO SONO IL TUO FAN NUMERO 1!",
+        "10": "Comincia Spooky Sprint!",
+        "2": "SEI UNICO! SPOSAMI %{name}!",
+        "3": "VAI %{name}!",
+        "4": "Il tuo ruolo è quello del sabotatore!",
+        "5": "Devi ancora posizionare %{arrows} frecce.",
+        "6": "Clicca sulla mappa per posizionare una freccia.",
+        "7": "Clicca ancora per cambiare direzione.",
+        "8": "Resetta le frecce già posizionate.",
+        "9": "SPOOKY SPRINT È IN CORSO!"
+      }
     },
     "hall_of_fame": {
       "game_finished_in": "Partita finita in",

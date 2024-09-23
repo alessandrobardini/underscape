@@ -91,6 +91,8 @@ en:
     title: 'Your bag'
     you_found_an_item: 'You found an item!'
     you_put_the_item: 'You put the item in your bag'
+    empty: 'Your bag is empty'
+    use: 'USE'
     items:
       periodic_table:
         name: 'Periodic table of elements'
@@ -121,6 +123,106 @@ en:
           11: 'PURIFICATION -> POISON'
           12: 'FORESIGHT -> ReWINd'
           13: 'SADNESS -> SArCaSm'
+      maze_map_1:
+        name: 'Labyrinths - Chapter 1'
+        description: 'When you feel lost...'
+      maze_map_2:
+        name: 'Labyrinths - Chapter 2'
+        description: 'When you feel loster...'
+        content:
+          1: 'This is a true story, believe it or not...'
+          2: 'Some days ago, I explored the Crystal Crypts with my trusted compass. The caves are a real maze, so I needed to be really careful.'
+          3: 'For this reason, I tracked down every step I performed, according to the direction given by the compass.'
+          4: 'At my eighth step, I encountered a friendly ghost. It looked like he was lost in the caves!'
+          5: 'So, I approached him and, out of nowhere, the ghost took my compass and replaced it with another one, before running away.'
+          6: 'I was really confused... then, I realised what the ghost did: now, my compass was messed up! The North of the compass indicated the West!'
+          7: 'What a mess...'
+          8: 'After seven additonal steps, the ghost came back and, again, replaced my compass!'
+          9: 'This time, the North indicated the South and the West indicated the East...'
+          10: 'Luckily, I managed to find the exit of the cave.'
+          11: 'Here below, you can find all the steps I made, according to my compasses:'
+      maze_map_3:
+        name: 'Labyrinths - Chapter 3'
+        description: 'When you feel the lostest...'
+        content:
+          1: 'Do you know what I do when I feel the lostest?'
+          2: 'I contemplate the display of my LED alarm clock...'
+          3: 'What time is it?'
+          4: "It's 15:29..."
+          5: 'What a beatiful time!'
+      maze_map_4:
+        name: 'Labyrinths - Chapter 4'
+        description: 'When you feel the lostest among the lostest...'
+        content:
+          1: "Remember, my friend: it's important to have faith in the unknown."
+          2: "Don't be afraid to think outside the schemes."
+          3: 'You are not limited by what you see.'
+      spooky_sprint:
+        name: 'How to play Spooky Sprint'
+        description: 'Better than the Squid Game'
+        content:
+          1: 'In Spooky Sprint, there are two roles: runner and saboteur.'
+          2: 'The runner wins when touching an EXIT box.'
+          3: 'The saboteur wins if the runner gets damaged by three bombs.'
+          4: 'When the runner enters the board, he/she is forced to run following a straight line. In case the runner touches a directional arrow, he/she is forced to change direction.'
+          5: 'The saboteur is allowed to place 3 additional arrows on the board, before the run starts.'
+  ghost:
+    dialogues:
+      1: "Uhhh! It's been a long time since I received any visits, down here  at the Crystal Crypts!"
+      2: '...'
+      3: 'Who am I? Wait, are you serious or what?!'
+      4: 'How can you not recognize %{name}, the great olympic champion?!'
+      5: 'The king suggested me to come down here to train for the next kingdom games. This is the duty of a gold medalist champion like me!'
+      6: 'This place is wonderful, full of scary caves and deadly labyrinths!'
+      7: 'Do you know in which discipline I won my gold medal, right?'
+      8: '...'
+      9: 'Soccer? Did you really say "Soccer?"'
+      10: 'I AM A F**KING GHOST WITH NO LEGS, HOW AM I SUPPOSED TO PLAY SOCCER?'
+      11: "Of course, I am the Spooky Sprint champion! It's the kingdom national sport!"
+      12: 'Your insolence bothered me! I have no time to lose with dummies like you...'
+      13: "Let's test your orienteering skills, ehehe... They are the basis to become a good Spooky Sprint player!"
+      14: "Oh well... this was not really challenging, don't think you're special!"
+      15: 'So what? Are you already lost?'
+      16: 'Come on, your current position is the blue cell! I really need to tell you everything...'
+      17: 'Are you able to find the exit? Ehehe...'
+      18: 'Take this and learn something new, you fool!'
+      19: 'The training is not over yet! Move on, slowpoke!'
+      20: 'Boring, boring, boring... You take ages to find the exit!'
+      21: 'Hmm... Actually, you are not so useless...'
+      22: '%{name} threw a book over you!'
+      23: 'Come on loser, retry!'
+      24: 'Oh no! This cell contains a pit...'
+      25: 'Sorry, you will never become a Spooky Sprint champion...'
+      26: '... but you can retry the game!'
+      27: 'Enough, you rookie! These mazes were easy as 1-2-3...'
+      28: "It's time for a real challenge! Are you ready to challenge me at Spooky Sprint?"
+      29: 'Just for you to know... No one defeated me so far! Eheheh'
+      30: '%{name} wants to play Spooky Sprint with you!'
+      31: 'Come on!'
+      32: 'Oh no! %{name} reached the exit...'
+      33: 'And the Spooky Sprint champion is still...'
+      34: '... but you can retry the game!'
+      35: '%{name} changes direction!'
+      36: 'The bomb damaged %{name}!'
+      37: 'What the hell!? You won! This cannot be real!'
+      38: 'My fans... Do you still love me? Do you still want to marry me?'
+      39: 'Excellent! You defeated %{name}. A bonus of 10 minutes has been granted to you. You can proceed to the next location now.'
+    spooky_sprint:
+      1: 'I AM YOUR BIGGEST FAN!'
+      2: "YOU'RE AWESOME! MARRY ME %{name}!"
+      3: 'GO %{name}!'
+      4: 'You play the role of the saboteur!'
+      5: 'You need to place %{arrows} arrows yet.'
+      6: 'Click on the board to place an arrow.'
+      7: 'Click again to change its direction.'
+      8: 'Reset placed arrows'
+      9: 'SPOOKY SPRINT IS IN PROGRESS!'
+      10: 'Start Spooky Sprint!'
+    directions:
+      up: 'UP'
+      down: 'DOWN'
+      right: 'RIGHT'
+      left: 'LEFT'
   hall_of_fame:
     title: 'Hall of Fame'
     subtitle: 'Who are the fastest players?'
