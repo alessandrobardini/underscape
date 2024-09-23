@@ -6,11 +6,11 @@ import HiddenElement from "../../components/Layout/HiddenElement";
 import {generateCode} from "../../helpers/morseGenerator";
 import AnswerSubmission from 'components/Layout/ModalContent/AnswerSubmission';
 import GoatBossBattle from 'components/PrimevalPrison/GoatBossBattle';
-import { appPath } from 'App';
 import { useHistory } from 'react-router-dom';
+import { TranslatorContext } from 'containers/TranslatorLoader';
 
 const PrimevalPrison: React.FC = () => {
-
+  const i18n = useContext(TranslatorContext)
   const { setDialogueBarMessages, pickUpItem, setModalChildren, closeModal, bosses } = useContext(SessionContext)
   const history = useHistory()
   const bagContainsMorse = bagContains('morse')
@@ -38,7 +38,7 @@ const PrimevalPrison: React.FC = () => {
   const canProceedToBossBattle = morseRiddleSolved && bagContainsAllItems
 
   if(bosses.map(({ name }) => name).includes('goat')) {
-    history.replace(appPath('/map'))
+    history.replace(`/app/${i18n.locale}/map`)
   }
 
   useEffect(() => {

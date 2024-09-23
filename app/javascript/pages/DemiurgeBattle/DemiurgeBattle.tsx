@@ -3,22 +3,23 @@ import React, { useContext, useEffect, useState } from 'react'
 import Button from 'ui/Button'
 import axios from 'axios'
 import csrfToken from 'helpers/csrfToken'
-import { Link, useHistory } from 'react-router-dom'
-import cat from 'images/kitty.jpeg'
+import { useHistory } from 'react-router-dom'
 import demiurge from 'images/demiurge.png'
-
-import './DemiurgeBattle.scss'
 import AnswerForm from 'components/Layout/AnswerForm'
 import { appPath } from 'App'
 import { sample } from 'lodash'
+import { TranslatorContext } from 'containers/TranslatorLoader'
+
+import './DemiurgeBattle.scss'
 
 const DemiurgeBattle: React.FC = () => {
+  const i18n = useContext(TranslatorContext)
   const { setDialogueBarMessages, bosses } = useContext(SessionContext)
   const [phase, setPhase] = useState(null)
   const history = useHistory()
 
   if(bosses.map(({ name }) => name).includes('demiurge')) {
-    history.replace(appPath('/map'))
+    history.replace(`/app/${i18n.locale}/map`)
   }
 
   useEffect(() => {
@@ -285,6 +286,7 @@ const Phase3: React.FC<PhaseProps> = ({ onPhaseCleared }) => {
 const EMAIL_REGEX = /^[^@]+@[^@]+\.\w+$/
 
 const Phase4: React.FC<PhaseProps> = ({ onPhaseCleared }) => {
+  const i18n = useContext(TranslatorContext)
   const history = useHistory()
   const { setDialogueBarMessages } = useContext(SessionContext)
   const [showForm, setShowForm] = useState(false)
@@ -380,7 +382,7 @@ const Phase4: React.FC<PhaseProps> = ({ onPhaseCleared }) => {
       '/bosses',
       { boss: { name: 'demiurge' }, authenticity_token: csrfToken() },
       { headers: { Accept: 'application/json' }, responseType: 'json' }
-    ).then(() => history.replace(appPath('/map')))
+    ).then(() => history.replace(`/app/${i18n.locale}/map`))
   }
 
   return <div className='Phase3'>

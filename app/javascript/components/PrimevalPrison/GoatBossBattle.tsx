@@ -1,16 +1,14 @@
 import AnswerForm from 'components/Layout/AnswerForm'
-import CountdownTimer from 'components/Layout/Countdown'
-import { CHARACTERS, DialogueBarMessageType, SessionContext } from 'Game'
+import { CHARACTERS, SessionContext } from 'Game'
 import goat from 'images/asriel.png'
-import { sampleSize, shuffle } from 'lodash'
+import { sampleSize } from 'lodash'
 import React, { useContext, useEffect, useState } from 'react'
-import Button from 'ui/Button'
 import axios from 'axios'
 import csrfToken from 'helpers/csrfToken'
+import { useHistory } from 'react-router-dom'
+import { TranslatorContext } from 'containers/TranslatorLoader'
 
 import './GoatBossBattle.scss'
-import { appPath } from 'App'
-import { useHistory } from 'react-router-dom'
 
 const COLORS = [
   { name: 'blue', operation: 'plus', operand: '5'},
@@ -27,6 +25,7 @@ const COLORS = [
 ]
 
 const GoatBossBattle: React.FC = () => {
+  const i18n = useContext(TranslatorContext)
   const history = useHistory()
   const { setDialogueBarMessages, bosses } = useContext(SessionContext)
   const [heartPosition, setHeartPosition] = useState(0)
@@ -77,7 +76,7 @@ const GoatBossBattle: React.FC = () => {
       '/bosses',
       { boss: { name: 'goat' }, authenticity_token: csrfToken() },
       { headers: { Accept: 'application/json' }, responseType: 'json' }
-    ).then(() => history.replace(appPath('/map')))
+    ).then(() => history.replace(`/app/${i18n.locale}/map`))
   }
 
   const checkAnswer = answer => {

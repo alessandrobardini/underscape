@@ -20,7 +20,7 @@ const AlchemistAlcove: React.FC = () => {
   const canProceedToBossBattle = alchemistRiddleSolved && bookOfSpellsAlreadyFound
 
   if(bosses.map(({ name }) => name).includes('alchemist')) {
-    history.replace(appPath('/map'))
+    history.replace(`/app/${i18n.locale}/map`)
   }
 
   useEffect(() => {

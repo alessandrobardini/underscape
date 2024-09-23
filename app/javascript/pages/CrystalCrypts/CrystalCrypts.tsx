@@ -232,7 +232,7 @@ const CrystalCrypts: React.FC = () => {
   const canRenderSpookySprint = mazeIndex === 4 || bagContainsSpookySprint
 
   if(bosses.map(({ name }) => name).includes('ghost')) {
-    history.replace(appPath('/map'))
+    history.replace(`/app/${i18n.locale}/map`)
   }
   
 
@@ -475,7 +475,7 @@ const SpookySprint = () => {
       '/bosses',
       { boss: { name: 'ghost' }, authenticity_token: csrfToken() },
       { headers: { Accept: 'application/json' }, responseType: 'json' }
-    ).then(() => history.replace(appPath('/map')))
+      ).then(() => history.replace(`/app/${i18n.locale}/map`))
   }
 
   useEffect(() => {
