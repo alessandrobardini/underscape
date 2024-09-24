@@ -44,21 +44,21 @@ const PrimevalPrison: React.FC = () => {
   useEffect(() => {
     if(!bagContainsMorse) {
       setDialogueBarMessages([
-        {message: 'The prison is completely shrouded in the dark... You see nothing...'},
-        {message: 'You take your smarpthone and turn on the torch...', onCloseMessage: () => setIsCompletelyDark(false)},
-        {character: 'goat', message: 'WHAT ARE YOU DOING???'},
-        {character: 'goat', message: 'What is this bright light?'},
-        {character: 'goat', message: '...'},
-        {character: 'goat', message: 'Oh, the prophecy was right! "One day, a noble warrior of light will come to brighten the kingdom..."'},
-        {character: 'goat', message: 'The day has come! YOU are the warrior of light!'},
-        {character: 'goat', message: '...'},
-        {character: 'goat', message: 'What? Why I hate light?'},
-        {character: 'goat', message: 'Well, when I was a small goat, I\'ve been staring at the sun too long. From that day, I strongly hate light!'},
-        {character: 'goat', message: 'Better to live inside these dark and welcoming prisons...'},
-        {character: 'goat', message: 'Btw, go away, warrior of light! I care about my eyes and I forgot the sunglasses today!'},
-        {character: 'goat', message: 'Luckily, I have a dear friend who will block you from reaching me at the end of the corridor!'},
-        {character: 'goat', message: 'Deadly Fog, my dear friend! You must block this shiny knight!'},
-        {character: 'goat', message: 'Goodbye, warrior of light! See you never!', onCloseMessage: () => setShowFog(true)},
+        {message: i18n.t('goat.dialogues.1')},
+        {message: i18n.t('goat.dialogues.2'), onCloseMessage: () => setIsCompletelyDark(false)},
+        {character: 'goat', message: i18n.t('goat.dialogues.3')},
+        {character: 'goat', message: i18n.t('goat.dialogues.4')},
+        {character: 'goat', message: i18n.t('goat.dialogues.5')},
+        {character: 'goat', message: i18n.t('goat.dialogues.6')},
+        {character: 'goat', message: i18n.t('goat.dialogues.7')},
+        {character: 'goat', message: i18n.t('goat.dialogues.8')},
+        {character: 'goat', message: i18n.t('goat.dialogues.9')},
+        {character: 'goat', message: i18n.t('goat.dialogues.10')},
+        {character: 'goat', message: i18n.t('goat.dialogues.11')},
+        {character: 'goat', message: i18n.t('goat.dialogues.12')},
+        {character: 'goat', message: i18n.t('goat.dialogues.13')},
+        {character: 'goat', message: i18n.t('goat.dialogues.14')},
+        {character: 'goat', message: i18n.t('goat.dialogues.15'), onCloseMessage: () => setShowFog(true)},
       ])
     }
   }, [])
@@ -66,11 +66,11 @@ const PrimevalPrison: React.FC = () => {
   useEffect(() => {
     if(canProceedToBossBattle) {
       setDialogueBarMessages([
-        { character: 'goat', message: 'Deadly Fog! Why did you allow this noble heart to reach me!' },
-        { character: 'goat', message: 'Please, go away! I cannot stand your pure light!'},
-        { character: 'goat', message: 'I am the last obstacle before the king, but I have some tricks up my sleeve yet!'},
-        { character: 'goat', message: 'Colored Fogs! Debriefing!'},
-        { character: 'goat', message: 'Protect me and block the path to the warrior of light! Move on!', onCloseMessage: () => setShowBattlePage(true)}
+        { character: 'goat', message: i18n.t('goat.dialogues.16') },
+        { character: 'goat', message: i18n.t('goat.dialogues.17')},
+        { character: 'goat', message: i18n.t('goat.dialogues.18')},
+        { character: 'goat', message: i18n.t('goat.dialogues.19')},
+        { character: 'goat', message: i18n.t('goat.dialogues.20'), onCloseMessage: () => setShowBattlePage(true)}
       ])
     }
   }, [canProceedToBossBattle])
@@ -120,11 +120,11 @@ const PrimevalPrison: React.FC = () => {
     setCorridorLights(!corridorLights)
     if (corridorLights) {
       setDialogueBarMessages([{
-        message: `Let\'s turn off the light. ${CHARACTERS['goat'].name} will be happy. You are a selfless warrior of light!`
+        message: i18n.t('goat.dialogues.21', { name: CHARACTERS['goat'].name})
       }])
     } else {
       setDialogueBarMessages([{
-        message: `Let\'s turn on the light. ${CHARACTERS['goat'].name} will be sad, but honestly who cares. What a selfish warrior of light you are!`
+        message: i18n.t('goat.dialogues.22', { name: CHARACTERS['goat'].name})
       }])
       switchOffAllLanternLights()
     }
@@ -147,11 +147,11 @@ const PrimevalPrison: React.FC = () => {
 
   const answerSubmissionComponent = <AnswerSubmission
     riddle='morse'
-    errorMessage='The password is wrong...' 
+    errorMessage={i18n.t('goat.objects.fog.error')}
     explanations={[
-      'With best regards, warrior of light!',
-      'I am the Deadly Fog!',
-      'You need to provide a four letters word in order to pass.'
+      i18n.t('goat.objects.fog.content.1'),
+      i18n.t('goat.objects.fog.content.2'),
+      i18n.t('goat.objects.fog.content.3')
     ]}
     onCorrectAnswerSubmission={closeModal}
   />
@@ -161,8 +161,8 @@ const PrimevalPrison: React.FC = () => {
       // the items are needed to beat the boss!
       if(!bagContainsAllItems) {
         setDialogueBarMessages([
-          { message: 'Well done, the Deadly Fog lets you pass!' },
-          { message: 'Are you sure you found all the items in the area though?' }
+          { message: i18n.t('goat.dialogues.23') },
+          { message: i18n.t('goat.dialogues.24') }
         ])
       }
     } else {
@@ -175,16 +175,16 @@ const PrimevalPrison: React.FC = () => {
       <HiddenElement top='160px' left='900px' width='110px' height='40px' onClick={() => switchCorridorLights()}/>
       <HiddenElement extraClassName={backLeftLight ? lanternBackLeftClassName : 'light-off'} top='370px' left='825px'
                      width='35px' height='35px'
-                     onClick={() => handleLanternClick({ itemMessage: 'With the lights on, you found an item inside the lantern!', item: 'morse', bagContains: bagContainsMorse, letter:  's', lanternClassName: lanternBackLeftClassName,  setLanternClassName: setLanternBackLeftClassName, setLight: setBackLeftLight } )}/>
+                     onClick={() => handleLanternClick({ itemMessage: i18n.t('bag.you_found_an_item_lights_on'), item: 'morse', bagContains: bagContainsMorse, letter: 's', lanternClassName: lanternBackLeftClassName,  setLanternClassName: setLanternBackLeftClassName, setLight: setBackLeftLight } )}/>
       <HiddenElement extraClassName={backRightLight ? lanternBackRightClassName : 'light-off'} top='370px' left='1060px'
                      width='35px' height='35px'
-                     onClick={() => handleLanternClick({ itemMessage: 'With the lights on, you found an item inside the lantern!', item: 'prison_keeper', bagContains: bagContainsKeeperNote, letter:  'a', lanternClassName: lanternBackRightClassName,  setLanternClassName: setLanternBackRightClassName, setLight: setBackRightLight } )}/>
+                     onClick={() => handleLanternClick({ itemMessage: i18n.t('bag.you_found_an_item_lights_on'), item: 'prison_keeper', bagContains: bagContainsKeeperNote, letter: 'a', lanternClassName: lanternBackRightClassName,  setLanternClassName: setLanternBackRightClassName, setLight: setBackRightLight } )}/>
       <HiddenElement extraClassName={frontLeftLight ? lanternFrontLeftClassName : 'light-off'} top='310px' left='700px'
                      width='50px' height='60px'
-                     onClick={() => handleLanternClick({ itemMessage: 'With the lights on, you found an item inside the lantern!', item: 'ode', bagContains: bagContainsOde, letter:  't', lanternClassName: lanternFrontLeftClassName,  setLanternClassName: setLanternFrontLeftClassName, setLight: setFrontLeftLight } )}/>
+                     onClick={() => handleLanternClick({ itemMessage: i18n.t('bag.you_found_an_item_lights_on'), item: 'ode', bagContains: bagContainsOde, letter: 't', lanternClassName: lanternFrontLeftClassName,  setLanternClassName: setLanternFrontLeftClassName, setLight: setFrontLeftLight } )}/>
       <HiddenElement extraClassName={frontRightLight ? lanternFrontRightClassName : 'light-off'} top='310px'
                      left='1160px' width='70px' height='60px'
-                     onClick={() => handleLanternClick({ itemMessage: 'With the lights on, you found an item inside the lantern!', item: 'rainbow', bagContains: bagContainsRainbow, letter:  'p', lanternClassName: lanternFrontRightClassName,  setLanternClassName: setLanternFrontRightClassName, setLight: setFrontRightLight } )}/>
+                     onClick={() => handleLanternClick({ itemMessage: i18n.t('bag.you_found_an_item_lights_on'), item: 'rainbow', bagContains: bagContainsRainbow, letter: 'p', lanternClassName: lanternFrontRightClassName,  setLanternClassName: setLanternFrontRightClassName, setLight: setFrontRightLight } )}/>
         {showFog && <div className='fogwrapper' onClick={handleBossBattleGateClick}>
           <div id="foglayer_01" className="fog">
             <div className="image01"/>

@@ -137,6 +137,23 @@
           "description": "When you feel the lostest among the lostest...",
           "name": "Labyrinths - Chapter 4"
         },
+        "morse": {
+          "description": "Dot dash dot",
+          "title": "Morse Code"
+        },
+        "ode": {
+          "content": {
+            "1": "Light is white.",
+            "2": "Light defeats darkness.",
+            "3": "Light scares photophobic goats.",
+            "4": "Light can be obtained by mixing up two colors.",
+            "5": "All the colors wants to be light!",
+            "6": "Orange alone can do nothing, he is five steps behind you!",
+            "7": "And neither black alone, even if he is one step in front of you!"
+          },
+          "description": "Poetry by a medieval bard",
+          "title": "Ode to light"
+        },
         "password": {
           "content": {
             "1": "THIS IS THE PASSWORD! You need to combine:",
@@ -159,6 +176,18 @@
           },
           "description": "For your everyday living",
           "name": "Principles of life"
+        },
+        "prison_keeper": {
+          "content": {
+            "1": "When leaving the prison: turn off the lanterns, otherwise, that annoying Deadly Fog won't let you pass...",
+            "2": "Remember to turn off the lanterns in this exact order:",
+            "3": "Check the one at your right",
+            "4": "Then, go towards the fog and check the one at your right",
+            "5": "Then, don't move and check the one at your left",
+            "6": "Finally, touch the remaining one"
+          },
+          "description": "The prison keeper loves cleanliness",
+          "title": "Prison keeper note"
         },
         "psychological_note": {
           "content": {
@@ -186,6 +215,10 @@
           "description": "Of a medieval psychologist",
           "name": "Medical records"
         },
+        "rainbow": {
+          "description": "Where are my coloured pastels?",
+          "title": "Wheel of colors"
+        },
         "spooky_sprint": {
           "content": {
             "1": "In Spooky Sprint, there are two roles: runner and saboteur.",
@@ -202,6 +235,7 @@
       "use": "USE",
       "you_found_an_hidden_item": "You found an hidden item!",
       "you_found_an_item": "You found an item!",
+      "you_found_an_item_lights_on": "With the lights on, you found an item inside the lantern!",
       "you_put_the_item": "You put the item in your bag"
     },
     "date": {
@@ -604,6 +638,79 @@
         "9": "SPOOKY SPRINT IS IN PROGRESS!"
       }
     },
+    "goat": {
+      "colors": {
+        "aqua": "Aqua",
+        "black": "Black",
+        "blue": "Blue",
+        "brown": "Brown",
+        "green": "Green",
+        "grey": "Grey",
+        "orange": "Orange",
+        "pink": "Pink",
+        "red": "Red",
+        "violet": "Violet",
+        "white": "White",
+        "yellow": "Yellow"
+      },
+      "dialogues": {
+        "1": "The prison is completely shrouded in the dark... You see nothing...",
+        "10": "Well, when I was a small goat, I've been staring at the sun too long. From that day, I strongly hate light!",
+        "11": "Better to live inside these dark and welcoming prisons...",
+        "12": "Btw, go away, warrior of light! I care about my eyes and I forgot the sunglasses today!",
+        "13": "Luckily, I someone who will block you from reaching me at the end of the corridor!",
+        "14": "Deadly Fog, my dear friend! You must block this shiny knight!",
+        "15": "Goodbye, warrior of light! See you never!",
+        "16": "Deadly Fog! Why did you allow this noble heart to reach me!",
+        "17": "Please, go away! I cannot stand your pure light!",
+        "18": "I am the last obstacle before the king, but I have some tricks up my sleeve yet!",
+        "19": "Colored Fogs! Debriefing!",
+        "2": "You take your smarpthone and turn on the torch...",
+        "20": "Protect me and block the path to the warrior of light! Move on!",
+        "21": "Let's turn off the light. %{name} will be happy. You are a selfless warrior of light!",
+        "22": "Let's turn on the light. %{name} will be sad, but honestly who cares. What a selfish warrior of light you are!",
+        "23": "Well done, the Deadly Fog lets you pass!",
+        "24": "Are you sure you found all the items in the area though?",
+        "25": "I am the %{color} fog! Your journey ends here!",
+        "26": "Come on, noble heart! One last effort before meeting the king!",
+        "27": "Destroy the three colored fogs and %{name} will be annihilated by your shimmer!",
+        "28": "NO, NO, NO! Go away!",
+        "29": "Please, warrior of light! You make me blind!",
+        "3": "WHAT ARE YOU DOING???",
+        "30": "...",
+        "31": "You finally decide to turn off the torch of your smartphone.",
+        "32": "?!?",
+        "33": "Wait a minute! The light came from that thing! Not from your heart!",
+        "34": "So... You are not the warrior of the light!",
+        "35": "...",
+        "36": "Oh well, nevermind.",
+        "37": "So, wanna meet our king? Come on, follow me!",
+        "38": "Oh no! This is not effective agains the colored fog...",
+        "39": "What a relief! My sensible eyes are safe, for today!",
+        "4": "What is this bright light?",
+        "40": "... but you can retry the battle!",
+        "41": "Great move, noble heart! The fog is defeated and you are closer to %{name}!",
+        "5": "...",
+        "6": "Oh, the prophecy was right! \"One day, a noble warrior of light will come to brighten the kingdom...\"",
+        "7": "The day has come! YOU are the warrior of light!",
+        "8": "...",
+        "9": "What? Why I hate light?"
+      },
+      "objects": {
+        "fog": {
+          "content": {
+            "1": "With best regards, warrior of light!",
+            "2": "I am the Deadly Fog!",
+            "3": "You need to provide a four letters word in order to pass."
+          },
+          "error": "The password is wrong..."
+        }
+      },
+      "signs": {
+        "minus": "Minus",
+        "plus": "Plus"
+      }
+    },
     "hall_of_fame": {
       "game_finished_in": "Game finished in",
       "game_started_at": "Game started at",
@@ -884,6 +991,23 @@
           "description": "Quando ti senti il più perso tra i più persi...",
           "name": "Labirinti - Capitolo 4"
         },
+        "morse": {
+          "description": "Punto linea punto",
+          "title": "Codice Morse"
+        },
+        "ode": {
+          "content": {
+            "1": "La luce è bianca.",
+            "2": "La luce sconfigge l'oscurità.",
+            "3": "La luce spaventa le capre fotofobiche.",
+            "4": "La luce può essere ottenuta mischiando due colori.",
+            "5": "Tutti i colori vogliono essere luce!",
+            "6": "Arancio da solo non può fare niente, è cinque passi dietro di te!",
+            "7": "E nemmeno il nero da solo, anche se è un passo davanti a te!"
+          },
+          "description": "Poesia di una bardo medievale",
+          "title": "Ode alla luce"
+        },
         "password": {
           "content": {
             "1": "QUESTA È LA PASSWORD! Devi combinare tra di loro:",
@@ -906,6 +1030,18 @@
           },
           "description": "Per la tua vita di tutti i giorni",
           "name": "Come essere una brava persona"
+        },
+        "prison_keeper": {
+          "content": {
+            "1": "Quando si lascia la prigione: spegnere le lanterne, altrimenti, quella noiosa Nebbia Mortale non ti lascerà passare...",
+            "2": "Ricordarsi di spegnere le lanterne in questo esatto ordine:",
+            "3": "Controlla alla tua destra",
+            "4": "Vai verso la nebbia e controlla alla tua destra",
+            "5": "Non muoverti e controlla alla tua sinistra",
+            "6": "Infine, controlla la rimanente"
+          },
+          "description": "Il custode ama la pulizia",
+          "title": "Nota del custode della prigione"
         },
         "psychological_note": {
           "content": {
@@ -933,6 +1069,10 @@
           "description": "Scritta da uno psicologo medievale",
           "name": "Cartella clinica"
         },
+        "rainbow": {
+          "description": "Dove sono i miei pastelli?",
+          "title": "Ruota dei colori"
+        },
         "spooky_sprint": {
           "content": {
             "1": "In Spooky Sprint, ci sono due ruoli: corridore e sabotatore.",
@@ -949,6 +1089,7 @@
       "use": "USA",
       "you_found_an_hidden_item": "Hai trovato un oggetto nascosto!",
       "you_found_an_item": "Hai trovato un oggetto!",
+      "you_found_an_item_lights_on": "Con le luci accese, hai trovato un oggetto dentro la lanterna!",
       "you_put_the_item": "Hai messo l'oggetto nel tuo zaino"
     },
     "demiurge": {
@@ -1101,6 +1242,79 @@
         "7": "Clicca ancora per cambiare direzione.",
         "8": "Resetta le frecce già posizionate.",
         "9": "SPOOKY SPRINT È IN CORSO!"
+      }
+    },
+    "goat": {
+      "colors": {
+        "aqua": "Acqua",
+        "black": "Nera",
+        "blue": "Blu",
+        "brown": "Marrone",
+        "green": "Verde",
+        "grey": "Grigio",
+        "orange": "Arancio",
+        "pink": "Rosa",
+        "red": "Rossa",
+        "violet": "Viola",
+        "white": "Bianca",
+        "yellow": "Gialla"
+      },
+      "dialogues": {
+        "1": "La prigione è completamente avvolta nel buio... Non vedi nulla...",
+        "10": "Vedi, quando ero una piccola capra, mi misi ad osservare il sole troppo a lungo. Da quel giorno, odio fortemente la luce!",
+        "11": "Meglio vivere in questa fredda e accogliente prigioni...",
+        "12": "In ogni caso, vai via, guerriero della luce! Ho a cuore i miei occhi e oggi ho dimenticato gli occhiali da sole!",
+        "13": "Fortunatamente, ho qualcuno che ti impedirà di raggiungermi alla fine del corridoio!",
+        "14": "Nebbia Mortale, mia cara amica! Devi bloccare questo cavaliere luccicante!",
+        "15": "Addio, guerriero della luce! A mai più rivederci!",
+        "16": "Nebbia Mortal! Perchè hai fatto sì che questo cuore nobile mi raggiungesse?!",
+        "17": "Per favore, vai via! Non posso sopportare la tua pura luce!",
+        "18": "Sono l'ultimo ostacolo prima di incontrare il re, ma ho ancora un asso nella manica!",
+        "19": "Nebbie Colorate! In posizione!",
+        "2": "Tiri fuori il tuo smartphone e accendi la torcia...",
+        "20": "Proteggetemi e fate sì che il guerriero della luce non mi possa raggiungere! Muovetevi!",
+        "21": "Spegniamo le luci. %{name} sarà contento. Sei proprio un guerriero della luce altruista!",
+        "22": "Accendiamo le luci. %{name} sarà arrabbiato, ma onestamente chissenfrega. Sei proprio un guerriero della luce egoista!",
+        "23": "Ben fatto, la Nebbia Mortale ti lascia passare!",
+        "24": "Sei sicuro di aver trovato tutti gli oggetti nell'area però?",
+        "25": "Sono la Nebbia %{color}! Il tuo viaggio termina qua!",
+        "26": "Dai, cuore nobile! Un ultimo sforzo prima di incontrare il re!",
+        "27": "Distruggi le tre nebbie colorate e il tuo luccichio sconfiggerà %{name}!",
+        "28": "NO, NO, NO! Vai via!",
+        "29": "Per favore, guerriero della luce! Mi accechi!",
+        "3": "COSA STAI FACENDO???",
+        "30": "...",
+        "31": "Decidi finalmente di spegnere la torcia del tuo smartphone.",
+        "32": "?!?",
+        "33": "Aspetta un attimo! La luce veniva da quella cosa! Non dal tuo cuore!",
+        "34": "Così... Tu non sei il guerriero della luce!",
+        "35": "...",
+        "36": "Beh, non importa.",
+        "37": "Allora, vuoi incontrare il nostro re? Dai, seguimi!",
+        "38": "Oh no! Questo non è efficace contro la Nebbia Colorata...",
+        "39": "Che sollievo! I miei occhi sensibili sono al sicuro per oggi!",
+        "4": "Cos'è questa luca accecante?",
+        "40": "... ma puoi ancora ritentare!",
+        "41": "Grande mossa, cuore nobile! La nebbia è distrutta e tu sei più vicino a %{name}!",
+        "5": "...",
+        "6": "Oh, la profezia diceva il vero! \"Un giorno, un nobile guerriero della luce arrivera ad illuminare il regno...\"",
+        "7": "Il giorno è arrivato! TU sei il guerriero della luce!",
+        "8": "...",
+        "9": "Cosa? Perchè io odio la luce?"
+      },
+      "objects": {
+        "fog": {
+          "content": {
+            "1": "Cordiali saluti, guerriero della luce!",
+            "2": "Io sono la nebbia mortale!",
+            "3": "Dimmi la password di quattro lettere e ti farò passare."
+          },
+          "error": "La password è sbagliata..."
+        }
+      },
+      "signs": {
+        "minus": "Minus",
+        "plus": "Più"
       }
     },
     "hall_of_fame": {

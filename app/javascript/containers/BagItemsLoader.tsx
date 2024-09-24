@@ -209,48 +209,55 @@ export const BagItemsLoader: React.FC = ({ children }) => {
     },
     'morse': {
       imageSrc: morse,
-      name: 'Morse Code',
-      message: 'Dot dash dot',
+      name: i18n.t('bag.items.morse.name'),
+      message: i18n.t('bag.items.morse.description'),
       element: <img src={morseCode} />
     },
     'rainbow': {
       imageSrc: rainbow,
-      name: 'Wheel of colors',
-      message: 'Where are my coloured pastels?',
+      name: i18n.t('bag.items.rainbow.name'),
+      message: i18n.t('bag.items.rainbow.description'),
       element: <div>
-        <p>blue/orange/green/brown/grey/red/WHITE/black/yellow/violet/pink/aqua</p>
+        <p>1. {i18n.t('goat.colors.blue')}</p>
+        <p>2. {i18n.t('goat.colors.orange')}</p>
+        <p>3. {i18n.t('goat.colors.green')}</p>
+        <p>4. {i18n.t('goat.colors.brown')}</p>
+        <p>5. {i18n.t('goat.colors.grey')}</p>
+        <p>6. {i18n.t('goat.colors.white')}</p>
+        <p>7. {i18n.t('goat.colors.red')}</p>
+        <p>8. {i18n.t('goat.colors.black')}</p>
+        <p>9. {i18n.t('goat.colors.yellow')}</p>
+        <p>10. {i18n.t('goat.colors.violet')}</p>
+        <p>11. {i18n.t('goat.colors.pink')}</p>
+        <p>12. {i18n.t('goat.colors.aqua')}</p>
       </div>
     },
     'ode': {
       imageSrc: poetry,
-      name: 'Ode to light',
-      message: 'Poetry by a medieval bard',
+      name: i18n.t('bag.items.ode.name'),
+      message: i18n.t('bag.items.ode.description'),
       element: <div>
-        <p>Oh, dear light...</p>
-        <p>Everyone loves you, except photophobic goats...</p>
-        <p>Every other color wants to be in your place!</p>
-        <p>But no one can dethrone you!</p>
-        <p>Orange can do nothing, he is five steps behind you!</p>
-        <p>And neither black, even if he is one step in front of you!</p>
-        <p>Light, symbol of purity!</p>
-        <p>Light, symbol of power!</p>
-        <p>Light, symbol of beauty!</p>
-        <p>And remember...</p>
-        <p>Light is WHITE</p>
+        <p>{i18n.t('bag.items.ode.content.1')}</p>
+        <p>{i18n.t('bag.items.ode.content.2')}</p>
+        <p>{i18n.t('bag.items.ode.content.3')}</p>
+        <p>{i18n.t('bag.items.ode.content.4')}</p>
+        <p>{i18n.t('bag.items.ode.content.5')}</p>
+        <p>{i18n.t('bag.items.ode.content.6')}</p>
+        <p>{i18n.t('bag.items.ode.content.7')}</p>
       </div>
     },
     'prison_keeper': {
       imageSrc: textFile,
-      name: 'Prison keeper note',
-      message: 'The prison keeper loves cleanliness',
+      name: i18n.t('bag.items.prison_keeper.name'),
+      message: i18n.t('bag.items.prison_keeper.description'),
       element: <div>
-      <p>When leaving the prison: first things first, turn off the light.</p>
-      <p>Then, remember to check the lanterns in this exact order:</p>
+      <p>{i18n.t('bag.items.prison_keeper.content.1')}</p>
+      <p>{i18n.t('bag.items.prison_keeper.content.2')}</p>
       <ol>
-        <li>Check the one at your right</li>
-        <li>Then, go towards the fog and check the one at your right</li>
-        <li>Then, don't move and check the one at your left</li>
-        <li>Finally, touch the remaining one </li>
+        <li>{i18n.t('bag.items.prison_keeper.content.3')}</li>
+        <li>{i18n.t('bag.items.prison_keeper.content.4')}</li>
+        <li>{i18n.t('bag.items.prison_keeper.content.5')}</li>
+        <li>{i18n.t('bag.items.prison_keeper.content.6')}</li>
       </ol>
     </div>
     }

@@ -91,6 +91,7 @@ it:
     title: 'Il tuo zaino'
     you_found_an_item: 'Hai trovato un oggetto!'
     you_found_an_hidden_item: 'Hai trovato un oggetto nascosto!'
+    you_found_an_item_lights_on: 'Con le luci accese, hai trovato un oggetto dentro la lanterna!'
     you_put_the_item: "Hai messo l'oggetto nel tuo zaino"
     empty: 'Il tuo zaino è vuoto'
     use: 'USA'
@@ -197,6 +198,33 @@ it:
           18: 'Ancora, la sua mente è molto limitata. È solo in grado di scegliere tre numeri: 11, 20 e 9...'
           19: "Alla fine, andandosene via dal mio ufficio, ha urlato che i bug lo rendono pazzo e che il suo scopo principale è di cancellare tutti i bug dei computer dal mondo (sebbene non abbia idea di cosa sia un 'computer', anche io odio le mosche)"
           20: 'Il paziente 535241 sta peggiorando sempre di più. Per favore, rimanere lontani da lui. Si raccomanda la massima cautela.'
+      morse:
+        title: 'Codice Morse'
+        description: 'Punto linea punto'
+      rainbow:
+        title: 'Ruota dei colori'
+        description: 'Dove sono i miei pastelli?'
+      ode:
+        title: 'Ode alla luce'
+        description: 'Poesia di una bardo medievale'
+        content:
+          1: 'La luce è bianca.'
+          2: "La luce sconfigge l'oscurità."
+          3: "La luce spaventa le capre fotofobiche."
+          4: 'La luce può essere ottenuta mischiando due colori.'
+          5: 'Tutti i colori vogliono essere luce!'
+          6: 'Arancio da solo non può fare niente, è cinque passi dietro di te!'
+          7: 'E nemmeno il nero da solo, anche se è un passo davanti a te!'
+      prison_keeper:
+        title: 'Nota del custode della prigione'
+        description: 'Il custode ama la pulizia'
+        content:
+          1: "Quando si lascia la prigione: spegnere le lanterne, altrimenti, quella noiosa Nebbia Mortale non ti lascerà passare..."
+          2: 'Ricordarsi di spegnere le lanterne in questo esatto ordine:'
+          3: 'Controlla alla tua destra'
+          4: 'Vai verso la nebbia e controlla alla tua destra'
+          5: "Non muoverti e controlla alla tua sinistra"
+          6: 'Infine, controlla la rimanente'
   ghost:
     dialogues:
       1: "Uhhh! È da così tanto che non ricevo visite, qui alle Cripte di Cristallo!"
@@ -341,6 +369,72 @@ it:
       email: 'Per favore inserisci una email'
       age: 'Per favore inserisci la tua età'
       password: 'Per favore inserisci una password sufficientemente lunga'
+  goat:
+    dialogues:
+      1: 'La prigione è completamente avvolta nel buio... Non vedi nulla...'
+      2: 'Tiri fuori il tuo smartphone e accendi la torcia...'
+      3: 'COSA STAI FACENDO???'
+      4: "Cos'è questa luca accecante?"
+      5: '...'
+      6: 'Oh, la profezia diceva il vero! "Un giorno, un nobile guerriero della luce arrivera ad illuminare il regno..."'
+      7: 'Il giorno è arrivato! TU sei il guerriero della luce!'
+      8: '...'
+      9: 'Cosa? Perchè io odio la luce?'
+      10: "Vedi, quando ero una piccola capra, mi misi ad osservare il sole troppo a lungo. Da quel giorno, odio fortemente la luce!"
+      11: 'Meglio vivere in questa fredda e accogliente prigioni...'
+      12: 'In ogni caso, vai via, guerriero della luce! Ho a cuore i miei occhi e oggi ho dimenticato gli occhiali da sole!'
+      13: 'Fortunatamente, ho qualcuno che ti impedirà di raggiungermi alla fine del corridoio!'
+      14: 'Nebbia Mortale, mia cara amica! Devi bloccare questo cavaliere luccicante!'
+      15: 'Addio, guerriero della luce! A mai più rivederci!'
+      16: 'Nebbia Mortal! Perchè hai fatto sì che questo cuore nobile mi raggiungesse?!'
+      17: 'Per favore, vai via! Non posso sopportare la tua pura luce!'
+      18: "Sono l'ultimo ostacolo prima di incontrare il re, ma ho ancora un asso nella manica!"
+      19: 'Nebbie Colorate! In posizione!'
+      20: 'Proteggetemi e fate sì che il guerriero della luce non mi possa raggiungere! Muovetevi!'
+      21: "Spegniamo le luci. %{name} sarà contento. Sei proprio un guerriero della luce altruista!"
+      22: "Accendiamo le luci. %{name} sarà arrabbiato, ma onestamente chissenfrega. Sei proprio un guerriero della luce egoista!"
+      23: 'Ben fatto, la Nebbia Mortale ti lascia passare!'
+      24: "Sei sicuro di aver trovato tutti gli oggetti nell'area però?"
+      25: 'Sono la Nebbia %{color}! Il tuo viaggio termina qua!'
+      26: 'Dai, cuore nobile! Un ultimo sforzo prima di incontrare il re!'
+      27: 'Distruggi le tre nebbie colorate e il tuo luccichio sconfiggerà %{name}!'
+      28: 'NO, NO, NO! Vai via!'
+      29: 'Per favore, guerriero della luce! Mi accechi!'
+      30: '...'
+      31: 'Decidi finalmente di spegnere la torcia del tuo smartphone.'
+      32: '?!?'
+      33: 'Aspetta un attimo! La luce veniva da quella cosa! Non dal tuo cuore!'
+      34: 'Così... Tu non sei il guerriero della luce!'
+      35: '...'
+      36: 'Beh, non importa.'
+      37: 'Allora, vuoi incontrare il nostro re? Dai, seguimi!'
+      38: 'Oh no! Questo non è efficace contro la Nebbia Colorata...'
+      39: 'Che sollievo! I miei occhi sensibili sono al sicuro per oggi!'
+      40: '... ma puoi ancora ritentare!'
+      41: 'Grande mossa, cuore nobile! La nebbia è distrutta e tu sei più vicino a %{name}!'
+    objects:
+      fog:
+        error: 'La password è sbagliata...'
+        content:
+          1: 'Cordiali saluti, guerriero della luce!'
+          2: 'Io sono la nebbia mortale!'
+          3: 'Dimmi la password di quattro lettere e ti farò passare.'
+    colors:
+      blue: Blu
+      orange: Arancio
+      green: Verde
+      brown: Marrone
+      grey: Grigio
+      white: Bianca
+      red: Rossa
+      black: Nera
+      yellow: Gialla
+      violet: Viola
+      pink: Rosa
+      aqua: Acqua
+    signs:
+      plus: Più
+      minus: Minus
   hall_of_fame:
     title: 'Hall of Fame'
     subtitle: 'Chi sono i giocatori migliori?'

@@ -91,6 +91,7 @@ en:
     title: 'Your bag'
     you_found_an_item: 'You found an item!'
     you_found_an_hidden_item: 'You found an hidden item!'
+    you_found_an_item_lights_on: 'With the lights on, you found an item inside the lantern!'
     you_put_the_item: 'You put the item in your bag'
     empty: 'Your bag is empty'
     use: 'USE'
@@ -197,6 +198,33 @@ en:
           18: 'Again, his mind is really limited. He is only capable to pick three numbers: 11, 20 and 9...'
           19: "Finally, while leaving my office, he screamed that bugs makes him mad and his primary purpose is to erase all the computer bugs from the world (although I have no idea what a 'computer' is, I hate mosquitos as well)"
           20: 'Patient 535241 is getting worse and worse. Please, stay away from him. High caution is recommended.'
+      morse:
+        title: 'Morse Code'
+        description: 'Dot dash dot'
+      rainbow:
+        title: 'Wheel of colors'
+        description: 'Where are my coloured pastels?'
+      ode:
+        title: 'Ode to light'
+        description: 'Poetry by a medieval bard'
+        content:
+          1: 'Light is white.'
+          2: 'Light defeats darkness.'
+          3: 'Light scares photophobic goats.'
+          4: 'Light can be obtained by mixing up two colors.'
+          5: 'All the colors wants to be light!'
+          6: 'Orange alone can do nothing, he is five steps behind you!'
+          7: 'And neither black alone, even if he is one step in front of you!'
+      prison_keeper:
+        title: 'Prison keeper note'
+        description: 'The prison keeper loves cleanliness'
+        content:
+          1: "When leaving the prison: turn off the lanterns, otherwise, that annoying Deadly Fog won't let you pass..."
+          2: 'Remember to turn off the lanterns in this exact order:'
+          3: 'Check the one at your right'
+          4: 'Then, go towards the fog and check the one at your right'
+          5: "Then, don't move and check the one at your left"
+          6: 'Finally, touch the remaining one'
   ghost:
     dialogues:
       1: "Uhhh! It's been a long time since I received any visits, down here  at the Crystal Crypts!"
@@ -341,6 +369,72 @@ en:
       email: 'Please insert an email'
       age: 'Please insert your age'
       password: 'Please insert a safe (long enough) password.'
+  goat:
+    dialogues:
+      1: 'The prison is completely shrouded in the dark... You see nothing...'
+      2: 'You take your smarpthone and turn on the torch...'
+      3: 'WHAT ARE YOU DOING???'
+      4: 'What is this bright light?'
+      5: '...'
+      6: 'Oh, the prophecy was right! "One day, a noble warrior of light will come to brighten the kingdom..."'
+      7: 'The day has come! YOU are the warrior of light!'
+      8: '...'
+      9: 'What? Why I hate light?'
+      10: "Well, when I was a small goat, I've been staring at the sun too long. From that day, I strongly hate light!"
+      11: 'Better to live inside these dark and welcoming prisons...'
+      12: 'Btw, go away, warrior of light! I care about my eyes and I forgot the sunglasses today!'
+      13: 'Luckily, I someone who will block you from reaching me at the end of the corridor!'
+      14: 'Deadly Fog, my dear friend! You must block this shiny knight!'
+      15: 'Goodbye, warrior of light! See you never!'
+      16: 'Deadly Fog! Why did you allow this noble heart to reach me!'
+      17: 'Please, go away! I cannot stand your pure light!'
+      18: 'I am the last obstacle before the king, but I have some tricks up my sleeve yet!'
+      19: 'Colored Fogs! Debriefing!'
+      20: 'Protect me and block the path to the warrior of light! Move on!'
+      21: "Let's turn off the light. %{name} will be happy. You are a selfless warrior of light!"
+      22: "Let's turn on the light. %{name} will be sad, but honestly who cares. What a selfish warrior of light you are!"
+      23: 'Well done, the Deadly Fog lets you pass!'
+      24: 'Are you sure you found all the items in the area though?'
+      25: 'I am the %{color} fog! Your journey ends here!'
+      26: 'Come on, noble heart! One last effort before meeting the king!'
+      27: 'Destroy the three colored fogs and %{name} will be annihilated by your shimmer!'
+      28: 'NO, NO, NO! Go away!'
+      29: 'Please, warrior of light! You make me blind!'
+      30: '...'
+      31: 'You finally decide to turn off the torch of your smartphone.'
+      32: '?!?'
+      33: 'Wait a minute! The light came from that thing! Not from your heart!'
+      34: 'So... You are not the warrior of the light!'
+      35: '...'
+      36: 'Oh well, nevermind.'
+      37: 'So, wanna meet our king? Come on, follow me!'
+      38: 'Oh no! This is not effective agains the colored fog...'
+      39: 'What a relief! My sensible eyes are safe, for today!'
+      40: '... but you can retry the battle!'
+      41: 'Great move, noble heart! The fog is defeated and you are closer to %{name}!'
+    objects:
+      fog:
+        error: 'The password is wrong...'
+        content:
+          1: 'With best regards, warrior of light!'
+          2: 'I am the Deadly Fog!'
+          3: 'You need to provide a four letters word in order to pass.'
+    colors:
+      blue: Blue
+      orange: Orange
+      green: Green
+      brown: Brown
+      grey: Grey
+      white: White
+      red: Red
+      black: Black
+      yellow: Yellow
+      violet: Violet
+      pink: Pink
+      aqua: Aqua
+    signs:
+      plus: Plus
+      minus: Minus
   hall_of_fame:
     title: 'Hall of Fame'
     subtitle: 'Who are the fastest players?'
