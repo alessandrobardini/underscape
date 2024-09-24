@@ -334,6 +334,7 @@ en:
       76: 'WHAT ARE YOU DOING?!? You are blowing up my perfect software!'
       77: 'Thank you for providing your age!'
       78: 'Thank you for providing a safe password!'
+      79: 'Long live %{name}'
     cats:
       age: '%{months} months'
     input_placeholder:

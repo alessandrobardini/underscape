@@ -262,8 +262,8 @@ it:
         4: 'Dai, basta con queste stronzate!'
         5: 'Castelli, mura, caverne, alchimisti... Niente è reale! QUESTO È UN GIOCO ONLINE, tu non sei in un regno medievale!'
         6: "Dai, guarda il background! Lo sviluppatore si è persino dimenticato di adattare l'immagine allo schermo! COME PUOI PENSARE CHE QUESTO SIA REALISTICO?"
-        7: "Sono stufo del mio ruolo! È ora di dimostrare che io sono il vero demiurgo di questo mondo"
-        8: "Don't you believe me? Do you think I have no control over this world?"
+        7: "Sono stufo del mio ruolo! È ora di dimostrare che io sono il vero demiurgo di questo mondo!"
+        8: "Non mi credi? Pensi che io non abbia controllo su questo mondo?"
         9: 'Ti mostrerò cosa sono in grado di fare! Dai, cosa vorresti vedere ora?'
         10: '...'
         11: "Gattini? Ok, facciamolo!"
@@ -283,14 +283,14 @@ it:
         25: 'Senti un suono fallimentare...'
         26: '%{name} è semplicemente il migliore!'
         27: '%{name}: per un mondo perfetto!'
-        28: 'COSA?!? Come mi ha trovato? Quella URL era impossibile da indovinare!'
+        28: 'COSA?!? Come mi hai trovato? Quella URL era impossibile da indovinare!'
         29: "Io sono il demiurgo di questo mondo, non ho intenzione di sprecare il mio tempo giocando con te per questa idiozia online!"
         30: 'Per favore, vattene!'
         31: '...'
         32: "Oh, capisco... se non mi sconfiggi, non puoi procedere all'ultima area di questo stupido gioco online..."
         33: 'Che regole senza senso...'
         34: "Ok, ti farò felice. Dai, colpiscimi."
-        35: 'COSA?!? Come mi ha trovato? Quella URL era impossibile da...'
+        35: 'COSA?!? Come mi hai trovato? Quella URL era impossibile da...'
         36: '?!?!'
         37: 'Aspetta un minuto! Ho un deja-vu! Abbiamo già avuto questa conversazione!'
         38: "Oh, non importa, cominciamo!"
@@ -334,6 +334,7 @@ it:
         76: 'COSA STAI FACENDO?!? Stai spaccando il mio software perfetto!'
         77: 'Grazie per aver fornito la tua età!'
         78: 'Grazie per aver fornito una password sicura!'
+        79: 'Lunga vita a %{name}'
     cats:
       age: '%{months} mesi'
     input_placeholder:

@@ -23,9 +23,9 @@ const WallBreach: React.FC = () => {
   const [canInteractWithElements, setCanInteractWithElements] = useState(bagContainsPsyNote || false)
 
   const cats = useMemo(() => [
-    { age: i18n.t('demiurge.cats.months', { months: 4 }), answer: 'MEOOOOOOW' },
-    { age: i18n.t('demiurge.cats.months', { months: 14 }), answer: 'MIAOOOOW' },
-    { age: i18n.t('demiurge.cats.months', { months: 2 }), answer: 'MIAW-MEOWWWW' }
+    { age: i18n.t('demiurge.cats.age', { months: 4 }), answer: 'MEOOOOOOW' },
+    { age: i18n.t('demiurge.cats.age', { months: 14 }), answer: 'MIAOOOOW' },
+    { age: i18n.t('demiurge.cats.age', { months: 2 }), answer: 'MIAW-MEOWWWW' }
   ], [])
 
   useEffect(() => {
@@ -66,7 +66,7 @@ const WallBreach: React.FC = () => {
     const cat = cats[index]
     setDialogueBarMessages([
       { character: 'cat', message: i18n.t('demiurge.dialogues.22', { age: cat.age })},
-      { character: 'cat', message: i18n.t('demiurge.dialogues.23', { age: cat.answer })}
+      { character: 'cat', message: i18n.t('demiurge.dialogues.23', { answer: cat.answer })}
     ])
   }
 
@@ -100,7 +100,7 @@ const WallBreach: React.FC = () => {
           <span className='center' >{i18n.t('demiurge.dialogues.26', { name: CHARACTERS['demiurge'].name })}</span>
           <span className='start'>ASDFGHJKL</span>
           { showKittens && <img className='center' src={cat} {...(canInteractWithElements && { onClick: () => handleCatClick(2)})}/> }
-          <span className='start'>{`Long live ${CHARACTERS['demiurge'].name}`}</span>
+          <span className='start'>{i18n.t('demiurge.dialogues.79', { name: CHARACTERS['demiurge'].name })}</span>
           { showButtons && <Button className='start' {...(canInteractWithElements && { onClick: () => handleSequenceButtonClick('1')})}>1</Button> }
           <span className='end'>ZXCVBNM</span>
           { (showButtons && !bagContainsPsyNote) && <Button {...(canInteractWithElements && { onClick: () => pickUpItem({ pickableItem: 'psychological_note'})})}>???</Button> }
