@@ -236,7 +236,7 @@ const Phase3: React.FC<PhaseProps> = ({ onPhaseCleared }) => {
         setShowForm(false)
         if((isNaN(answer) ? 0 : parseInt(answer)) + firstNumber !== ANSWERS[riddleIndex]) {
           setDialogueBarMessages([
-            { character: 'demiurge', message: i18n.t('demiurge.dialogues.55', { first: firstNumber, answer, result: fakeResult }) }
+            { character: 'demiurge', message: i18n.t('demiurge.dialogues.55', { first: firstNumber, answer, result: fakeResult }) },
             { character: 'demiurge', message: i18n.t('demiurge.dialogues.55', { first: firstNumber, answer, result: ANSWERS[riddleIndex] }) },
             { character: 'demiurge', message: i18n.t('demiurge.dialogues.56') },
             { character: 'demiurge', message: i18n.t('demiurge.dialogues.57', { first: firstNumber, answer, result: ANSWERS[riddleIndex] }) },
