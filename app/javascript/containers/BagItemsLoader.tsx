@@ -168,42 +168,43 @@ export const BagItemsLoader: React.FC = ({ children }) => {
     },
     'psychological_note': {
       imageSrc: textFile,
-      name: 'Medical records',
-      message: 'Of a medieval psychologist',
+      name: i18n.t('bag.items.psychological_note.name'),
+      message: i18n.t('bag.items.psychological_note.description'),
       element: <div>
-        <h1>PATIENT 535241 REPORT</h1>
-        <p>The subject 535241 is highly unstable.</p>
-        <p>He suffers from a paranoid belief of being inside an online game (what the hell does 'online' mean?) and continuosly tells everyone that, in this world, we do not have free will.</p>
+        <h1>{i18n.t('bag.items.psychological_note.content.1')}</h1>
+        <p>{i18n.t('bag.items.psychological_note.content.2')}</p>
+        <p>{i18n.t('bag.items.psychological_note.content.3')}</p>
+        <p>{i18n.t('bag.items.psychological_note.content.4')}</p>
         <br />
-        <p>Yesterday, he told me that he finally managed to find a way to overcome the restrictions imposed by his creator and he pretended to be called 'demiurge'.</p>
-        <p>I was enough of such madness, so I told him: 'No, you are simply patient 535241'.</p>
-        <p>He immediately snapped (he hates to be called by his patient number)</p>
-        <p>'I am sick of this bullshit! My creator imprisoned me on the Internet 789 days ago! But now I can finally escape' screamed.</p>
-        <p>He told me a series of unintelligible jargon: he has learned to navigate the web (?), he discovered a safe place protected by a password (??), he only needs to replace the 'wall' in his current address with the password (???) in order to reach the safe place.</p>
+        <p>{i18n.t('bag.items.psychological_note.content.5')}</p>
+        <p>{i18n.t('bag.items.psychological_note.content.6')}</p>
+        <p>{i18n.t('bag.items.psychological_note.content.7')}</p>
+        <p>{i18n.t('bag.items.psychological_note.content.8')}</p>
+        <p>{i18n.t('bag.items.psychological_note.content.9')}</p>
         <br />
-        <p>I needed to calm him down, so I asked: 'Wanna play your favorite game?'.</p>
-        <p>'YEEEEES' he answered.</p>
-        <p>In this game, he prepares a series of 8 squares and he puts his finger on a square. Then, he asks me to close my eyes, he moves the finger on a different square and he asks me to guess where he moved.</p>
-        <p>While playing with him, I realise he is really stupid: he never chooses randomly the next square! Instead, he has a sequence in mind repeating every time.</p>
-        <p>For example, when he is the sixth square, he ALWAYS move to the third square.</p>
-        <p>After some trial and error, I learned the complete sequence.</p>
+        <p>{i18n.t('bag.items.psychological_note.content.10')}</p>
+        <p>{i18n.t('bag.items.psychological_note.content.11')}</p>
+        <p>{i18n.t('bag.items.psychological_note.content.12')}</p>
+        <p>{i18n.t('bag.items.psychological_note.content.13')}</p>
+        <p>{i18n.t('bag.items.psychological_note.content.14')}</p>
+        <p>{i18n.t('bag.items.psychological_note.content.15')}</p>
         <br />
-        <p>Then, we switched to another of his favorite activities: 'Guess the number'</p>
-        <p>He thinks of a number and I need to guess it.</p>
-        <p>Again, his mind is really limited. He is only capable to pick three numbers: 11, 20 and 9...</p>
+        <p>{i18n.t('bag.items.psychological_note.content.16')}</p>
+        <p>{i18n.t('bag.items.psychological_note.content.17')}</p>
+        <p>{i18n.t('bag.items.psychological_note.content.18')}</p>
         <br />
-        <p>Finally, while leaving my office, he revelead me that he was going to build a perfect world, where everything makes sense and where there are no wrong answers.</p>
-        <p>Patient 535241 is getting worse and worse. Please, stay away from him. High caution is recommended.</p>
+        <p>{i18n.t('bag.items.psychological_note.content.19')}</p>
+        <p>{i18n.t('bag.items.psychological_note.content.20')}</p>
       </div>
     },
     'password': {
       imageSrc: password,
-      name: 'Password',
-      message: 'Do not share with anyone! - The demiurge',
+      name: i18n.t('bag.items.password.name'),
+      message: i18n.t('bag.items.password.description'),
       element: <div>
-        <h1>THIS IS THE PASSWORD!</h1>
+        <h1>{i18n.t('bag.items.password.content.1')}</h1>
         <br />
-        <h4>The favorite word of my oldest kitten + number of days of imprisonment + second row of my keyboard</h4>
+        <h4>{i18n.t('bag.items.password.content.2')}</h4>
       </div>
     },
     'morse': {

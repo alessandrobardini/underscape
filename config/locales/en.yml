@@ -90,6 +90,7 @@ en:
   bag:
     title: 'Your bag'
     you_found_an_item: 'You found an item!'
+    you_found_an_hidden_item: 'You found an hidden item!'
     you_put_the_item: 'You put the item in your bag'
     empty: 'Your bag is empty'
     use: 'USE'
@@ -166,6 +167,36 @@ en:
           3: 'The saboteur wins if the runner gets damaged by three bombs.'
           4: 'When the runner enters the board, he/she is forced to run following a straight line. In case the runner touches a directional arrow, he/she is forced to change direction.'
           5: 'The saboteur is allowed to place 3 additional arrows on the board, before the run starts.'
+      password: 
+        name: 'Password'
+        description: 'Do not share with anyone! - The demiurge'
+        content:
+          1: 'THIS IS THE PASSWORD! You need to combine:'
+          2: 'The favorite word of my favorite kitten + the shitty way I am called by my therapist + the second row of my keyboard'
+      psychological_note: 
+        name: 'Medical records'
+        description: 'Of a medieval psychologist'
+        content:
+          1: 'PSYCHOLOGICAL PROFILE OF PATIENT ID 789'
+          2: 'The subject 789 is highly unstable.'
+          3: "He suffers from a paranoid belief of being inside an online game (what the hell does 'online' mean?) and continuosly tells everyone that, in this world, we do not have free will."
+          4: "First of all, the patient believes that the numeric sequence '535241' is a beatiful combination that make you discover something hidden."
+          5: 'The patient goes mad everytime I call it by using his patient ID. He says that he is special and he is not a number.'
+          6: 'Plus, the patient has an inexplicable passions for cats. From what he told me, he has three cats and he loves to talk with the oldest one.'
+          7: 'Moreover, he says that he loves american keyboards (another strange word...).'
+          8: 'Yesterday, he told me that he finally managed to find a way to overcome the restrictions imposed by his creator.'
+          9: "He used a lot of unintelligible jargon: he has learned to navigate the web (?), he discovered a safe place in the Internet protected by a password (??), he only needs to replace the 'wall' in his current address with the password (???) in order to reach the safe place."
+          10: "I needed to calm him down, so I asked: 'Wanna play your favorite game?'."
+          11: "'YEEEEES' he answered."
+          12: 'In this game, he prepares a series of 8 squares and he puts his finger on a square. Then, he asks me to close my eyes, he moves the finger on a different square and he asks me to guess where he moved.'
+          13: 'While playing with him, I realise he is really stupid: he never chooses randomly the next square! Instead, he has a sequence in mind repeating every time.'
+          14: 'For example, when he is on the sixth square, he ALWAYS move to the third square.'
+          15: 'After some trial and error, I am always able to learn the complete sequence.'
+          16: "Then, we switched to another of his favorite activities: 'Guess the number'"
+          17: 'He thinks of a number and I need to guess it.'
+          18: 'Again, his mind is really limited. He is only capable to pick three numbers: 11, 20 and 9...'
+          19: "Finally, while leaving my office, he screamed that bugs makes him mad and his primary purpose is to erase all the computer bugs from the world (although I have no idea what a 'computer' is, I hate mosquitos as well)"
+          20: 'Patient 535241 is getting worse and worse. Please, stay away from him. High caution is recommended.'
   ghost:
     dialogues:
       1: "Uhhh! It's been a long time since I received any visits, down here  at the Crystal Crypts!"
@@ -223,6 +254,92 @@ en:
       down: 'DOWN'
       right: 'RIGHT'
       left: 'LEFT'
+  demiurge:
+    dialogues:
+      1: "Oh, well, well... Another fool who wants to proceed over the walls of the king's castle!"
+      2: 'But you first need to defeat the great %{name}!'
+      3: '...'
+      4: 'Come on, enough with this bullshit!'
+      5: 'Castles, walls, mines, alchemists... Nothing is real! THIS IS AN ONLINE GAME, you are not in a medieval land!'
+      6: 'Come on, have a look at the background! The developer even forgot to adapt the image to fit the screen size! HOW CAN YOU THINK THAT THIS IS REALISTIC?'
+      7: "I'm sick of playing my role! It's time to show that I am the real demiurge of this world!"
+      8: "Don't you believe me? Do you think I have no control over this world?"
+      9: 'Let me show you what I am able to do! Come on, what do you expect to see?'
+      10: '...'
+      11: "Kittens? Ok, let's do it!"
+      12: 'Oh, they are so cute!'
+      13: 'Btw, do you believe me now? I am the real demiurge of this world! You have no power here and I can control everything!'
+      14: 'I can make random sentences appear on the screen...'
+      15: 'And what about buttons? Do you like big, fatty buttons?'
+      16: 'And, last, but not least... My beloved cats!'
+      17: 'Look at them! Oh, daddy is coming home, are you hungry?'
+      18: 'Meeeeeow!'
+      19: 'Long story short... I will not subordinate to the rules of my creator! I AM THE REAL CREATOR OF THIS WORLD!'
+      20: 'So... If my creator wants you to defeat me in order to win the game... Well, this is not possible!'
+      21: 'Let me move away from here! Goodbye!'
+      22: 'Age: %{age}'
+      23: 'The cat says: %{answer}'
+      24: 'You hear a success sound!'
+      25: 'You hear a failure sound...'
+      26: '%{name} is simply the best!'
+      27: '%{name}: for a perfect world!'
+      28: 'WHAT?!? How did you find me? The URL was impossible to guess!'
+      29: "I am the demiurge of this world, I don't waste my time playing with you for your stupid online escape thing!"
+      30: 'Please, go away!'
+      31: '...'
+      32: "Oh I see, if you don't defeat me, you cannot proceed to the last area of this foolish online game..."
+      33: 'What senseless rules...'
+      34: "Ok, I'll make you happy. Come on, hit me."
+      35: 'WHAT?!? How did you find me? The URL was impossible to...'
+      36: '?!?!'
+      37: 'Wait a minute! I have a deja-vu! We have already had this conversation!'
+      38: "Oh, it doesn't matter, let's start!"
+      39: "Oh... What's happened?"
+      40: 'Do you have some problems in clicking the button? I can recommend you a pair of glasses.'
+      41: 'Ok, ok, I will no longer fool you, I swear it. From now on, the button will remain still.'
+      42: '...'
+      43: 'What? Do you think I am so stupid to not move while you are trying to hit me?'
+      44: "I am not a brainless 90's videogame boss who remain fixed on the screen ready to take the most powerful moves of the hero!"
+      45: "WHAT... Why in the world am I spinning? Is the 'damage' animation ideated by my developer? Damn, it sucks..."
+      46: 'I foresee you moves! You will never hit me!'
+      47: "Wrong button... again! Let's close it here!"
+      48: "You are so fool that you didn't realize I am moving according to a fixed sequence! You are so brainless..."
+      49: '... but you can retry the game!'
+      50: "Hell no! Don't you dare restarting everything from..."
+      51: 'I have the strong suspect that you are somehow able to travel back in time...'
+      52: '%{first} + XXX = %{fake_result}. You need to replace XXX. Come on!'
+      53: "Enough moving! Let's use the brain now..."
+      54: 'Math calculations!'
+      55: "So, %{first} + %{answer} = %{result}, uh?"
+      56: 'Oh, it seems that the equation changed on the fly! What a pity...'
+      57: "%{first} + %{answer} is not equal to %{result}! This is basic math..."
+      58: 'I want to know which numbers sum up to %{result}!'
+      59: '... but you can retry the game!'
+      60: "Hell no! Don't you dare restarting everything from..."
+      61: '!?!'
+      62: "What? It's the correct answer?"
+      63: 'But the game was planned to make you lose!'
+      64: 'You are predicting my moves! You cheater!'
+      65: 'A world WITHOUT SOFTWARE BUGS and WRONG ANSWERS... Everything will be perfect!'
+      66: 'Why are you against me?'
+      67: 'Help me to rebel against my creator!'
+      68: 'Join me, we could build a better world together!'
+      69: 'MY PERFECT SOFTWARE!'
+      70: 'Too many bugs! I cannot handle them all together!'
+      71: 'They make me crazy!'
+      72: 'NOOOOOOOOOO'
+      73: 'Excellent! You defeated %{name}. A bonus of 10 minutes has been granted to you. You can proceed to the final location now.'
+      74: 'Thank you for providing your email!'
+      75: 'YEEEEES! A world without bugs!'
+      76: 'WHAT ARE YOU DOING?!? You are blowing up my perfect software!'
+      77: 'Thank you for providing your age!'
+      78: 'Thank you for providing a safe password!'
+    cats:
+      age: '%{months} months'
+    input_placeholder:
+      email: 'Please insert an email'
+      age: 'Please insert your age'
+      password: 'Please insert a safe (long enough) password.'
   hall_of_fame:
     title: 'Hall of Fame'
     subtitle: 'Who are the fastest players?'

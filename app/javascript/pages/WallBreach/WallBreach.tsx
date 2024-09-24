@@ -1,19 +1,15 @@
 import { bagContains, CHARACTERS, SessionContext } from 'Game'
-import React, { useContext, useEffect, useState } from 'react'
+import React, { useContext, useEffect, useMemo, useState } from 'react'
 import Button from 'ui/Button'
 import cat from 'images/kitty.jpeg'
+import { TranslatorContext } from 'containers/TranslatorLoader'
 
 import './WallBreach.scss'
-
-const CATS = [
-  { age: '4 months', answer: 'MEOOOOOOW' },
-  { age: '14 months', answer: 'MIAOOOOW' },
-  { age: '2 months', answer: 'MIAW-MEOWWWW' }
-]
 
 const SEQUENCE = '535241'
 
 const WallBreach: React.FC = () => {
+  const i18n = useContext(TranslatorContext)
   const { setDialogueBarMessages, pickUpItem } = useContext(SessionContext)
 
   const bagContainsPsyNote = bagContains('psychological_note')
@@ -26,45 +22,51 @@ const WallBreach: React.FC = () => {
   const [insertedSequence, setInsertedSequence] = useState('')
   const [canInteractWithElements, setCanInteractWithElements] = useState(bagContainsPsyNote || false)
 
+  const cats = useMemo(() => [
+    { age: i18n.t('demiurge.cats.months', { months: 4 }), answer: 'MEOOOOOOW' },
+    { age: i18n.t('demiurge.cats.months', { months: 14 }), answer: 'MIAOOOOW' },
+    { age: i18n.t('demiurge.cats.months', { months: 2 }), answer: 'MIAW-MEOWWWW' }
+  ], [])
+
   useEffect(() => {
     if(!bagContainsPsyNote) {
       setDialogueBarMessages([
-        { character: 'demiurge', message: 'Oh, well, well... Another fool who wants to proceed over the walls of the king\'s castle!' },
-        { character: 'demiurge', message: `But you first need to defeat the great ${CHARACTERS['demiurge'].name}!` },
-        { character: 'demiurge', message: '...' },
-        { character: 'demiurge', message: 'Come on, enough with this bullshit!' },
-        { character: 'demiurge', message: 'Castles, walls, mines, alchemists... Nothing is real! THIS IS AN ONLINE GAME, you are not in a medieval land!' },
-        { character: 'demiurge', message: 'Come on, have a look at the background! The developer even forgot to adapt the image to fit the screen size! HOW CAN YOU THINK THAT THIS IS REALISTIC?' },
-        { character: 'demiurge', message: 'I\'m sick of playing my role! It\'s time to show that I am the real demiurge of this world!' },
-        { character: 'demiurge', message: 'Don\'t you believe me? Do you think I have no control over this world?' },
-        { character: 'demiurge', message: 'Let me show you what I am able to do! Come on, what do you expect to see?' },
-        { character: 'demiurge', message: '...' },
-        { character: 'demiurge', message: 'Kittens? Ok, let\'s do it!', onCloseMessage: () => setShowKittensBg(true) },
-        { character: 'demiurge', message: 'Oh, they are so cute!'},
-        { character: 'demiurge', message: 'Btw, do you believe me now? I am the real demiurge of this world! You have no power here and I can control everything!'},
-        { character: 'demiurge', message: 'I can make random sentences appear on the screen...', onCloseMessage: () => { setShowSentences(true); setShowKittensBg(false) }},
-        { character: 'demiurge', message: 'And what about buttons? Do yo like big, fatty buttons?', onCloseMessage: () => setShowButtons(true)},
-        { character: 'demiurge', message: 'And, last, but not least... My beloved cats!', onCloseMessage: () => setShowKittens(true)},
-        { character: 'demiurge', message: 'Look at them! Oh, daddy is coming home, are you hungry?'},
-        { character: 'cat', message: 'Meeeeeow!'},
-        { character: 'demiurge', message: 'Long story short... I will not subordinate to the rules of my creator! I AM THE REAL CREATOR OF THIS WORLD!'},
-        { character: 'demiurge', message: 'So... If my creator wants you to defeat me in order to win the game... Well, this is not possible!'},
-        { character: 'demiurge', message: 'Let me move away from here! Goodbye!', onCloseMessage: () => setCanInteractWithElements(true)},
+        { character: 'demiurge', message: i18n.t('demiurge.dialogues.1') },
+        { character: 'demiurge', message: i18n.t('demiurge.dialogues.2', { name: CHARACTERS['demiurge'].name }) },
+        { character: 'demiurge', message: i18n.t('demiurge.dialogues.3') },
+        { character: 'demiurge', message: i18n.t('demiurge.dialogues.4') },
+        { character: 'demiurge', message: i18n.t('demiurge.dialogues.5') },
+        { character: 'demiurge', message: i18n.t('demiurge.dialogues.6') },
+        { character: 'demiurge', message: i18n.t('demiurge.dialogues.7') },
+        { character: 'demiurge', message: i18n.t('demiurge.dialogues.8') },
+        { character: 'demiurge', message: i18n.t('demiurge.dialogues.9') },
+        { character: 'demiurge', message: i18n.t('demiurge.dialogues.10') },
+        { character: 'demiurge', message: i18n.t('demiurge.dialogues.11'), onCloseMessage: () => setShowKittensBg(true) },
+        { character: 'demiurge', message: i18n.t('demiurge.dialogues.12')},
+        { character: 'demiurge', message: i18n.t('demiurge.dialogues.13')},
+        { character: 'demiurge', message: i18n.t('demiurge.dialogues.14'), onCloseMessage: () => { setShowSentences(true); setShowKittensBg(false) }},
+        { character: 'demiurge', message: i18n.t('demiurge.dialogues.15'), onCloseMessage: () => setShowButtons(true)},
+        { character: 'demiurge', message: i18n.t('demiurge.dialogues.16'), onCloseMessage: () => setShowKittens(true)},
+        { character: 'demiurge', message: i18n.t('demiurge.dialogues.17')},
+        { character: 'cat', message: i18n.t('demiurge.dialogues.18')},
+        { character: 'demiurge', message: i18n.t('demiurge.dialogues.19')},
+        { character: 'demiurge', message: i18n.t('demiurge.dialogues.20')},
+        { character: 'demiurge', message: i18n.t('demiurge.dialogues.21'), onCloseMessage: () => setCanInteractWithElements(true)},
       ])
     }
   }, [])
 
   useEffect(() => {
     if(insertedSequence === SEQUENCE) {
-      pickUpItem({ pickableItem: 'password', firstMessage: 'You found an hidden item!'})
+      pickUpItem({ pickableItem: 'password', firstMessage: i18n.t('bag.you_found_an_hidden_item')})
     }
   }, [insertedSequence])
 
   const handleCatClick = (index: number) => {
-    const cat = CATS[index]
+    const cat = cats[index]
     setDialogueBarMessages([
-      { character: 'cat', message: `Age: ${cat.age}`},
-      { character: 'cat', message: `The cat says: ${cat.answer}`}
+      { character: 'cat', message: i18n.t('demiurge.dialogues.22', { age: cat.age })},
+      { character: 'cat', message: i18n.t('demiurge.dialogues.23', { age: cat.answer })}
     ])
   }
 
@@ -74,12 +76,12 @@ const WallBreach: React.FC = () => {
       if(isNumberCorrect) {
         setInsertedSequence(insertedSequence.concat(number))
         setDialogueBarMessages([
-          { message: 'You hear a success sound!'}
+          { message: i18n.t('demiurge.dialogues.24')}
         ])
       } else {
         setInsertedSequence('')
         setDialogueBarMessages([
-          { message: 'You hear a failure sound...'}
+          { message: i18n.t('demiurge.dialogues.25')}
         ])
       }
     }
@@ -95,14 +97,14 @@ const WallBreach: React.FC = () => {
           { showButtons && <Button className='start' {...(canInteractWithElements && { onClick: () => handleSequenceButtonClick('5')})}>5</Button> }
           { showKittens && <img className='end' src={cat} {...(canInteractWithElements && { onClick: () => handleCatClick(1)})}/> }
           { showButtons && <Button className='end' {...(canInteractWithElements && { onClick: () => handleSequenceButtonClick('4')})}>4</Button> }
-          <span className='center' >{`${CHARACTERS['demiurge'].name} is simply the best!`}</span>
+          <span className='center' >{i18n.t('demiurge.dialogues.26', { name: CHARACTERS['demiurge'].name })}</span>
           <span className='start'>ASDFGHJKL</span>
           { showKittens && <img className='center' src={cat} {...(canInteractWithElements && { onClick: () => handleCatClick(2)})}/> }
           <span className='start'>{`Long live ${CHARACTERS['demiurge'].name}`}</span>
           { showButtons && <Button className='start' {...(canInteractWithElements && { onClick: () => handleSequenceButtonClick('1')})}>1</Button> }
           <span className='end'>ZXCVBNM</span>
           { (showButtons && !bagContainsPsyNote) && <Button {...(canInteractWithElements && { onClick: () => pickUpItem({ pickableItem: 'psychological_note'})})}>???</Button> }
-          <span className='center'>{`${CHARACTERS['demiurge'].name}: for a perfect world!`}</span>
+          <span className='center'>{i18n.t('demiurge.dialogues.27', { name: CHARACTERS['demiurge'].name })}</span>
           { showButtons && <Button {...(canInteractWithElements && { onClick: () => handleSequenceButtonClick('3')})}>3</Button> }
         </div>
       }

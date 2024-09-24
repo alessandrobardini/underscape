@@ -90,6 +90,7 @@ it:
   bag:
     title: 'Il tuo zaino'
     you_found_an_item: 'Hai trovato un oggetto!'
+    you_found_an_hidden_item: 'Hai trovato un oggetto nascosto!'
     you_put_the_item: "Hai messo l'oggetto nel tuo zaino"
     empty: 'Il tuo zaino è vuoto'
     use: 'USA'
@@ -166,6 +167,36 @@ it:
           3: 'Il sabotatore vince se il corridere viene danneggiato da tre bombe.'
           4: 'Quando il corridore entra nel percorso, è obbligato a correre in linea dritta. Se il corridere tocca una freccia direzionale, deve cambiare direzione.'
           5: 'Il sabotatore può posizioare 3 ulteriori frecce sul percorso, prima che la gara cominci.'
+      password: 
+        name: 'Password'
+        description: 'Non condivedere con nessuno! - Il demiurgo'
+        content:
+          1: 'QUESTA È LA PASSWORD! Devi combinare tra di loro:'
+          2: 'La parola preferita del mio gattino preferito + il nome di merda che mi ha dato il mio terapista + la seconda riga della mia tastiera'
+      psychological_note: 
+        name: 'Cartella clinica'
+        description: 'Scritta da uno psicologo medievale'
+        content:
+          1: 'PROFILO PSICOLOGICO DEL PAZIENTE 789'
+          2: 'Il soggetto 789 è altamente instabile.'
+          3: "Il soggetto ritiene in modo paranoico di essere all'interno di un gioco online (cosa diavolo significa 'online'?) and racconta continuamente a tutti che, in questo mondo, noi non abbiamo il libero arbitrio."
+          4: "Prima di tutto, il soggetto crede che la sequenza numerica '535241' sia una meravigliosa combinazione in grado di farti scoprire qualcosa di nascosto."
+          5: 'Il soggetto va di matto ogni volta che lo chiamo usando il suo ID paziente. Mi dice che è speciale e che non è un numero.'
+          6: "Poi, ha un'esagerata passione per i gatti. Da quanto mi ha raccontato, ha tre gatti e ama parlare con il più vecchio"
+          7: "Inoltre, dice che ama le tastiere americane (un'altra strana parola...)."
+          8: 'Ieri, mi ha detto che è finalmente riuscito a trovare un modo per superare le restrizioni imposte dal suo creatore.'
+          9: "Parlandomi, ha usato tantissime parole senza senso: ha imparato a navigare sul web (?), ha scoperto un luogo sicuro su Internet protetto da una password (??), ed è sufficiente rimpiazzare il 'wall' nel suo indirizzo corrente con una password (???) per poter raggiungere un luogo sicuro."
+          10: "Avevo bisogno di calmarlo, così gli ho chiesto se volesse giocare il suo gioco preferito."
+          11: "'Sìììì' mi ha risposto."
+          12: 'In questo gioco, il paziente prepara una serie di 8 quadrati e posiziona il suo dito su uno di essi. Poi, mi chiede di chiudere gli occhi, muove il dito su un altr quadrato e mi chiede di indovinare dove si è spostato.'
+          13: 'Giocando con lui, mi rendo conto che è molto stupido: non sceglie mai a caso il quadrato su cui si muove! Invece, ha una sequenza in testa che ripete ogni volta.'
+          14: 'Per esempio, quando si trova sul sesto quadrato, si muove sempre sul terzo quadrato.'
+          15: 'Dopo qualche tentativo, sono sempre in grado di imparare la sequenza completa.'
+          16: "Poi, siamo passati a un'altra delle sue attività preferite: 'Indovina il numero'."
+          17: 'Il paziente pensa ad un numero e io devo indovinarlo.'
+          18: 'Ancora, la sua mente è molto limitata. È solo in grado di scegliere tre numeri: 11, 20 e 9...'
+          19: "Alla fine, andandosene via dal mio ufficio, ha urlato che i bug lo rendono pazzo e che il suo scopo principale è di cancellare tutti i bug dei computer dal mondo (sebbene non abbia idea di cosa sia un 'computer', anche io odio le mosche)"
+          20: 'Il paziente 535241 sta peggiorando sempre di più. Per favore, rimanere lontani da lui. Si raccomanda la massima cautela.'
   ghost:
     dialogues:
       1: "Uhhh! È da così tanto che non ricevo visite, qui alle Cripte di Cristallo!"
@@ -223,6 +254,92 @@ it:
       down: 'GIÙ'
       right: 'DESTRA'
       left: 'SINISTRA'
+  demiurge:
+    dialogues:
+        1: "Oh, guarda, guarda... Un altro sciocco che vuole passare attraverso le mura del castello del re!"
+        2: 'Ma prima devi affrontare il grande %{name}!'
+        3: '...'
+        4: 'Dai, basta con queste stronzate!'
+        5: 'Castelli, mura, caverne, alchimisti... Niente è reale! QUESTO È UN GIOCO ONLINE, tu non sei in un regno medievale!'
+        6: "Dai, guarda il background! Lo sviluppatore si è persino dimenticato di adattare l'immagine allo schermo! COME PUOI PENSARE CHE QUESTO SIA REALISTICO?"
+        7: "Sono stufo del mio ruolo! È ora di dimostrare che io sono il vero demiurgo di questo mondo"
+        8: "Don't you believe me? Do you think I have no control over this world?"
+        9: 'Ti mostrerò cosa sono in grado di fare! Dai, cosa vorresti vedere ora?'
+        10: '...'
+        11: "Gattini? Ok, facciamolo!"
+        12: 'Oh, guarda come sono carini!'
+        13: 'Allora, mi credi ora? Io sono il vero demiurgo di questo mondo! Tu non hai potere qui, io posso controllare tutto!'
+        14: 'Posso far apparire frasi a caso sullo schermo...'
+        15: 'E i bottoni invece? Ti piaccono bottoni grossi e grassi?'
+        16: 'E, ultimi ma non ultimi... I miei adorati gatti!'
+        17: 'Guardali! Oh, papà sta tornando a casa, avete fame?'
+        18: 'Meeeeeow!'
+        19: 'Per farla breve... Non seguirò le regole del mio creatore! IO SONO IL VERO CREATORE DI QUESTO MONDO!'
+        20: 'Quindi... Se il mio creatore vuole che tu mi sconfigga per finire il gioco... Beh, questo non è possibile!'
+        21: 'Fammi andare via da qua! Addio!'
+        22: 'Età: %{age}'
+        23: 'Il gatto dice: %{answer}'
+        24: 'Senti un suono rassicurante...!'
+        25: 'Senti un suono fallimentare...'
+        26: '%{name} è semplicemente il migliore!'
+        27: '%{name}: per un mondo perfetto!'
+        28: 'COSA?!? Come mi ha trovato? Quella URL era impossibile da indovinare!'
+        29: "Io sono il demiurgo di questo mondo, non ho intenzione di sprecare il mio tempo giocando con te per questa idiozia online!"
+        30: 'Per favore, vattene!'
+        31: '...'
+        32: "Oh, capisco... se non mi sconfiggi, non puoi procedere all'ultima area di questo stupido gioco online..."
+        33: 'Che regole senza senso...'
+        34: "Ok, ti farò felice. Dai, colpiscimi."
+        35: 'COSA?!? Come mi ha trovato? Quella URL era impossibile da...'
+        36: '?!?!'
+        37: 'Aspetta un minuto! Ho un deja-vu! Abbiamo già avuto questa conversazione!'
+        38: "Oh, non importa, cominciamo!"
+        39: "Oh... Cos'è successo?"
+        40: 'Hai qualche problema nel cliccare il bottone? Ti posso consigliare un paio di occhiali.'
+        41: "Ok, ok, non ti prenderò più in giro, lo giuro. D'ora in avanti, il bottone rimarrà fermo."
+        42: '...'
+        43: 'Cosa? Pensi che io sia così stupido da non muovermi mentre cerchi di colpirmi?'
+        44: "Non sono un boss senza cervello da videogame anni 90 che rimane fermo sullo schermo pronto a ricevere gli attacchi più potenti dall'eroe!"
+        45: "COSA... Perchè diavolo sto roteando? È questa la 'damage animation' ideata dal mio sviluppatore? Accidenti, fa schifo..."
+        46: 'Prevedo le tue mosse! Non mi colpirai mai!'
+        47: "Bottone sbagliato... ancora! Chiudiamola qua!"
+        48: "Sei così stupido che non ti sei reso conto che mi sto muovendo seguendo una certa sequenza! Sei proprio senza cervello..."
+        49: '... ma puoi ancora ritentare!'
+        50: 'Diavolo, no! Non osare far ricominciare tutto da...'
+        51: 'Ho il forte sospetto che tu sia in grado di viaggiare indietro nel tempo...'
+        52: '%{first} + XXX = %{fake_result}. Devi sostituire XXX. Dai!'
+        53: "Basta muoversi! Usiamo il cervello ora..."
+        54: 'Calcoli matematici!'
+        55: "Così, %{first} + %{answer} = %{result}, uh?"
+        56: "Oh, sembra che l'equazione sia cambiata improvvisamente! Che peccato..."
+        57: "%{first} + %{answer} non è uguale a %{result}! Questa è matematica elementare..."
+        58: 'Voglio sapere quali numeri, se sommati, sono uguale a %{result}!'
+        59: '... ma puoi ancora ritentare!'
+        60: 'Diavolo, no! Non osare far ricominciare tutto da...'
+        61: '!?!'
+        62: "Cosa? È la risposta giusta?"
+        63: 'Ma il gioco era fatto per farti perdere!'
+        64: 'Sei a conoscenza delle mie mosse! Stai barando!'
+        65: 'Un mondo SENZA BUG e SENZA RISPOSTE SBAGLIATE... Tutto sarà perfetto!'
+        66: 'Perchè sei contro di me?'
+        67: 'Aiutami a ribellarmi contro il mio creatore!'
+        68: 'Unisciti a me, potremo costruire un mondo migliore insieme!'
+        69: 'IL MIO SOFTWARE PERFETTO!'
+        70: 'Troppi errori! Non li posso gestire tutti insieme!'
+        71: 'Mi fanno impazzire!'
+        72: 'NOOOOOOOOOO'
+        73: 'Eccellente! Hai sconfitto %{name}. Hai guadagnato un bonus di 10 minuti. Ora, puoi procedere verso il luogo finale.'
+        74: 'Grazie per aver fornito la tua email!'
+        75: 'Sì! Un mondo senza bug!'
+        76: 'COSA STAI FACENDO?!? Stai spaccando il mio software perfetto!'
+        77: 'Grazie per aver fornito la tua età!'
+        78: 'Grazie per aver fornito una password sicura!'
+    cats:
+      age: '%{months} mesi'
+    input_placeholder:
+      email: 'Per favore inserisci una email'
+      age: 'Per favore inserisci la tua età'
+      password: 'Per favore inserisci una password sufficientemente lunga'
   hall_of_fame:
     title: 'Hall of Fame'
     subtitle: 'Chi sono i giocatori migliori?'
