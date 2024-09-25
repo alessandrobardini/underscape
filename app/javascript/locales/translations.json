@@ -716,6 +716,7 @@
     "hall_of_fame": {
       "game_finished_in": "Game finished in",
       "game_started_at": "Game started at",
+      "no_winners": "Oh no! No winners so far!",
       "position": "Position",
       "subtitle": "Who are the fastest players?",
       "team_name": "Team Name",
@@ -764,6 +765,8 @@
         "title": "Rules"
       }
     },
+    "hour": "hour",
+    "hours": "hours",
     "logout": "Logout",
     "map_board": {
       "done": "DONE!",
@@ -773,6 +776,8 @@
       "location_4": "Primeval Prison",
       "locked": "LOCKED"
     },
+    "minute": "minute",
+    "minutes": "minutes",
     "not_logged_in": "You are not logged in!",
     "number": {
       "currency": {
@@ -842,6 +847,8 @@
         }
       }
     },
+    "second": "second",
+    "seconds": "seconds",
     "support": {
       "array": {
         "last_word_connector": ", and ",
@@ -1365,6 +1372,7 @@
     "hall_of_fame": {
       "game_finished_in": "Partita finita in",
       "game_started_at": "Partita iniziata alle",
+      "no_winners": "Oh no! Nessun vincitore finora!",
       "position": "Posizione",
       "subtitle": "Chi sono i giocatori migliori?",
       "team_name": "Nome Team",
@@ -1403,6 +1411,8 @@
         "title": "Regole"
       }
     },
+    "hour": "ora",
+    "hours": "ore",
     "logout": "Logout",
     "map_board": {
       "done": "FATTO!",
@@ -1412,7 +1422,11 @@
       "location_4": "Prigione Primordiale",
       "locked": "BLOCCATO"
     },
+    "minute": "minuto",
+    "minutes": "minuti",
     "not_logged_in": "Non sei loggato!",
+    "second": "secondo",
+    "seconds": "secondi",
     "thanks_for_playing": "GRAZIE PER AVER GIOCATO!",
     "throne": {
       "dialogues": {

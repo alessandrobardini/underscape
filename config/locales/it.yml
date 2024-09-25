@@ -483,6 +483,7 @@ it:
     team_name: 'Nome Team'
     game_started_at: 'Partita iniziata alle'
     game_finished_in: 'Partita finita in'
+    no_winners: 'Oh no! Nessun vincitore finora!'
   home:
     introduction:
       1: 'Siete pronti ad entrare in un regno misterioso?'
@@ -522,3 +523,9 @@ it:
   not_logged_in: 'Non sei loggato!'
   logout: 'Logout'
   you_lost: 'HAI PERSO!'
+  hour: ora
+  hours: 'ore'
+  minute: 'minuto'
+  minutes: 'minuti'
+  second: 'secondo'
+  seconds: 'secondi'

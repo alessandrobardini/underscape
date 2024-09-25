@@ -68,20 +68,20 @@ const YouWin: React.FC<YouWinProps> = ({ setDialogueBarMessages, gameFinishedInS
         <div className='character'><img src={goat} /></div>
       </div>
       <span className='thanks'>{i18n.t('thanks_for_playing')}</span>
-      <span className='finished'>{i18n.t('game_finished_in', { time: secondsToHms(gameFinishedInSeconds)})}</span>
+      <span className='finished'>{i18n.t('game_finished_in', { time: secondsToHms(gameFinishedInSeconds, i18n)})}</span>
       <Link to='#' onClick={() => signOut().then(() => window.location.replace(`/app/${i18n.locale}/map`))}>{i18n.t('back_home')}</Link>
     </div> : <div className='throne'/>}
   </div>
 }
 
-export const secondsToHms = (seconds) => {
+export const secondsToHms = (seconds, i18n) => {
   var h = Math.floor(seconds / 3600);
   var m = Math.floor(seconds % 3600 / 60);
   var s = Math.floor(seconds % 3600 % 60);
 
-  var hDisplay = h > 0 ? h + (h == 1 ? " hour, " : " hours, ") : "";
-  var mDisplay = m > 0 ? m + (m == 1 ? " minute, " : " minutes, ") : "";
-  var sDisplay = s > 0 ? s + (s == 1 ? " second" : " seconds") : "";
+  var hDisplay = h > 0 ? h + (h == 1 ? ` ${i18n.t('hour')}, `: ` ${i18n.t('hours')}, `) : "";
+  var mDisplay = m > 0 ? m + (m == 1 ? ` ${i18n.t('minute')}, ` : ` ${i18n.t('minutes')}, `) : "";
+  var sDisplay = s > 0 ? s + (s == 1 ? ` ${i18n.t('second')}` : ` ${i18n.t('seconds')}`) : "";
   return (hDisplay + mDisplay + sDisplay) 
 }
 

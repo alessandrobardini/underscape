@@ -32,12 +32,12 @@ const HallOfFame: React.FC = () => {
               <td>{index + 1}</td>
               <td>{winner.name}</td>
               <td>{new Date(winner.created_at).toString().split('GMT')[0]}</td>
-              <td>{secondsToHms(winner.game_finished_in_seconds)}</td>
+              <td>{secondsToHms(winner.game_finished_in_seconds, i18n)}</td>
               </tr>
             })}
           </tbody>
         </table>
-      </div> : <span>Oh no! No winners so far!</span>}
+      </div> : <span>{i18n.t('hall_of_fame.no_winners')}</span>}
     </div>
 }
 
