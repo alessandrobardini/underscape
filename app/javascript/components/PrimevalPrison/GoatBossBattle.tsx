@@ -13,17 +13,17 @@ import './GoatBossBattle.scss'
 const GoatBossBattle: React.FC = () => {
   const i18n = useContext(TranslatorContext)
   const colors = useMemo(() => [
-    { name: i18n.t('goat.colors.blue'), operation: 'plus', operand: '5'},
-    { name: i18n.t('goat.colors.orange'), operation: 'plus', operand: '4'},
-    { name: i18n.t('goat.colors.green'), operation: 'plus', operand: '3'},
-    { name: i18n.t('goat.colors.brown'), operation: 'plus', operand: '2'},
-    { name: i18n.t('goat.colors.grey'), operation: 'plus', operand: '1'},
-    { name: i18n.t('goat.colors.red'), operation: 'minus', operand: '1'},
-    { name: i18n.t('goat.colors.black'), operation: 'minus', operand: '2'},
-    { name: i18n.t('goat.colors.yellow'), operation: 'minus', operand: '3'},
-    { name: i18n.t('goat.colors.violet'), operation: 'minus', operand: '4'},
-    { name: i18n.t('goat.colors.pink'), operation: 'minus', operand: '5'},
-    { name: i18n.t('goat.colors.aqua'), operation: 'minus', operand: '6'},
+    { name: i18n.t('goat.colors.blue'), className: 'blue', operation: 'plus', operand: '5'},
+    { name: i18n.t('goat.colors.orange'), className: 'orange', operation: 'plus', operand: '4'},
+    { name: i18n.t('goat.colors.green'), className: 'green', operation: 'plus', operand: '3'},
+    { name: i18n.t('goat.colors.brown'), className: 'brown', operation: 'plus', operand: '2'},
+    { name: i18n.t('goat.colors.grey'), className: 'grey', operation: 'plus', operand: '1'},
+    { name: i18n.t('goat.colors.red'), className: 'red', operation: 'minus', operand: '1'},
+    { name: i18n.t('goat.colors.black'), className: 'black', operation: 'minus', operand: '2'},
+    { name: i18n.t('goat.colors.yellow'), className: 'yellow', operation: 'minus', operand: '3'},
+    { name: i18n.t('goat.colors.violet'), className: 'violet', operation: 'minus', operand: '4'},
+    { name: i18n.t('goat.colors.pink'), className: 'pink', operation: 'minus', operand: '5'},
+    { name: i18n.t('goat.colors.aqua'), className: 'aqua', operation: 'minus', operand: '6'},
   ], [])
   const history = useHistory()
   const { setDialogueBarMessages } = useContext(SessionContext)
@@ -62,7 +62,7 @@ const GoatBossBattle: React.FC = () => {
       ])  
     }
     else if(heartPosition > 0) {
-      const message = i18n.t('goat.dialogues.25', { color: fogs[0].name })
+      const message = i18n.t('goat.dialogues.25', { color: fogs[heartPosition].name })
       setMessage(message)
       setDialogueBarMessages([
         {message, onCloseMessage: () => setShowForm(true)},
@@ -97,7 +97,7 @@ const GoatBossBattle: React.FC = () => {
       setHeartPosition(3)
     } else {
       setDialogueBarMessages([
-        { message: i18n.t('goat.dialogues.40', { name: CHARACTERS['goat'].name }), onCloseMessage: () => setHeartPosition(heartPosition + 1)  }
+        { message: i18n.t('goat.dialogues.41', { name: CHARACTERS['goat'].name }), onCloseMessage: () => setHeartPosition(heartPosition + 1)  }
       ])
     }
   }
@@ -110,19 +110,19 @@ const GoatBossBattle: React.FC = () => {
         </div>
         }
       </div>
-      <div className='square' style={{ backgroundColor: heartPosition > 0 ? 'white' : fogs[0].name}}>
+      <div className='square' style={{ backgroundColor: heartPosition > 0 ? 'white' : fogs[0].className}}>
         {heartPosition === 1 && <div className='container'>
             <Heart />
           </div>
         }
       </div>
-      <div className='square' style={{ backgroundColor: heartPosition > 1 ? 'white' : fogs[1].name}}>
+      <div className='square' style={{ backgroundColor: heartPosition > 1 ? 'white' : fogs[1].className}}>
         {heartPosition === 2 && <div className='container'>
             <Heart />
           </div>
         }
       </div>
-      <div className='square' style={{ backgroundColor: heartPosition > 2 ? 'white' : fogs[2].name}}>
+      <div className='square' style={{ backgroundColor: heartPosition > 2 ? 'white' : fogs[2].className}}>
         {heartPosition === 3 && <div className='container'>
             <Heart />
           </div>

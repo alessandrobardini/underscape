@@ -424,7 +424,7 @@ it:
       orange: Arancio
       green: Verde
       brown: Marrone
-      grey: Grigio
+      grey: Grigia
       white: Bianca
       red: Rossa
       black: Nera
@@ -434,7 +434,7 @@ it:
       aqua: Acqua
     signs:
       plus: Più
-      minus: Minus
+      minus: Meno
   hall_of_fame:
     title: 'Hall of Fame'
     subtitle: 'Chi sono i giocatori migliori?'

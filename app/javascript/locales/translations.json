@@ -1251,7 +1251,7 @@
         "blue": "Blu",
         "brown": "Marrone",
         "green": "Verde",
-        "grey": "Grigio",
+        "grey": "Grigia",
         "orange": "Arancio",
         "pink": "Rosa",
         "red": "Rossa",
@@ -1267,7 +1267,7 @@
         "13": "Fortunatamente, ho qualcuno che ti impedirà di raggiungermi alla fine del corridoio!",
         "14": "Nebbia Mortale, mia cara amica! Devi bloccare questo cavaliere luccicante!",
         "15": "Addio, guerriero della luce! A mai più rivederci!",
-        "16": "Nebbia Mortal! Perchè hai fatto sì che questo cuore nobile mi raggiungesse?!",
+        "16": "Nebbia Mortale! Perchè hai fatto sì che questo cuore nobile mi raggiungesse?!",
         "17": "Per favore, vai via! Non posso sopportare la tua pura luce!",
         "18": "Sono l'ultimo ostacolo prima di incontrare il re, ma ho ancora un asso nella manica!",
         "19": "Nebbie Colorate! In posizione!",
@@ -1313,7 +1313,7 @@
         }
       },
       "signs": {
-        "minus": "Minus",
+        "minus": "Meno",
         "plus": "Più"
       }
     },
