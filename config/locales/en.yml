@@ -199,13 +199,13 @@ en:
           19: "Finally, while leaving my office, he screamed that bugs makes him mad and his primary purpose is to erase all the computer bugs from the world (although I have no idea what a 'computer' is, I hate mosquitos as well)"
           20: 'Patient 535241 is getting worse and worse. Please, stay away from him. High caution is recommended.'
       morse:
-        title: 'Morse Code'
+        name: 'Morse Code'
         description: 'Dot dash dot'
       rainbow:
-        title: 'Wheel of colors'
+        name: 'Wheel of colors'
         description: 'Where are my coloured pastels?'
       ode:
-        title: 'Ode to light'
+        name: 'Ode to light'
         description: 'Poetry by a medieval bard'
         content:
           1: 'Light is white.'
@@ -216,7 +216,7 @@ en:
           6: 'Orange alone can do nothing, he is five steps behind you!'
           7: 'And neither black alone, even if he is one step in front of you!'
       prison_keeper:
-        title: 'Prison keeper note'
+        name: 'Prison keeper note'
         description: 'The prison keeper loves cleanliness'
         content:
           1: "When leaving the prison: turn off the lanterns, otherwise, that annoying Deadly Fog won't let you pass..."

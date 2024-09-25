@@ -139,7 +139,7 @@
         },
         "morse": {
           "description": "Dot dash dot",
-          "title": "Morse Code"
+          "name": "Morse Code"
         },
         "ode": {
           "content": {
@@ -152,7 +152,7 @@
             "7": "And neither black alone, even if he is one step in front of you!"
           },
           "description": "Poetry by a medieval bard",
-          "title": "Ode to light"
+          "name": "Ode to light"
         },
         "password": {
           "content": {
@@ -187,7 +187,7 @@
             "6": "Finally, touch the remaining one"
           },
           "description": "The prison keeper loves cleanliness",
-          "title": "Prison keeper note"
+          "name": "Prison keeper note"
         },
         "psychological_note": {
           "content": {
@@ -217,7 +217,7 @@
         },
         "rainbow": {
           "description": "Where are my coloured pastels?",
-          "title": "Wheel of colors"
+          "name": "Wheel of colors"
         },
         "spooky_sprint": {
           "content": {
@@ -993,7 +993,7 @@
         },
         "morse": {
           "description": "Punto linea punto",
-          "title": "Codice Morse"
+          "name": "Codice Morse"
         },
         "ode": {
           "content": {
@@ -1006,7 +1006,7 @@
             "7": "E nemmeno il nero da solo, anche se è un passo davanti a te!"
           },
           "description": "Poesia di una bardo medievale",
-          "title": "Ode alla luce"
+          "name": "Ode alla luce"
         },
         "password": {
           "content": {
@@ -1041,7 +1041,7 @@
             "6": "Infine, controlla la rimanente"
           },
           "description": "Il custode ama la pulizia",
-          "title": "Nota del custode della prigione"
+          "name": "Nota del custode della prigione"
         },
         "psychological_note": {
           "content": {
@@ -1071,7 +1071,7 @@
         },
         "rainbow": {
           "description": "Dove sono i miei pastelli?",
-          "title": "Ruota dei colori"
+          "name": "Ruota dei colori"
         },
         "spooky_sprint": {
           "content": {
@@ -1262,7 +1262,7 @@
       "dialogues": {
         "1": "La prigione è completamente avvolta nel buio... Non vedi nulla...",
         "10": "Vedi, quando ero una piccola capra, mi misi ad osservare il sole troppo a lungo. Da quel giorno, odio fortemente la luce!",
-        "11": "Meglio vivere in questa fredda e accogliente prigioni...",
+        "11": "Meglio vivere in questa fredda e accogliente prigione...",
         "12": "In ogni caso, vai via, guerriero della luce! Ho a cuore i miei occhi e oggi ho dimenticato gli occhiali da sole!",
         "13": "Fortunatamente, ho qualcuno che ti impedirà di raggiungermi alla fine del corridoio!",
         "14": "Nebbia Mortale, mia cara amica! Devi bloccare questo cavaliere luccicante!",

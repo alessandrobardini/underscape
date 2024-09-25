@@ -199,13 +199,13 @@ it:
           19: "Alla fine, andandosene via dal mio ufficio, ha urlato che i bug lo rendono pazzo e che il suo scopo principale è di cancellare tutti i bug dei computer dal mondo (sebbene non abbia idea di cosa sia un 'computer', anche io odio le mosche)"
           20: 'Il paziente 535241 sta peggiorando sempre di più. Per favore, rimanere lontani da lui. Si raccomanda la massima cautela.'
       morse:
-        title: 'Codice Morse'
+        name: 'Codice Morse'
         description: 'Punto linea punto'
       rainbow:
-        title: 'Ruota dei colori'
+        name: 'Ruota dei colori'
         description: 'Dove sono i miei pastelli?'
       ode:
-        title: 'Ode alla luce'
+        name: 'Ode alla luce'
         description: 'Poesia di una bardo medievale'
         content:
           1: 'La luce è bianca.'
@@ -216,7 +216,7 @@ it:
           6: 'Arancio da solo non può fare niente, è cinque passi dietro di te!'
           7: 'E nemmeno il nero da solo, anche se è un passo davanti a te!'
       prison_keeper:
-        title: 'Nota del custode della prigione'
+        name: 'Nota del custode della prigione'
         description: 'Il custode ama la pulizia'
         content:
           1: "Quando si lascia la prigione: spegnere le lanterne, altrimenti, quella noiosa Nebbia Mortale non ti lascerà passare..."
@@ -381,12 +381,12 @@ it:
       8: '...'
       9: 'Cosa? Perchè io odio la luce?'
       10: "Vedi, quando ero una piccola capra, mi misi ad osservare il sole troppo a lungo. Da quel giorno, odio fortemente la luce!"
-      11: 'Meglio vivere in questa fredda e accogliente prigioni...'
+      11: 'Meglio vivere in questa fredda e accogliente prigione...'
       12: 'In ogni caso, vai via, guerriero della luce! Ho a cuore i miei occhi e oggi ho dimenticato gli occhiali da sole!'
       13: 'Fortunatamente, ho qualcuno che ti impedirà di raggiungermi alla fine del corridoio!'
       14: 'Nebbia Mortale, mia cara amica! Devi bloccare questo cavaliere luccicante!'
       15: 'Addio, guerriero della luce! A mai più rivederci!'
-      16: 'Nebbia Mortal! Perchè hai fatto sì che questo cuore nobile mi raggiungesse?!'
+      16: 'Nebbia Mortale! Perchè hai fatto sì che questo cuore nobile mi raggiungesse?!'
       17: 'Per favore, vai via! Non posso sopportare la tua pura luce!'
       18: "Sono l'ultimo ostacolo prima di incontrare il re, ma ho ancora un asso nella manica!"
       19: 'Nebbie Colorate! In posizione!'

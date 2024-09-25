@@ -10,11 +10,11 @@ const MapBoard: React.FC = () => {
   return <div className='MapBoard'>
     <div className='row'>
       <Location title={i18n.t('map_board.location_1')} icon='fa-magic' currentBoss='alchemist' path='/alchemist'/>
-      <Location title={i18n.t('map_board.location_2')} icon='fa-diamond' currentBoss='ghost' previousBoss='alchemist' path='/crypts'/>
+      <Location title={i18n.t('map_board.location_2')} icon='fa-diamond' currentBoss='ghost' path='/crypts'/>
     </div>
     <div className='row'>
-      <Location title={i18n.t('map_board.location_3')} icon='fa-building' currentBoss='demiurge' previousBoss='ghost' path='/wall'/>
-      <Location title={i18n.t('map_board.location_4')} icon='fa-eye-slash' currentBoss='goat' previousBoss='demiurge' path='/prison'/>
+      <Location title={i18n.t('map_board.location_3')} icon='fa-building' currentBoss='demiurge' path='/wall'/>
+      <Location title={i18n.t('map_board.location_4')} icon='fa-eye-slash' currentBoss='goat' path='/prison'/>
     </div>
   </div>
 }
