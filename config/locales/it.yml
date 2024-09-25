@@ -374,7 +374,7 @@ it:
       1: 'La prigione è completamente avvolta nel buio... Non vedi nulla...'
       2: 'Tiri fuori il tuo smartphone e accendi la torcia...'
       3: 'COSA STAI FACENDO???'
-      4: "Cos'è questa luca accecante?"
+      4: "Cos'è questa luce accecante?"
       5: '...'
       6: 'Oh, la profezia diceva il vero! "Un giorno, un nobile guerriero della luce arrivera ad illuminare il regno..."'
       7: 'Il giorno è arrivato! TU sei il guerriero della luce!'
@@ -435,6 +435,47 @@ it:
     signs:
       plus: Più
       minus: Meno
+  throne:
+    dialogues:
+      1: 'Entri finalmente nella stanza del trono...'
+      2: "... ma è vuota! Dov'è il re?"
+      3: "Sorpreso, eh? Beh, Credo che sia tempo per te di scoprire il nostro segreto!"
+      4: 'Fammi radunare i miei amici prima...'
+      5: 'Eccomi qua! Ho fatto una corsa per arrivare in tempo!'
+      6: 'Buongiorno! Mi sono perso qualcosa?'
+      7: 'Perchè devo essere testimone di questa idiozia...'
+      8: 'La verità è che...'
+      9: '... il regno non ha mai avuto un re malvagio!'
+      10: 'A essere più precisi, non abbiamo mai avuto nemmeno un re!'
+      11: '... Che scoperta incredibile. Yeee. Yeee.'
+      12: "Dai, %{name}! Non essere fastidioso per questa volta! Non iniziare a parlare delle tue cospirazioni!"
+      13: "Te l'ho detto un milione di volte, noi non siamo reali! Questo è un gioco online! Noi non esistiamo!"
+      14: 'Eccolo che ricomincia.'
+      15: "%{name}, non dire così! Siamo nati qui! Tu sei mio fratello!"
+      16: 'Tuo fratello?'
+      17: "Certo, non sei anche tu uno scheletro? Sei il mio bro. Siamo verteBROs, ci guardiamo sempre le spalle."
+      18: 'Dio santo, perchè...'
+      19: "Il regno è davvero una terra pacifica! Non c'è gente cattiva qua! Solo corridori e campioni di Spooky Sprint!"
+      20: 'E magari qualche pazzo come noi quattro.'
+      21: 'Yeah, siamo tutti buoni e amichevoli!'
+      22: "Non faremmo male a una mosca!"
+      23: 'Parlate per voi!'
+      24: "Guerriero della luce, ci stavamo annoiando così ti abbiamo fatto venire qua per divertirci un po'!"
+      25: 'Correre con te è stato grande! E sei rapidissimo!'
+      26: 'E hai riso alle mie fantastiche battute!'
+      27: 'Comunque, la profezia del guerriero della luce è la cosa più stupida che abbia mai sentito.'
+      28: 'Ma %{name}, tu hai scritto quella profezia.'
+      29: 'Fermati un attimo, gli sviluppatori che mi hanno creato mi hanno fatto scrivere questa profezia! Io sono un demiurgo, non scrivo profezie.'
+      30: 'Un demiurgo? Pensavo che tu fossi un coglione.'
+      31: 'Gli sviluppatori che ti hanno creato?'
+      32: 'Certo! Invece di concentrarsi sul loro lavoro, hanno perso tempo a creare questo gioco online! Incredibile...'
+      33: 'Beh, ora devo andare, mi devo allenare per il prossimo campionato di Spooky Sprint!'
+      34: 'Io vado a comprare un nuovo paio di occhiali da sole.'
+      35: 'E il mio prossimo show di standup comedy mi sta chiamando!'
+      36: 'Quindi, guerriero della luce...'
+  thanks_for_playing: 'GRAZIE PER AVER GIOCATO!'
+  back_home: 'Torna alla home'
+  game_finished_in: 'Gioco concluso in: %{time}'
   hall_of_fame:
     title: 'Hall of Fame'
     subtitle: 'Chi sono i giocatori migliori?'

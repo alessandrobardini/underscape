@@ -74,6 +74,7 @@
         "skull": "The alchemist is a great fan of Hamlet."
       }
     },
+    "back_home": "Back to home",
     "bag": {
       "empty": "Your bag is empty",
       "items": {
@@ -577,6 +578,7 @@
         }
       }
     },
+    "game_finished_in": "Game finished in: %{time}",
     "ghost": {
       "dialogues": {
         "1": "Uhhh! It's been a long time since I received any visits, down here  at the Crystal Crypts!",
@@ -847,6 +849,47 @@
         "words_connector": ", "
       }
     },
+    "thanks_for_playing": "THANKS FOR PLAYING!",
+    "throne": {
+      "dialogues": {
+        "1": "You finally enter the throne room...",
+        "10": "To be more precise we never had a king!",
+        "11": "... What an incredible discovery. Yeee. Yeee.",
+        "12": "Come on, %{name}! Don't be annoying for this time! Don't start talking about your conspiracies!",
+        "13": "I told you a million times, we are not real! This is an online game! We do not exist!",
+        "14": "Here we go again.",
+        "15": "%{name}, don't lie! We are born here! You are my brother!",
+        "16": "Your brother?",
+        "17": "Of course, aren't you a skeleton? You are my bro. We are verteBROS, we always have each other back.",
+        "18": "Dear lord, why...",
+        "19": "The kingdom is a really peaceful land! No bad guys here! Only runners and Spooky Sprint champs!",
+        "2": "... but it's empty! Where is the king?",
+        "20": "And maybe some weirdos like the four of us.",
+        "21": "Yeah, we are BONE to be good and friendly people!",
+        "22": "We wouldn't hurt a fly!",
+        "23": "Speak for yourself, weirdos!",
+        "24": "Warrior of light, we were a bit bored so we made you come here to have fun with us!",
+        "25": "Running with you has been great! And you are fast as hell!",
+        "26": "And you smiled at my fantastic puns!",
+        "27": "Btw, the warrior of light prophecy is most idiot thing I ever heard.",
+        "28": "But %{name}, you wrote that prophecy.",
+        "29": "Hold on a sec, the developers who created me MADE me write this stuff. I am a demiurge, I do not write prophecies.",
+        "3": "Surprised, eh? Well, I think it's time for you to discover our secret!",
+        "30": "A demiurge? I thought you were a jerk.",
+        "31": "The developers who created you?",
+        "32": "Of course! Instead of focusing on their work, they wasted time on this stuff! Unbelievable...",
+        "33": "Well, I need to go now, I need to train for the next Spooky Sprint championship!",
+        "34": "I have to go buy a new pair of sunglasses.",
+        "35": "And my next stand-up comedy show is calling me!",
+        "36": "So, warrior of light...",
+        "4": "Let me gather my friends first...",
+        "5": "Here I am! I ran to get here in time!",
+        "6": "BONE-jour! Did I lose something?",
+        "7": "Why do I have to witness this idiocy...",
+        "8": "The truth is that...",
+        "9": "... the kingdom never had an evil king!"
+      }
+    },
     "time": {
       "am": "am",
       "formats": {
@@ -928,6 +971,7 @@
         "skull": "L'alchimista è un grande fan di Amleto."
       }
     },
+    "back_home": "Torna alla home",
     "bag": {
       "empty": "Il tuo zaino è vuoto",
       "items": {
@@ -1183,6 +1227,7 @@
         "password": "Per favore inserisci una password sufficientemente lunga"
       }
     },
+    "game_finished_in": "Gioco concluso in: %{time}",
     "ghost": {
       "dialogues": {
         "1": "Uhhh! È da così tanto che non ricevo visite, qui alle Cripte di Cristallo!",
@@ -1293,7 +1338,7 @@
         "37": "Allora, vuoi incontrare il nostro re? Dai, seguimi!",
         "38": "Oh no! Questo non è efficace contro la Nebbia Colorata...",
         "39": "Che sollievo! I miei occhi sensibili sono al sicuro per oggi!",
-        "4": "Cos'è questa luca accecante?",
+        "4": "Cos'è questa luce accecante?",
         "40": "... ma puoi ancora ritentare!",
         "41": "Grande mossa, cuore nobile! La nebbia è distrutta e tu sei più vicino a %{name}!",
         "5": "...",
@@ -1368,6 +1413,47 @@
       "locked": "BLOCCATO"
     },
     "not_logged_in": "Non sei loggato!",
+    "thanks_for_playing": "GRAZIE PER AVER GIOCATO!",
+    "throne": {
+      "dialogues": {
+        "1": "Entri finalmente nella stanza del trono...",
+        "10": "A essere più precisi, non abbiamo mai avuto nemmeno un re!",
+        "11": "... Che scoperta incredibile. Yeee. Yeee.",
+        "12": "Dai, %{name}! Non essere fastidioso per questa volta! Non iniziare a parlare delle tue cospirazioni!",
+        "13": "Te l'ho detto un milione di volte, noi non siamo reali! Questo è un gioco online! Noi non esistiamo!",
+        "14": "Eccolo che ricomincia.",
+        "15": "%{name}, non dire così! Siamo nati qui! Tu sei mio fratello!",
+        "16": "Tuo fratello?",
+        "17": "Certo, non sei anche tu uno scheletro? Sei il mio bro. Siamo verteBROs, ci guardiamo sempre le spalle.",
+        "18": "Dio santo, perchè...",
+        "19": "Il regno è davvero una terra pacifica! Non c'è gente cattiva qua! Solo corridori e campioni di Spooky Sprint!",
+        "2": "... ma è vuota! Dov'è il re?",
+        "20": "E magari qualche pazzo come noi quattro.",
+        "21": "Yeah, siamo tutti buoni e amichevoli!",
+        "22": "Non faremmo male a una mosca!",
+        "23": "Parlate per voi!",
+        "24": "Guerriero della luce, ci stavamo annoiando così ti abbiamo fatto venire qua per divertirci un po'!",
+        "25": "Correre con te è stato grande! E sei rapidissimo!",
+        "26": "E hai riso alle mie fantastiche battute!",
+        "27": "Comunque, la profezia del guerriero della luce è la cosa più stupida che abbia mai sentito.",
+        "28": "Ma %{name}, tu hai scritto quella profezia.",
+        "29": "Fermati un attimo, gli sviluppatori che mi hanno creato mi hanno fatto scrivere questa profezia! Io sono un demiurgo, non scrivo profezie.",
+        "3": "Sorpreso, eh? Beh, Credo che sia tempo per te di scoprire il nostro segreto!",
+        "30": "Un demiurgo? Pensavo che tu fossi un coglione.",
+        "31": "Gli sviluppatori che ti hanno creato?",
+        "32": "Certo! Invece di concentrarsi sul loro lavoro, hanno perso tempo a creare questo gioco online! Incredibile...",
+        "33": "Beh, ora devo andare, mi devo allenare per il prossimo campionato di Spooky Sprint!",
+        "34": "Io vado a comprare un nuovo paio di occhiali da sole.",
+        "35": "E il mio prossimo show di standup comedy mi sta chiamando!",
+        "36": "Quindi, guerriero della luce...",
+        "4": "Fammi radunare i miei amici prima...",
+        "5": "Eccomi qua! Ho fatto una corsa per arrivare in tempo!",
+        "6": "Buongiorno! Mi sono perso qualcosa?",
+        "7": "Perchè devo essere testimone di questa idiozia...",
+        "8": "La verità è che...",
+        "9": "... il regno non ha mai avuto un re malvagio!"
+      }
+    },
     "top_bar": {
       "back_to_home_alert": "Vuoi tornare alla mappa principale? I progressi potrebbero non essere salvati!",
       "logout": "Logout",

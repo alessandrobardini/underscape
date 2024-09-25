@@ -435,6 +435,47 @@ en:
     signs:
       plus: Plus
       minus: Minus
+  throne:
+    dialogues:
+      1: 'You finally enter the throne room...'
+      2: "... but it's empty! Where is the king?"
+      3: "Surprised, eh? Well, I think it's time for you to discover our secret!"
+      4: 'Let me gather my friends first...'
+      5: 'Here I am! I ran to get here in time!'
+      6: 'BONE-jour! Did I lose something?'
+      7: 'Why do I have to witness this idiocy...'
+      8: 'The truth is that...'
+      9: '... the kingdom never had an evil king!'
+      10: 'To be more precise we never had a king!'
+      11: '... What an incredible discovery. Yeee. Yeee.'
+      12: "Come on, %{name}! Don't be annoying for this time! Don't start talking about your conspiracies!"
+      13: 'I told you a million times, we are not real! This is an online game! We do not exist!'
+      14: 'Here we go again.'
+      15: "%{name}, don't lie! We are born here! You are my brother!"
+      16: 'Your brother?'
+      17: "Of course, aren't you a skeleton? You are my bro. We are verteBROS, we always have each other back."
+      18: 'Dear lord, why...'
+      19: 'The kingdom is a really peaceful land! No bad guys here! Only runners and Spooky Sprint champs!'
+      20: 'And maybe some weirdos like the four of us.'
+      21: 'Yeah, we are BONE to be good and friendly people!'
+      22: "We wouldn't hurt a fly!"
+      23: 'Speak for yourself, weirdos!'
+      24: 'Warrior of light, we were a bit bored so we made you come here to have fun with us!'
+      25: 'Running with you has been great! And you are fast as hell!'
+      26: 'And you smiled at my fantastic puns!'
+      27: 'Btw, the warrior of light prophecy is most idiot thing I ever heard.'
+      28: 'But %{name}, you wrote that prophecy.'
+      29: 'Hold on a sec, the developers who created me MADE me write this stuff. I am a demiurge, I do not write prophecies.'
+      30: 'A demiurge? I thought you were a jerk.'
+      31: 'The developers who created you?'
+      32: 'Of course! Instead of focusing on their work, they wasted time on this stuff! Unbelievable...'
+      33: 'Well, I need to go now, I need to train for the next Spooky Sprint championship!'
+      34: 'I have to go buy a new pair of sunglasses.'
+      35: 'And my next stand-up comedy show is calling me!'
+      36: 'So, warrior of light...'
+  thanks_for_playing: 'THANKS FOR PLAYING!'
+  back_home: 'Back to home'
+  game_finished_in: 'Game finished in: %{time}'
   hall_of_fame:
     title: 'Hall of Fame'
     subtitle: 'Who are the fastest players?'
